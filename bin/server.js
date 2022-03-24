@@ -10,8 +10,11 @@ import Tonic from 'tonic-ssr'
 import minimist from 'minimist'
 import dirname from '../src/util.js'
 
+const argv = minimist(process.argv.slice(2))
 const LAMBDA_PORT = parseInt(process.env.LAMBDA_PORT, 10)
 const API_ROUTE = process.env.API_ROUTE
+
+let buildPromise = null
 
 process.on('unhandledRejection', (err) => {
   process.nextTick(() => {
@@ -21,9 +24,9 @@ process.on('unhandledRejection', (err) => {
 
 let die = null
 let port = 8081
-let url = 'http://dev.socketsupply.co'
+let url = 'http://dev.operatorframework.dev'
 
-const opts = { root: new URL('../build', import.meta.url).pathname }
+const ROOT_URL = new URL('../build', import.meta.url).pathname
 
 const componentsDir = path.join(dirname(import.meta), '../src/components')
 
@@ -37,8 +40,9 @@ const compile = async (src, dest) => {
   const t = new Date()
 
   t.setMinutes(t.getMinutes() - 1)
-  if ((await fs.stat(src)).mtime > t) return Promise.resolve()
+  if (new Date((await fs.stat(src)).mtime) < t) return Promise.resolve()
 
+  console.log('compiling', p)
   const Page = await load(p)
   const page = new Page()
 
@@ -54,7 +58,7 @@ const PENDING_REQUESTS = new Set()
  * @param {import('http').ServerResponse} res
  * @returns
  */
-async function handler (req, res) {
+async function handler (req, res, options) {
   PENDING_REQUESTS.add(req)
   res.once('finish', () => {
     PENDING_REQUESTS.delete(req)
@@ -81,20 +85,36 @@ async function handler (req, res) {
     return
   }
 
+  if (buildPromise) {
+    await buildPromise
+  } else {
+    await build(argv)
+  }
+
   const { pathname } = new URL(req.url, `${url}:${port}`)
 
   const onError = err => {
+    if (options?.fallback) {
+      res.statusCode = 500
+      res.end(err.message)
+      return
+    }
+
+    console.error(err.message)
+
     if (err.status === 404) {
       req.url = '/'
-      handler(req, res)
+      handler(req, res, { fallback: true })
     }
   }
 
-  return send(req, pathname, opts)
+  console.log(req.url)
+
+  return send(req, pathname, { root: ROOT_URL })
     .once('error', onError)
     .once('end', () => {
       clearTimeout(die)
-      die = setTimeout(teardown, 512)
+      die = setTimeout(teardown, 16)
     })
     .pipe(res)
 }
@@ -105,7 +125,7 @@ async function teardown () {
     die = setTimeout(teardown, 256)
     return
   }
-
+  console.log('exited')
   process.exit(0)
 }
 
@@ -119,7 +139,7 @@ export async function build (argv) {
   //
   // clean and recreate the build directory if it exists
   try {
-    await fs.rm(dest, { force: true, recursive: true })
+    // await fs.rm(dest, { force: true, recursive: true })
     await fs.mkdir(dest)
 
     //
@@ -164,8 +184,7 @@ async function main (argv) {
   if (argv.url) url = argv.url
 
   http.createServer(handler).listen(port, async () => {
-    build(argv)
   })
 }
 
-main(minimist(process.argv.slice(2)))
+main(argv)

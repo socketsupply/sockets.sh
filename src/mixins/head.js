@@ -27,7 +27,6 @@ const html = async args => {
     'common.css',
     'page-base.css',
     'nav.css',
-    'footer.css',
     'tonic-overrides.css'
   ]
 

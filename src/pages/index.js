@@ -17,7 +17,7 @@ class PageIndex extends Tonic {
           ${nav}
 
           <main>
-            <h1>Hello... cool hi</h1>
+            <h1>asdfasdf</h1>
           </main>
 
         </body>
