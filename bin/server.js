@@ -42,7 +42,6 @@ const compile = async (src, dest) => {
   t.setMinutes(t.getMinutes() - 1)
   if (new Date((await fs.stat(src)).mtime) < t) return Promise.resolve()
 
-  console.log('compiling', p)
   const Page = await load(p)
   const page = new Page()
 
@@ -125,12 +124,10 @@ async function teardown () {
     die = setTimeout(teardown, 256)
     return
   }
-  console.log('exited')
   process.exit(0)
 }
 
 export async function build (argv) {
-  console.time('setup')
   const base = path.join(dirname(import.meta), '..')
 
   const dest = typeof argv.out === 'string'
@@ -153,30 +150,23 @@ export async function build (argv) {
     }
   } catch {}
 
-  console.timeEnd('setup')
-
   //
   // decide which urls we want to build
   //
-  console.time('components')
   await Promise.all([
     load(path.join(componentsDir, 'bundle-js.js')),
     load(path.join(componentsDir, 'footer.js')),
     load(path.join(componentsDir, 'module-markdown.js'))
   ])
-  console.timeEnd('components')
 
-  console.time('pages')
   const pages = Promise.all([
     compile('src/pages/index.js', `${dest}/index.html`)
   ])
-  console.timeEnd('pages')
 
   await pages
 }
 
 async function main (argv) {
-
   port = process.env.PORT
     ? parseInt(process.env.PORT)
     : argv.p || port

@@ -34,24 +34,116 @@
     <meta name="twitter:title" content="Socket Supply Co.">
     <meta name="twitter:image" content="https://socketsupply.co/images/tonic_preview.png">
     <meta name="twitter:description" content="Distribued Cloud Console">
-
-    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-G0WJEBZLRD"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-G0WJEBZLRD');
-    </script>
   </head>
 
         <body id="index">
           
 
           <main>
-            <h1>asdfasdf</h1>
-          </main>
+            <h1>Operator Framework</h1>
+            <p>
+              Build lean, fast, cross-platform applications for desktop and
+              mobile using web technologies.
+            </p>
 
+            <ul class="checklist">
+              <li>Use any "backend", ie node.js, zig or rust.</li>
+              <li>Exposes full UDP and TCP on Mobile.</li>
+              <li>Vanilla JavaScript (bring your own framework)</li>
+              <li>Less than 20Mb base memory footprint</li>
+              <li>Less than 1Mb base binary distributable</li>
+              <li>Windows, Linux, MacOS, iOS, Android</li>
+              <li>Only native dependencies (No 3rd pary)</li>
+            </ul>
+
+            <br>
+
+            <h2>Install</h2>
+            <tonic-tabs selected="tab-mac" id="get-started">
+              <tonic-tab id="tab-mac" for="panel-mac">Mac</tonic-tab>
+              <tonic-tab id="tab-linux" for="panel-linux">Linux</tonic-tab>
+              <tonic-tab id="tab-win" for="panel-win">Windows</tonic-tab>
+            </tonic-tabs>
+
+            <tonic-tab-panel id="panel-mac">
+              <code>
+                brew install op
+              </code>
+            </tonic-tab-panel>
+
+            <tonic-tab-panel id="panel-linux">
+              <code>
+                sudo apt-get install op
+              </code>
+            </tonic-tab-panel>
+
+            <tonic-tab-panel id="panel-win">
+              <code>
+                nuget install op
+              </code>
+            </tonic-tab-panel>
+
+            <h2>Getting Started</h2>
+            <p>
+              Software is built and packaged for distribution using the
+              <code>op</code> CLI program.
+            </p>
+            <p>
+              In a new directory, run <code>op --init</code>. This will create
+              a <code>src</code> directory with <code>operator.config</code> and
+              <code>index.html</code> files.
+            </p>
+          </main>
+          <app-footer js-bundle="true">
+      <footer id="primary" class="tc-footer">
+        <div class="content">
+          <div class="flex">
+            <div>
+              <h4>Products</h4>
+              <ul>
+                <li><a href="/data" alt="Data App">Data App</a></li>
+                <li><a href="/files" alt="Files App">Files App</a></li>
+                <li><a href="/functions" alt="Functions App">Functions App</a></li>
+              </ul>
+            </div>
+            <div>
+              <h4>Company</h4>
+              <ul>
+                <li><a href="/pricing" alt="Pricing">Pricing</a></li>
+                <li><a href="/blog/hello-world" alt="Blog">Blog</a></li>
+                <li><a href="/faq" alt="Frequently Asked Questions">FAQ</a></li>
+                <li><a href="/jobs" alt="Jobs">Jobs</a></li>
+              </ul>
+            </div>
+            <div>
+              <h4>Contact</h4>
+              <ul>
+                <li><a href="mailto:hello@optool.co" alt="Email">Email</a></li>
+                <li><a href="https://twitter.com/socketsupply" rel="noopener" class="underline" alt="Twitter">Twitter</a></li>
+                <li><a href="https://github.com/socketsupply" rel="noopener" class="underline" alt="Github">Github</a></li>
+                <li><a href="https://discord.gg/YPV32gKCsH" rel="noopener" class="underline" alt="Discord">Discord</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <p class="copy">
+            <a href="/terms" alt="Terms of Service">Terms of Service</a>
+            <span>&nbsp;|&nbsp;</span>
+            <a href="/privacy" alt="Privacy Policy">Privacy</a>
+            <span>&nbsp;|&nbsp;</span>
+            <span class="copyright">© Copyright Socket Supply Co. 2022</span>
+          </p>
+        </div>
+
+      </footer>
+
+      
+        <bundle-js src="./src/index.client.js" dest="./build/bundle.js" url="/bundle.js" format="esm" keep-names="true__boolean">
+        
+      <script src="/bundle.js"></script>
+    </bundle-js>
+      
+    </app-footer>
         
       
     </body></html>

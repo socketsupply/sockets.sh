@@ -65,15 +65,6 @@ const html = async args => {
     <meta name="twitter:title" content="${title}">
     <meta name="twitter:image" content="${image}">
     <meta name="twitter:description" content="${description}">
-
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-G0WJEBZLRD"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-G0WJEBZLRD');
-    </script>
   `)
 }
 

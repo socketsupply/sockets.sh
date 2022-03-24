@@ -381,7 +381,7 @@ ul.checklist li {
   line-height: 28px;
   list-style: none;
   position: relative;
-  margin-left: 20px;
+  margin-left: 34px;
 }
 
 ul.checklist li:before {
@@ -393,7 +393,7 @@ ul.checklist li:before {
   background-size: contain;
   background-repeat: no-repeat;
   left: -24px;
-  top: 4px;
+  top: 8px;
   background-image: url("../images/icons/checkmark.svg");
 }
 
