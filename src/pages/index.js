@@ -17,7 +17,7 @@ class PageIndex extends Tonic {
           ${nav}
 
           <main>
-            <h1>Operator Framework</h1>
+            <h1 class="title">Operator Framework</h1>
             <p>
               Build lean, fast, cross-platform apps for
               desktop and mobile, using the web technologies you already know.

@@ -440,3 +440,12 @@ ul.checklist li.arrow:before {
 .lists {
   display: flex;
 }
+
+body#index h1:not(.title) {
+  font-size: 32px;
+}
+
+body#index h1.title {
+  font-size: 42px;
+  margin-top: 0;
+}

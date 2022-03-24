@@ -39,8 +39,14 @@ const compile = async (src, dest) => {
   const p = path.resolve(src)
   const t = new Date()
 
-  t.setMinutes(t.getMinutes() - 1)
-  if (new Date((await fs.stat(src)).mtime) < t) return Promise.resolve()
+  t.setMinutes(t.getMinutes() - 8)
+
+  const recentlyModified = new Date((await fs.stat(src)).mtime) < t
+  const recentlyCreated = new Date((await fs.stat(src)).ctime) < t
+
+  if (recentlyModified || recentlyCreated) {
+    return Promise.resolve()
+  }
 
   const Page = await load(p)
   const page = new Page()
@@ -93,7 +99,7 @@ async function handler (req, res, options) {
   const { pathname } = new URL(req.url, `${url}:${port}`)
 
   const onError = err => {
-    if (options?.fallback) {
+    if (options?.fallback === true) {
       res.statusCode = 500
       res.end(err.message)
       return
@@ -102,6 +108,11 @@ async function handler (req, res, options) {
     console.error(err.message)
 
     if (err.status === 404) {
+      if (!req.url.endsWith('.html')) {
+        req.url = req.url + '.html'
+        return handler(req, res)
+      }
+
       req.url = '/'
       handler(req, res, { fallback: true })
     }
@@ -150,9 +161,6 @@ export async function build (argv) {
     }
   } catch {}
 
-  //
-  // decide which urls we want to build
-  //
   await Promise.all([
     load(path.join(componentsDir, 'bundle-js.js')),
     load(path.join(componentsDir, 'footer.js')),
@@ -160,21 +168,20 @@ export async function build (argv) {
   ])
 
   const pages = Promise.all([
-    compile('src/pages/index.js', `${dest}/index.html`)
+    compile('src/pages/index.js', `${dest}/index.html`),
+    compile('src/pages/config.js', `${dest}/config.html`),
+    compile('src/pages/desktop.js', `${dest}/desktop.html`),
+    compile('src/pages/mobile.js', `${dest}/mobile.html`),
+    compile('src/pages/examples.js', `${dest}/examples.html`),
+    compile('src/pages/guides.js', `${dest}/guides.html`)
   ])
 
   await pages
 }
 
-async function main (argv) {
-  port = process.env.PORT
-    ? parseInt(process.env.PORT)
-    : argv.p || port
+port = process.env.PORT
+  ? parseInt(process.env.PORT)
+  : argv.p || port
 
-  if (argv.url) url = argv.url
-
-  http.createServer(handler).listen(port, async () => {
-  })
-}
-
-main(argv)
+if (argv.url) url = argv.url
+http.createServer(handler).listen(port)

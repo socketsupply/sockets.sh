@@ -1,0 +1,459 @@
+<!DOCTYPE html><html><head><style></style>
+    <title>Socket Supply Co.</title>
+
+    <link rel="preload" href="/fonts/Inter-Light.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="/fonts/FiraMono-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
+    <link rel="icon" type="image/svg+xml" sizes="any" href="/images/favicon.svg">
+    <link rel="mask-icon" href="/images/mask-icon.svg" color="#36393d">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+    <link rel="stylesheet" href="/styles/theme.css">
+    <link rel="stylesheet" href="/styles/common.css">
+    <link rel="stylesheet" href="/styles/table.css">
+    <link rel="stylesheet" href="/styles/page-base.css">
+    <link rel="stylesheet" href="/styles/nav.css">
+    <link rel="stylesheet" href="/styles/tonic-overrides.css">
+    <link rel="stylesheet" href="/styles/pages/index.css">
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1 user-scalable=no">
+
+    <meta name="description" content="Distribued Cloud Console">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://socketsupply.co">
+    <meta property="og:site_name" content="Socket Sypply Co.">
+    <meta property="og:title" content="Socket Supply Co.">
+    <meta property="og:description" content="Distribued Cloud Console">
+    <meta property="og:image" content="https://socketsupply.co/images/tonic_preview.png">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@socketsupply">
+    <meta name="twitter:title" content="Socket Supply Co.">
+    <meta name="twitter:image" content="https://socketsupply.co/images/tonic_preview.png">
+    <meta name="twitter:description" content="Distribued Cloud Console">
+  </head>
+
+        <body id="index">
+          
+
+          <main>
+            <h1 class="title">Operator Framework</h1>
+            <h3>Config</h3>
+            <p>
+              Each project needs a <code>operator.config</code> file in the root
+              direcrory.
+            </p>
+            <markdown-module src="https://raw.githubusercontent.com/socketsupply/operatorframework/master/docs/config.md?token=GHSAT0AAAAAABJ6L4VPOZYPBXMFO54SJYJOYSGFXWA"><h1 id="cross-platform-properties">Cross-Platform Properties</h1>
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Required</th>
+<th align="left">Default</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>arch</code></td>
+<td align="left">No</td>
+<td align="left">String</td>
+<td align="left">This is made available for cross-compiling. It specifies the target architecture, by default it detects the machine on which the cli is executing.</td>
+</tr>
+<tr>
+<td align="left"><code>build</code></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Shell command to build an application</td>
+</tr>
+<tr>
+<td align="left"><code>bundle_identifier</code></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">A unique ID that identifies the bundle (used by all app stores).</td>
+</tr>
+<tr>
+<td align="left"><code>bundle_identifier_short</code></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">A unique ID that identifies the bundle (used by all app stores).</td>
+</tr>
+<tr>
+<td align="left"><code>copyRight</code></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><code>debug_flags</code></td>
+<td align="left">No</td>
+<td align="left">None</td>
+<td align="left">Advanced Compiler Settings for debug purposes (ie C++ compiler -g, etc).</td>
+</tr>
+<tr>
+<td align="left"><code>description</code></td>
+<td align="left">No</td>
+<td align="left">None</td>
+<td align="left">A short description of the app</td>
+</tr>
+<tr>
+<td align="left"><code>env</code></td>
+<td align="left">No</td>
+<td align="left">None</td>
+<td align="left">An array of environment variables, separated by commas</td>
+</tr>
+<tr>
+<td align="left"><code>executable</code></td>
+<td align="left">Yes</td>
+<td align="left"></td>
+<td align="left">The name of the file to be output.</td>
+</tr>
+<tr>
+<td align="left"><code>flags</code></td>
+<td align="left">No</td>
+<td align="left">None</td>
+<td align="left">Advanced Compiler Settings (ie C++ compiler -02, -03, etc).</td>
+</tr>
+<tr>
+<td align="left"><code>forwardConsole</code></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><code>height</code></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">The initial height of the first window</td>
+</tr>
+<tr>
+<td align="left"><code>input</code></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">A directory is where your application's code is located</td>
+</tr>
+<tr>
+<td align="left"><code>lang</code></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Localization</td>
+</tr>
+<tr>
+<td align="left"><code>maintainer</code></td>
+<td align="left">No</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><code>name</code></td>
+<td align="left">Yes</td>
+<td align="left">None</td>
+<td align="left">The name of the program</td>
+</tr>
+<tr>
+<td align="left"><code>output</code></td>
+<td align="left">Yes</td>
+<td align="left"></td>
+<td align="left">The binary output path</td>
+</tr>
+<tr>
+<td align="left"><code>title</code></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">The initial title of the window (can have spaces and symbols etc).</td>
+</tr>
+<tr>
+<td align="left"><code>version</code></td>
+<td align="left">Yes</td>
+<td align="left">None</td>
+<td align="left">A string that indicates the version of the cli tool and resources.</td>
+</tr>
+<tr>
+<td align="left"><code>versionShort</code></td>
+<td align="left">No</td>
+<td align="left">None</td>
+<td align="left">A string that indicates the version for MacOS.</td>
+</tr>
+<tr>
+<td align="left"><code>width</code></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">The initial width of the first window</td>
+</tr>
+</tbody></table>
+<h1 id="windows">Windows</h1>
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Required</th>
+<th align="left">Default</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>revision</code></td>
+<td align="left">No</td>
+<td align="left"></td>
+<td align="left">TODO: maybe the user doesn’t need to know about this?</td>
+</tr>
+<tr>
+<td align="left"><code>win_cmd</code></td>
+<td align="left">Yes</td>
+<td align="left">None</td>
+<td align="left">The command to execute to spawn the “back-end” process.</td>
+</tr>
+<tr>
+<td align="left"><code>win_icon</code></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">The icon to use for identifying your app on Windows.</td>
+</tr>
+<tr>
+<td align="left"><code>win_logo</code></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">The icon to use for identifying your app on Windows.</td>
+</tr>
+<tr>
+<td align="left"><code>win_pfx</code></td>
+<td align="left">No</td>
+<td align="left"></td>
+<td align="left">A relative path to the pfx file used for signing.</td>
+</tr>
+<tr>
+<td align="left"><code>win_publisher</code></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><code>win_sign</code></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<h1 id="linux">Linux</h1>
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Required</th>
+<th align="left">Default</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>linux_categories</code></td>
+<td align="left">No</td>
+<td align="left">None</td>
+<td align="left">Helps to make your app searchable in Linux desktop environments</td>
+</tr>
+<tr>
+<td align="left"><code>linux_cmd</code></td>
+<td align="left">Yes</td>
+<td align="left"></td>
+<td align="left">The command to execute to spawn the “back-end” process.</td>
+</tr>
+<tr>
+<td align="left"><code>linux_icon</code></td>
+<td align="left">Yes</td>
+<td align="left">None</td>
+<td align="left">The icon to use for identifying your app in Linux desktop environments.</td>
+</tr>
+</tbody></table>
+<h1 id="macos">MacOS</h1>
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Required</th>
+<th align="left">Default</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>mac_appstore_icon</code></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Mac App Store icon</td>
+</tr>
+<tr>
+<td align="left"><code>mac_category</code></td>
+<td align="left">No</td>
+<td align="left">None</td>
+<td align="left">A category in the App Store</td>
+</tr>
+<tr>
+<td align="left"><code>mac_cmd</code></td>
+<td align="left">Yes</td>
+<td align="left">None</td>
+<td align="left">The command to execute to spawn the “back-end” process.</td>
+</tr>
+<tr>
+<td align="left"><code>mac_distribution_method</code></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><code>mac_entitlements</code></td>
+<td align="left">No</td>
+<td align="left">None</td>
+<td align="left">plist file path</td>
+</tr>
+<tr>
+<td align="left"><code>mac_icon</code></td>
+<td align="left">Yes</td>
+<td align="left">None</td>
+<td align="left">The icon to use for identifying your app on MacOS.</td>
+</tr>
+<tr>
+<td align="left"><code>mac_provisioning_profile</code></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><code>mac_sign</code></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><code>mac_signing_certificate</code></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><code>mac_sign_paths</code></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><code>mac_team_id</code></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<h1 id="ios">iOS</h1>
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Required</th>
+<th align="left">Default</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>ios_device_simulator</code></td>
+<td align="left">No</td>
+<td align="left">None</td>
+<td align="left">which device to target when building for the simulator</td>
+</tr>
+<tr>
+<td align="left"><code>ios_entitlements</code></td>
+<td align="left">Yes</td>
+<td align="left">None</td>
+<td align="left">plist file path</td>
+</tr>
+<tr>
+<td align="left"><code>ios_distribution_method</code></td>
+<td align="left">Yes</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><code>ios_provisioning_profile</code></td>
+<td align="left">Yes</td>
+<td align="left">None</td>
+<td align="left">The provisioning profile that is used for signing (should be mac?)</td>
+</tr>
+<tr>
+<td align="left"><code>ios_signing_certificate</code></td>
+<td align="left">Yes</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><code>ios_team_id</code></td>
+<td align="left">Yes</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<h1 id="android">Android</h1>
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Optional</th>
+<th align="left">Default</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+</markdown-module>
+          </main>
+
+          <app-footer js-bundle="true">
+      <footer id="primary" class="tc-footer">
+        <div class="content">
+          <div class="footer-links">
+            <div>
+              <h4>Reference</h4>
+              <ul>
+                <li><a href="/config">Configuration</a></li>
+                <li><a href="/desktop">Desktop API</a></li>
+                <li><a href="/mobile">Mobile API</a></li>
+              </ul>
+            </div>
+            <div>
+              <h4>Code</h4>
+              <ul>
+                <li><a href="/examples">Examples</a></li>
+                <li><a href="/guides">Guides</a></li>
+              </ul>
+            </div>
+            <div>
+              <h4>Community</h4>
+              <ul>
+                <li><a href="mailto:hello@socketsupply.co" alt="Email">Email</a></li>
+                <li><a href="https://twitter.com/socketsupply" rel="noopener" class="underline" alt="Twitter">Twitter</a></li>
+                <li><a href="https://github.com/socketsupply" rel="noopener" class="underline" alt="Github">Github</a></li>
+                <li><a href="https://discord.gg/YPV32gKCsH" rel="noopener" class="underline" alt="Discord">Discord</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <p class="copy">
+            <span class="copyright">Copyright Socket Supply Co. 2022</span>
+          </p>
+        </div>
+
+      </footer>
+
+      
+        <bundle-js src="./src/index.client.js" dest="./build/bundle.js" url="/bundle.js" format="esm" keep-names="true__boolean">
+        
+      <script src="/bundle.js"></script>
+    </bundle-js>
+      
+    </app-footer>
+        
+      
+    </body></html>

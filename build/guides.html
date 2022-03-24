@@ -12,7 +12,6 @@
 
     <link rel="stylesheet" href="/styles/theme.css">
     <link rel="stylesheet" href="/styles/common.css">
-    <link rel="stylesheet" href="/styles/table.css">
     <link rel="stylesheet" href="/styles/page-base.css">
     <link rel="stylesheet" href="/styles/nav.css">
     <link rel="stylesheet" href="/styles/tonic-overrides.css">
@@ -41,64 +40,8 @@
           
 
           <main>
-            <h1 class="title">Operator Framework</h1>
-            <p>
-              Build lean, fast, cross-platform apps for
-              desktop and mobile, using the web technologies you already know.
-            </p>
-
-            <div class="lists">
-              <ul class="checklist">
-                <li>Use any "backend", ie Python, Rust, Node.js</li>
-                <li>Provides full UDP and TCP in JS on Mobile</li>
-                <li>Bring your own framework, ie React, Svelt</li>
-                <li>Less than 20Mb base memory footprint</li>
-              </ul>
-              <ul class="checklist">
-                <li>Less than 1Mb base binary distributable</li>
-                <li>Windows, Linux, MacOS, iOS, Android</li>
-                <li>No 3rd pary dependencies</li>
-                <li>Minimalism as a core value</li>
-              </ul>
-            </div>
-
-            <h2>Install</h2>
-            <tonic-tabs selected="tab-mac" id="get-started">
-              <tonic-tab id="tab-mac" for="panel-mac">Mac</tonic-tab>
-              <tonic-tab id="tab-linux" for="panel-linux">Linux</tonic-tab>
-              <tonic-tab id="tab-win" for="panel-win">Windows</tonic-tab>
-            </tonic-tabs>
-
-            <tonic-tab-panel id="panel-mac">
-              <code>
-                brew install op
-              </code>
-            </tonic-tab-panel>
-
-            <tonic-tab-panel id="panel-linux">
-              <code>
-                sudo apt-get install op
-              </code>
-            </tonic-tab-panel>
-
-            <tonic-tab-panel id="panel-win">
-              <code>
-                nuget install op
-              </code>
-            </tonic-tab-panel>
-
-            <h2>Getting Started</h2>
-            <p>
-              In a new directory run <code>op --init</code>. This will create
-              an <code>operator.config</code> file, and create a <code>src</code>
-              directory with an a <code>index.html</code> file in it.
-            </p>
-            <p>
-              Running <code>op . -r</code> will create <code>build</code> directory
-              and place the built artifacts in it. The <code>-r</code> flag will
-              find and run the binary for you. This is it! Click one of the links
-              below to move onto some more advanced features.
-            </p>
+            <h1>Operator Framework</h1>
+            <h3>Guides</h3>
           </main>
 
           <app-footer js-bundle="true">
