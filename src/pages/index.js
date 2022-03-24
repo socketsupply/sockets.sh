@@ -23,15 +23,20 @@ class PageIndex extends Tonic {
               desktop and mobile, using the web technologies you already know.
             </p>
 
-            <ul class="checklist">
-              <li>Use any "backend", ie Python, Rust, Node.js</li>
-              <li>Provides full UDP and TCP in JS on Mobile</li>
-              <li>Bring your own framework, ie React, Svelt</li>
-              <li>Less than 20Mb base memory footprint</li>
-              <li>Less than 1Mb base binary distributable</li>
-              <li>Windows, Linux, MacOS, iOS, Android</li>
-              <li>No 3rd pary dependencies</li>
-            </ul>
+            <div class="lists">
+              <ul class="checklist">
+                <li>Use any "backend", ie Python, Rust, Node.js</li>
+                <li>Provides full UDP and TCP in JS on Mobile</li>
+                <li>Bring your own framework, ie React, Svelt</li>
+                <li>Less than 20Mb base memory footprint</li>
+              </ul>
+              <ul class="checklist">
+                <li>Less than 1Mb base binary distributable</li>
+                <li>Windows, Linux, MacOS, iOS, Android</li>
+                <li>No 3rd pary dependencies</li>
+                <li>Minimalism as a core value</li>
+              </ul>
+            </div>
 
             <h2>Install</h2>
             <tonic-tabs selected="tab-mac" id="get-started">
@@ -60,18 +65,15 @@ class PageIndex extends Tonic {
 
             <h2>Getting Started</h2>
             <p>
-              Software is built and packaged for distribution using the
-              <code>op</code> CLI program.
+              In a new directory run <code>op --init</code>. This will create
+              an <code>operator.config</code> file, and create a <code>src</code>
+              directory with an a <code>index.html</code> file in it.
             </p>
             <p>
-              In a new directory, run <code>op --init</code>. This will create
-              a <code>src</code> directory with <code>operator.config</code> and
-              <code>index.html</code> files.
-            </p>
-            <p>
-              Running <code>op . -r</code> will produce the build artifacts in
-              the <code>build</code> directory. The <code>-r</code> flag will
-              find and run the binary for you.
+              Running <code>op . -r</code> will create <code>build</code> directory
+              and place the built artifacts in it. The <code>-r</code> flag will
+              find and run the binary for you. This is it! Click one of the links
+              below to move onto some more advanced features.
             </p>
           </main>
 

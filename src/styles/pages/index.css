@@ -19,6 +19,12 @@ body#index tonic-tab-panel[role]:not([hidden]) {
   display: block;
 }
 
+tonic-tab-panel code {
+  display: block;
+  padding: 10px;
+  border-radius: 4px;
+}
+
 body#index code,
 body#index pre {
   background: var(--tonic-primary);

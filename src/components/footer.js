@@ -25,9 +25,9 @@ export default class AppFooter extends Tonic {
             <div>
               <h4>Reference</h4>
               <ul>
-                <li><a href="/settings">Configuration</a></li>
-                <li><a href="/desktop-apis">Desktop</a></li>
-                <li><a href="/mobile-apis">Mobile</a></li>
+                <li><a href="/config">Configuration</a></li>
+                <li><a href="/desktop-apis">Desktop API</a></li>
+                <li><a href="/mobile-apis">Mobile API</a></li>
               </ul>
             </div>
             <div>
@@ -49,11 +49,7 @@ export default class AppFooter extends Tonic {
           </div>
 
           <p class="copy">
-            <a href="/terms" alt="Terms of Service">Terms of Service</a>
-            <span>&nbsp;&verbar;&nbsp;</span>
-            <a href="/privacy" alt="Privacy Policy">Privacy</a>
-            <span>&nbsp;&verbar;&nbsp;</span>
-            <span class="copyright">&copy; Copyright Socket Supply Co. 2022</span>
+            <span class="copyright">Copyright Socket Supply Co. 2022</span>
           </p>
         </div>
 

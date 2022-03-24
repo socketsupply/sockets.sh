@@ -215,6 +215,7 @@ body .flex > .col {
 
 body p {
   font: 18px/26px var(--tonic-body);
+  word-break: keep-all;
 }
 
 body p a {
@@ -239,8 +240,7 @@ body p > code,
 body li > code {
   padding: 3px 5px;
   margin: 0 2px;
-  border: 1px solid var(--tonic-border);
-  border-radius: 2px;
+  border-radius: 4px;
 }
 
 body ul {
@@ -382,7 +382,16 @@ footer .footer-links {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   justify-items: center;
-  margin: 0 10%;
+  max-width: 80%;
+  margin: auto;
+}
+
+footer .copy {
+  text-align: center;
+  font-family: var(--tonic-monospace);
+  font-size: 12px;
+  margin-top: 50px;
+  color: var(--tonic-dark);
 }
 
 ul.checklist {

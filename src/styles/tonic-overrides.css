@@ -12,6 +12,19 @@ tonic-button.outline button {
   box-shadow: none;
 }
 
+tonic-tabs {
+  display: block;
+  margin-bottom: 20px;
+}
+
+tonic-tabs .tonic--tab {
+  margin-right: 20px;
+}
+
+tonic-tabs .tonic--tab[aria-selected="true"] {
+  border-bottom: 2px solid var(--tonic-primary) !important;
+}
+
 tonic-button.outline button:not([disabled]):hover,
 tonic-button.outline button:not(.tonic--loading):hover {
   background-color: var(--tonic-primary) !important;
