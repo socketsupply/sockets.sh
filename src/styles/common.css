@@ -67,6 +67,7 @@ body {
   font-family: var(--tonic-body);
   font-size: 14px;
   margin: 0;
+  height: 100%;
 }
 
 body hr {
@@ -363,6 +364,25 @@ body:not(#index) > main > section:not(.wide) {
 
 body:not(#index) > main > section .wide {
   width: 100%;
+}
+
+footer {
+  background-color: var(--tonic-primary);
+  color: var(--tonic-window);
+  font-family: var(--tonic-monospace);
+  min-height: 250px;
+  padding: 40px 0;
+}
+
+footer li {
+  margin: 6px 0;
+}
+
+footer .footer-links {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-items: center;
+  margin: 0 10%;
 }
 
 ul.checklist {

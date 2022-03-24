@@ -19,21 +19,19 @@ class PageIndex extends Tonic {
           <main>
             <h1>Operator Framework</h1>
             <p>
-              Build lean, fast, cross-platform applications for desktop and
-              mobile using web technologies.
+              Build lean, fast, cross-platform apps for
+              desktop and mobile, using the web technologies you already know.
             </p>
 
             <ul class="checklist">
-              <li>Use any "backend", ie node.js, zig or rust.</li>
-              <li>Exposes full UDP and TCP on Mobile.</li>
-              <li>Vanilla JavaScript (bring your own framework)</li>
+              <li>Use any "backend", ie Python, Rust, Node.js</li>
+              <li>Provides full UDP and TCP in JS on Mobile</li>
+              <li>Bring your own framework, ie React, Svelt</li>
               <li>Less than 20Mb base memory footprint</li>
               <li>Less than 1Mb base binary distributable</li>
               <li>Windows, Linux, MacOS, iOS, Android</li>
-              <li>Only native dependencies (No 3rd pary)</li>
+              <li>No 3rd pary dependencies</li>
             </ul>
-
-            <br/>
 
             <h2>Install</h2>
             <tonic-tabs selected="tab-mac" id="get-started">
@@ -70,7 +68,13 @@ class PageIndex extends Tonic {
               a <code>src</code> directory with <code>operator.config</code> and
               <code>index.html</code> files.
             </p>
+            <p>
+              Running <code>op . -r</code> will produce the build artifacts in
+              the <code>build</code> directory. The <code>-r</code> flag will
+              find and run the binary for you.
+            </p>
           </main>
+
           <app-footer js-bundle="true"></app-footer>
         </body>
       </html>

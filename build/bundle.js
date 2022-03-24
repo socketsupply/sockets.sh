@@ -6360,7 +6360,6 @@ __name(handleTheme, "handleTheme");
 async function ready() {
   debug("op:ready");
   handleTheme();
-  import_tonic2.default.add(AppManage);
 }
 __name(ready, "ready");
 document.addEventListener("DOMContentLoaded", ready);

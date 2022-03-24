@@ -37,7 +37,6 @@ async function ready () {
   debug('op:ready')
 
   handleTheme()
-  Tonic.add(AppManage)
 }
 
 document.addEventListener('DOMContentLoaded', ready)

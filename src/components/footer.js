@@ -21,28 +21,26 @@ export default class AppFooter extends Tonic {
     return this.html`
       <footer id="primary" class='tc-footer'>
         <div class="content">
-          <div class="flex">
+          <div class="footer-links">
             <div>
-              <h4>Products</h4>
+              <h4>Reference</h4>
               <ul>
-                <li><a href="/data" alt="Data App">Data App</a></li>
-                <li><a href="/files" alt="Files App">Files App</a></li>
-                <li><a href="/functions" alt="Functions App">Functions App</a></li>
+                <li><a href="/settings">Configuration</a></li>
+                <li><a href="/desktop-apis">Desktop</a></li>
+                <li><a href="/mobile-apis">Mobile</a></li>
               </ul>
             </div>
             <div>
-              <h4>Company</h4>
+              <h4>Code</h4>
               <ul>
-                <li><a href="/pricing" alt="Pricing">Pricing</a></li>
-                <li><a href="/blog/hello-world" alt="Blog">Blog</a></li>
-                <li><a href="/faq" alt="Frequently Asked Questions">FAQ</a></li>
-                <li><a href="/jobs" alt="Jobs">Jobs</a></li>
+                <li><a href="/examples">Examples</a></li>
+                <li><a href="/guides">Guides</a></li>
               </ul>
             </div>
             <div>
-              <h4>Contact</h4>
+              <h4>Community</h4>
               <ul>
-                <li><a href="mailto:hello@optool.co" alt="Email">Email</a></li>
+                <li><a href="mailto:hello@socketsupply.co" alt="Email">Email</a></li>
                 <li><a href="https://twitter.com/socketsupply" rel="noopener" class="underline" alt="Twitter">Twitter</a></li>
                 <li><a href="https://github.com/socketsupply" rel="noopener" class="underline" alt="Github">Github</a></li>
                 <li><a href="https://discord.gg/YPV32gKCsH" rel="noopener" class="underline" alt="Discord">Discord</a></li>
