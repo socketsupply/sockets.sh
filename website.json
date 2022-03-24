@@ -1,0 +1,256 @@
+{
+  "localhost": {
+    "provider": "aws",
+    "spa": "",
+    "lastDeployed": null,
+    "properties": {
+      "relativeFolder": {
+        "value": [
+          ".."
+        ]
+      },
+      "cache": {
+        "value": 7800
+      },
+      "gzip": {
+        "value": true
+      },
+      "customLocalServer": {
+        "enabled": true,
+        "value": "node bin/loader.js"
+      },
+      "apiRoute": {
+        "value": ""
+      },
+      "apiRouteDestination": {
+        "value": null
+      },
+      "predeploy": {
+        "directory": "",
+        "command": ""
+      },
+      "bucketName": {
+        "value": ""
+      },
+      "bucketRegion": {
+        "value": ""
+      },
+      "domain": {
+        "value": "",
+        "hostedZoneId": ""
+      }
+    }
+  },
+  "633075417262": {
+    "provider": "aws",
+    "spa": "",
+    "lastDeployed": null,
+    "properties": {
+      "relativeFolder": {
+        "value": [
+          ".."
+        ],
+        "deployed": false
+      },
+      "cache": {
+        "value": 7800,
+        "deployed": false
+      },
+      "gzip": {
+        "value": true,
+        "deployed": false
+      },
+      "customLocalServer": {
+        "enabled": false,
+        "value": "",
+        "deployed": false
+      },
+      "apiRoute": {
+        "value": "",
+        "deployed": false
+      },
+      "apiRouteDestination": {
+        "value": null,
+        "deployed": false
+      },
+      "predeploy": {
+        "directory": "",
+        "command": "",
+        "deployed": false
+      },
+      "bucketName": {
+        "value": "",
+        "deployed": false
+      },
+      "bucketRegion": {
+        "value": "",
+        "deployed": false
+      },
+      "domain": {
+        "value": "",
+        "hostedZoneId": "",
+        "deployed": false
+      }
+    },
+    "created": false
+  },
+  "137418857087": {
+    "provider": "aws",
+    "spa": "",
+    "lastDeployed": null,
+    "properties": {
+      "relativeFolder": {
+        "value": [
+          ".."
+        ],
+        "deployed": false
+      },
+      "cache": {
+        "value": 7800,
+        "deployed": false
+      },
+      "gzip": {
+        "value": true,
+        "deployed": false
+      },
+      "customLocalServer": {
+        "enabled": false,
+        "value": "",
+        "deployed": false
+      },
+      "apiRoute": {
+        "value": "",
+        "deployed": false
+      },
+      "apiRouteDestination": {
+        "value": null,
+        "deployed": false
+      },
+      "predeploy": {
+        "directory": "",
+        "command": "",
+        "deployed": false
+      },
+      "bucketName": {
+        "value": "",
+        "deployed": false
+      },
+      "bucketRegion": {
+        "value": "",
+        "deployed": false
+      },
+      "domain": {
+        "value": "",
+        "hostedZoneId": "",
+        "deployed": false
+      }
+    },
+    "created": false
+  },
+  "104940042594": {
+    "provider": "aws",
+    "spa": "",
+    "lastDeployed": null,
+    "properties": {
+      "relativeFolder": {
+        "value": [
+          ".."
+        ],
+        "deployed": false
+      },
+      "cache": {
+        "value": 7800,
+        "deployed": false
+      },
+      "gzip": {
+        "value": true,
+        "deployed": false
+      },
+      "customLocalServer": {
+        "enabled": false,
+        "value": "",
+        "deployed": false
+      },
+      "apiRoute": {
+        "value": "",
+        "deployed": false
+      },
+      "apiRouteDestination": {
+        "value": null,
+        "deployed": false
+      },
+      "predeploy": {
+        "directory": "",
+        "command": "",
+        "deployed": false
+      },
+      "bucketName": {
+        "value": "",
+        "deployed": false
+      },
+      "bucketRegion": {
+        "value": "",
+        "deployed": false
+      },
+      "domain": {
+        "value": "",
+        "hostedZoneId": "",
+        "deployed": false
+      }
+    },
+    "created": false
+  },
+  "572141287366": {
+    "provider": "aws",
+    "spa": "",
+    "lastDeployed": null,
+    "properties": {
+      "relativeFolder": {
+        "value": [
+          ".."
+        ],
+        "deployed": false
+      },
+      "cache": {
+        "value": 7800,
+        "deployed": false
+      },
+      "gzip": {
+        "value": true,
+        "deployed": false
+      },
+      "customLocalServer": {
+        "enabled": false,
+        "value": "",
+        "deployed": false
+      },
+      "apiRoute": {
+        "value": "",
+        "deployed": false
+      },
+      "apiRouteDestination": {
+        "value": null,
+        "deployed": false
+      },
+      "predeploy": {
+        "directory": "",
+        "command": "",
+        "deployed": false
+      },
+      "bucketName": {
+        "value": "",
+        "deployed": false
+      },
+      "bucketRegion": {
+        "value": "",
+        "deployed": false
+      },
+      "domain": {
+        "value": "",
+        "hostedZoneId": "",
+        "deployed": false
+      }
+    },
+    "created": false
+  }
+}

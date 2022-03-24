@@ -1,0 +1,82 @@
+@font-face {
+  font-family: 'Inter-Light';
+  src: url("../fonts/Inter-Light.woff2");
+}
+
+@font-face {
+  font-family: 'Inter-Black';
+  src: url("../fonts/Inter-Black.woff2");
+}
+
+@font-face {
+  font-family: 'Fira-Mono';
+  src: url("../fonts/FiraMono-Regular.woff2");
+}
+
+body {
+  --tonic-body: 'Inter-Light', sans-serif;
+  --tonic-header: 'Inter-Black', sans-serif;
+  --tonic-subheader: 'Inter-Medium', sans-serif;
+  --tonic-monospace: 'Fira-Mono', monospace;
+}
+
+body,
+*[theme="light"] {
+  --tonic-background: #f4f7f9;
+  --tonic-window: #fff;
+  --tonic-accent: #38b9ff;
+  --tonic-primary: #36393d;
+  --tonic-secondary: #e8e8e4;
+  --tonic-light: #999da0;
+  --tonic-medium: #999da0;
+  --tonic-dark: #5a6571;
+  --tonic-shadow: rgba(150,150,150,0.25);
+  --tonic-disabled: #98a1af;
+  --tonic-button-text: #36393d;
+  --tonic-button-shadow: rgba(0,0,0,0.33);
+  --tonic-button-background: #f5f5f5;
+  --tonic-button-background-hover: #e9eced;
+  --tonic-button-background-focus: #ededed;
+  --tonic-input-text: #36393d;
+  --tonic-input-text-hover: #e4e4e4;
+  --tonic-input-border: #c9c9c9;
+  --tonic-input-border-hover: #36393d;
+  --tonic-input-background-focus: #e9eced;
+  --tonic-border: #e7edf1;
+  --tonic-error: #f06653;
+  --tonic-notification: #f06653;
+  --tonic-danger: #f06653;
+  --tonic-success: #85b274;
+  --tonic-warning: #f9a967;
+  --tonic-info: #999da0;
+  --tonic-overlay: rgba(255,255,255,0.4);
+}
+
+*[theme="dark"] {
+  --tonic-background: #282828;
+  --tonic-window: #313131;
+  --tonic-accent: #38b9ff;
+  --tonic-primary: #fff;
+  --tonic-secondary: #c3c3c3;
+  --tonic-medium: #999da0;
+  --tonic-disabled: #aaa;
+  --tonic-dark: #808186;
+  --tonic-shadow: rgba(0,0,0,0.3);
+  --tonic-button-text: #fff;
+  --tonic-button-shadow: #000;
+  --tonic-button-background: #4a4a4a;
+  --tonic-button-background-hover: #5e5e5e;
+  --tonic-button-background-focus: #545454;
+  --tonic-input-text: #fff;
+  --tonic-input-text-hover: #fff;
+  --tonic-input-background-focus: #1e1e1e;
+  --tonic-input-border: #505050;
+  --tonic-input-border-hover: #696969;
+  --tonic-border: #46484c;
+  --tonic-error: #f06653;
+  --tonic-notification: #f06653;
+  --tonic-caution: #f06653;
+  --tonic-success: #85b274;
+  --tonic-warn: #f9a967;
+  --tonic-overlay: rgba(0,0,0,0.4);
+}

@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "types": ["node", "electron"],
+    "target": "es2018",
+    "lib": ["es2018", "dom", "DOM.Iterable"],
+    "noEmit": true,
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "strict": false,
+    "resolveJsonModule": true
+  },
+  "exclude": ["node_modules"],
+  "include": [
+    "node_modules/@socketsupply/_op-sdk/src/**/*.js",
+    "node_modules/@socketsupply/_electron-base/index.d.ts",
+    "src/**/*.js",
+    "src/**/*.d.ts"
+  ]
+}

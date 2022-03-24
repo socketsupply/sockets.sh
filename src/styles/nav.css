@@ -1,0 +1,89 @@
+body > nav {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+  height: 75px;
+  font: 15px var(--tonic-monospace);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  transition: background 0.2s ease;
+}
+
+body > nav a {
+  -webkit-user-drag: none;
+}
+
+body > nav a.logo {
+  width: 170px;
+  display: block;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  margin: auto;
+  padding-top: 10px;
+}
+
+body > nav a.logo img {
+  transition: all 0.1s ease-in-out;
+  transform: translateY(60px) scale(1.5);
+  width: 80%;
+  opacity: 1;
+}
+
+body#manage > nav a.logo img {
+  transform: translateY(0) scale(1);
+}
+
+body > nav.scrolling a.logo img {
+  transform: translateY(0) scale(1);
+}
+
+body > nav.scrolling a.logo:hover .hover {
+  opacity: 1;
+  transform: translateY(-38px);
+}
+
+body > nav.scrolling a.logo:hover img {
+  opacity: 0;
+  transform: translateY(-50px);
+}
+
+body > nav a.logo .hover {
+  opacity: 0;
+  text-align: center;
+  transform: translateY(0);
+  transition: all 0.2s ease;
+  font-family: var(--tonic-monospace);
+}
+
+body > nav .auth:last-of-type {
+  margin-left: 20px;
+}
+
+body > nav .account-link {
+  position: absolute;
+  right: 120px;
+  top: 30px;
+}
+
+@media (max-width: 699px) {
+  body > nav .account-link {
+    display: none;
+  }
+}
+
+body > nav .right {
+  position: absolute;
+  right: 30px;
+  top: 30px;
+}
+
+@media (max-width: 699px) {
+  body > nav .right {
+    display: none;
+  }
+}

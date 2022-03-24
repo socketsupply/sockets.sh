@@ -1,0 +1,116 @@
+<!DOCTYPE html><html><head><style></style>
+          
+    <title>Socket Supply Co.</title>
+
+    <link rel="preload" href="/fonts/Inter-Light.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="/fonts/FiraMono-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
+    <link rel="icon" type="image/svg+xml" sizes="any" href="/images/favicon.svg">
+    <link rel="mask-icon" href="/images/mask-icon.svg" color="#36393d">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+    <link rel="stylesheet" href="/styles/theme.css">
+    <link rel="stylesheet" href="/styles/common.css">
+    <link rel="stylesheet" href="/styles/page-base.css">
+    <link rel="stylesheet" href="/styles/nav.css">
+    <link rel="stylesheet" href="/styles/footer.css">
+    <link rel="stylesheet" href="/styles/tonic-overrides.css">
+    <link rel="stylesheet" href="/styles/pages/index.css">
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1 user-scalable=no">
+
+    <meta name="description" content="Distribued Cloud Console">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://socketsupply.co">
+    <meta property="og:site_name" content="Socket Sypply Co.">
+    <meta property="og:title" content="Socket Supply Co.">
+    <meta property="og:description" content="Distribued Cloud Console">
+    <meta property="og:image" content="https://socketsupply.co/images/tonic_preview.png">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@socketsupply">
+    <meta name="twitter:title" content="Socket Supply Co.">
+    <meta name="twitter:image" content="https://socketsupply.co/images/tonic_preview.png">
+    <meta name="twitter:description" content="Distribued Cloud Console">
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-G0WJEBZLRD"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-G0WJEBZLRD');
+    </script>
+  
+        </head>
+
+        <body id="index">
+          
+  <nav>
+    <a href="/" class="logo tc-logo" alt="Socket Supply Co.">
+      <img src="/images/horizontal.svg">
+      <div class="hover">
+        <span>Deploy Everywhere</span>
+      </div>
+    </a>
+    <div class="right auth-link hidden">
+      <a href="/manage" class="text-button auth tc-sign-in">Sign in</a>
+    </div>
+  </nav>
+  <script>
+    (function _nav () {
+      const nav = document.currentScript.previousElementSibling
+
+      const HOST = window.location.host
+      const PATHNAME = window.location.pathname
+      if (HOST !== 'socketsupply.co') {
+        nav.querySelector('.auth-link').classList.remove('hidden')
+      }
+      if (PATHNAME === '/manage/') {
+        nav.querySelector('.auth-link').classList.remove('hidden')
+      }
+
+      function onScroll() {
+        const pos = document.documentElement.scrollTop || document.body.scrollTop
+        const alpha = Math.min(pos / 100, 1)
+        const bg = `rgba(255,255,255,${alpha})`
+        nav.style.backgroundColor = bg
+        const delta = Math.min(alpha, 0.35)
+        if (alpha > 0) {
+          nav.classList.add('scrolling')
+        } else {
+          nav.classList.remove('scrolling')
+        }
+
+        nav.style.boxShadow = `0px -15px 35px 0px rgba(0,0,0,${delta})`
+      }
+
+      onScroll()
+      window.addEventListener('scroll', onScroll)
+
+      if (window.localStorage.signinState === 'SIGNED_IN') {
+        const authLink = nav.querySelector('.tc-sign-in')
+        authLink.textContent = 'Sign out'
+        authLink.setAttribute('href', '/manage/?signout=true')
+
+        const accountLink = document.createElement('a')
+        accountLink.textContent = 'Account'
+        accountLink.setAttribute('href', '/manage')
+        accountLink.setAttribute('class', 'text-button auth tc-account')
+        authLink.parentNode.appendChild(accountLink)
+      }
+    })()
+  </script>
+
+
+          <main>
+
+          </main>
+
+        
+      
+    </body></html>
