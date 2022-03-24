@@ -4,22 +4,20 @@ import nav from '../mixins/nav.js'
 
 class PageIndex extends Tonic {
   async render () {
-    const tags = await head({ styles: ['pages/index.css'] })
+    const h = await head({ styles: ['pages/index.css'] })
 
     return this.html`
       <!DOCTYPE html>
 
       <html>
 
-        <head>
-          ${tags}
-        </head>
+        <head>${h}</head>
 
         <body id="index">
           ${nav}
 
           <main>
-
+            <h1>Hello... cool hi</h1>
           </main>
 
         </body>

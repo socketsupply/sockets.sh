@@ -56,7 +56,7 @@ const PENDING_REQUESTS = new Set()
  */
 async function handler (req, res) {
   PENDING_REQUESTS.add(req)
-  res.on('finish', () => {
+  res.once('finish', () => {
     PENDING_REQUESTS.delete(req)
   })
 
@@ -91,8 +91,8 @@ async function handler (req, res) {
   }
 
   return send(req, pathname, opts)
-    .on('error', onError)
-    .on('end', () => {
+    .once('error', onError)
+    .once('end', () => {
       clearTimeout(die)
       die = setTimeout(teardown, 512)
     })
@@ -148,7 +148,7 @@ export async function build (argv) {
 
   console.time('pages')
   const pages = Promise.all([
-    compile('src/pages/index.js', `${dest}/index.html`),
+    compile('src/pages/index.js', `${dest}/index.html`)
   ])
   console.timeEnd('pages')
 
@@ -164,7 +164,7 @@ async function main (argv) {
   if (argv.url) url = argv.url
 
   http.createServer(handler).listen(port, async () => {
-    await build(argv)
+    build(argv)
   })
 }
 
