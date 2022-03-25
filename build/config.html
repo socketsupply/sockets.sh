@@ -42,7 +42,7 @@
 
           <main>
             <h1 class="title">Operator Framework</h1>
-            <h3>Config</h3>
+            <h2>Config File</h2>
             <p>
               Each project needs a <code>operator.config</code> file in the root
               direcrory. This is a plain text file with key-value pairs. It also
@@ -57,7 +57,7 @@ quxx: beep boop
 
 # another comment
 animals: cats, dogs, bears</code></pre>
-            <markdown-module src="https://raw.githubusercontent.com/socketsupply/operatorframework/master/docs/config.md?token=GHSAT0AAAAAABJ6L4VPOZYPBXMFO54SJYJOYSGFXWA"><h1 id="cross-platform-properties">Cross-Platform Properties</h1>
+            <markdown-module src="src/docs/config.md"><h3 id="cross-platform-properties">Cross-Platform Properties</h3>
 <table>
 <thead>
 <tr>
@@ -69,7 +69,7 @@ animals: cats, dogs, bears</code></pre>
 </thead>
 <tbody><tr>
 <td align="left"><code>arch</code></td>
-<td align="left">No</td>
+<td align="left"></td>
 <td align="left">String</td>
 <td align="left">This is made available for cross-compiling. It specifies the target architecture, by default it detects the machine on which the cli is executing.</td>
 </tr>
@@ -99,32 +99,32 @@ animals: cats, dogs, bears</code></pre>
 </tr>
 <tr>
 <td align="left"><code>debug_flags</code></td>
-<td align="left">No</td>
-<td align="left">None</td>
+<td align="left"></td>
+<td align="left"></td>
 <td align="left">Advanced Compiler Settings for debug purposes (ie C++ compiler -g, etc).</td>
 </tr>
 <tr>
 <td align="left"><code>description</code></td>
-<td align="left">No</td>
-<td align="left">None</td>
+<td align="left"></td>
+<td align="left"></td>
 <td align="left">A short description of the app</td>
 </tr>
 <tr>
 <td align="left"><code>env</code></td>
-<td align="left">No</td>
-<td align="left">None</td>
+<td align="left"></td>
+<td align="left"></td>
 <td align="left">An array of environment variables, separated by commas</td>
 </tr>
 <tr>
 <td align="left"><code>executable</code></td>
-<td align="left">Yes</td>
+<td align="left"><img src="images/icons/checkmark.svg" alt="check"></td>
 <td align="left"></td>
 <td align="left">The name of the file to be output.</td>
 </tr>
 <tr>
 <td align="left"><code>flags</code></td>
-<td align="left">No</td>
-<td align="left">None</td>
+<td align="left"></td>
+<td align="left"></td>
 <td align="left">Advanced Compiler Settings (ie C++ compiler -02, -03, etc).</td>
 </tr>
 <tr>
@@ -153,19 +153,19 @@ animals: cats, dogs, bears</code></pre>
 </tr>
 <tr>
 <td align="left"><code>maintainer</code></td>
-<td align="left">No</td>
+<td align="left"></td>
 <td align="left"></td>
 <td align="left"></td>
 </tr>
 <tr>
 <td align="left"><code>name</code></td>
-<td align="left">Yes</td>
-<td align="left">None</td>
+<td align="left"><img src="images/icons/checkmark.svg" alt="check"></td>
+<td align="left"></td>
 <td align="left">The name of the program</td>
 </tr>
 <tr>
 <td align="left"><code>output</code></td>
-<td align="left">Yes</td>
+<td align="left"><img src="images/icons/checkmark.svg" alt="check"></td>
 <td align="left"></td>
 <td align="left">The binary output path</td>
 </tr>
@@ -177,14 +177,14 @@ animals: cats, dogs, bears</code></pre>
 </tr>
 <tr>
 <td align="left"><code>version</code></td>
-<td align="left">Yes</td>
-<td align="left">None</td>
+<td align="left"><img src="images/icons/checkmark.svg" alt="check"></td>
+<td align="left"></td>
 <td align="left">A string that indicates the version of the cli tool and resources.</td>
 </tr>
 <tr>
 <td align="left"><code>versionShort</code></td>
-<td align="left">No</td>
-<td align="left">None</td>
+<td align="left"></td>
+<td align="left"></td>
 <td align="left">A string that indicates the version for MacOS.</td>
 </tr>
 <tr>
@@ -194,7 +194,7 @@ animals: cats, dogs, bears</code></pre>
 <td align="left">The initial width of the first window</td>
 </tr>
 </tbody></table>
-<h1 id="windows">Windows</h1>
+<h3 id="windows">Windows</h3>
 <table>
 <thead>
 <tr>
@@ -206,14 +206,14 @@ animals: cats, dogs, bears</code></pre>
 </thead>
 <tbody><tr>
 <td align="left"><code>revision</code></td>
-<td align="left">No</td>
+<td align="left"></td>
 <td align="left"></td>
 <td align="left">TODO: maybe the user doesn’t need to know about this?</td>
 </tr>
 <tr>
 <td align="left"><code>win_cmd</code></td>
-<td align="left">Yes</td>
-<td align="left">None</td>
+<td align="left"><img src="images/icons/checkmark.svg" alt="check"></td>
+<td align="left"></td>
 <td align="left">The command to execute to spawn the “back-end” process.</td>
 </tr>
 <tr>
@@ -230,7 +230,7 @@ animals: cats, dogs, bears</code></pre>
 </tr>
 <tr>
 <td align="left"><code>win_pfx</code></td>
-<td align="left">No</td>
+<td align="left"></td>
 <td align="left"></td>
 <td align="left">A relative path to the pfx file used for signing.</td>
 </tr>
@@ -247,7 +247,7 @@ animals: cats, dogs, bears</code></pre>
 <td align="left"></td>
 </tr>
 </tbody></table>
-<h1 id="linux">Linux</h1>
+<h3 id="linux">Linux</h3>
 <table>
 <thead>
 <tr>
@@ -259,24 +259,24 @@ animals: cats, dogs, bears</code></pre>
 </thead>
 <tbody><tr>
 <td align="left"><code>linux_categories</code></td>
-<td align="left">No</td>
-<td align="left">None</td>
+<td align="left"></td>
+<td align="left"></td>
 <td align="left">Helps to make your app searchable in Linux desktop environments</td>
 </tr>
 <tr>
 <td align="left"><code>linux_cmd</code></td>
-<td align="left">Yes</td>
+<td align="left"><img src="images/icons/checkmark.svg" alt="check"></td>
 <td align="left"></td>
 <td align="left">The command to execute to spawn the “back-end” process.</td>
 </tr>
 <tr>
 <td align="left"><code>linux_icon</code></td>
-<td align="left">Yes</td>
-<td align="left">None</td>
+<td align="left"><img src="images/icons/checkmark.svg" alt="check"></td>
+<td align="left"></td>
 <td align="left">The icon to use for identifying your app in Linux desktop environments.</td>
 </tr>
 </tbody></table>
-<h1 id="macos">MacOS</h1>
+<h3 id="macos">MacOS</h3>
 <table>
 <thead>
 <tr>
@@ -294,14 +294,14 @@ animals: cats, dogs, bears</code></pre>
 </tr>
 <tr>
 <td align="left"><code>mac_category</code></td>
-<td align="left">No</td>
-<td align="left">None</td>
+<td align="left"></td>
+<td align="left"></td>
 <td align="left">A category in the App Store</td>
 </tr>
 <tr>
 <td align="left"><code>mac_cmd</code></td>
-<td align="left">Yes</td>
-<td align="left">None</td>
+<td align="left"><img src="images/icons/checkmark.svg" alt="check"></td>
+<td align="left"></td>
 <td align="left">The command to execute to spawn the “back-end” process.</td>
 </tr>
 <tr>
@@ -312,14 +312,14 @@ animals: cats, dogs, bears</code></pre>
 </tr>
 <tr>
 <td align="left"><code>mac_entitlements</code></td>
-<td align="left">No</td>
-<td align="left">None</td>
+<td align="left"></td>
+<td align="left"></td>
 <td align="left">plist file path</td>
 </tr>
 <tr>
 <td align="left"><code>mac_icon</code></td>
-<td align="left">Yes</td>
-<td align="left">None</td>
+<td align="left"><img src="images/icons/checkmark.svg" alt="check"></td>
+<td align="left"></td>
 <td align="left">The icon to use for identifying your app on MacOS.</td>
 </tr>
 <tr>
@@ -353,7 +353,7 @@ animals: cats, dogs, bears</code></pre>
 <td align="left"></td>
 </tr>
 </tbody></table>
-<h1 id="ios">iOS</h1>
+<h3 id="ios">iOS</h3>
 <table>
 <thead>
 <tr>
@@ -365,42 +365,42 @@ animals: cats, dogs, bears</code></pre>
 </thead>
 <tbody><tr>
 <td align="left"><code>ios_device_simulator</code></td>
-<td align="left">No</td>
-<td align="left">None</td>
+<td align="left"></td>
+<td align="left"></td>
 <td align="left">which device to target when building for the simulator</td>
 </tr>
 <tr>
 <td align="left"><code>ios_entitlements</code></td>
-<td align="left">Yes</td>
-<td align="left">None</td>
+<td align="left"><img src="images/icons/checkmark.svg" alt="check"></td>
+<td align="left"></td>
 <td align="left">plist file path</td>
 </tr>
 <tr>
 <td align="left"><code>ios_distribution_method</code></td>
-<td align="left">Yes</td>
+<td align="left"><img src="images/icons/checkmark.svg" alt="check"></td>
 <td align="left"></td>
 <td align="left"></td>
 </tr>
 <tr>
 <td align="left"><code>ios_provisioning_profile</code></td>
-<td align="left">Yes</td>
-<td align="left">None</td>
+<td align="left"><img src="images/icons/checkmark.svg" alt="check"></td>
+<td align="left"></td>
 <td align="left">The provisioning profile that is used for signing (should be mac?)</td>
 </tr>
 <tr>
 <td align="left"><code>ios_signing_certificate</code></td>
-<td align="left">Yes</td>
+<td align="left"><img src="images/icons/checkmark.svg" alt="check"></td>
 <td align="left"></td>
 <td align="left"></td>
 </tr>
 <tr>
 <td align="left"><code>ios_team_id</code></td>
-<td align="left">Yes</td>
+<td align="left"><img src="images/icons/checkmark.svg" alt="check"></td>
 <td align="left"></td>
 <td align="left"></td>
 </tr>
 </tbody></table>
-<h1 id="android">Android</h1>
+<h3 id="android">Android</h3>
 <table>
 <thead>
 <tr>

@@ -441,11 +441,9 @@ ul.checklist li.arrow:before {
   display: flex;
 }
 
-body#index h1:not(.title) {
-  font-size: 32px;
+img[alt="check"] {
+  width: 16px;
+  margin: auto;
+  display: block;
 }
 
-body#index h1.title {
-  font-size: 42px;
-  margin-top: 0;
-}

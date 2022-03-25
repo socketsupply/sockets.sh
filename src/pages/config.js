@@ -19,7 +19,7 @@ class PageConfig extends Tonic {
 
           <main>
             <h1 class="title">Operator Framework</h1>
-            <h3>Config</h3>
+            <h2>Config File</h2>
             <p>
               Each project needs a <code>operator.config</code> file in the root
               direcrory. This is a plain text file with key-value pairs. It also
@@ -34,7 +34,7 @@ quxx: beep boop
 
 # another comment
 animals: cats, dogs, bears</code></pre>
-            <markdown-module src="https://raw.githubusercontent.com/socketsupply/operatorframework/master/docs/config.md?token=${TOKEN}"></markdown-module>
+            <markdown-module src="src/docs/config.md"></markdown-module>
           </main>
 
           <app-footer js-bundle="true"></app-footer>
