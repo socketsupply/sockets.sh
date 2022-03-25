@@ -45,8 +45,18 @@
             <h3>Config</h3>
             <p>
               Each project needs a <code>operator.config</code> file in the root
-              direcrory.
+              direcrory. This is a plain text file with key-value pairs. It also
+              supports comments.
             </p>
+
+            <pre><code>#
+# This is a comment
+#
+foo: bar
+quxx: beep boop
+
+# another comment
+animals: cats, dogs, bears</code></pre>
             <markdown-module src="https://raw.githubusercontent.com/socketsupply/operatorframework/master/docs/config.md?token=GHSAT0AAAAAABJ6L4VPOZYPBXMFO54SJYJOYSGFXWA"><h1 id="cross-platform-properties">Cross-Platform Properties</h1>
 <table>
 <thead>

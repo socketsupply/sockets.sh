@@ -17,7 +17,7 @@
       },
       "customLocalServer": {
         "enabled": true,
-        "value": "node bin/loader.js"
+        "value": "TOKEN=GHSAT0AAAAAABJ6L4VPOZYPBXMFO54SJYJOYSGFXWA node bin/loader.js"
       },
       "apiRoute": {
         "value": ""
