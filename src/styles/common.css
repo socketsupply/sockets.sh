@@ -24,43 +24,6 @@
   display: none;
 }
 
-.tonic--dialog {
-  display: grid;
-  grid-template-rows: 44px 1fr 80px;
-}
-
-.tonic--dialog > header {
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  user-select: none;
-  line-height: 44px;
-  height: 44px;
-  text-align: center;
-  color: var(--tonic-medium);
-  display: block;
-}
-
-.tonic--dialog > main {
-  padding: 0 30px 10px;
-  position: relative;
-}
-
-.tonic--dialog > footer {
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  user-select: none;
-  text-align: center;
-  background-color: var(--tonic-window);
-  bottom: 0;
-  padding: 16px;
-  width: 100%;
-  display: block;
-}
-
-.tonic--dialog > footer tonic-button {
-  margin-right: 10px;
-}
-
 body {
   background-color: var(--tonic-window);
   color: var(--tonic-primary);
@@ -368,7 +331,7 @@ body:not(#index) > main > section .wide {
 
 footer {
   background-color: var(--tonic-dark);
-  color: var(--tonic-primary);
+  color: var(--tonic-secondary);
   font-family: var(--tonic-monospace);
   min-height: 250px;
   padding: 40px 0;

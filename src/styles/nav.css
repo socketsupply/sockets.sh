@@ -13,13 +13,22 @@ body > nav {
   left: 0;
   right: 0;
   z-index: 10;
-  background: var(--tonic-window);
-  border-bottom: 1px solid var(--tonic-primary);
 }
 
 @media (prefers-color-scheme: dark) {
+  body > nav {
+    background: var(--tonic-dark);
+    border-bottom: 1px solid var(--tonic-border);
+  }
   body > nav img {
     filter: invert(100%);
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  body > nav {
+    background: var(--tonic-window);
+    border-bottom: 1px solid var(--tonic-primary);
   }
 }
 
@@ -38,8 +47,6 @@ body > nav img {
   display: block;
   margin: 28px;
 }
-
-
 
 body > nav a {
   -webkit-user-drag: none;

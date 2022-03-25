@@ -38,6 +38,16 @@ const html = async args => {
   return Tonic.unsafeRawString(`
     <title>${title}</title>
 
+    <meta
+      name="theme-color"
+      content="rgba(54, 57, 61, 1)"
+      media="(prefers-color-scheme: light)">
+
+    <meta
+        name="theme-color"
+        content="rgba(41, 41, 41, 1)"
+        media="(prefers-color-scheme: dark)">
+
     <link rel="preload" href="/fonts/Inter-Light.woff2" as="font" type="font/woff2" crossorigin="anonymous">
     <link rel="preload" href="/fonts/FiraMono-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
 
