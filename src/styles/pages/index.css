@@ -54,6 +54,11 @@ body#index img {
   -webkit-user-drag: none;
 }
 
+body#index > main > section {
+  margin-top: 180px;
+  margin-bottom: 80px;
+}
+
 @media (prefers-color-scheme: dark) {
   body#index img, body#index svg {
     filter: invert(100%);

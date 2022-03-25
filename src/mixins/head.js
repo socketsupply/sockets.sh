@@ -40,7 +40,7 @@ const html = async args => {
 
     <meta
       name="theme-color"
-      content="rgba(54, 57, 61, 1)"
+      content="var(--tonic-window)"
       media="(prefers-color-scheme: light)">
 
     <meta

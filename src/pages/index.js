@@ -14,6 +14,7 @@ class PageIndex extends Tonic {
         <head>${h}</head>
 
         <body id="index">
+          ${nav}
 
           <main>
             <section>
