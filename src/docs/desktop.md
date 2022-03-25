@@ -1,10 +1,6 @@
 
-# Main Process
-When your new program runs, it will forward its arguments to the
-"main"/"back-end" process.
-
-# Render Process
-
+When your program runs, it will forward its arguments to the Main process.
+The main process is responsible for showing a window to the user.
 
 ## Methods
 The `system` object is a global (ie, `window.system`).

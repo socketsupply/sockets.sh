@@ -1,3 +1,7 @@
+body {
+  padding-top: 74px;
+}
+
 body > nav {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -9,8 +13,33 @@ body > nav {
   left: 0;
   right: 0;
   z-index: 10;
-  transition: background 0.2s ease;
+  background: var(--tonic-window);
+  border-bottom: 1px solid var(--tonic-primary);
 }
+
+@media (prefers-color-scheme: dark) {
+  body > nav img {
+    filter: invert(100%);
+  }
+}
+
+body > nav > ul {
+  display: grid;
+  grid-template-columns: auto auto auto 1fr;
+  gap: 20px;
+}
+
+body > nav li {
+  padding: 28px;
+}
+
+body > nav img {
+  width: 256px;
+  display: block;
+  margin: 28px;
+}
+
+
 
 body > nav a {
   -webkit-user-drag: none;

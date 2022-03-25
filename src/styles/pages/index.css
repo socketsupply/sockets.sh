@@ -19,37 +19,6 @@ body#index tonic-tab-panel[role]:not([hidden]) {
   display: block;
 }
 
-tonic-tab-panel code {
-  display: block;
-  padding: 10px;
-  border-radius: 4px;
-}
-
-body#index code,
-body#index pre {
-  background: var(--tonic-primary);
-  color: var(--tonic-window);
-}
-
-body#index pre {
-  border-radius: 6px;
-  padding: 50px;
-  border: none;
-  height: auto;
-  box-shadow: 0 10px 18px rgba(0,0,0,0.3);
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-body#index pre .string,
-body#index pre .number {
-  color: var(--tonic-accent);
-}
-
-body#index pre .keyword {
-  color: var(--tonic-info);
-}
-
 body#index .content.padded {
   padding: 50px;
 }
@@ -81,10 +50,12 @@ body#index h2 {
   font-weight: 900;
 }
 
-body#index main {
-  background-color: #fff;
-}
-
 body#index img {
   -webkit-user-drag: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  body#index img, body#index svg {
+    filter: invert(100%);
+  }
 }

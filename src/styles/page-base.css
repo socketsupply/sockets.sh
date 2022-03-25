@@ -21,3 +21,7 @@ body h3 {
 body h4 {
   color: var(--tonic-info);
 }
+
+img {
+  max-width: 100%;
+}

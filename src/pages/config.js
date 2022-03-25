@@ -18,8 +18,7 @@ class PageConfig extends Tonic {
           ${nav}
 
           <main>
-            <h1 class="title">Operator Framework</h1>
-            <h2>Config File</h2>
+            <h1>Config File</h1>
             <p>
               Each project needs a <code>operator.config</code> file in the root
               direcrory. This is a plain text file with key-value property pairs.

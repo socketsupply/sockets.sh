@@ -62,7 +62,7 @@
 }
 
 body {
-  background: #fff;
+  background-color: var(--tonic-window);
   color: var(--tonic-primary);
   font-family: var(--tonic-body);
   font-size: 14px;
@@ -367,8 +367,8 @@ body:not(#index) > main > section .wide {
 }
 
 footer {
-  background-color: var(--tonic-primary);
-  color: var(--tonic-window);
+  background-color: var(--tonic-dark);
+  color: var(--tonic-primary);
   font-family: var(--tonic-monospace);
   min-height: 250px;
   padding: 40px 0;
@@ -391,7 +391,7 @@ footer .copy {
   font-family: var(--tonic-monospace);
   font-size: 12px;
   margin-top: 50px;
-  color: var(--tonic-dark);
+  color: var(--tonic-secondary);
 }
 
 ul.checklist {
@@ -411,6 +411,7 @@ ul.checklist li {
   list-style: none;
   position: relative;
   margin-left: 34px;
+  font-size: 14px;
 }
 
 ul.checklist li:before {
@@ -423,7 +424,11 @@ ul.checklist li:before {
   background-repeat: no-repeat;
   left: -24px;
   top: 8px;
-  background-image: url("../images/icons/checkmark.svg");
+  width: 4px;
+  height: 10px;
+  border-right: 1px solid var(--tonic-primary);
+  border-bottom: 1px solid var(--tonic-primary);
+  transform: rotate(45deg);
 }
 
 ul.checklist li.arrow:before {
@@ -447,3 +452,32 @@ img[alt="check"] {
   display: block;
 }
 
+tonic-tab-panel code {
+  display: block;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+body#index code,
+body#index pre {
+  background: var(--tonic-dark);
+  color: var(--tonic-secondary);
+}
+
+body#index pre {
+  border-radius: 6px;
+  padding: 50px;
+  border: none;
+  height: auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+body#index pre .string,
+body#index pre .number {
+  color: var(--tonic-accent);
+}
+
+body#index pre .keyword {
+  color: var(--tonic-info);
+}

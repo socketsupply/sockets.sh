@@ -1,4 +1,4 @@
-### Cross-Platform Properties
+## Cross-Platform Properties
 
 | Property | Required | Default | Description |
 | :--- | :--- | :--- | :--- |
@@ -25,7 +25,7 @@
 | `width` | | | The initial width of the first window |
 
 
-### Windows
+## Windows
 
 | Property | Required | Default | Description |
 | :--- | :--- | :--- | :--- |
@@ -38,7 +38,7 @@
 | `win_sign` | | | |
 
 
-### Linux
+## Linux
 
 | Property | Required | Default | Description |
 | :--- | :--- | :--- | :--- |
@@ -47,7 +47,7 @@
 | `linux_icon` | ![check](images/icons/checkmark.svg) | | The icon to use for identifying your app in Linux desktop environments. |
 
 
-### MacOS
+## MacOS
 
 | Property | Required | Default | Description |
 | :--- | :--- | :--- | :--- |
@@ -64,7 +64,7 @@
 | `mac_team_id` | | | |
 
 
-### iOS
+## iOS
 
 | Property | Required | Default | Description |
 | :--- | :--- | :--- | :--- |
@@ -76,7 +76,7 @@
 | `ios_team_id` | ![check](images/icons/checkmark.svg) | | |
 
 
-### Android
+## Android
 
 | Property | Optional | Default | Description |
 | :--- | :--- | :--- | :--- |

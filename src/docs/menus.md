@@ -1,13 +1,19 @@
 ## Menus
-Menus are created at run time from either the main or render process.
-The can be recreated instantly by calling the `setMenu` method.
+Operator Framework provides a minimalist DSL that makes it easy to create
+cross platform native system and context menus.
+
+Menus are created at run time. They can be created from either the Main or
+Render process. The can be recreated instantly by calling the `setMenu` method.
 
 ### System Menus
 
-The semi colon is significant indicates the end of the menu. Use an
-underscore when there is no accelerator key. Modifiers are optional.
-For the edit menu, `op` will figure out which accelerators to use
-for you.
+![menus](images/screenshots/menus.png)
+
+#### Example
+The method takes a string. Here's an example of a menu. The semi colon is
+significant indicates the end of the menu. Use an underscore when there is no
+accelerator key. Modifiers are optional. For the edit menu, `op` will figure
+out which accelerators to use for you.
 
 ```js
 system.setMenu(`
