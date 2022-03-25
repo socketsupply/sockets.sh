@@ -18,8 +18,11 @@ class PageDesktop extends Tonic {
 
           <main>
             <h1>Operator Framework</h1>
-            <h3>Desktop API</h3>
-          </main>
+            <h2>Desktop API</h2>
+
+            <markdown-module src="src/docs/menus.md"></markdown-module>
+            <markdown-module src="src/docs/ipc.md"></markdown-module>
+            </main>
 
           <app-footer js-bundle="true"></app-footer>
         </body>

@@ -22,8 +22,8 @@ class PageConfig extends Tonic {
             <h2>Config File</h2>
             <p>
               Each project needs a <code>operator.config</code> file in the root
-              direcrory. This is a plain text file with key-value pairs. It also
-              supports comments.
+              direcrory. This is a plain text file with key-value property pairs.
+              The file also supports comments.
             </p>
 
             <pre><code>#
@@ -34,6 +34,7 @@ quxx: beep boop
 
 # another comment
 animals: cats, dogs, bears</code></pre>
+
             <markdown-module src="src/docs/config.md"></markdown-module>
           </main>
 

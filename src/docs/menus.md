@@ -1,7 +1,8 @@
-# Menus
+## Menus
 Menus are created at run time from either the main or render process.
+The can be recreated instantly by calling the `setMenu` method.
 
-## System Menus
+### System Menus
 
 The semi colon is significant indicates the end of the menu. Use an
 underscore when there is no accelerator key. Modifiers are optional.
@@ -24,21 +25,15 @@ system.setMenu(`
     Apple: _
     Another Test: T
     Some Thing: S + Meta
-    ---: _
+    ---
     Bazz: s + Meta, Control, Alt;
 `)
 
 ```
 
-#### Submenus
-
-It's our opinion that submenus are an anti-pattern. Complexity deserves a
-wider visual surface area.
-
 #### Separators
 
-To create a separator, use `---`. Separators don't have modifiers so just
-use `_` to indicate that.
+To create a separator, use three dashes `---`.
 
 #### Accelerator Modifiers
 
@@ -52,7 +47,13 @@ by commas. If one is not applicable for a platform, it will just be ignored.
 
 On MacOS `Meta` is the same as `Command`.
 
-#### Menu Events
+#### Submenus
+
+We feel like nested menus are an anti-pattern. We don't use them. If you have a
+strong argument for them and a very simple pull request that makes them work we
+may consider them.
+
+#### Event Handling
 
 When a menu item is activated, it raises the `menuItemSelected` event in
 the front end code, you can then communicate with your backend code if you
@@ -67,7 +68,7 @@ window.addEventListener('menuItemSelected', event => {
 })
 ```
 
-## Context Menus
+### Context Menus
 
 Dynamically build a context menu and await the user's selection.
 

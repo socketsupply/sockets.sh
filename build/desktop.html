@@ -12,6 +12,7 @@
 
     <link rel="stylesheet" href="/styles/theme.css">
     <link rel="stylesheet" href="/styles/common.css">
+    <link rel="stylesheet" href="/styles/table.css">
     <link rel="stylesheet" href="/styles/page-base.css">
     <link rel="stylesheet" href="/styles/nav.css">
     <link rel="stylesheet" href="/styles/tonic-overrides.css">
@@ -41,8 +42,92 @@
 
           <main>
             <h1>Operator Framework</h1>
-            <h3>Desktop API</h3>
-          </main>
+            <h2>Desktop API</h2>
+
+            <markdown-module src="src/docs/menus.md"><h2 id="menus">Menus</h2>
+<p>Menus are created at run time from either the main or render process.
+The can be recreated instantly by calling the <code>setMenu</code> method.</p>
+<h3 id="system-menus">System Menus</h3>
+<p>The semi colon is significant indicates the end of the menu. Use an
+underscore when there is no accelerator key. Modifiers are optional.
+For the edit menu, <code>op</code> will figure out which accelerators to use
+for you.</p>
+<pre><code class="language-js">system.setMenu(<span class="hljs-string">`
+  App:
+    Foo: f;
+
+  Edit:
+    Cut: x
+    Copy: c
+    Paste: v
+    Delete: _
+    Select All: a;
+
+  Other:
+    Apple: _
+    Another Test: T
+    Some Thing: S + Meta
+    ---
+    Bazz: s + Meta, Control, Alt;
+`</span>)
+</code></pre>
+<h4 id="separators">Separators</h4>
+<p>To create a separator, use three dashes <code>---</code>.</p>
+<h4 id="accelerator-modifiers">Accelerator Modifiers</h4>
+<p>Accelerator modifiers are used as visual indicators but don't have a
+material impact as the actual key binding is done in the event listener.</p>
+<p>A capital letter implies that the accelerator is modified by the <code>Shift</code> key.</p>
+<p>Additional accelerators are <code>Meta</code>, <code>Control</code>, <code>Option</code>, each separated
+by commas. If one is not applicable for a platform, it will just be ignored.</p>
+<p>On MacOS <code>Meta</code> is the same as <code>Command</code>.</p>
+<h4 id="submenus">Submenus</h4>
+<p>We feel like nested menus are an anti-pattern. We don't use them. If you have a
+strong argument for them and a very simple pull request that makes them work we
+may consider them.</p>
+<h4 id="event-handling">Event Handling</h4>
+<p>When a menu item is activated, it raises the <code>menuItemSelected</code> event in
+the front end code, you can then communicate with your backend code if you
+want from there.</p>
+<p>For example, if the <code>Apple</code> item is selected from the <code>Other</code> menu...</p>
+<pre><code class="language-js"><span class="hljs-built_in">window</span>.addEventListener(<span class="hljs-string">'menuItemSelected'</span>, <span class="hljs-function"><span class="hljs-params">event</span> =&gt;</span> {
+  assert(event.detail.parent === <span class="hljs-string">'Other'</span>)
+  assert(event.detail.title === <span class="hljs-string">'Apple'</span>)
+})
+</code></pre>
+<h3 id="context-menus">Context Menus</h3>
+<p>Dynamically build a context menu and await the user's selection.</p>
+<pre><code class="language-js"><span class="hljs-keyword">const</span> value = <span class="hljs-keyword">await</span> <span class="hljs-built_in">window</span>.contextMenu({
+  <span class="hljs-attr">Download</span>: <span class="hljs-string">'D'</span>,
+  <span class="hljs-attr">Wizard</span>: <span class="hljs-string">'W'</span>,
+  <span class="hljs-attr">Share</span>: <span class="hljs-string">'S'</span>
+})
+</code></pre>
+<p>If the user presses <code>w</code> or clicks the <code>Wizard</code> menu item, the following
+statement will evalute true.</p>
+<pre><code class="language-js">assert(value === { <span class="hljs-attr">title</span>: <span class="hljs-string">'Wizard'</span>, <span class="hljs-attr">parent</span>: <span class="hljs-string">'contextMenu'</span>, <span class="hljs-attr">state</span>: <span class="hljs-number">0</span> })
+</code></pre>
+</markdown-module>
+            <markdown-module src="src/docs/ipc.md"><h1 id="ipc">IPC</h1>
+<p>There are three important concepts for an application built with the Operator
+Framework. The <code>Render</code> process, the <code>Main</code> process, and the <code>Bridge</code> process.</p>
+<p><code>IPC</code> is an acronym for <a href="https://en.wikipedia.org/wiki/Inter-process_communication">Inter Process Communication</a>. It's the method for
+which these <a href="https://en.wikipedia.org/wiki/Process_(computing)">processes</a> work together.</p>
+<p>The Bridge process handles communication between the Render and Main
+processes. For Desktop apps, the Render process is the user interface, and the
+Main process is strictly for computing and IO.</p>
+<p>When an applicaiton starts, the Bridge process will spawn a child process, which
+we will call the Main process.</p>
+<p>The Binding process creates a unidirectional data channel using standard input
+and output. Data written to the write-end of the pipe is buffered by the OS
+until it is read from the read-end of the pipe.</p>
+<p>The IPC protocol uses a simple URI-like scheme.</p>
+<pre><code class="language-uri">ipc:<span class="hljs-comment">//command?key1=value1&amp;key2=value2...</span>
+</code></pre>
+<p>The query is encoded with <code>encodeURIComponent</code>.</p>
+<p>Here is a reference <a href="https://github.com/socketsupply/operatorframework/blob/master/test/example/src/main/ipc.js">implementation</a> if you would like to use a language
+that does not yet have one.</p>
+</markdown-module>
+            </main>
 
           <app-footer js-bundle="true">
       <footer id="primary" class="tc-footer">
