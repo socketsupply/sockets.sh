@@ -1,9 +1,8 @@
 {
-  "name": "socketsupply.co",
-  "version": "1.1.5",
+  "name": "operatorframework.dev",
+  "version": "0.1.1",
   "private": true,
-  "description": "the socketsupply.co website.",
-  "main": "src/index.server.js",
+  "description": "the operatorframework.dev website.",
   "scripts": {
     "lint": "npr standard",
     "test": "npm run lint",
@@ -14,10 +13,7 @@
   "dependencies": {
     "@socketsupply/components": "13.2.0",
     "@socketsupply/tonic": "14.1.0",
-    "aws-amplify": "1.2.2",
     "debug": "^4.3.1",
-    "localstorage": "1.0.1",
-    "scrolltoy": "2.0.0",
     "uuid": "3.4.0"
   },
   "devDependencies": {
@@ -43,24 +39,20 @@
   "bin": {},
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/socketsuply/socketsupply.co.git"
+    "url": "git+https://github.com/socketsuply/operatorframework.dev.git"
   },
   "bugs": {
-    "url": "https://github.com/socketsuply/socketsupply.co/issues"
+    "url": "https://github.com/socketsuply/operatorframework.dev/issues"
   },
-  "homepage": "https://github.com/socketsuply/socketsupply.co#readme",
+  "homepage": "https://github.com/socketsuply/operatorframework.dev#readme",
   "config": {
-    "title": "Socket Supply Co.",
-    "description": "Distribued Cloud Console",
-    "siteName": "Socket Sypply Co.",
-    "image": "https://socketsupply.co/images/tonic_preview.png",
-    "url": "https://socketsupply.co"
+    "title": "Operator Framework",
+    "description": "Build Native Desktop and Mobile Apps Using The Web Stack",
+    "siteName": "Operator Framework",
+    "image": "https://operatorframework.dev/images/framework.svg",
+    "url": "https://operatorframework.dev"
   },
   "binDependencies": {
-    "browserify": "^16.5.0",
-    "standard": "14.3.1",
-    "testcafe": "1.6.1",
-    "testcafe-reporter-spec-time": "3.0.1",
-    "watchify": "^3.11.1"
+    "standard": "14.3.1"
   }
 }
