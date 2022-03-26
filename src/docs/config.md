@@ -34,8 +34,7 @@
 | `win_icon` | | | The icon to use for identifying your app on Windows. |
 | `win_logo` | | | The icon to use for identifying your app on Windows. |
 | `win_pfx` | | | A relative path to the pfx file used for signing. |
-| `win_publisher` | | | |
-| `win_sign` | | | |
+| `win_publisher` | | | The signing information needed by the appx api. |
 
 
 ## Linux

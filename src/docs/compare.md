@@ -1,4 +1,5 @@
 ## Feature Matrix
+All platforms can produce executables for `Windows`, `Linux`, and `MacOS`.
 
 | Framework        | Any Backend | Native Packaging | Zero Deps | iOS | Android |
 | :---             | :---        | :---             | :---      | :---   | :--- |

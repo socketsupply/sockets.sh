@@ -21,3 +21,9 @@ body h4 {
 img {
   max-width: 100%;
 }
+
+time {
+  top: -12px;
+  position: relative;
+  font-size: 14px;
+}
