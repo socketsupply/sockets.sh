@@ -3,7 +3,7 @@ import minimist from 'minimist'
 import { build } from './server.js'
 
 function main() {
-  return build(minimist(process.argv.slice(2)))
+  return build(minimist(process.argv.slice(2)), { force: true })
 }
 
 main().then(() => {

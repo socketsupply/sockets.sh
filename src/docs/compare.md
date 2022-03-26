@@ -3,11 +3,11 @@ All platforms can produce executables for `Windows`, `Linux`, and `MacOS`.
 
 | Framework        | Any Backend | Native Packaging | Zero Deps | iOS | Android |
 | :---             | :---        | :---             | :---      | :---   | :--- |
-| **Operator**     | ![check](images/icons/checkmark.svg)         | ![check](images/icons/checkmark.svg)              | ![check](images/icons/checkmark.svg)       | ![check](images/icons/checkmark.svg)    | ![check](images/icons/checkmark.svg) |
-| **Tauri**        |          | ![check](images/icons/checkmark.svg)              |        |     | |
+| **Operator**     | ![check](/images/icons/checkmark.svg)         | ![check](/images/icons/checkmark.svg)              | ![check](/images/icons/checkmark.svg)       | ![check](/images/icons/checkmark.svg)    | ![check](/images/icons/checkmark.svg) |
+| **Tauri**        |          | ![check](/images/icons/checkmark.svg)              |        |     | |
 | **Electron**     |          |               |        |     | |
 | **NW.js**        |          |               |        |     | |
-| **Neutralinojs** | ![check](images/icons/checkmark.svg)         |               |        |     | |
+| **Neutralinojs** | ![check](/images/icons/checkmark.svg)         |               |        |     | |
 
 ## Operator Framework
 <time>Sat Mar 26 13:54:19 CET 2022</time>

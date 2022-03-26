@@ -44,21 +44,18 @@
   "633075417262": {
     "provider": "aws",
     "spa": "",
-    "lastDeployed": null,
+    "lastDeployed": "2022-03-26T17:46:50.779Z",
     "properties": {
       "relativeFolder": {
         "value": [
           ".."
-        ],
-        "deployed": false
+        ]
       },
       "cache": {
-        "value": 7800,
-        "deployed": false
+        "value": 7800
       },
       "gzip": {
-        "value": true,
-        "deployed": false
+        "value": true
       },
       "customLocalServer": {
         "enabled": false,
@@ -74,25 +71,33 @@
         "deployed": false
       },
       "predeploy": {
-        "directory": "",
-        "command": "",
+        "directory": [
+          "..",
+          "build"
+        ],
+        "command": "npm run build+deploy",
         "deployed": false
       },
       "bucketName": {
-        "value": "",
-        "deployed": false
+        "value": "static.b8eedab3047888.operatorframework.dev"
       },
       "bucketRegion": {
-        "value": "",
-        "deployed": false
+        "value": "us-east-1"
       },
       "domain": {
-        "value": "",
-        "hostedZoneId": "",
-        "deployed": false
+        "value": "operatorframework.dev",
+        "hostedZoneId": "/hostedzone/Z09227523MLP9USR2VMK7"
       }
     },
-    "created": false
+    "createResponse": {
+      "created": true,
+      "bucketRegion": "us-east-1",
+      "ctime": 1648315382430,
+      "cloudfrontId": "E124Q7IK4TZ76S",
+      "cloudfrontDomain": "dkq0kkrp3s1u8.cloudfront.net"
+    },
+    "cloudfrontId": "E124Q7IK4TZ76S",
+    "cloudfrontDomain": "dkq0kkrp3s1u8.cloudfront.net"
   },
   "137418857087": {
     "provider": "aws",

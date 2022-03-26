@@ -6,7 +6,7 @@ let childProc
 let shutdown
 
 const start = () => {
-  childProc = spawn('node', ['bin/server'])
+  childProc = spawn('node', ['bin/server', 'run'])
 
   childProc.stdout.on('data', data => process.stdout.write(data.toString()))
   childProc.stderr.on('data', data => process.stderr.write(data.toString()))

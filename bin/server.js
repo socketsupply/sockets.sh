@@ -23,6 +23,7 @@ process.on('unhandledRejection', (err) => {
 })
 
 let die = null
+let opts = {}
 let port = 8081
 let url = 'http://dev.operatorframework.dev'
 
@@ -44,7 +45,7 @@ const compile = async (src, dest) => {
   const recentlyModified = new Date((await fs.stat(src)).mtime) < t
   const recentlyCreated = new Date((await fs.stat(src)).ctime) < t
 
-  if (recentlyModified || recentlyCreated) {
+  if (!opts.force && (recentlyModified || recentlyCreated)) {
     return Promise.resolve()
   }
 
@@ -138,7 +139,8 @@ async function teardown () {
   process.exit(0)
 }
 
-export async function build (argv) {
+export async function build (argv, _opts) {
+  opts = _opts || {}
   const base = path.join(dirname(import.meta), '..')
 
   const dest = typeof argv.out === 'string'
@@ -161,28 +163,33 @@ export async function build (argv) {
     }
   } catch {}
 
-  await Promise.all([
-    load(path.join(componentsDir, 'bundle-js.js')),
-    load(path.join(componentsDir, 'footer.js')),
-    load(path.join(componentsDir, 'module-markdown.js'))
-  ])
-
   const pages = Promise.all([
+    Promise.all([
+      load(path.join(componentsDir, 'bundle-js.js')),
+      load(path.join(componentsDir, 'footer.js')),
+      load(path.join(componentsDir, 'module-markdown.js'))
+    ]),
     compile('src/pages/index.js', `${dest}/index.html`),
-    compile('src/pages/compare.js', `${dest}/compare.html`),
-    compile('src/pages/config.js', `${dest}/config.html`),
-    compile('src/pages/desktop.js', `${dest}/desktop.html`),
-    compile('src/pages/mobile.js', `${dest}/mobile.html`),
-    compile('src/pages/examples.js', `${dest}/examples.html`),
-    compile('src/pages/guides.js', `${dest}/guides.html`)
+    compile('src/pages/compare.js', `${dest}/compare/index.html`),
+    compile('src/pages/config.js', `${dest}/config/index.html`),
+    compile('src/pages/desktop.js', `${dest}/desktop/index.html`),
+    compile('src/pages/mobile.js', `${dest}/mobile/index.html`),
+    compile('src/pages/examples.js', `${dest}/examples/index.html`),
+    compile('src/pages/guides.js', `${dest}/guides/index.html`)
   ])
 
   await pages
 }
 
-port = process.env.PORT
-  ? parseInt(process.env.PORT)
-  : argv.p || port
+export function main () {
+  port = process.env.PORT
+    ? parseInt(process.env.PORT)
+    : argv.p || port
 
-if (argv.url) url = argv.url
-http.createServer(handler).listen(port)
+  if (argv.url) url = argv.url
+  http.createServer(handler).listen(port)
+}
+
+if (argv._.includes("run")) {
+  main()
+}
