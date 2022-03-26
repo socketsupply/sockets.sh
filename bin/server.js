@@ -169,6 +169,7 @@ export async function build (argv) {
 
   const pages = Promise.all([
     compile('src/pages/index.js', `${dest}/index.html`),
+    compile('src/pages/compare.js', `${dest}/compare.html`),
     compile('src/pages/config.js', `${dest}/config.html`),
     compile('src/pages/desktop.js', `${dest}/desktop.html`),
     compile('src/pages/mobile.js', `${dest}/mobile.html`),
