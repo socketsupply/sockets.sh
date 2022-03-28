@@ -137,6 +137,17 @@ struct Options {
 }
 ```
 
+## Events
+
+### `blur`
+Raised on the `window` object when the window is backgrounded by the user.
+
+### `focus`
+Raised on the `window` object when the window is foregrounded by the user.
+
+### `menuItemSelected`
+Raised when a menu item is activated (clicked).
+
 ## Properties
 The `process` object is a global (ie, `window.process`).
 

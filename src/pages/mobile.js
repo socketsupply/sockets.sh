@@ -17,8 +17,7 @@ class PageMobile extends Tonic {
           ${nav}
 
           <main>
-            <h1>Operator Framework</h1>
-            <h3>Mobile API</h3>
+            <markdown-module src="src/docs/mobile.md"></markdown-module>
           </main>
 
           <app-footer js-bundle="true"></app-footer>

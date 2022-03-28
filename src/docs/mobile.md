@@ -1,6 +1,6 @@
-# APIS
+# Mobile API
 
-Mobile and desktop APIs can be found on a global object named `system`. Almost none of the desktop APIs apply to mobile because the environment is quite different. For example, there is no "main" process on mobile. Mobile APIs are namespaced using the objects `tcp`, `udp` and `utp`.
+Mobile APIs can be found on a global object named `system`. Almost none of the desktop APIs apply to mobile because the environment is quite different. For example, there is no "main" process on mobile. Mobile APIs are namespaced using the objects `tcp`, `udp` and `utp`.
 
 ## TCP
 
@@ -37,7 +37,7 @@ Start a server listening for connections.
 
 | Argument | Type | Default | Required | Description |
 | :--- | :--- | :--- | :--- | :--- |
-| port | Object | | &#10003; | The port on which to allow connections. |
+| port | Object | | ![check](/images/icons/checkmark.svg) | The port on which to allow connections. |
 | cb | Function | |  | If supplied, will be added as a listener for the `"connect"` event on the returned socket once. |
 
 > __Return Value__ `none`
@@ -50,8 +50,8 @@ Adds the listener function to the end of the listeners array for the event named
 
 | Argument | Type | Default | Required | Description |
 | :--- | :--- | :--- | :--- | :--- |
-| name | String | | &#10003; | The name of the event (continue reading this document for possible event names that can be observed). |
-| cb | Function | | &#10003; | The function to be called when there an event is emitted which matches the event name. |
+| name | String | | ![check](/images/icons/checkmark.svg) | The name of the event (continue reading this document for possible event names that can be observed). |
+| cb | Function | | ![check](/images/icons/checkmark.svg) | The function to be called when there an event is emitted which matches the event name. |
 
 > __Return Value__ `none`
 
@@ -100,7 +100,7 @@ Creates a new socket by immediately initiating a connection.
 
 | Argument | Type | Default | Required | Description |
 | :--- | :--- | :--- | :--- | :--- |
-| port | Object |  | &#10003; | The port to connect with. |
+| port | Object |  | ![check](/images/icons/checkmark.svg) | The port to connect with. |
 | address | String | |  | An `ipv4` or `ipv6` address. |
 | cb | Function | |  | If supplied, will be added as a listener for the `"connect"` event on the returned socket once. |
 
@@ -126,8 +126,8 @@ Adds the listener function to the end of the listeners array for the event named
 
 | Argument | Type | Default | Required | Description |
 | :--- | :--- | :--- | :--- | :--- |
-| name | String | | &#10003; | The name of the event (continue reading this document for possible event names that can be observed). |
-| cb | Function | | &#10003; | The function to be called when there an event is emitted which matches the event name. |
+| name | String | | ![check](/images/icons/checkmark.svg) | The name of the event (continue reading this document for possible event names that can be observed). |
+| cb | Function | | ![check](/images/icons/checkmark.svg) | The function to be called when there an event is emitted which matches the event name. |
 
 > __Return Value__ `none`
 
