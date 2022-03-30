@@ -1,0 +1,43 @@
+body.api markdown-module h3 {
+  font-size: 24px;
+  font-weight: 100;
+  margin-top: 60px;
+}
+
+body.api markdown-module h2 {
+  margin-top: 60px;
+}
+
+body.api markdown-module h3 code {
+  font-size: inherit;
+}
+
+body.api markdown-module h3 em code {
+  font-size: 14px;
+  padding: 4px;
+  position: relative;
+  border-radius: 4px;
+  color: var(--tonic-secondary);
+  top: -2px;
+}
+
+body.api markdown-module table + p > strong {
+  font-size: 10px;
+  border: 1px solid var(--tonic-accent);
+  padding: 4px;
+  border-radius: 4px;
+  background: var(--tonic-accent);
+  color: var(--tonic-window);
+  text-transform: uppercase;
+  vertical-align: middle;
+}
+
+body.api markdown-module h3 code,
+body.api markdown-module h3 {
+  color: var(--tonic-accent);
+}
+
+body.api markdown-module blockquote {
+body.api markdown-module blockquote {
+  margin: 0;
+}

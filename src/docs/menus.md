@@ -7,7 +7,7 @@ Render process. The can be recreated instantly by calling the `setMenu` method.
 
 ### System Menus
 
-![menus](images/screenshots/menus.png)
+![menus](/images/screenshots/menus.png)
 
 #### Example
 The method takes a string. Here's an example of a menu. The semi colon is

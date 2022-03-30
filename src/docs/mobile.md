@@ -193,17 +193,19 @@ Emitted when the connection has fully closed.
 The following events are emitted on the `window` object, and can be listened to
 with `window.addEventListener`.
 
-### Window &sdot; `"application"`
-
-Emitted when the application is sent to the background or brought to the foreground by the user or other system events.
-
-| Property | Type | Description |
-| :--- | :--- | :--- |
-| status | String | Possible values are`background` or `foreground`. |
+### Window &sdot; `"blur"`
+Raised on the `window` object when the window is backgrounded by the user.
 
 ```js
-window.addEventListener('application', e => {
-  if (e.detail.status === 'background') myFunction()
+window.addEventListener('blur', e => {
+})
+```
+
+### Window &sdot; `"focus"`
+Raised on the `window` object when the window is foregrounded by the user.
+
+```js
+window.addEventListener('focus', e => {
 })
 ```
 

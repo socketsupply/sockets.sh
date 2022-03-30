@@ -60,7 +60,7 @@ body#index > main > section {
 }
 
 @media (prefers-color-scheme: dark) {
-  body#index img, body#index svg {
+  body img[alt="check"], body svg[alt="check"] {
     filter: invert(100%);
   }
 }

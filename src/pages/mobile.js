@@ -13,7 +13,7 @@ class PageMobile extends Tonic {
 
         <head>${h}</head>
 
-        <body id="index">
+        <body id="mobile" class="api">
           ${nav}
 
           <main>

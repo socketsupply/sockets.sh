@@ -87,6 +87,7 @@ body h1:not(#index) {
 
 body h2 {
   font: 36px/36px var(--tonic-primary);
+  font-size: 36px;
 }
 
 body h3 {
@@ -430,13 +431,13 @@ tonic-tab-panel code {
   border-radius: 4px;
 }
 
-body#index code,
-body#index pre {
-  background: var(--tonic-dark);
-  color: var(--tonic-secondary);
+body code,
+body pre {
+  background: var(--tonic-background);
+  color: var(--tonic-primary);
 }
 
-body#index pre {
+body pre {
   border-radius: 6px;
   padding: 50px;
   border: none;
@@ -445,11 +446,11 @@ body#index pre {
   text-overflow: ellipsis;
 }
 
-body#index pre .string,
-body#index pre .number {
+body pre .string,
+body pre .number {
   color: var(--tonic-accent);
 }
 
-body#index pre .keyword {
+body pre .keyword {
   color: var(--tonic-info);
 }

@@ -6341,25 +6341,8 @@ window.localStorage.debug = "op:*";
 import_tonic2.default.add(GridCell);
 import_tonic2.default.add(GridContainer);
 var debug = (0, import_debug.default)("op:index");
-function handleTheme() {
-  const theme = window.localStorage.getItem("theme") || "light";
-  document.body.setAttribute("theme", theme);
-  const input = document.getElementById("dark");
-  if (!input)
-    return;
-  input.value = theme === "dark";
-  document.addEventListener("change", (e) => {
-    if (import_tonic2.default.match(e.target, "#dark")) {
-      const theme2 = e.target.checked ? "dark" : "light";
-      window.localStorage.setItem("theme", theme2);
-      document.body.setAttribute("theme", theme2);
-    }
-  });
-}
-__name(handleTheme, "handleTheme");
 async function ready() {
   debug("op:ready");
-  handleTheme();
 }
 __name(ready, "ready");
 document.addEventListener("DOMContentLoaded", ready);

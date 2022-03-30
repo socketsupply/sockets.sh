@@ -13,7 +13,7 @@ class PageDesktop extends Tonic {
 
         <head>${h}</head>
 
-        <body id="index">
+        <body id="desktop" class="api">
           ${nav}
 
           <main>

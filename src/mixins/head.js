@@ -25,6 +25,7 @@ const html = async args => {
   const globalStyles = [
     'theme.css',
     'common.css',
+    'markdown.css',
     'table.css',
     'page-base.css',
     'nav.css',
