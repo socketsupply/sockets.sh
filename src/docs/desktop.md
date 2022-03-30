@@ -7,7 +7,7 @@ The main process is responsible for showing a window to the user.
 ### [`window.resizeTo(width, height)`](https://developer.mozilla.org/en-US/docs/Web/API/Window/resizeTo)
 A method that dynamically resizes the window.
 
-| Property | Type | Required | Default | Description |
+| Parameter | Type | Required | Default | Description |
 | :--- | :--- | :--- | :--- | :--- |
 | `height` | Number | ![check](/images/icons/checkmark.svg) |         | An integer representing the height of the window. |
 | `width`  | Number | ![check](/images/icons/checkmark.svg) |         | An integer representing the width of the window. |
@@ -28,10 +28,6 @@ function quarter() {
 Shows a file picker that allows a user to select a file or multiple files and
 returns an array of strings for the file(s).
 
-| Property | Type | Required | Default | Description |
-| :--- | :--- | :--- | :--- | :--- |
-| | | | |
-
 **&larr; Return** `Promise<Array<String>>`
 
 
@@ -45,10 +41,6 @@ await window.showOpenFilePicker()
 Shows a file picker that allows a user to save a file. Either by selecting an
 existing file, or entering a name for a new file.
 
-| Property | Type | Required | Default | Description |
-| :--- | :--- | :--- | :--- | :--- |
-| | | | |
-
 **&larr; Return** `Promise<void>`
 
 ```js
@@ -58,12 +50,6 @@ await window.showSaveFilePicker()
 ### [`window.showDirectoryPicker()`](https://developer.mozilla.org/en-US/docs/Web/API/window/showDirectoryPicker)
 
 Shows a directory picker which allows the user to select a directory.
-
-| Property | Type | Required | Default | Description |
-| :--- | :--- | :--- | :--- | :--- |
-| | | | |
-
-
 
 **&larr; Return** `Promise<Array<String>>`
 
@@ -76,7 +62,7 @@ await window.showDirectoryPicker()
 
 Hides the entire app and all of its windows (unless a window `index` is specified).
 
-| Property | Type | Required | Default | Description |
+| Parameter | Type | Required | Default | Description |
 | :--- | :--- | :--- | :--- | :--- |
 | `index` | Number |  | `0` | Specifies the index of the window to hide. |
 
@@ -90,7 +76,7 @@ await window.hide()
 ### `window.parent.show(index)`
 Shows the entire app and all of its windows (unless a window `index` is specified).
 
-| Property | Type | Required | Default | Description |
+| Parameter | Type | Required | Default | Description |
 | :--- | :--- | :--- | :--- | :--- |
 | `index` | Number |  | `0` | Specifies the index of the window to show. |
 
@@ -103,7 +89,7 @@ await window.parent.show(0)
 ### `window.parent.setMenu(Options: Object)`
 Set the native menu for the app (see a more significant example later on in the docs).
 
-| Property | Type | Required | Default | Description |
+| Parameter | Type | Required | Default | Description |
 | :--- | :--- | :--- | :--- | :--- |
 | `options.value` | String | ![check](/images/icons/checkmark.svg) | | A String that conains the menu config DSL. |
 | `options.index` | Number |  | `0` | Specifies the index of the window to set the menu on (Ignored on MacOS). |
@@ -127,7 +113,7 @@ await window.parent.setMenu(`
 Send an "plain old javascript" object to the backend process and await a promise.
 This parameter should not contain cyclical values.
 
-| Property | Type | Required | Default | Description |
+| Parameter | Type | Required | Default | Description |
 | :--- | :--- | :--- | :--- | :--- |
 | `options.value` | String | ![check](/images/icons/checkmark.svg) | | A String that conains the menu config DSL. |
 
@@ -141,7 +127,7 @@ await window.parent.send({ greeting: 'hello' })
 Quits the backend process and then quits the render process,
 the exit code used is the final exit code to the OS.
 
-| Property | Type | Required | Default | Description |
+| Parameter | Type | Required | Default | Description |
 | :--- | :--- | :--- | :--- | :--- |
 | `code` | Number |  | `0` | Specifies the exit code to be forwarded to the `Binding` process as it exits. |
 
@@ -154,7 +140,7 @@ window.exit(0)
 ### `window.parent.openExternal(url)`
 Opens a link in the user's default browser.
 
-| Property | Type | Required | Default | Description |
+| Parameter | Type | Required | Default | Description |
 | :--- | :--- | :--- | :--- | :--- |
 | `url` | String | ![check](/images/icons/checkmark.svg) | | The URL that will be opened by the user's default browser. |
 
@@ -167,7 +153,7 @@ window.parent.openExternal(url)
 ### `window.parent.contextMenu(opts)`
 Opens a native context menu.
 
-| Property | Type | Required | Default | Description |
+| Parameter | Type | Required | Default | Description |
 | :--- | :--- | :--- | :--- | :--- |
 | `opts` | Object | ![check](/images/icons/checkmark.svg) | | Menu items. |
 
@@ -191,7 +177,7 @@ The following events are emitted on the `window` object.
 ## Properties
 The following properties have either been added or modified.
 
-| Property | Type | Description |
+| Parameter | Type | Description |
 | :--- | :--- | :--- |
 | `window.document.title` | String | Sets the title of the window (getter, setter). |
 | `window.parent.platform` | String | Gets a string that describes the operating system (`android`, `ios`, `linux`, `mac`, or `win`). |
