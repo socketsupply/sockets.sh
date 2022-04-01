@@ -16,6 +16,8 @@ class PageDesktop extends Tonic {
         <body id="desktop" class="api">
           ${nav}
 
+          <aside>
+          </aside>
           <main>
             <h1>Desktop API</h1>
 

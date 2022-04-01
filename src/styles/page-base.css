@@ -1,5 +1,24 @@
-body main {
+body:not(.api) main {
   margin: 10% 20%;
+}
+
+body.api {
+  display: grid;
+  grid-template-columns: 25% 1fr;
+  grid-template-rows: 1fr auto;
+}
+
+body.api main {
+  margin: 8% 10%;
+}
+
+body.api aside {
+  margin-top: 26px;
+  margin-left: 26px;
+}
+
+body.api app-footer {
+  grid-area: 2 / span 2;
 }
 
 body h1 {

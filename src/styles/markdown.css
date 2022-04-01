@@ -21,13 +21,52 @@ body.api markdown-module h3 em code {
   top: -2px;
 }
 
+body.api aside {
+  display: grid;
+  grid-auto-rows: max-content;
+  overflow: hidden;
+}
+
+body.api aside a {
+  margin: 4px 0;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+body.api aside a {
+  text-underline-offset: 2px;
+}
+
+body.api aside a:hover {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+body.api aside .h1 {
+  font-size: 20px;
+}
+
+body.api aside .h2 {
+  font-size: 18px;
+  text-indent: 20px;
+}
+
+body.api aside .h3 {
+  text-indent: 40px;
+}
+
+body.api aside .h4 {
+  text-indent: 60px;
+}
+
 body.api markdown-module table + p > strong {
   font-size: 10px;
   border: 1px solid var(--tonic-accent);
   padding: 4px;
   border-radius: 4px;
-  background: var(--tonic-accent);
-  color: var(--tonic-window);
+  background: var(--tonic-window);
+  color: var(--tonic-accent);
   text-transform: uppercase;
   vertical-align: middle;
 }
@@ -37,7 +76,7 @@ body.api markdown-module h3 {
   color: var(--tonic-accent);
 }
 
-body.api markdown-module blockquote {
+body.api markdown-module blockquote,
 body.api markdown-module blockquote {
   margin: 0;
 }

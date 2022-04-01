@@ -16,6 +16,8 @@ class PageMobile extends Tonic {
         <body id="mobile" class="api">
           ${nav}
 
+          <aside>
+          </aside>
           <main>
             <markdown-module src="src/docs/mobile.md"></markdown-module>
           </main>

@@ -168,7 +168,8 @@ window.addEventListener('menuItemSelected', event => {
 
 ### `window.parent.send(Options: Object)`
 Send an "plain old javascript" object to the backend process and await a promise.
-This parameter should not contain cyclical values.
+This parameter should not contain cyclical values. The promise should expect to
+receive a value from the main process.
 
 | Parameter | Type | Required | Default | Description |
 | :--- | :--- | :--- | :--- | :--- |

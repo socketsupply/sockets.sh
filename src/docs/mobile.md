@@ -2,18 +2,24 @@
 
 Mobile APIs can be found on a global object named `system`. Almost none of the desktop APIs apply to mobile because the environment is quite different. For example, there is no "main" process on mobile. Mobile APIs are namespaced using the objects `tcp`, `udp` and `utp`.
 
-## TCP
+## TCP Server
 
-### Server &larr; `tcp.createServer([options])`
-
+### `tcp.createServer([options])`
 Creates a new TCP server.
 
 | Argument | Type | Default | Required | Description |
 | :--- | :--- | :--- | :--- | :--- |
 | options | Object | `{}` | | An optional options object |
-| options.simultaneousAccepts | Boolean | true | Enable / disable simultaneous asynchronous accept requests that are queued by the operating system when listening for new TCP connections. See [libuv][uv0] docs for more info. |
+| options.simultaneousAccepts | Boolean | true | | Enable / disable simultaneous asynchronous accept requests that are queued by the operating system when listening for new TCP connections. See [libuv][uv0] docs for more info. |
 
-> __Return Value__ `Server` (An instance of an [`EventEmitter`][ee]-like object)
+**&larr; Return** `Server` (Instance of EventEmitter with the following events)
+
+| Event | Description |
+| :--- | :--- |
+| `"listening"` | Emitted when the server has been bound after calling the `listen` method. |
+| `"connection"` | Emitted when a new connection is made. The callback provides a single value, `socket`, which is an instance of `Socket` as described in this document. |
+| `"data"` | Emitted when data is received. The argument data will be a Buffer or String. Encoding of data is set by the `setEncoding` method. The data will be lost if there is no listener when a Socket emits a 'data' event. |
+| `"closed"` | Emitted when the connection has fully closed. |
 
 ```js
 const server = window.system.tcp.createServer()
@@ -29,9 +35,7 @@ server.on('connection', socket => {
 server.listen(9200)
 ```
 
-<br/>
-
-### Server &sdot; `listen(port[, cb])`
+### `server.listen(port[, cb])`
 
 Start a server listening for connections.
 
@@ -40,11 +44,10 @@ Start a server listening for connections.
 | port | Object | | ![check](/images/icons/checkmark.svg) | The port on which to allow connections. |
 | cb | Function | |  | If supplied, will be added as a listener for the `"connect"` event on the returned socket once. |
 
-> __Return Value__ `none`
+**&larr; Return** `undefined`
 
-<br/>
 
-### Server &sdot; `on(event, cb)`
+### `server.on(event, cb)`
 
 Adds the listener function to the end of the listeners array for the event named eventName. No checks are made to see if the listener has already been added. Multiple calls passing the same combination of eventName and listener will result in the listener being added, and called, multiple times. See the Node.js [`EventEmitter`][ee] documentation for all methods and properties.
 
@@ -53,11 +56,10 @@ Adds the listener function to the end of the listeners array for the event named
 | name | String | | ![check](/images/icons/checkmark.svg) | The name of the event (continue reading this document for possible event names that can be observed). |
 | cb | Function | | ![check](/images/icons/checkmark.svg) | The function to be called when there an event is emitted which matches the event name. |
 
-> __Return Value__ `none`
+**&larr; Return** `undefined`
 
-<br/>
 
-### Server &sdot; `close([cb])`
+### `server.close([cb])`
 
 Stops the server from accepting new connections and keeps existing connections. This function is asynchronous, the server is finally closed when all connections are ended and the server emits a 'close' event. The optional callback will be called once the 'close' event occurs. Unlike that event, it will be called with an Error as its only argument if the server was not open when it was closed.
 
@@ -65,36 +67,13 @@ Stops the server from accepting new connections and keeps existing connections. 
 | :--- | :--- | :--- | :--- | :--- |
 | cb | Function |  |  | If supplied, will be added as a listener for the `"connect"` event on the returned socket once. |
 
-> __Return Value__ `none`
+**&larr; Return** `undefined`
 
 <br/>
 
-### Server &sdot; `"listening"`
+## TCP Connect
 
-Emitted when the server has been bound after calling the `listen` method.
-
-<br/>
-
-### Server &sdot; `"connection"`
-
-Emitted when a new connection is made. The callback provides a single value, `socket`, which is an instance of `Socket` as described in this document.
-
-<br/>
-
-### Server &sdot; `"data"`
-
-Emitted when data is received. The argument data will be a Buffer or String. Encoding of data is set by the `setEncoding` method. The data will be lost if there is no listener when a Socket emits a 'data' event.
-
-<br/>
-
-### Server &sdot; `"closed"`
-
-Emitted when the connection has fully closed.
-
-<br/>
-
-
-### Socket &larr; `tcp.createConnection(port[, address][, cb])`
+### `tcp.createConnection(port[, address][, cb])`
 
 Creates a new socket by immediately initiating a connection.
 
@@ -104,7 +83,13 @@ Creates a new socket by immediately initiating a connection.
 | address | String | |  | An `ipv4` or `ipv6` address. |
 | cb | Function | |  | If supplied, will be added as a listener for the `"connect"` event on the returned socket once. |
 
-> __Return Value__ `Socket` (An instance of an [`EventEmitter`][ee]-like object)
+**&larr; Return** `Client` (Instance of EventEmitter with the following events)
+
+| Event | Description |
+| :--- | :--- |
+| `"listening"` | Emitted when the server has been bound after calling the `listen` method. |
+| `"data"` | Emitted when data is received. The argument data will be a Buffer or String. Encoding of data is set by the `setEncoding` method. The data will be lost if there is no listener when a Socket emits a 'data' event. |
+| `"closed"` | Emitted when the connection has fully closed. |
 
 ```js
 const socket = window.system.tcp.createConnection(9200, '192.168.1.22')
@@ -120,7 +105,7 @@ socket.on('data', data => {
 
 <br/>
 
-### Socket &sdot; `on(event, cb)`
+### `client.on(event, cb)`
 
 Adds the listener function to the end of the listeners array for the event named eventName. No checks are made to see if the listener has already been added. Multiple calls passing the same combination of eventName and listener will result in the listener being added, and called, multiple times. See the Node.js [`EventEmitter`][ee] documentation for all methods and properties.
 
@@ -129,11 +114,10 @@ Adds the listener function to the end of the listeners array for the event named
 | name | String | | ![check](/images/icons/checkmark.svg) | The name of the event (continue reading this document for possible event names that can be observed). |
 | cb | Function | | ![check](/images/icons/checkmark.svg) | The function to be called when there an event is emitted which matches the event name. |
 
-> __Return Value__ `none`
+**&larr; Return** `undefined`
 
-<br/>
 
-### Socket &sdot; `write([data[, encoding]][, cb])`
+### `client.write([data[, encoding]][, cb])`
 
 Sends data on the socket. The second parameter specifies the encoding in the case of a string. It defaults to UTF8 encoding.
 
@@ -147,13 +131,9 @@ The optional callback parameter will be executed when the data is finally writte
 | encoding | String | `utf8` | | Only used when data is string. May be either `utf8` or `Uint8Array` |
 | cb | Function | |  | If supplied, will be added as a listener for the `"connect"` event on the returned socket once. |
 
-> __Return Value__ `none`
+**&larr; Return** `undefined`
 
-<br/>
-
-
-
-### Socket &sdot; `end([data[, encoding]][, cb])`
+### `client.end([data[, encoding]][, cb])`
 
 Half-closes the socket. i.e., it sends a FIN packet. It is possible the server will still send some data.
 
@@ -163,37 +143,40 @@ Half-closes the socket. i.e., it sends a FIN packet. It is possible the server w
 | encoding | String | `utf8` | | Only used when data is string. May be either `utf8` or `Uint8Array`. |
 | cb | Function | |  | If supplied, will be added as a listener for the `"connect"` event on the returned socket once. |
 
-> __Return Value__ `none`
+**&larr; Return** `undefined`
 
-<br/>
+## UDP
 
-### Socket &sdot; `"listening"`
+### `udp.bind(...)`
+Bind an listen on a port and address (or all interfaces)
 
-Emitted when the server has been bound after calling the `listen` method.
+| Argument | Type | Default | Required | Description |
+| :--- | :--- | :--- | :--- | :--- |
+|      |      |      |      |      |
 
-<br/>
+**&larr; Return** `undefined`a
 
-### Socket &sdot; `"data"`
+```js
+```
 
-Emitted when data is received. The argument data will be a Buffer or String. Encoding of data is set by the `setEncoding` method. The data will be lost if there is no listener when a Socket emits a 'data' event.
+### `udp.send(...)`
+Send a datagram to a port and address
 
-<br/>
+| Argument | Type | Default | Required | Description |
+| :--- | :--- | :--- | :--- | :--- |
+|      |      |      |      |      |
 
-### Server &sdot; `"closed"`
+**&larr; Return** `undefined`
 
-Emitted when the connection has fully closed.
+```js
+```
 
-<br/>
-
-
-
-
-# GLOBAL EVENTS
+## Global Events
 
 The following events are emitted on the `window` object, and can be listened to
 with `window.addEventListener`.
 
-### Window &sdot; `"blur"`
+### `"blur"`
 Raised on the `window` object when the window is backgrounded by the user.
 
 ```js
@@ -201,7 +184,7 @@ window.addEventListener('blur', e => {
 })
 ```
 
-### Window &sdot; `"focus"`
+### `"focus"`
 Raised on the `window` object when the window is foregrounded by the user.
 
 ```js
@@ -211,7 +194,7 @@ window.addEventListener('focus', e => {
 
 <br/>
 
-### Window &sdot; `"network"`
+### `"network"`
 
 Emitted when there is a change in the status of the network.
 
@@ -228,7 +211,7 @@ window.addEventListener('network', e => {
 
 <br/>
 
-### Window &sdot; `"data"`
+### `"data"`
 
 Emitted any time there is any data from the ipc channel, this
 is a kind of firehose of data that can be helpful for debugging.
