@@ -86,7 +86,7 @@ Shows the entire app and all of its windows (unless a window `index` is specifie
 await window.parent.show(0)
 ```
 
-### `window.parent.setBackgroundColor(opts)`
+### `window.parent.setBackgroundColor(opts: Object)`
 Set the color of the window background.
 
 | Parameter | Type | Required | Default | Description |
@@ -102,13 +102,13 @@ Set the color of the window background.
 await window.parent.setBackgroundColor({ red: 255, green: 255, blue: 255, alpha: 1 })
 ```
 
-### `window.parent.setMenu(Options: Object)`
+### `window.parent.setMenu(opts: Object)`
 Set the native menu for the app (see a more significant example later on in the docs).
 
 | Parameter | Type | Required | Default | Description |
 | :--- | :--- | :--- | :--- | :--- |
-| `options.value` | String | ![check](/images/icons/checkmark.svg) | | A String that conains the menu config DSL. |
-| `options.index` | Number |  | `0` | Specifies the index of the window to set the menu on (Ignored on MacOS). |
+| `opts.value` | String | ![check](/images/icons/checkmark.svg) | | A String that conains the menu config DSL. |
+| `opts.index` | Number |  | `0` | Specifies the index of the window to set the menu on (Ignored on MacOS). |
 
 **&larr; Return** `Promise<void>`
 
@@ -124,7 +124,7 @@ accelerator key. Modifiers are optional. For the edit menu, `op` will figure
 out which accelerators to use for you.
 
 ```js
-system.setMenu(`
+system.setMenu({ index: 0, value: `
   App:
     Foo: f;
 
@@ -182,14 +182,14 @@ window.addEventListener('menuItemSelected', event => {
 })
 ```
 
-### `window.parent.send(Options: Object)`
+### `window.parent.send(opts: Object)`
 Send an "plain old javascript" object to the backend process and await a promise.
 This parameter should not contain cyclical values. The promise should expect to
 receive a value from the main process.
 
 | Parameter | Type | Required | Default | Description |
 | :--- | :--- | :--- | :--- | :--- |
-| `options.value` | String | ![check](/images/icons/checkmark.svg) | | A String that conains the menu config DSL. |
+| `opts.value` | String | ![check](/images/icons/checkmark.svg) | | A String that conains the menu config DSL. |
 
 **&larr; Return** `Promise<Any>`
 
