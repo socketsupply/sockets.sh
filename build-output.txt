@@ -1,0 +1,20 @@
+
+> operatorframework.dev@0.1.1 build+deploy
+> npm install && NODE_ENV=production npm run build
+
+
+up to date in 394ms
+
+> operatorframework.dev@0.1.1 build
+> ./bin/build.js --out ./build
+
+
+> operatorframework.dev@0.1.1 build+deploy
+> npm install && NODE_ENV=production npm run build
+
+
+up to date in 402ms
+
+> operatorframework.dev@0.1.1 build
+> ./bin/build.js --out ./build
+

@@ -194,22 +194,23 @@ window.addEventListener('focus', e => {
 
 <br/>
 
-### `"network"`
+### `"offline"`
 
-Emitted when there is a change in the status of the network.
-
-| Property | Type | Description |
-| :--- | :--- | :--- |
-| status | String | Possible values are`online` or `offline`. |
-| message | String | A description of why the network status changed. |
+Emitted when the network becomes unavailable.
 
 ```js
-window.addEventListener('network', e => {
-  if (e.detail.status === 'offline') myFunction()
+window.addEventListener('offline', e => {
 })
 ```
 
-<br/>
+### `"online"`
+
+Emitted when the network becomes available.
+
+```js
+window.addEventListener('online', e => {
+})
+```
 
 ### `"data"`
 

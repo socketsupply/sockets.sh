@@ -1,3 +1,14 @@
+html {
+  scroll-behavior: smooth;
+}
+
+:target:before {
+  content: "";
+  display: block;
+  height: 100px;
+  margin: -100px 0 0;
+}
+
 body:not(.api) main {
   margin: 10% 20%;
 }
@@ -10,6 +21,8 @@ body.api {
 
 body.api main {
   margin: 8% 10%;
+  margin-left: 10px;
+  margin-top: 18px;
 }
 
 body.api aside {

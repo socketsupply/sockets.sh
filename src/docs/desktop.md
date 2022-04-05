@@ -86,6 +86,22 @@ Shows the entire app and all of its windows (unless a window `index` is specifie
 await window.parent.show(0)
 ```
 
+### `window.parent.setBackgroundColor(opts)`
+Set the color of the window background.
+
+| Parameter | Type | Required | Default | Description |
+| :--- | :--- | :--- | :--- | :--- |
+| `opts.red` | Number |  | `0` | A value between `0` and `255`. |
+| `opts.green` | Number |  | `0` | A value between `0` and `255`. |
+| `opts.blue` | Number |  | `0` | A value between `0` and `255`. |
+| `opts.alpha` | Float |  | `1` | A value between `0` and `1` that determines the transparency of the title bar. |
+
+**&larr; Return** `undefined`
+
+```js
+await window.parent.setBackgroundColor({ red: 255, green: 255, blue: 255, alpha: 1 })
+```
+
 ### `window.parent.setMenu(Options: Object)`
 Set the native menu for the app (see a more significant example later on in the docs).
 

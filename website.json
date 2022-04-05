@@ -23,10 +23,23 @@
         "value": ""
       },
       "apiRouteDestination": {
-        "value": null
+        "value": {
+          "apiGatewayId": null,
+          "apiGatewayRegion": null,
+          "localhostApiId": null,
+          "localhostWorkspace": null
+        }
       },
       "predeploy": {
-        "directory": "",
+        "directory": [
+          "..",
+          "..",
+          "functions",
+          "dist",
+          "Functions-dev.app",
+          "Contents",
+          "Resources"
+        ],
         "command": ""
       },
       "bucketName": {
@@ -44,7 +57,7 @@
   "633075417262": {
     "provider": "aws",
     "spa": "",
-    "lastDeployed": "2022-04-01T07:16:29.288Z",
+    "lastDeployed": "2022-04-01T08:00:05.962Z",
     "properties": {
       "relativeFolder": {
         "value": [
