@@ -4,7 +4,6 @@ import nav from '../mixins/nav.js'
 
 class PageCompare extends Tonic {
   async render () {
-    const TOKEN = process.env.TOKEN
     const h = await head({ styles: ['pages/index.css'] })
 
     return this.html`

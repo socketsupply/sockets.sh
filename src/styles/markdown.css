@@ -80,3 +80,27 @@ body.api markdown-module blockquote,
 body.api markdown-module blockquote {
   margin: 0;
 }
+
+.complexity {
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  justify-content: space-around;
+  border: 1px solid var(--tonic-border);
+  padding: 20px 0;
+  align-items: end;
+  height: 368px;
+}
+.complexity > div {
+  align-self: baseline;
+  height: 256px;
+  text-align: center;
+  line-height: 24px;
+}
+
+.complexity > div > div {
+  margin: auto;
+  min-height: 4px;
+  max-width: 40px;
+  background: var(--tonic-primary);
+  margin-bottom: 20px;
+}

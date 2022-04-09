@@ -23,33 +23,19 @@ process.on('unhandledRejection', (err) => {
 })
 
 let die = null
-let opts = {}
 let port = 8081
 let url = 'http://dev.operatorframework.dev'
 
 const ROOT_URL = new URL('../build', import.meta.url).pathname
-
 const componentsDir = path.join(dirname(import.meta), '../src/components')
 
 const load = async src => {
-  const mod = await import(`${src}?t=${Date.now()}`)
+  const mod = await import(src)
   return Tonic.add(mod.default)
 }
 
 const compile = async (src, dest) => {
-  const p = path.resolve(src)
-  const t = new Date()
-
-  t.setMinutes(t.getMinutes() - 8)
-
-  const recentlyModified = new Date((await fs.stat(src)).mtime) < t
-  const recentlyCreated = new Date((await fs.stat(src)).ctime) < t
-
-  if (!opts.force && (recentlyModified || recentlyCreated)) {
-    return Promise.resolve()
-  }
-
-  const Page = await load(p)
+  const Page = await load(path.resolve(src))
   const page = new Page()
 
   try { await fs.mkdir(path.dirname(dest), { recursive: true }) } catch {}
@@ -139,8 +125,7 @@ async function teardown () {
   process.exit(0)
 }
 
-export async function build (argv, _opts) {
-  opts = _opts || {}
+export async function build (argv) {
   const base = path.join(dirname(import.meta), '..')
 
   const dest = typeof argv.out === 'string'

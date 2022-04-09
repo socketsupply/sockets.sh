@@ -1,15 +1,29 @@
 ## Feature Matrix
+<time>Sat Apr  9 11:37:09 CEST 2022</time>
+
 All platforms can produce executables for `Windows`, `Linux`, and `MacOS`.
 
-| Framework        | Any Backend | Native Packaging | Zero Deps | iOS | Android |
-| :---             | :---        | :---             | :---      | :---   | :--- |
-| **Operator**     | ![check](/images/icons/checkmark.svg)         | ![check](/images/icons/checkmark.svg)              | ![check](/images/icons/checkmark.svg)       | ![check](/images/icons/checkmark.svg)    | ![check](/images/icons/checkmark.svg) |
-| **Tauri**        |          | ![check](/images/icons/checkmark.svg)              |        |     | |
-| **Electron**     |          |               |        |     | |
-| **NW.js**        |          |               |        |     | |
-| **Neutralinojs** | ![check](/images/icons/checkmark.svg)         |               |        |     | |
+|                         | Operator                              | Tauri                                 | Nutralinojs                                 | Electron |
+| :---                    |  ---                                  | :---                                  | :---                                  | :---     |
+| MacOS, Windows, Linux   | ![check](/images/icons/checkmark.svg) | ![check](/images/icons/checkmark.svg) | ![check](/images/icons/checkmark.svg) | ![check](/images/icons/checkmark.svg) |
+| Any Backend             | ![check](/images/icons/checkmark.svg) |                                       | ![check](/images/icons/checkmark.svg) | |
+| Native Packaging        | ![check](/images/icons/checkmark.svg) | ![check](/images/icons/checkmark.svg) |                                       | |
+| Zero 3rd Party Deps     | ![check](/images/icons/checkmark.svg) |                                       |                                       | |
+| iOS                     | ![check](/images/icons/checkmark.svg) | ![check](?)                           |                                       | |
+| Android                 | ![check](?)                           | ![check](?)                           |                                       | |
+| Mobile UDP & TCP        | ![check](/images/icons/checkmark.svg) |                                       |                                       | |
+| Full Native Drag & Drop | ![check](/images/icons/checkmark.svg) |                                       |                                       | |
 
-## Operator Framework
+## Lines of Code
+
+<div class="complexity">
+  <div><div style="height: 3.603472260188678%;"></div><b>5932</b><br/>Operator</div>
+  <div><div style="height: 25.61672710926442%;"></div><b>42170</b><br/>Tauri</div>
+  <div><div style="height: 100%;"></div><b>164619</b><br/>Neutralinojs</div>
+  <div><div style="height: 86.64552694403442%;"></div><b>142635</b><br/>Electron</div>
+</div>
+
+### Operator Framework
 <time>Sat Mar 26 13:54:19 CET 2022</time>
 
 ```
@@ -22,7 +36,7 @@ cloc ./src/*.cc ./src/*.hh
 |C++         |    5|    478|    166|  1753|
 |*SUM*       | *14*| *1397*|  *557*|*5932*|
 
-## Neutralinojs
+### Neutralinojs
 <time>Sat Mar 26 13:54:19 CET 2022</time>
 
 ```
@@ -45,7 +59,34 @@ cloc *.cpp *.h spec server api auth bin lib
 |CMake            |            1|              0|              0|             2|
 |*SUM*            |        *848*|        *34375*|        *55415*|      *164619*|
 
-## Electron
+### Tauri
+<time>Sat Apr  9 15:35:27 CEST 2022</time>
+
+```
+cloc core tooling
+```
+
+|Language          |files        |blank          |comment        |         code|
+|:---              |         ---:|           ---:|           ---:|         ---:|
+|Rust              |          163|           4142|           6656|        29883|
+|JSON              |           33|              1|              0|         3350|
+|Markdown          |           41|            898|             11|         3127|
+|TypeScript        |           27|            320|           1864|         2400|
+|JavaScript        |           25|            169|            157|         1232|
+|TOML              |           21|             85|              1|          819|
+|Bourne Again Shell|            3|             62|             52|          398|
+|WiX source        |            1|             30|              7|          239|
+|HTML              |            8|             17|              0|          228|
+|YAML              |            6|             21|              2|          213|
+|XML               |            3|              0|              5|          149|
+|CSS               |            2|             11|              0|           64|
+|PowerShell        |            2|              6|             11|           34|
+|Bourne Shell      |            2|              3|              4|           17|
+|Svelte            |            1|              4|              0|           14|
+|Standard ML       |            3|              0|              0|            3|
+|*SUM*             |        *341*|         *5769*|         *8770*|      *42170*|
+
+### Electron
 <time>Sat Mar 26 13:54:19 CET 2022</time>
 
 ```
