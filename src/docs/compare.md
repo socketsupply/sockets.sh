@@ -3,16 +3,16 @@
 
 All platforms can produce executables for `Windows`, `Linux`, and `MacOS`.
 
-|                         | Operator                              | Tauri                                 | Nutralinojs                                 | Electron |
-| :---                    |  ---                                  | :---                                  | :---                                  | :---     |
+|                         | Operator                              | Tauri                                 | Nutralinojs                           | Electron |
+| :---                    | :---:                                 | :---:                                 | :---:                                 | :---:    |
 | MacOS, Windows, Linux   | ![check](/images/icons/checkmark.svg) | ![check](/images/icons/checkmark.svg) | ![check](/images/icons/checkmark.svg) | ![check](/images/icons/checkmark.svg) |
-| Any Backend             | ![check](/images/icons/checkmark.svg) |                                       | ![check](/images/icons/checkmark.svg) | |
+| Any Backend             | ![check](/images/icons/checkmark.svg) |                                       | ![check](/images/icons/checkmark.svg) |          |
 | Native Packaging        | ![check](/images/icons/checkmark.svg) | ![check](/images/icons/checkmark.svg) |                                       | |
-| Zero 3rd Party Deps     | ![check](/images/icons/checkmark.svg) |                                       |                                       | |
-| iOS                     | ![check](/images/icons/checkmark.svg) | ![check](?)                           |                                       | |
-| Android                 | ![check](?)                           | ![check](?)                           |                                       | |
+| iOS                     | QA                                    | In Progress                           |                                       | |
+| Android                 | Roadmap                               | Roadmap                               |                                       | |
 | Mobile UDP & TCP        | ![check](/images/icons/checkmark.svg) |                                       |                                       | |
 | Full Native Drag & Drop | ![check](/images/icons/checkmark.svg) |                                       |                                       | |
+| Desktop Tray            |                                       | ![check](/images/icons/checkmark.svg) |                                       | |
 
 ## Lines of Code
 
