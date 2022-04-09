@@ -10,6 +10,11 @@ But electron made some assumptions early on that are not aging well. Also,
 build artifacts and memory footprint are much larger than they need to be,
 especially for embedded systems where we need our apps to run.
 
+### Why not Rust?
+
+Webview is C++, so are the platforms (Cocoa, GTK, and Windows). Memory
+safty offered by Rust isn't meaningful in this context.
+
 ### I need feature-X, but `op` doesn't support that, can you make it?
 
 You can make a PR. But the goal is not to solve the all problems for all
@@ -21,10 +26,3 @@ stay simple. Electron or Tauri might have what you are looking for.
 All menus raise events in the front-end. So should keyboard accelerators.
 Your accelerators, and menu items can all use `addEventListener` and then
 send a message to the backend if needed.
-
-### Why the F is it in C++ instead of Rust?
-
-Rust is incredible. Write your backend in Rust. Even write your front end in Rust
-and load it as WASM! This project is in C++ because webkit is, Cocoa is, GTK is,
-and Windows is. Writing this in C++ means less context switching, fewer intermediate
-steps.
