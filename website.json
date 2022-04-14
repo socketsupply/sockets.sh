@@ -17,7 +17,7 @@
       },
       "customLocalServer": {
         "enabled": true,
-        "value": "node bin/loader.js"
+        "value": "node bin/server.js"
       },
       "apiRoute": {
         "value": ""

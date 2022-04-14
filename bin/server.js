@@ -14,15 +14,12 @@ const argv = minimist(process.argv.slice(2))
 const LAMBDA_PORT = parseInt(process.env.LAMBDA_PORT, 10)
 const API_ROUTE = process.env.API_ROUTE
 
-let buildPromise = null
-
 process.on('unhandledRejection', (err) => {
   process.nextTick(() => {
     throw err
   })
 })
 
-let die = null
 let port = 8081
 let url = 'http://dev.operatorframework.dev'
 
@@ -51,10 +48,7 @@ const PENDING_REQUESTS = new Set()
  * @returns
  */
 async function handler (req, res, options) {
-  PENDING_REQUESTS.add(req)
-  res.once('finish', () => {
-    PENDING_REQUESTS.delete(req)
-  })
+  await build()
 
   if (API_ROUTE && req.url.startsWith(API_ROUTE)) {
     const apiUrl = `http://localhost:${LAMBDA_PORT}`
@@ -75,12 +69,6 @@ async function handler (req, res, options) {
 
     resp.body.pipe(res)
     return
-  }
-
-  if (buildPromise) {
-    await buildPromise
-  } else {
-    await build(argv)
   }
 
   const { pathname } = new URL(req.url, `${url}:${port}`)
@@ -109,23 +97,11 @@ async function handler (req, res, options) {
 
   return send(req, pathname, { root: ROOT_URL })
     .once('error', onError)
-    .once('end', () => {
-      clearTimeout(die)
-      die = setTimeout(teardown, 16)
-    })
     .pipe(res)
 }
 
-async function teardown () {
-  if (PENDING_REQUESTS.size > 0) {
-    clearTimeout(die)
-    die = setTimeout(teardown, 256)
-    return
-  }
-  process.exit(0)
-}
-
-export async function build (argv) {
+export async function build () {
+  const argv = minimist(process.argv.slice(2))
   const base = path.join(dirname(import.meta), '..')
 
   const dest = typeof argv.out === 'string'
@@ -148,7 +124,7 @@ export async function build (argv) {
     }
   } catch {}
 
-  const pages = Promise.all([
+  return Promise.all([
     Promise.all([
       load(path.join(componentsDir, 'bundle-js.js')),
       load(path.join(componentsDir, 'footer.js')),
@@ -164,8 +140,6 @@ export async function build (argv) {
     compile('src/pages/examples.js', `${dest}/examples/index.html`),
     compile('src/pages/guides.js', `${dest}/guides/index.html`)
   ])
-
-  await pages
 }
 
 export function main () {
