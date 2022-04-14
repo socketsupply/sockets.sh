@@ -81,8 +81,14 @@ body#index img {
   body img[alt="check"], body svg[alt="check"], body#index img {
     filter: invert(100%);
   }
+}
 
+body > header .centered {
+  width: 50%;
+}
+
+@media (max-width: 699px) {
   body > header .centered {
-    width: 80%;
+    width: 90%;
   }
 }
