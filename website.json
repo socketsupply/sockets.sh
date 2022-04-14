@@ -1,5 +1,5 @@
 {
-  "localhost": {
+ localhost": {
     "provider": "aws",
     "spa": "",
     "lastDeployed": null,
@@ -57,7 +57,7 @@
   "633075417262": {
     "provider": "aws",
     "spa": "",
-    "lastDeployed": "2022-04-09T14:12:51.502Z",
+    "lastDeployed": "2022-04-14T11:14:30.425Z",
     "properties": {
       "relativeFolder": {
         "value": [

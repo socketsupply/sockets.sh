@@ -155,6 +155,8 @@ export async function build (argv) {
       load(path.join(componentsDir, 'module-markdown.js'))
     ]),
     compile('src/pages/index.js', `${dest}/index.html`),
+    compile('src/pages/ios.js', `${dest}/ios/index.html`),
+    compile('src/pages/android.js', `${dest}/android/index.html`),
     compile('src/pages/compare.js', `${dest}/compare/index.html`),
     compile('src/pages/config.js', `${dest}/config/index.html`),
     compile('src/pages/desktop.js', `${dest}/desktop/index.html`),
