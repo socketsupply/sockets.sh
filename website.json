@@ -1,5 +1,5 @@
 {
- localhost": {
+  "localhost": {
     "provider": "aws",
     "spa": "",
     "lastDeployed": null,

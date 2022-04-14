@@ -30,10 +30,6 @@ body.api aside {
   margin-left: 26px;
 }
 
-body.api app-footer {
-  grid-area: 2 / span 2;
-}
-
 body h1 {
   font: 60px/60px var(--tonic-header);
   margin: 0;
@@ -58,4 +54,15 @@ time {
   top: -12px;
   position: relative;
   font-size: 14px;
+}
+
+@media (max-width: 699px) {
+  body.api {
+    display: block;
+    width: 100%;
+  }
+
+  body.api main {
+    margin: 20px;
+  }
 }

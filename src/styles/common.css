@@ -284,11 +284,6 @@ body .button.outline {
   background-color: transparent;
 }
 
-body .page-footer {
-  padding: 80px 0;
-  text-align: center;
-}
-
 body .slide {
   display: none;
 }
@@ -337,34 +332,6 @@ body:not(#index) > main > section:not(.wide) {
 
 body:not(#index) > main > section .wide {
   width: 100%;
-}
-
-footer {
-  background-color: var(--tonic-dark);
-  color: var(--tonic-secondary);
-  font-family: var(--tonic-monospace);
-  min-height: 250px;
-  padding: 40px 0;
-}
-
-footer li {
-  margin: 6px 0;
-}
-
-footer .footer-links {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  justify-items: center;
-  max-width: 80%;
-  margin: auto;
-}
-
-footer .copy {
-  text-align: center;
-  font-family: var(--tonic-monospace);
-  font-size: 12px;
-  margin-top: 50px;
-  color: var(--tonic-secondary);
 }
 
 ul.checklist {

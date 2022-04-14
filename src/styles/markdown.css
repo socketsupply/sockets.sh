@@ -4,6 +4,15 @@ body.api markdown-module h3 {
   margin-top: 60px;
 }
 
+body.api table {
+  display: block;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
+  margin: 0 auto;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
 body.api markdown-module h2 {
   margin-top: 60px;
 }
@@ -103,4 +112,10 @@ body.api markdown-module blockquote {
   max-width: 40px;
   background: var(--tonic-primary);
   margin-bottom: 20px;
+}
+
+@media (max-width: 699px) {
+  body.api > aside {
+    display: none;
+  }
 }

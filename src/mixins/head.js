@@ -26,6 +26,7 @@ const html = async args => {
     'theme.css',
     'common.css',
     'markdown.css',
+    'footer.css',
     'table.css',
     'page-base.css',
     'nav.css',
