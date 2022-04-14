@@ -7,6 +7,29 @@ body#index tonic-tabs#sdk .tonic--tab {
   margin-left: 2px;
 }
 
+body#index > header {
+  height: calc(100vh - 70px);
+  background: var(--tonic-background);
+  border-bottom: 1px dashed var(--tonic-border);
+}
+
+body#index > header img {
+  max-width: 600px;
+}
+
+body#index p.intro {
+  font-size: 24px;
+  line-height: 32px;
+}
+
+body > header .centered {
+  width: 50%;
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+}
+
 body#index tonic-tabs#sdk .tonic--tab[aria-selected="true"] {
   border-bottom: 2px solid;
 }
@@ -54,13 +77,12 @@ body#index img {
   -webkit-user-drag: none;
 }
 
-body#index > main > section {
-  margin-top: 180px;
-  margin-bottom: 80px;
-}
-
 @media (prefers-color-scheme: dark) {
   body img[alt="check"], body svg[alt="check"], body#index img {
     filter: invert(100%);
+  }
+
+  body > header .centered {
+    width: 80%;
   }
 }

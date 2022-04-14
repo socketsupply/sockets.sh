@@ -18,7 +18,7 @@ body > nav {
 @media (prefers-color-scheme: dark) {
   body > nav {
     background: var(--tonic-dark);
-    border-bottom: 1px solid var(--tonic-border);
+    border-bottom: 1px dashed var(--tonic-border);
   }
   body > nav img {
     filter: invert(100%);
@@ -28,7 +28,7 @@ body > nav {
 @media (prefers-color-scheme: light) {
   body > nav {
     background: var(--tonic-window);
-    border-bottom: 1px solid var(--tonic-primary);
+    border-bottom: 1px dashed var(--tonic-primary);
   }
 }
 
@@ -43,9 +43,10 @@ body > nav li {
 }
 
 body > nav img {
-  width: 256px;
+  width: 200px;
   display: block;
-  margin: 28px;
+  margin: 4px;
+  margin-left: 10px;
 }
 
 body > nav a {
@@ -119,6 +120,10 @@ body > nav .right {
 }
 
 @media (max-width: 699px) {
+  body:not(.api) main {
+    margin: 20px;
+  }
+
   body > nav .right {
     display: none;
   }

@@ -43,3 +43,14 @@ tr:last-of-type td {
 td:last-of-type {
   border-right: 0;
 }
+
+@media (max-width: 699px) {
+  body table {
+    display: block;
+    max-width: -moz-fit-content;
+    max-width: fit-content;
+    margin: 0 auto;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+}

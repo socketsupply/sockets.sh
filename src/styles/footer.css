@@ -1,0 +1,43 @@
+body .page-footer {
+  padding: 80px 0;
+  text-align: center;
+}
+
+body.api app-footer {
+  grid-area: 2 / span 2;
+}
+
+footer {
+  background-color: var(--tonic-dark);
+  color: var(--tonic-secondary);
+  font-family: var(--tonic-monospace);
+  min-height: 250px;
+  padding: 40px 0;
+}
+
+footer li {
+  margin: 6px 0;
+}
+
+footer .footer-links {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-items: center;
+  max-width: 80%;
+  margin: auto;
+}
+
+footer .copy {
+  text-align: center;
+  font-family: var(--tonic-monospace);
+  font-size: 12px;
+  margin-top: 50px;
+  color: var(--tonic-secondary);
+}
+
+@media (max-width: 699px) {
+  footer .footer-links {
+    display: block;
+    max-width: 90%;
+  }
+}

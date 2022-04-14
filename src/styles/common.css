@@ -147,8 +147,8 @@ body a.text-button.alternate:hover {
 }
 
 body > header {
-  margin: 240px auto 100px;
   text-align: center;
+  position: relative;
 }
 
 body > header h1,
@@ -376,12 +376,6 @@ ul.checklist li.arrow:before {
   background-image: url("../images/icons/arrow-left.svg");
 }
 
-@media (max-width: 699px) {
-  ul.checklist li.arrow:before {
-    background-image: url("../images/icons/arrow-up.svg");
-  }
-}
-
 .lists {
   display: flex;
 }
@@ -420,4 +414,10 @@ body pre .number {
 
 body pre .keyword {
   color: var(--tonic-info);
+}
+
+@media (max-width: 699px) {
+  ul.checklist li.arrow:before {
+    background-image: url("../images/icons/arrow-up.svg");
+  }
 }

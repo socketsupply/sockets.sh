@@ -16,10 +16,15 @@ class PageIndex extends Tonic {
         <body id="index">
           ${nav}
 
+          <header>
+            <div class="centered">
+              <img src="images/framework.svg" alt="Operator Framework" />
+            </div>
+          </header>
+
           <main>
             <section>
-              <img src="images/framework.svg" alt="Operator Framework" />
-              <p>
+              <p class="intro">
                 Build lean, fast, cross-platform apps for
                 desktop and mobile, using the web technologies you already know.
               </p>
