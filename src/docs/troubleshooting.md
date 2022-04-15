@@ -1,8 +1,6 @@
-# TROUBLE SHOOTING
-
 ## Windows
 
-### Setting up a Windows development environment
+### Development Environment
 
 [`clang++`][0] [version 12][1] required for building.
 
@@ -15,9 +13,9 @@ The `WebView2LoaderStatic.lib` file was sourced from [this][2] package.
 [2]:https://www.nuget.org/api/v2/package/Microsoft.Web.WebView2/1.0.864.35
 [3]: https://visualstudio.microsoft.com/downloads/#build-tools-for-visual-studio-2019
 
-### cannot be loaded because running scripts is disabled on this system.
+### Cannot Run Scripts
 
-If you get the following error message
+If the app cannot be loaded because running scripts is disabled on this system.
 
 ```
 ./bin/bootstrap.ps1 : File C:\Users\rayno\Github\op\bin\bootstrap.ps1 cannot be loaded because running scripts is
@@ -30,7 +28,9 @@ Then you can follow https://superuser.com/a/106363
 1. Start Windows PowerShell with the "Run as Administrator" option.
 2. `set-executionpolicy remotesigned`
 
-### MSVC build environment from Git Bash
+### MSVC
+
+Setting up the MSVC build environment from Git Bash
 
 You can leverage the MSVC build tools (`clang++`) and environment headers directly in Git Bash by loading it into your shell environment directly.
 This is possible by running the following command:
@@ -41,7 +41,7 @@ source bin/mscv-bash-env.sh
 
 The `bin/bootstrap.sh` shell script should work for compiling the `op` (fka `opkit`) tool.
 It is also recommneded to initialize this environment when building applications with `op` (`opkit`) from the CLI so
-the correct build tools can be used which ensures header and library paths for the compiler 
+the correct build tools can be used which ensures header and library paths for the compiler
 
 ## Linux
 ### Build failures
@@ -58,7 +58,7 @@ For debian/ubuntu, before you install the packages, you may want
 to [add][0] these software update repos [here][1] to the software
 updater.
 
-#### ubuntu
+#### Ubuntu
 
 ```sh
 sudo apt install \
@@ -72,7 +72,7 @@ sudo apt install \
 [0]:https://linuxize.com/post/how-to-add-apt-repository-in-ubuntu/
 [1]:https://apt.llvm.org/
 
-#### arch/manjaro
+#### Arch/Manjaro
 
 arch uses the latest versions, so just install `base-devel`
 
@@ -80,7 +80,7 @@ arch uses the latest versions, so just install `base-devel`
 sudo pacman -S base-devel
 ```
 
-### Running multiple versions of g++
+### Multiple g++ versions
 
 If you've tried running the above `apt install` and you get an error
 related `Unable to locate package` then you can also install multiple
@@ -99,7 +99,7 @@ Then you can set your C++ compiler as `g++-10`
 export CXX=g++-10
 ```
 
-### Still can't find Webkit
+### Can't find Webkit
 
 If you run into an error about not finding webkit & gtk like this:
 

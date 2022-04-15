@@ -34,9 +34,10 @@ export default class AppFooter extends Tonic {
             <div>
               <h4>Guides</h4>
               <ul>
-                <li><a href="https://github.com/socketsupply/operatorframework/tree/master/examples">Examples</a></li>
-                <li><a href="/ios">iOS Guide</a></li>
-                <li><a href="/android">Android Guide</a></li>
+                <li><a href="https://github.com/socketsupply/op-examples">Examples</a></li>
+                <li><a href="/ios">iOS</a></li>
+                <li><a href="/android">Android</a></li>
+                <li><a href="/troubleshooting">Troubleshooting</a></li>
               </ul>
             </div>
             <div>

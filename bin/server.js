@@ -138,7 +138,8 @@ export async function build () {
     compile('src/pages/desktop.js', `${dest}/desktop/index.html`),
     compile('src/pages/mobile.js', `${dest}/mobile/index.html`),
     compile('src/pages/examples.js', `${dest}/examples/index.html`),
-    compile('src/pages/guides.js', `${dest}/guides/index.html`)
+    compile('src/pages/guides.js', `${dest}/guides/index.html`),
+    compile('src/pages/troubleshooting.js', `${dest}/troubleshooting/index.html`)
   ])
 }
 
@@ -151,6 +152,8 @@ export function main () {
   http.createServer(handler).listen(port)
 }
 
-if (argv._.includes("run")) {
+const runAsServer = process.argv.some(arg => arg.includes('server.js'))
+
+if (runAsServer) {
   main()
 }

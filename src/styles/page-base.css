@@ -15,7 +15,7 @@ body:not(.api) main {
 
 body.api {
   display: grid;
-  grid-template-columns: 25% 1fr;
+  grid-template-columns: 25% 75%;
   grid-template-rows: 1fr auto;
 }
 
