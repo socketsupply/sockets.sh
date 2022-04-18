@@ -153,7 +153,7 @@ process attach --name TestExample-dev
 ### Logging
 
 To see logs, open `Console.app` (installed on MacOS by default) and in the
-right side panel pick <YourSimulatorDeviceName>. You can filter by `op`
+right side panel pick `<YourSimulatorDeviceName>`. You can filter by `op`
 to see the logs that your app outputs.
 
 [A0]:https://developer.apple.com
