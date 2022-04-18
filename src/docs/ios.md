@@ -35,6 +35,25 @@ them to install to the `Apple Keychain`.
 
 #### Provisioning Profiles
 
+When you run `op . -ios` on your project for the first time, you may see the
+following because you don't have a provisioning profile...
+
+```
+op . -ios
+- security: unable to open "./distribution.mobileprovision" for reading: No such file or directory
+- failed to extract uuid from provisioning profile +30ms
+```
+
+You will need your device id. You can get it by plugging in your iPhone and then
+running the following command.
+
+```
+system_profiler SPUSBDataType \
+  | sed -n '/iPhone/,/Serial/p' \
+  | grep "Serial Number:" \
+  | awk -F ": " '{print $2}'
+```
+
 1. Create a provisioning profile for `Development` (build and deploy to your
 iphone). Include the certificate for `iOS Development`.
 
