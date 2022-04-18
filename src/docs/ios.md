@@ -156,8 +156,6 @@ To see logs, open `Console.app` (installed on MacOS by default) and in the
 right side panel pick <YourSimulatorDeviceName>. You can filter by `op`
 to see the logs that your app outputs.
 
-###  Loading your app onto a real phone.
-
 [A0]:https://developer.apple.com
 [A1]:https://developer.apple.com/account/resources/devices/add
 [A2]:https://developer.apple.com/account/resources/identifiers
