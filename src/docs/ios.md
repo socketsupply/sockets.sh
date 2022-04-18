@@ -48,10 +48,8 @@ You will need your device id. You can get it by plugging in your iPhone and then
 running the following command.
 
 ```
-system_profiler SPUSBDataType \
-  | sed -n '/iPhone/,/Serial/p' \
-  | grep "Serial Number:" \
-  | awk -F ": " '{print $2}'
+op -mid
+00004201101371260222221F
 ```
 
 1. Create a provisioning profile for `Development` (build and deploy to your
