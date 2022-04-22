@@ -138,11 +138,11 @@ system.setMenu({ index: 0, value: `
   Other:
     Apple: _
     Another Test: T
+    !Im Disabled: I
     Some Thing: S + Meta
     ---
     Bazz: s + Meta, Control, Alt;
 `)
-
 ```
 
 #### Separators
@@ -160,6 +160,11 @@ Additional accelerators are `Meta`, `Control`, `Option`, each separated
 by commas. If one is not applicable for a platform, it will just be ignored.
 
 On MacOS `Meta` is the same as `Command`.
+
+#### Disabled Items
+
+If you want to disable a menu item just prefix the item with the `!` character.
+This will cause the item to appear disabled when the system menu renders.
 
 #### Submenus
 

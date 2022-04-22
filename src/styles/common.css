@@ -68,6 +68,8 @@ body h5 {
   font-weight: 900;
   margin: 20px 0;
   color: var(--tonic-primary);
+  padding-top: 10px;
+  margin-top: 20px;
 }
 
 body h1 {
@@ -89,6 +91,17 @@ body h1:not(#index) {
 body h2 {
   font: 36px/36px var(--tonic-primary);
   font-size: 36px;
+}
+
+
+body:not(#index) h1 {
+  margin-top: 20px;
+  border-top: 10px solid;
+}
+
+body:not(#index) h2 {
+  margin-top: 20px;
+  border-top: 2px solid;
 }
 
 body h3 {

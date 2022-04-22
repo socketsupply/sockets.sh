@@ -4,7 +4,7 @@
 
 ### Software
 
-- [Xcode](https://developer.apple.com/xcode/resources/)
+- [Xcode](https://developer.apple.com/xcode/resources/) (You won't need to even open it)
 - [Configurator 2](https://apps.apple.com/us/app/apple-configurator-2/id1037126344?mt=12) (Optional)
 
 ### Administravia
