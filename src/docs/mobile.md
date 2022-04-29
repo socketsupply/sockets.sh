@@ -304,6 +304,22 @@ Write buffer to the file.
 | bytesWritten | integer | the number of bytes written |
 | buffer | Buffer | A reference to the passed in `buffer` argument |
 
+### `fsPromise.copyFile(src, dest[, mode])`
+
+Asynchronously copies src to dest. By default, dest is overwritten if it already exists.
+
+| Argument | Type | Default | Required | Description |
+| :--- | :--- | :--- | :--- | :--- |
+| src | string \| Buffer | | ![check](/images/icons/checkmark.svg) | source filename to copy |
+| dest | string \| Buffer  | | ![check](/images/icons/checkmark.svg) | destination filename of the copy operation |
+| mode | integer | 0 | | Optional modifiers that specify the behavior of the copy operation. It is possible to create a mask consisting of the bitwise OR of two or more values |
+Modes:
+- `fs.constants.COPYFILE_EXCL`: The copy operation will fail if dest already exists.
+- `fs.constants.COPYFILE_FICLONE`: The copy operation will attempt to create a copy-on-write reflink. If the platform does not support copy-on-write, then a fallback copy mechanism is used.
+- `fs.constants.COPYFILE_FICLONE_FORCE`: The copy operation will attempt to create a copy-on-write reflink. If the platform does not support copy-on-write, then the operation will fail.
+
+**&larr; Return** `Promise<void>`
+
 ### `fsPromise.mkdir(path[, options])`
 
 Asynchronously creates a directory.
