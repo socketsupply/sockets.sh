@@ -287,6 +287,49 @@ The `Stats` class is the same as described in Node.js [fs.Stats](https://nodejs.
 
 **&larr; Return** `Promise<Stats>`
 
+### `fsPromises.open(path, flags[, mode])`
+
+Opens a `FileHandle`.
+
+| Argument | Type | Default | Required | Description |
+| :--- | :--- | :--- | :--- | :--- |
+| path | Buffer | | ![check](/images/icons/checkmark.svg) | |
+| flags | integer | 0 | | The start position from within buffer where the data to write begins |
+| mode | integer | buffer.byteLength - offset | | The number of bytes to write. ⚠️ We don't use this one so far, so it won't affect anything |
+
+**&larr; Return** `Promise<FileHandle>`
+
+### `fsPromises.readFile(path[, options])`
+
+Asynchronously reads the entire contents of a file.
+
+If no encoding is specified (using options.encoding), the data is returned as a `Buffer` object. Otherwise, the data will be a string.
+
+| Argument | Type | Default | Required | Description |
+| :--- | :--- | :--- | :--- | :--- |
+| path | string \| Buffer \| FileHandle | | ![check](/images/icons/checkmark.svg) | filename or FileHandle |
+| options | Object | `{}` | | An optional options object |
+| options.encoding | string \| null | null | | |
+| options.flag | string | | | |
+| options.signal | AbortSignal | | | allows aborting an in-progress readFile ⚠️ Not implemented |
+
+**&larr; Return** `Promise<string | Buffer>`
+
+### `fsPromises.rm(path[, options])`
+
+Removes files and directories
+
+| Argument | Type | Default | Required | Description |
+| :--- | :--- | :--- | :--- | :--- |
+| path | string \| Buffer \| FileHandle | | ![check](/images/icons/checkmark.svg) | filename or FileHandle |
+| options | Object | `{}` | | An optional options object ⚠️ Not implemented |
+
+**&larr; Return** `Promise<undefined>`
+
+### `fsPromises.unlink(path[, options])`
+
+Currently, this is an alias for `fsPromises.rm`
+
 ### `filehandle.write(buffer[, offset[, length[, position]]])`
 
 Write buffer to the file.
