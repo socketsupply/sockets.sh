@@ -154,7 +154,7 @@ Bind an listen on a port and address (or all interfaces)
 | :--- | :--- | :--- | :--- | :--- |
 |      |      |      |      |      |
 
-**&larr; Return** `undefined`a
+**&larr; Return** `undefined`
 
 ```js
 ```
@@ -228,6 +228,81 @@ window.addEventListener('data', e => {
   myMessageCount++
 })
 ```
+
+## File System
+
+Operator Framwork File System API tries to mimic Node.js File API, though it has some differences and adds some more low-level methods.
+
+### Class: `FileHandle`
+
+A `FileHandle` object is an object wrapper for a numeric file descriptor. It tries to mimic Node.js' [`FileHandle`](https://nodejs.org/api/fs.html#class-filehandle).
+
+### `FileHandle` event: `close`
+
+The 'close' event is emitted when the `FileHandle` has been closed and can no longer be used.
+
+### `fileHandle.close()`
+
+**&larr; Return** `Promise<undefined>`
+
+Closes the file handle after waiting for any pending operation on the handle to complete.
+
+```js
+import { open } from 'fs';
+
+let filehandle;
+try {
+  filehandle = await open('thefile.txt', 'r');
+} finally {
+  await filehandle?.close();
+}
+```
+
+### `fileHandle.read([options])`
+
+Reads data from the file and stores that in the given buffer.
+
+| Argument | Type | Default | Required | Description |
+| :--- | :--- | :--- | :--- | :--- |
+| options | Object | `{}` | | An optional options object |
+| options.buffer | Buffer | Buffer.alloc(16384) | | A buffer that will be filled with the file data read |
+| options.offset | integer | 0 | | The location in the buffer at which to start filling |
+| options.length | integer | buffer.byteLength - offset | | The number of bytes to read |
+| options.position | integer | null | null | | The location where to begin reading data from the file. If null, data will be read from the current file position, and the position will be updated. If position is an integer, the current file position will remain unchanged |
+
+**&larr; Return** `Promise<Object>`
+| Property | Type | Description |
+| :--- | :--- | :--- |
+| bytesRead | integer | The number of bytes read |
+| buffer | Buffer | A reference to the passed in `buffer` argument |
+
+### `filehandle.stat([options])`
+
+The `Stats` class is the same as described in Node.js [fs.Stats](https://nodejs.org/api/fs.html#class-fsstats)
+
+| Argument | Type | Default | Required | Description |
+| :--- | :--- | :--- | :--- | :--- |
+| options | Object | `{}` | | An optional options object |
+| options.bigint | boolean | false | | Whether the numeric values in the returned stats object should be bigint |
+
+**&larr; Return** `Promise<Stats>`
+
+### `filehandle.write(buffer[, offset[, length[, position]]])`
+
+Write buffer to the file.
+
+| Argument | Type | Default | Required | Description |
+| :--- | :--- | :--- | :--- | :--- |
+| buffer | Buffer | | ![check](/images/icons/checkmark.svg) | |
+| offset | integer | 0 | | The start position from within buffer where the data to write begins |
+| length | integer | buffer.byteLength - offset | | The number of bytes to write |
+| position | integer | null | null | | The offset from the beginning of the file where the data from buffer should be written. If position is not a number, the data will be written at the current position |
+
+**&larr; Return** `Promise<Object>`
+| Property | Type | Description |
+| :--- | :--- | :--- |
+| bytesWritten | integer | the number of bytes written |
+| buffer | Buffer | A reference to the passed in `buffer` argument |
 
 <br/>
 
