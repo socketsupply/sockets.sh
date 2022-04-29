@@ -287,6 +287,23 @@ The `Stats` class is the same as described in Node.js [fs.Stats](https://nodejs.
 
 **&larr; Return** `Promise<Stats>`
 
+### `filehandle.write(buffer[, offset[, length[, position]]])`
+
+Write buffer to the file.
+
+| Argument | Type | Default | Required | Description |
+| :--- | :--- | :--- | :--- | :--- |
+| buffer | Buffer | | ![check](/images/icons/checkmark.svg) | |
+| offset | integer | 0 | | The start position from within buffer where the data to write begins |
+| length | integer | buffer.byteLength - offset | | The number of bytes to write |
+| position | integer | null | null | | The offset from the beginning of the file where the data from buffer should be written. If position is not a number, the data will be written at the current position |
+
+**&larr; Return** `Promise<Object>`
+| Property | Type | Description |
+| :--- | :--- | :--- |
+| bytesWritten | integer | the number of bytes written |
+| buffer | Buffer | A reference to the passed in `buffer` argument |
+
 ### `fsPromises.open(path, flags[, mode])`
 
 Opens a `FileHandle`.
@@ -330,22 +347,21 @@ Removes files and directories
 
 Currently, this is an alias for `fsPromises.rm`
 
-### `filehandle.write(buffer[, offset[, length[, position]]])`
+### `fsPromises.writeFile(file, data[, options])`
 
-Write buffer to the file.
+Asynchronously writes data to a file, replacing the file if it already exists. data can be a string or a buffer
 
 | Argument | Type | Default | Required | Description |
 | :--- | :--- | :--- | :--- | :--- |
-| buffer | Buffer | | ![check](/images/icons/checkmark.svg) | |
-| offset | integer | 0 | | The start position from within buffer where the data to write begins |
-| length | integer | buffer.byteLength - offset | | The number of bytes to write |
-| position | integer | null | null | | The offset from the beginning of the file where the data from buffer should be written. If position is not a number, the data will be written at the current position |
+| file | string \| Buffer \| FileHandle | | ![check](/images/icons/checkmark.svg) | filename or FileHandle |
+| data | string \| Buffer | | ![check](/images/icons/checkmark.svg) | |
+| options | Object | `{}` | | An optional options object |
+| options.encoding | string \| null | 'utf8' | | ⚠️ Not implemented |
+| options.mode | string | 0o666 | | ⚠️ Not implemented |
+| options.flag | string | 'w' | | ⚠️ Not implemented  |
+| options.signal | AbortSignal | | | allows aborting an in-progress readFile ⚠️ Not implemented |
 
-**&larr; Return** `Promise<Object>`
-| Property | Type | Description |
-| :--- | :--- | :--- |
-| bytesWritten | integer | the number of bytes written |
-| buffer | Buffer | A reference to the passed in `buffer` argument |
+**&larr; Return** `Promise<string | Buffer>`
 
 <br/>
 
