@@ -16,7 +16,7 @@ and phystical `devices`.
 
 #### Setup
 
-1. Sign up for a (free) [Apple Developer][https://developer.apple.com/] account.
+1. Sign up for a (free) [Apple Developer](https://developer.apple.com/) account.
 2. Register your [devices][01] for testing.
 3. Create an [app id][A2] for the application you are developing.
 4. Create an [App Store Connect][A3] record for your app (don't worry about
