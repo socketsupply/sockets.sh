@@ -231,7 +231,7 @@ window.addEventListener('data', e => {
 
 ## File System
 
-Operator Framwork File System API tries to mimic Node.js File API, though it has some differences and adds some more low-level methods.
+Operator Framwork File System API tries to mimic [Node.js File API](https://nodejs.org/api/fs.html#file-system), though OP FS API may have some differences and or missing features.
 
 ### Class: `FileHandle`
 
@@ -243,20 +243,12 @@ The 'close' event is emitted when the `FileHandle` has been closed and can no lo
 
 ### `fileHandle.close()`
 
-**&larr; Return** `Promise<void>`
-
 Closes the file handle after waiting for any pending operation on the handle to complete.
 
-```js
-import { open } from 'fs';
+| Argument | Type | Default | Required | Description |
+| :--- | :--- | :--- | :--- | :--- |
 
-let filehandle;
-try {
-  filehandle = await open('thefile.txt', 'r');
-} finally {
-  await filehandle?.close();
-}
-```
+**&larr; Return** `Promise<void>`
 
 ### `fileHandle.read([options])`
 
@@ -271,6 +263,7 @@ Reads data from the file and stores that in the given buffer.
 | options.position | integer | null | null | | The location where to begin reading data from the file. If null, data will be read from the current file position, and the position will be updated. If position is an integer, the current file position will remain unchanged |
 
 **&larr; Return** `Promise<Object>`
+
 | Property | Type | Description |
 | :--- | :--- | :--- |
 | bytesRead | integer | The number of bytes read |
@@ -299,6 +292,7 @@ Write buffer to the file.
 | position | integer | null | null | | The offset from the beginning of the file where the data from buffer should be written. If position is not a number, the data will be written at the current position |
 
 **&larr; Return** `Promise<Object>`
+
 | Property | Type | Description |
 | :--- | :--- | :--- |
 | bytesWritten | integer | the number of bytes written |
