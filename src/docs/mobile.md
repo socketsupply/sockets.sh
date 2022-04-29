@@ -378,6 +378,17 @@ Removes files and directories
 
 **&larr; Return** `Promise<void>`
 
+### `fsPromises.rmdir(path[, options])`
+
+Removes files and directories
+
+| Argument | Type | Default | Required | Description |
+| :--- | :--- | :--- | :--- | :--- |
+| path | string \| Buffer | | ![check](/images/icons/checkmark.svg) | |
+| options | Object | `{}` | | An optional options object ⚠️ Not implemented |
+
+**&larr; Return** `Promise<void>`
+
 ### `fsPromises.unlink(path[, options])`
 
 Currently, this is an alias for `fsPromises.rm`
