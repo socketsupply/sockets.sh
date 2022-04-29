@@ -253,6 +253,18 @@ statement will evalute true.
 assert(value === { title: 'Wizard', parent: 'contextMenu', state: 0 })
 ```
 
+### `window.parent.getConfig()`
+Fetches config defiend in `operator.config` as a plain JSON object.
+
+**&larr; Return** `Object`
+
+```ts
+const config = await window.parent.getConfig()
+console.log(config.title)
+console.log(config.version)
+console.log(config.description))
+```
+
 ## Events
 The following events are emitted on the `window` object.
 
