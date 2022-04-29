@@ -254,15 +254,15 @@ assert(value === { title: 'Wizard', parent: 'contextMenu', state: 0 })
 ```
 
 ### `window.parent.getConfig()`
-Fetches config defiend in `operator.config` as a plain JSON object.
+Fetches config defiend in [`operator.config`](/config) as a plain JSON object.
 
-**&larr; Return** `Object`
+**&larr; Return** [OperatorConfig](/config)
 
 ```ts
 const config = await window.parent.getConfig()
 console.log(config.title)
 console.log(config.version)
-console.log(config.description))
+console.log(config.description)
 ```
 
 ## Events
