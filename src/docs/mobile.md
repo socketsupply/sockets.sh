@@ -243,7 +243,7 @@ The 'close' event is emitted when the `FileHandle` has been closed and can no lo
 
 ### `fileHandle.close()`
 
-**&larr; Return** `Promise<undefined>`
+**&larr; Return** `Promise<void>`
 
 Closes the file handle after waiting for any pending operation on the handle to complete.
 
@@ -304,6 +304,17 @@ Write buffer to the file.
 | bytesWritten | integer | the number of bytes written |
 | buffer | Buffer | A reference to the passed in `buffer` argument |
 
+### `fsPromise.mkdir(path[, options])`
+
+Asynchronously creates a directory.
+
+| Argument | Type | Default | Required | Description |
+| :--- | :--- | :--- | :--- | :--- |
+| path | string \| Buffer | | ![check](/images/icons/checkmark.svg) | |
+| options | Object | `{}` | | An optional options object |
+| options.recursive | boolean| false | | ⚠️ Not implemented |
+| options.mode | string | 0o777 | | ⚠️ Not implemented |
+
 ### `fsPromises.open(path, flags[, mode])`
 
 Opens a `FileHandle`.
@@ -315,6 +326,19 @@ Opens a `FileHandle`.
 | mode | integer | buffer.byteLength - offset | | The number of bytes to write. ⚠️ We don't use this one so far, so it won't affect anything |
 
 **&larr; Return** `Promise<FileHandle>`
+
+### `fsPromises.readdir(path[, options])`
+
+Reads the contents of a directory.
+
+| Argument | Type | Default | Required | Description |
+| :--- | :--- | :--- | :--- | :--- |
+| path | string \| Buffer \| FileHandle | | ![check](/images/icons/checkmark.svg) | filename or FileHandle |
+| options | Object | `{}` | | An optional options object |
+| options.encoding | string \| 'utf8' | null | | ⚠️ Not implemented |
+| options.withFileTypes | boolean | falso | | ⚠️ Not implemented |
+
+**&larr; Return** `Promise<String[]>`
 
 ### `fsPromises.readFile(path[, options])`
 
@@ -332,6 +356,17 @@ If no encoding is specified (using options.encoding), the data is returned as a 
 
 **&larr; Return** `Promise<string | Buffer>`
 
+### `fsPromises.rename(path[, options])`
+
+Renames oldPath to newPath.
+
+| Argument | Type | Default | Required | Description |
+| :--- | :--- | :--- | :--- | :--- |
+| oldPath | string \| Buffer | | ![check](/images/icons/checkmark.svg) | |
+| newPath | string \| Buffer | | ![check](/images/icons/checkmark.svg) | |
+
+**&larr; Return** `Promise<void>`
+
 ### `fsPromises.rm(path[, options])`
 
 Removes files and directories
@@ -341,7 +376,7 @@ Removes files and directories
 | path | string \| Buffer \| FileHandle | | ![check](/images/icons/checkmark.svg) | filename or FileHandle |
 | options | Object | `{}` | | An optional options object ⚠️ Not implemented |
 
-**&larr; Return** `Promise<undefined>`
+**&larr; Return** `Promise<void>`
 
 ### `fsPromises.unlink(path[, options])`
 
