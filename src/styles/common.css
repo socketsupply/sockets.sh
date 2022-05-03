@@ -414,11 +414,10 @@ body pre {
 
 body pre {
   border-radius: 6px;
-  padding: 50px;
+  padding: 30px;
   border: none;
   height: auto;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  overflow: scroll;
 }
 
 body pre .string,

@@ -54,5 +54,7 @@
   },
   "binDependencies": {
     "standard": "14.3.1"
-  }
+  },
+  "domain": "operatorframework.dev",
+  "skiplist": []
 }
