@@ -2,7 +2,7 @@
 
 | Property | Required | Default | Description |
 | :--- | :--- | :--- | :--- |
-| `arch` | | String | This is made available for cross-compiling. It specifies the target architecture, by default it detects the machine on which the cli is executing. |
+| `arch` | | 'auto' | This is made available for cross-compiling. It specifies the target architecture, by default it detects the machine on which the cli is executing. |
 | `build` | | | Shell command to build an application |
 | `bundle_identifier` | | |  A unique ID that identifies the bundle (used by all app stores). |
 | `bundle_identifier_short` | | | A unique ID that identifies the bundle (used by all app stores). |
