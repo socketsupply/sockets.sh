@@ -67,7 +67,7 @@
 
 | Property | Required | Default | Description |
 | :--- | :--- | :--- | :--- |
-| `ios_device_simulator` | | | which device to target when building for the simulator |
+| `ios_simulator_device` | | | which device to target when building for the simulator. The list of available devices: `xcrun simctl list devicetypes` |
 | `ios_entitlements` | ![check](/images/icons/checkmark.svg) | | plist file path |
 | `ios_distribution_method` | ![check](/images/icons/checkmark.svg) | | |
 | `ios_provisioning_profile` | ![check](/images/icons/checkmark.svg) | | The provisioning profile that is used for signing (should be mac?) |
