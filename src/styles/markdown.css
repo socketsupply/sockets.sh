@@ -4,7 +4,8 @@ body.api markdown-module h3 {
   margin-top: 60px;
 }
 
-body.api markdown-module h2 {
+body:not(#index) markdown-module h1,
+body:not(#index) markdown-module h2 {
   margin-top: 60px;
 }
 

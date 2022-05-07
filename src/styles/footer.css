@@ -38,6 +38,6 @@ footer .copy {
 @media (max-width: 699px) {
   footer .footer-links {
     display: block;
-    max-width: 90%;
+    max-width: 100%;
   }
 }

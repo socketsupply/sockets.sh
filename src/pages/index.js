@@ -79,7 +79,7 @@ class PageIndex extends Tonic {
 
             <h2>Getting Started</h2>
             <p>
-              In a new directory run <code>op -i</code>. This will create
+              In a new directory run <code>op --init</code>. This will create
               an <code>operator.config</code> file, and create a <code>src</code>
               directory with an a <code>index.html</code> file in it.
             </p>

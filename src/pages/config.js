@@ -14,7 +14,7 @@ class PageConfig extends Tonic {
 
         <head>${h}</head>
 
-        <body id="index">
+        <body>
           ${nav}
 
           <main>

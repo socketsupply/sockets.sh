@@ -11,7 +11,7 @@ html {
 
 body:not(.api) main {
   margin: 0 20%;
-  margin-bottom: 150px;
+  margin-bottom: 100px;
 }
 
 body:not(#index) {
@@ -62,12 +62,24 @@ time {
 }
 
 @media (max-width: 699px) {
+  body:not(.api) main,
+  body main {
+    margin: 40px;
+    margin-bottom: 100px;
+  }
+
+  body footer .content {
+    margin: 40px;
+  }
+
   body.api {
     display: block;
     width: 100%;
   }
 
-  body.api main {
-    margin: 14%;
+  body.api main,
+  body main {
+    margin: 40px;
+    margin-bottom: 100px;
   }
 }

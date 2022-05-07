@@ -131,18 +131,8 @@ body > header .centered {
 }
 
 @media (max-width: 699px) {
-  body footer .content,
-  body#index > main {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-
   .lists {
     display: block;
-  }
-
-  body#index > main {
-    margin-bottom: 150px;
   }
 
   body#index > header .centered {
