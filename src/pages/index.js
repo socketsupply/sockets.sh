@@ -14,11 +14,18 @@ class PageIndex extends Tonic {
         <head>${h}</head>
 
         <body id="index">
-          ${nav}
-
           <header>
             <div class="centered">
-              <img src="images/framework.svg" alt="Operator Framework" />
+              <div class="hardware">
+                <img src="images/illustration-monitor.svg" alt="A Monitor" />
+                <img src="images/illustration-tablet.svg" alt="A Tablet" />
+                <img src="images/illustration-mobile.svg" alt="A Phone" />
+                <img src="images/illustration-server.svg" alt="A Server" />
+                <img src="images/illustration-laptop.svg" alt="A Laptop" />
+              </div>
+              <div class="title" alt="A Web Owned & Operated By Everyone">
+                <img src="images/title.svg" class="mark" alt="Operator Framework" />
+              </div>
             </div>
           </header>
 
@@ -34,13 +41,13 @@ class PageIndex extends Tonic {
                   <li>Use any "backend", ie Python, Rust, Node.js</li>
                   <li>Bring your own framework, ie React, Svelt</li>
                   <li>Windows, Linux, MacOS, iOS, Android</li>
-                  <li>Provides full UDP and TCP in JS on Mobile</li>
+                  <li>UDP, TCP &amp; File I/O in JS on Mobile</li>
                 </ul>
                 <ul class="checklist">
                   <li>Less than 20Mb base memory footprint</li>
                   <li>Less than 1Mb base binary distributable</li>
-                  <li>No 3rd pary dependencies</li>
-                  <li>Minimalism as a core value</li>
+                  <li>Uniform DX across platforms</li>
+                  <li>Minimal, readable and maintainable</li>
                 </ul>
               </div>
             </section>

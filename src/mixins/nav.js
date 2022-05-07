@@ -1,9 +1,9 @@
 import Tonic from '@socketsupply/tonic'
 
 const nav = Tonic.unsafeRawString(`
-<nav>
-  <a href="/"><img src="/images/framework.svg" alt="Framework"></a>
-</nav>
+  <nav>
+    <a href="/">&larr; Home</a>
+  </nav>
 `)
 
 export default nav

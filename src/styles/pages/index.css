@@ -8,13 +8,56 @@ body#index tonic-tabs#sdk .tonic--tab {
 }
 
 body#index > header {
-  height: calc(100vh - 70px);
-  background: var(--tonic-background);
-  border-bottom: 1px dashed var(--tonic-border);
+  position: relative;
+  z-index: 1;
+  height: 100vh;
+  display: grid;
+  align-content: center;
+  justify-items: center;
 }
 
-body#index > header img {
-  max-width: 600px;
+body#index > header .hardware {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+  gap: 10px;
+  min-width: 42%;
+  align-items: end;
+}
+
+body#index > header .title {
+  margin-top: 20px;
+}
+
+.word {
+  position: relative;
+  font-family: var(--tonic-header);
+  font-weight: 900;
+  font-size: 34px;
+  display: inline-block;
+  color: var(--tonic-primary);
+}
+
+.watdo {
+  padding: 0 10px;
+}
+
+body#index > header .word-a-web {
+  top: 24px;
+  font-size: 1.5em;
+}
+
+body#index > header .word-owned-and-operated {
+  top: 54px;
+}
+
+body#index > header .word-by {
+  top: 70px;
+}
+
+body#index > header .word-everyone {
+  width: 50%;
+  top: 66px;
+  font-size: 4em;
 }
 
 body#index p.intro {
@@ -24,7 +67,7 @@ body#index p.intro {
 
 body > header .centered {
   width: 50%;
-  top: 50%;
+  top: 48%;
   left: 50%;
   position: absolute;
   transform: translate(-50%, -50%);
@@ -88,7 +131,21 @@ body > header .centered {
 }
 
 @media (max-width: 699px) {
-  body > header .centered {
-    width: 90%;
+  body footer .content,
+  body#index > main {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .lists {
+    display: block;
+  }
+
+  body#index > main {
+    margin-bottom: 150px;
+  }
+
+  body#index > header .centered {
+    min-width: 80%;
   }
 }

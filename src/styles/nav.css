@@ -1,18 +1,20 @@
-body {
-  padding-top: 74px;
-}
-
 body > nav {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   user-select: none;
-  height: 75px;
+  height: 66px;
   font: 15px var(--tonic-monospace);
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 10;
+}
+
+body > nav > a {
+  margin: 20px;
+  display: inline-block;
+  font-size: 24px;
 }
 
 @media (prefers-color-scheme: dark) {

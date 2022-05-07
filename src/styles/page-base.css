@@ -10,7 +10,12 @@ html {
 }
 
 body:not(.api) main {
-  margin: 10% 20%;
+  margin: 0 20%;
+  margin-bottom: 150px;
+}
+
+body:not(#index) {
+  margin-top: 120px;
 }
 
 body.api {
