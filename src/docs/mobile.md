@@ -1,6 +1,6 @@
 # Mobile API
 
-Mobile APIs can be found on a global object named `system`. Almost none of the desktop APIs apply to mobile because the environment is quite different. For example, there is no "main" process on mobile. Mobile APIs are namespaced using the objects `tcp`, `udp` and `utp`.
+Access to the app's native APIs is made though `window.parent`.
 
 ## TCP Server
 
@@ -10,7 +10,7 @@ Creates a new TCP server.
 | Argument | Type | Default | Required | Description |
 | :--- | :--- | :--- | :--- | :--- |
 | options | Object | `{}` | | An optional options object |
-| options.simultaneousAccepts | Boolean | true | | Enable / disable simultaneous asynchronous accept requests that are queued by the operating system when listening for new TCP connections. See [libuv][uv0] docs for more info. |
+| options.simultaneousAccepts | Boolean | true | | Enable / disable simultaneous asynchronous accept requests that are queued by the operating parent when listening for new TCP connections. See [libuv][uv0] docs for more info. |
 
 **&larr; Return** `Server` (Instance of EventEmitter with the following events)
 
@@ -22,7 +22,7 @@ Creates a new TCP server.
 | `"closed"` | Emitted when the connection has fully closed. |
 
 ```js
-const server = window.system.tcp.createServer()
+const server = window.parent.tcp.createServer()
 
 server.on('connection', socket => {
   socket.on('data', data => {
@@ -92,7 +92,7 @@ Creates a new socket by immediately initiating a connection.
 | `"closed"` | Emitted when the connection has fully closed. |
 
 ```js
-const socket = window.system.tcp.createConnection(9200, '192.168.1.22')
+const socket = window.parent.tcp.createConnection(9200, '192.168.1.22')
 
 socket.on('connect', socket => {
   document.body.style.border = '1px solid green'
@@ -231,7 +231,7 @@ window.addEventListener('data', e => {
 
 ## File System
 
-Operator Framwork File System API tries to mimic [Node.js File API](https://nodejs.org/api/fs.html#file-system), though OP FS API may have some differences and or missing features.
+Operator Framwork File System API tries to mimic [Node.js File API](https://nodejs.org/api/fs.html#file-parent), though OP FS API may have some differences and or missing features.
 
 ### Class: `FileHandle`
 
