@@ -176,6 +176,23 @@ Send a datagram to a port and address
 The following events are emitted on the `window` object, and can be listened to
 with `window.addEventListener`.
 
+### `"data"`
+
+Emitted any time there is any data from the ipc channel, this
+is a kind of firehose of data that can be helpful for debugging.
+
+| Property | Type | Description |
+| :--- | :--- | :--- |
+| `e.detail.serverId` | String? | If the message was send by a server (uint64). |
+| `e.detail.clientId` | String? | If the message was send by a client (uint64). |
+| `e.detail.data` | Object? | Could be anything, in the case of a socket message, it will be a base64 encoded string. |
+
+```js
+window.addEventListener('data', e => {
+  myMessageCount++
+})
+```
+
 ### `"blur"`
 Raised on the `window` object when the window is backgrounded by the user.
 
@@ -212,20 +229,19 @@ window.addEventListener('online', e => {
 })
 ```
 
-### `"data"`
+### `"protocol"`
 
-Emitted any time there is any data from the ipc channel, this
-is a kind of firehose of data that can be helpful for debugging.
+Emitted when your app is opened because you registered a protocol in the app's
+configuration file (ie `ios_procol: hyper`).
 
 | Property | Type | Description |
 | :--- | :--- | :--- |
-| serverId | String? | If the message was send by a server (uint64). |
-| clientId | String? | If the message was send by a client (uint64). |
-| data | Object? | Could be anything, in the case of a socket message, it will be a base64 encoded string. |
+| `e.detail.url` | String? | The url that opened the app. |
 
 ```js
-window.addEventListener('data', e => {
-  myMessageCount++
+window.addEventListener('protocol', e => {
+  const u = new URL(e.detail.url)
+  assert(u.protocol === 'ipfs:')
 })
 ```
 
