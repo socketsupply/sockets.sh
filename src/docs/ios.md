@@ -36,7 +36,7 @@ them to install to the `Apple Keychain`.
 #### Provisioning Profiles
 
 When you run `op . -ios` on your project for the first time, you may see the
-following because you don't have a provisioning profile...
+following because you don't have a [provisioning profile][A5]...
 
 ```
 op . -ios
