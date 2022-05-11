@@ -49,7 +49,7 @@ running the following command.
 
 ```
 op -mid
-00004201101371260222221F
+00004201-101371260222221F
 ```
 
 1. Create a provisioning profile for `Development` (build and deploy to your
@@ -79,7 +79,7 @@ apple_release_provisioning_profile: src/distribution.mobileprovision
 ```
 
 ```bash
-op . -r # start the simulator
+op . -ios -simulator -r # create a simulator VM and launch the app in it
 ```
 
 ```bash
@@ -113,34 +113,6 @@ xcrun altool --upload-app \
 ```
 
 ## Development
-
-### Running the iOS Simulator
-To create a iOS VM.
-
-```bash
-xcrun simctl \
-  create <YourSimulatorDeviceName> \
-  com.apple.CoreSimulator.SimDeviceType.iPhone-13-Pro \
-  com.apple.CoreSimulator.SimRuntime.iOS-15-0 > boot-id.txt
-```
-
-To boot the VM that was created from the command above.
-
-```bash
-xcrun simctl boot `cat boot-id.txt`
-```
-
-To run the simulator.
-
-```bash
-open /Applications/Xcode.app/Contents/Developer/Applications/Simulator.app/
-```
-
-To install your app into the current VM of the running simulator.
-
-```bash
-xcrun simctl install booted test/ios/dist/TestExample-dev.app
-```
 
 ## Debugging
 

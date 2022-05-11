@@ -44,10 +44,11 @@ can tell you the platform specific build destination. For example.
 After you get your UI looking how you want. The next step is to try it out
 on the simulator. At this point we can use either the `-ios` or `-android`
 flags as well as the `-simulator` flag. This will createa a platform specific
-bundle, create and launch a simulator (if needed) and then run your app.
+bundle, create and boot a simulator VM and then run your app in simulator if
+`-r` flag is provided.
 
 ```
-op . -ios -simulator
+op . -ios -simulator -r
 ```
 
 ### Debugging on the simulator
