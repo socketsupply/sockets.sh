@@ -3,7 +3,7 @@
 
 All platforms can produce executables for `Windows`, `Linux`, and `MacOS`.
 
-|                         | Operator                              | Tauri                                 | Nutralinojs                           | Electron |
+|                         | Operator                              | Tauri                                 | Neutralinojs                           | Electron |
 | :---                    | :---:                                 | :---:                                 | :---:                                 | :---:    |
 | MacOS, Windows, Linux   | ![check](/images/icons/checkmark.svg) | ![check](/images/icons/checkmark.svg) | ![check](/images/icons/checkmark.svg) | ![check](/images/icons/checkmark.svg) |
 | Any Backend             | ![check](/images/icons/checkmark.svg) |                                       | ![check](/images/icons/checkmark.svg) |          |

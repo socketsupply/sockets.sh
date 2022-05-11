@@ -39,7 +39,7 @@ class PageIndex extends Tonic {
               <div class="lists">
                 <ul class="checklist">
                   <li>Use any "backend", ie Python, Rust, Node.js</li>
-                  <li>Bring your own framework, ie React, Svelt</li>
+                  <li>Bring your own framework, ie React, Svelte</li>
                   <li>Windows, Linux, MacOS, iOS, Android</li>
                   <li>UDP, TCP &amp; File I/O in JS on Mobile</li>
                 </ul>
