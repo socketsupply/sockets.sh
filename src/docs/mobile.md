@@ -2,9 +2,9 @@
 
 Access to the app's native APIs is made though `window.parent`.
 
-## TCP Server
+## Net
 
-### `tcp.createServer([options])`
+### `net.createServer([options])`
 Creates a new TCP server.
 
 | Argument | Type | Default | Required | Description |
@@ -22,7 +22,7 @@ Creates a new TCP server.
 | `"closed"` | Emitted when the connection has fully closed. |
 
 ```js
-const server = window.parent.tcp.createServer()
+const server = window.parent.net.createServer()
 
 server.on('connection', socket => {
   socket.on('data', data => {
@@ -71,9 +71,7 @@ Stops the server from accepting new connections and keeps existing connections. 
 
 <br/>
 
-## TCP Connect
-
-### `tcp.createConnection(port[, address][, cb])`
+### `net.createConnection(port[, address][, cb])`
 
 Creates a new socket by immediately initiating a connection.
 
@@ -92,7 +90,7 @@ Creates a new socket by immediately initiating a connection.
 | `"closed"` | Emitted when the connection has fully closed. |
 
 ```js
-const socket = window.parent.tcp.createConnection(9200, '192.168.1.22')
+const socket = window.parent.net.createConnection(9200, '192.168.1.22')
 
 socket.on('connect', socket => {
   document.body.style.border = '1px solid green'
