@@ -16,15 +16,9 @@ class PageIndex extends Tonic {
         <body id="index">
           <header>
             <div class="centered">
-              <div class="hardware">
-                <img src="images/illustration-monitor.svg" alt="A Monitor" />
-                <img src="images/illustration-tablet.svg" alt="A Tablet" />
-                <img src="images/illustration-mobile.svg" alt="A Phone" />
-                <img src="images/illustration-server.svg" alt="A Server" />
-                <img src="images/illustration-laptop.svg" alt="A Laptop" />
-              </div>
+              <img src="images/illustrations.svg" alt="A Laptop" />
               <div class="title" alt="A Web Owned & Operated By Everyone">
-                <img src="images/title.svg" class="mark" alt="Operator Framework" />
+                <img src="images/title.svg" class="mark" alt="Socket SDK" />
               </div>
             </div>
           </header>
@@ -61,30 +55,30 @@ class PageIndex extends Tonic {
 
             <tonic-tab-panel id="panel-mac">
               <code>
-                brew install op
+                brew install ssc
               </code>
             </tonic-tab-panel>
 
             <tonic-tab-panel id="panel-linux">
               <code>
-                sudo apt-get install op
+                sudo apt-get install ssc
               </code>
             </tonic-tab-panel>
 
             <tonic-tab-panel id="panel-win">
               <code>
-                nuget install op
+                nuget install ssc
               </code>
             </tonic-tab-panel>
 
             <h2>Getting Started</h2>
             <p>
-              In a new directory run <code>op --init</code>. This will create
-              an <code>operator.config</code> file, and create a <code>src</code>
+              In a new directory run <code>ssc --init</code>. This will create
+              an <code>ssc.config</code> file, and create a <code>src</code>
               directory with an a <code>index.html</code> file in it.
             </p>
             <p>
-              Running <code>op . -r</code> will create <code>build</code> directory
+              Running <code>ssc . -r</code> will create <code>build</code> directory
               and place the built artifacts in it. The <code>-r</code> flag will
               find and run the binary for you. This is it! Click one of the links
               below to move onto some more advanced features.

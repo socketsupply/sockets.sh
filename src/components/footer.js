@@ -47,7 +47,7 @@ export default class AppFooter extends Tonic {
               <ul>
                 <li><a href="mailto:hello@socketsupply.co" alt="Email">Email</a></li>
                 <li><a href="https://twitter.com/socketsupply" rel="noopener" class="underline" alt="Twitter">Twitter</a></li>
-                <li><a href="https://github.com/socketsupply/operatorframework" rel="noopener" class="underline" alt="Github">Github</a></li>
+                <li><a href="https://github.com/socketsupply/socket-sdk" rel="noopener" class="underline" alt="Github">Github</a></li>
                 <li><a href="https://discord.gg/YPV32gKCsH" rel="noopener" class="underline" alt="Discord">Discord</a></li>
               </ul>
             </div>

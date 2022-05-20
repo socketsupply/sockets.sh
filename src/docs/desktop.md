@@ -112,7 +112,7 @@ Set the native menu for the app (see a more significant example later on in the 
 
 **&larr; Return** `Promise<void>`
 
-Operator Framework provides a minimalist DSL that makes it easy to create
+Socket SDK provides a minimalist DSL that makes it easy to create
 cross platform native system and context menus.
 
 Menus are created at run time. They can be created from either the Main or
@@ -254,9 +254,9 @@ assert(value === { title: 'Wizard', parent: 'contextMenu', state: 0 })
 ```
 
 ### `window.parent.getConfig()`
-Fetches config defiend in [`operator.config`](/config) as a plain JSON object.
+Fetches config defiend in [`ssc.config`](/config) as a plain JSON object.
 
-**&larr; Return** [OperatorConfig](/config)
+**&larr; Return** [SocketConfig](/config)
 
 ```ts
 const config = await window.parent.getConfig()
@@ -283,8 +283,8 @@ The following properties have either been added or modified.
 | `window.document.title` | String | Sets the title of the window (getter, setter). |
 | `window.parent.platform` | String | Gets a string that describes the operating system (`android`, `ios`, `linux`, `mac`, or `win`). |
 | `window.parent.argv`| Array<String> | Provides the arguments that the program was called with. |
-| `window.parent.title` | String | The title as defined in the `operator.config` file. |
-| `window.parent.version` | String | The version as defined in the `operator.config` file. |
+| `window.parent.title` | String | The title as defined in the `ssc.config` file. |
+| `window.parent.version` | String | The version as defined in the `ssc.config` file. |
 | `window.parent.debug` | Number | Value is `1` unless `-xd` is passed to the CLI tool at build time. |
 | `process.bundle` | String | A value returned by the OS that represents the path to the running app. |
-| `process.executable` | String |The executable name as defined in the `operator.config` file. |
+| `process.executable` | String |The executable name as defined in the `ssc.config` file. |

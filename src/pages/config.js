@@ -20,7 +20,7 @@ class PageConfig extends Tonic {
           <main>
             <h1>Config File</h1>
             <p>
-              Each project needs a <code>operator.config</code> file in the root
+              Each project needs a <code>ssc.config</code> file in the root
               direcrory. This is a plain text file with key-value property pairs.
               The file also supports comments.
             </p>

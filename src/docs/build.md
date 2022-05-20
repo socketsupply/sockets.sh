@@ -19,7 +19,7 @@ If the CLI tool is failing, see the [trouble shooting guide][0].
 ## Configuration Files
 
 The build tool expects to find a config file in the
-target directory, [`operator.config`](./config.md).
+target directory, [`ssc.config`](./config.md).
 
 ### Settings Configuration
 
@@ -34,7 +34,7 @@ tool will run for you.
 input: src
 build: node build.js
 output: dist
-executable: operator
+executable: socket
 
 #
 # Package Metadata
@@ -42,10 +42,10 @@ executable: operator
 version: v0.0.1
 versionShort: 0.0
 revision: 1
-name: Operator
+name: Socket
 description: A demo appliation
-copyRight: Operator Tool Co. © 2021-2022
-maintainer: Operator Contributors <dev@optool.co>
+copyRight: Socket Supply Co. © 2021-2022
+maintainer: Contributors <floss@socketsupply.co>
 
 linux_categories: Developer
 
@@ -54,12 +54,12 @@ mac_bundle_identifier: co.optool.demo
 mac_entitlements: path/to/entitlements.plist
 mac_sign: Voltra Co. BV (DYE7429KTV)
 
-win32_sign: DigiCert: Operator Tool Co.
+win32_sign: DigiCert: Socket Supply Co.
 
 #
 # window
 #
-title: Operator
+title: Socket
 width: 750
 height: 520
 

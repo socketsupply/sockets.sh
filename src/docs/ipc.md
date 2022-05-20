@@ -1,7 +1,7 @@
 # IPC
 
-There are three important concepts for an application built with the Operator
-Framework. The `Render` process, the `Main` process, and the `Bridge` process.
+There are three important concepts for an application built with the Socket
+SDK. The `Render` process, the `Main` process, and the `Bridge` process.
 
 `IPC` is an acronym for [Inter Process Communication][ipc]. It's the method for
 which these [processes][processes] work together.
@@ -30,4 +30,4 @@ that does not yet have one.
 
 [processes]:https://en.wikipedia.org/wiki/Process_(computing)
 [ipc]:https://en.wikipedia.org/wiki/Inter-process_communication
-[0]: https://github.com/socketsupply/operatorframework/blob/master/test/example/src/main/ipc.js
+[0]: https://github.com/socketsupply/socket-sdk/blob/master/test/example/src/main/ipc.js

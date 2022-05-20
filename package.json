@@ -1,8 +1,8 @@
 {
-  "name": "operatorframework.dev",
+  "name": "socket-sdk.dev",
   "version": "0.1.1",
   "private": true,
-  "description": "the operatorframework.dev website.",
+  "description": "the socket-sdk.dev website.",
   "scripts": {
     "lint": "npr standard",
     "test": "npm run lint",
@@ -39,22 +39,22 @@
   "bin": {},
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/socketsuply/operatorframework.dev.git"
+    "url": "git+https://github.com/socketsuply/socket-sdk.dev.git"
   },
   "bugs": {
-    "url": "https://github.com/socketsuply/operatorframework.dev/issues"
+    "url": "https://github.com/socketsuply/socket-sdk.dev/issues"
   },
-  "homepage": "https://github.com/socketsuply/operatorframework.dev#readme",
+  "homepage": "https://github.com/socketsuply/socket-sdk.dev#readme",
   "config": {
-    "title": "Operator Framework",
+    "title": "Socket SDK",
     "description": "Build Native Desktop and Mobile Apps Using The Web Stack",
-    "siteName": "Operator Framework",
-    "image": "https://operatorframework.dev/images/framework.svg",
-    "url": "https://operatorframework.dev"
+    "siteName": "Socket SDK",
+    "image": "https://socket-sdk.dev/images/framework.svg",
+    "url": "https://socket-sdk.dev"
   },
   "binDependencies": {
     "standard": "14.3.1"
   },
-  "domain": "operatorframework.dev",
+  "domain": "socket-sdk.dev",
   "skiplist": []
 }

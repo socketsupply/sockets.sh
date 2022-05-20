@@ -65,7 +65,7 @@ file. op will pick the right one for you based on your build flags.
 
 ### Configuration
 
-Edit the following fields in the `operator.config` file of your project.
+Edit the following fields in the `ssc.config` file of your project.
 
 ```settings
 apple_teamId: Z3M838H537

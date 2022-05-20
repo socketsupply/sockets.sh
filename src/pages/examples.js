@@ -17,7 +17,7 @@ class PageExamples extends Tonic {
           ${nav}
 
           <main>
-            <h1>Operator Framework</h1>
+            <h1>Socket SDK</h1>
             <h3>Examples</h3>
           </main>
 

@@ -24,10 +24,6 @@ body#index > header .hardware {
   align-items: end;
 }
 
-body#index > header .title {
-  margin-top: 20px;
-}
-
 .word {
   position: relative;
   font-family: var(--tonic-header);

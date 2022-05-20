@@ -7,7 +7,7 @@ initilaize it.
 op . --init
 ```
 
-This will create an `operator.config` file as well as a `src` directory
+This will create an `ssc.config` file as well as a `src` directory
 with an `index.html` file in it. First, open the config file in your editor
 and replace some of the example values with your own.
 
@@ -69,7 +69,7 @@ and properties are available, check out the [Mobile API][0] docs.
 For specifics about production builds and deploying to devices and app stores,
 see either the [iOS][1] or [Android][2] guides.
 
-[0]:https://operatorframework.dev/mobile
-[1]:https://operatorframework.dev/ios
-[2]:https://operatorframework.dev/android
+[0]:https://socket-sdk.dev/mobile
+[1]:https://socket-sdk.dev/ios
+[2]:https://socket-sdk.dev/android
 

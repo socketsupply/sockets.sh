@@ -3,7 +3,7 @@
 
 All platforms can produce executables for `Windows`, `Linux`, and `MacOS`.
 
-|                         | Operator                              | Tauri                                 | Neutralinojs                           | Electron |
+|                         | Socket SDK                            | Tauri                                 | Neutralinojs                           | Electron |
 | :---                    | :---:                                 | :---:                                 | :---:                                 | :---:    |
 | MacOS, Windows, Linux   | ![check](/images/icons/checkmark.svg) | ![check](/images/icons/checkmark.svg) | ![check](/images/icons/checkmark.svg) | ![check](/images/icons/checkmark.svg) |
 | Any Backend             | ![check](/images/icons/checkmark.svg) |                                       | ![check](/images/icons/checkmark.svg) |          |
@@ -17,13 +17,13 @@ All platforms can produce executables for `Windows`, `Linux`, and `MacOS`.
 ## Lines of Code
 
 <div class="complexity">
-  <div><div style="height: 3.603472260188678%;"></div><b>5932</b><br/>Operator</div>
+  <div><div style="height: 3.603472260188678%;"></div><b>5932</b><br/>Socket SDK</div>
   <div><div style="height: 25.61672710926442%;"></div><b>42170</b><br/>Tauri</div>
   <div><div style="height: 100%;"></div><b>164619</b><br/>Neutralinojs</div>
   <div><div style="height: 86.64552694403442%;"></div><b>142635</b><br/>Electron</div>
 </div>
 
-### Operator Framework
+### Socket SDK
 <time>Sat Mar 26 13:54:19 CET 2022</time>
 
 ```
