@@ -1,5 +1,6 @@
+.DS_Store
 /node_modules
 /build
-.DS_Store
-*.swp
-
+build/fonts
+build/images
+build/styles
