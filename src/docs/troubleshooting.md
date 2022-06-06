@@ -8,8 +8,8 @@ You will need [build tools][3]
 
 The `WebView2LoaderStatic.lib` file was sourced from [this][2] package.
 
-[0]:https://github.com/llvm/llvm-project/releases/tag/llvmorg-12.0.0
-[1]:https://github.com/llvm/llvm-project/releases/download/llvmorg-12.0.0/LLVM-12.0.0-win64.exe
+[0]:https://github.com/llvm/llvm-project/releases/tag/llvmorg-14.0.0
+[1]:https://github.com/llvm/llvm-project/releases/download/llvmorg-14.0.0/LLVM-14.0.0-win64.exe
 [2]:https://www.nuget.org/api/v2/package/Microsoft.Web.WebView2/1.0.864.35
 [3]: https://visualstudio.microsoft.com/downloads/#build-tools-for-visual-studio-2019
 
@@ -18,7 +18,7 @@ The `WebView2LoaderStatic.lib` file was sourced from [this][2] package.
 If the app cannot be loaded because running scripts is disabled on this system.
 
 ```
-./bin/bootstrap.ps1 : File C:\Users\rayno\Github\op\bin\bootstrap.ps1 cannot be loaded because running scripts is
+./bin/bootstrap.ps1 : File C:\Users\user\sources\socket-sdk\bin\bootstrap.ps1 cannot be loaded because running scripts is
 disabled on this system. For more information, see about_Execution_Policies at
 https:/go.microsoft.com/fwlink/?LinkID=135170.
 ```
@@ -39,9 +39,10 @@ This is possible by running the following command:
 source bin/mscv-bash-env.sh
 ```
 
-The `bin/bootstrap.sh` shell script should work for compiling the `op` (fka `opkit`) tool.
-It is also recommneded to initialize this environment when building applications with `op` (`opkit`) from the CLI so
-the correct build tools can be used which ensures header and library paths for the compiler
+The `bin/bootstrap.sh` shell script should work for compiling the `ssc` tool.
+It is also recommneded to initialize this environment when building applications
+with `ssc` from the CLI so the correct build tools can be used which ensures
+header and library paths for the compiler
 
 ## Linux
 ### Build failures
@@ -131,7 +132,7 @@ sudo apt-get install libwebkit2gtk-4.0-dev
 
 ### `aclocal / automake: command not found`
 
-To build `op` for ios you need `automake` / `libtool` installed.
+To build `ssc` for ios you need `automake` / `libtool` installed.
 
 ```sh
 brew install automake
@@ -149,8 +150,8 @@ sudo xcode-select --switch /Applications/Xcode.app
 
 ### `fatal error: 'lib/uv/include/uv.h' file not found`
 
-Make sure your local `op` binary has been compiled with `ios`
-parameter in `./bin/bootstrap.sh dev ios`, otherwise the uv.h
+Make sure your local `ssc` binary has been compiled with `ios`
+parameter in `./bin/bootstrap.sh ios`, otherwise the uv.h
 does not exist.
 
 ### `unable to find utility simctl`
