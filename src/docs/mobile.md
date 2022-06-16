@@ -245,7 +245,7 @@ window.addEventListener('protocol', e => {
 
 ## File System
 
-Socket SDK File System API tries to mimic [Node.js File API](https://nodejs.org/api/fs.html#file-parent), though OP FS API may have some differences and or missing features.
+Socket SDK File System API tries to mimic [Node.js File API](https://nodejs.org/api/fs.html#file-parent), though Socket SDK FS API may have some differences and or missing features.
 
 ### Class: `FileHandle`
 

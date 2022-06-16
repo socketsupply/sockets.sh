@@ -4,7 +4,7 @@ Open a terminal, navigate to where you keep your code. Create a directory and
 initilaize it.
 
 ```
-op . --init
+ssc init
 ```
 
 This will create an `ssc.config` file as well as a `src` directory
@@ -18,25 +18,25 @@ want to the party. But let's start simple. The easiest way to see your UI is to
 build this as a desktop app and show a window that runs the code.
 
 ```
-op . -r
+ssc init
 ```
 
 ### Development Cycle
 
 You'll probably want to write some code, see it, change it, and repeat this
 flow. The typical approach is to create a watch script that rebuilds your
-files when there are changes. If you provide a port, the `op` command will try
+files when there are changes. If you provide a port, the `ssc` command will try
 to load `http://localhost`.
 
 ```
-op . -r --port=8000
+ssc -r --port=8000 .
 ```
 
-You'll need to tell your build script the output location. The `op` command
+You'll need to tell your build script the output location. The `ssc` command
 can tell you the platform specific build destination. For example.
 
 ```
-./myscript `op . --target`
+./myscript `ssc list-build-target .`
 ```
 
 ### Building for and launching the mobile simulator

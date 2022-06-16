@@ -15,7 +15,7 @@ especially for embedded systems where we need our apps to run.
 Webview is C++, so are the platforms (Cocoa, GTK, and Windows). Memory
 safty offered by Rust isn't meaningful in this context.
 
-### I need feature-X, but `op` doesn't support that, can you make it?
+### I need feature-X, but `ssc` doesn't support that, can you make it?
 
 You can make a PR. But the goal is not to solve the all problems for all
 use cases. The goal is to be minimal. Just the essentials. Stay fast and
