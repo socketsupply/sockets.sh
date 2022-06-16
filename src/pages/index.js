@@ -73,12 +73,12 @@ class PageIndex extends Tonic {
 
             <h2>Getting Started</h2>
             <p>
-              In a new directory run <code>ssc --init</code>. This will create
+              In a new directory run <code>ssc init</code>. This will create
               an <code>ssc.config</code> file, and create a <code>src</code>
               directory with an a <code>index.html</code> file in it.
             </p>
             <p>
-              Running <code>ssc . -r</code> will create <code>build</code> directory
+              Running <code>ssc -r .</code> will create <code>build</code> directory
               and place the built artifacts in it. The <code>-r</code> flag will
               find and run the binary for you. This is it! Click one of the links
               below to move onto some more advanced features.

@@ -39,7 +39,7 @@ When you run `op . -ios` on your project for the first time, you may see the
 following because you don't have a [provisioning profile][A5]...
 
 ```
-op . -ios
+ssc --target=ios .
 - security: unable to open "./distribution.mobileprovision" for reading: No such file or directory
 - failed to extract uuid from provisioning profile +30ms
 ```
@@ -48,7 +48,7 @@ You will need your device id. You can get it by plugging in your iPhone and then
 running the following command.
 
 ```
-op -mid
+
 00004201-101371260222221F
 ```
 
@@ -61,7 +61,7 @@ certificate you created for `iOS Distribution`.
 
 3. Download the profiles and add them to your project. They are
 secret, don't commit them, add the appropriate file names to your `.gitignore`
-file. op will pick the right one for you based on your build flags.
+file. ssc will pick the right one for you based on your build flags.
 
 ### Configuration
 
@@ -79,11 +79,11 @@ apple_release_provisioning_profile: src/distribution.mobileprovision
 ```
 
 ```bash
-op . -ios -simulator -r # create a simulator VM and launch the app in it
+ssc --target=iossimulator -r . # create a simulator VM and launch the app in it
 ```
 
 ```bash
-op . -ios -c -p -xd # package for distribution
+ssc --target=ios -c -p -xd . # package for distribution
 ```
 
 ## Distribution
@@ -125,7 +125,7 @@ process attach --name TestExample-dev
 ### Logging
 
 To see logs, open `Console.app` (installed on MacOS by default) and in the
-right side panel pick `<YourSimulatorDeviceName>`. You can filter by `op`
+right side panel pick `<YourSimulatorDeviceName>`. You can filter by `ssc`
 to see the logs that your app outputs.
 
 [A0]:https://developer.apple.com

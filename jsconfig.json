@@ -11,8 +11,6 @@
   },
   "exclude": ["node_modules"],
   "include": [
-    "node_modules/@socketsupply/_op-sdk/src/**/*.js",
-    "node_modules/@socketsupply/_electron-base/index.d.ts",
     "src/**/*.js",
     "src/**/*.d.ts"
   ]
