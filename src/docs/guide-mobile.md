@@ -48,7 +48,7 @@ bundle, create and boot a simulator VM and then run your app in simulator if
 `-r` flag is provided.
 
 ```
-ssc --target=iossimulator -r .
+ssc compile --target=iossimulator -r .
 ```
 
 ### Debugging on the simulator
