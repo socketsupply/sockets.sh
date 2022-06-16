@@ -25,9 +25,6 @@ filling in all the details yet, it just needs to exist).
 
 #### Certificates
 
-<!-- 1. Create a [iOS Development][apple-dev-profiles-add] certificate for running the app on your
-device while developing. -->
-
 1. Open Keychain Access application on your mac (it's in Applications/Utilities).
 1. In the Keychain Access application choose Keychain Access -> Certificate Assistant -> Request a Certificate From a Certificate Authority...
 ![](../images/screenshots/prov-prof-1.png)
