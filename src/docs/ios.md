@@ -17,81 +17,68 @@ and phystical `devices`.
 #### Setup
 
 1. Sign up for a (free) [Apple Developer](https://developer.apple.com/) account.
-2. Register your [devices][01] for testing.
-3. Create an [app id][A2] for the application you are developing.
-4. Create an [App Store Connect][A3] record for your app (don't worry about
+2. Register your [devices][apple-dev-devices-add] for testing. You can use `ssc mobiledeviceid` command
+to get your Device ID (UDID). Device should be connected to your mac by wire.
+3. Create a wildcard [App ID][apple-dev-appid] for the application you are developing.
+4. Create an [App Store Connect][app-store-connect] record for your app (don't worry about
 filling in all the details yet, it just needs to exist).
 
 #### Certificates
 
-1. Create a [iOS Development][A4] certificate for running the app on your
-device while developing.
+<!-- 1. Create a [iOS Development][apple-dev-profiles-add] certificate for running the app on your
+device while developing. -->
 
-2. Create an [iOS Distribution (App Store and Ad Hoc)][A4] certificate if you
-want to distribute copies for other people on your team.
-
-3. Download the certificates, put them somewhere, select both and double click
-them to install to the `Apple Keychain`.
+1. Open Keychain Access application on your mac (it's in Applications/Utilities).
+1. In the Keychain Access application choose Keychain Access -> Certificate Assistant -> Request a Certificate From a Certificate Authority...
+![](../images/screenshots/prov-prof-1.png)
+1. Type you email in the User Email Adress field. Other form elements are optional.
+![](../images/screenshots/prov-prof-2.png)
+1. Choose Request is Saved to Disc and save your certificate request.
+1. [Create][apple-dev-certificates-add] a new iOS Distribution (App Store and Ad Hoc) certificate on the Apple Developers website.
+1. Choose a certificate request you've created 2 steps earlier.
+1. Download your certificate and double click to add it to your Keychain.
 
 #### Provisioning Profiles
 
-When you run `op . -ios` on your project for the first time, you may see the
+When you run `ssc --target=ios .` on your project for the first time, you may see the
 following because you don't have a [provisioning profile][A5]...
 
 ```
-ssc --target=ios .
-- security: unable to open "./distribution.mobileprovision" for reading: No such file or directory
-- failed to extract uuid from provisioning profile +30ms
+ssc compile --target=ios .
+• provisioning profile not found: /Users/chicoxyzzy/dev/socketsupply/birp/./distribution.mobileprovision. Please specify a valid provisioning profile in the ios_provisioning_profile field in your ssc.config
 ```
 
-You will need your device id. You can get it by plugging in your iPhone and then
-running the following command.
-
-```
-
-00004201-101371260222221F
-```
-
-1. Create a provisioning profile for `Development` (build and deploy to your
-iphone). Include the certificate for `iOS Development`.
-
-2. Create a profile for `Ad-Hoc` distribution (give other people copies that
-they can install). Include the devices you want to deploy to and include the
-certificate you created for `iOS Distribution`.
-
-3. Download the profiles and add them to your project. They are
-secret, don't commit them, add the appropriate file names to your `.gitignore`
-file. ssc will pick the right one for you based on your build flags.
+1. [Create][apple-dev-profiles-add] a new Ad Hoc profile. Use the App ID you created with the wildcard.
+1. Pick the certificate that you added to your Keychain two steps earlier.
+1. Add the devices that the profile will use.
+1. Add a name for your new distribution profile (we recommend to name it "distribution").
+1. Download the profile and double click it. This action will open Xcode. You can close it after it's completely loaded.
+1. Place your profile to your project directory (same directory as ssc.config). *The profiles are secret, add your profile to `.gitignore`*.
 
 ### Configuration
 
-Edit the following fields in the `ssc.config` file of your project.
+1. Set the "ios_team_id" value in `ssc.config` to the ???
+1. Set the "ios_distribution_method" value in `ssc.config` to the ???
+1. Set the "ios_signing_certificate" value in `ssc.config` to the ???
+1. Set the "ios_provisioning_profile" value in `ssc.config` to the filename of your certificate (i.e., "distribution.mobileprovision").
+1. Set the "ios_provisioning_specifier" value in `ssc.config` to the profile name (as in the [Profiles List][apple-dev-profiles-list])
 
-```settings
-apple_teamId: Z3M838H537
-apple_debug_distribution_method: ad-hoc
-apple_debug_signing_certificate: iOS Distribution (App Store and Ad Hoc)
-apple_debug_provisioning_profile: src/development.mobileprovision
-
-apple_release_distribution_method: ad-hoc
-apple_release_signing_certificate: iOS Distribution (App Store and Ad Hoc)
-apple_release_provisioning_profile: src/distribution.mobileprovision
-```
+## Run the app in Simulator
 
 ```bash
-ssc --target=iossimulator -r . # create a simulator VM and launch the app in it
-```
-
-```bash
-ssc --target=ios -c -p -xd . # package for distribution
+ssc compile --target=iossimulator -r . # create a simulator VM and launch the app in it
 ```
 
 ## Distribution
 
+```bash
+ssc compile --target=ios -c -p -xd . # package for distribution
+```
+
 ### Your Device
 
 Connect your device, open the the `Apple Configurator 2` app and drag
-the inner `{{name}}.ipa` file onto your phone.
+the inner `/dist/build/{{name}}.ipa/{{name}}.ipa` file onto your phone.
 
 
 ### Apple App Store
@@ -116,7 +103,7 @@ xcrun altool --upload-app \
 
 ## Debugging
 
-You can run [`lldb`][1] and attach to a process, for example...
+You can run [`lldb`][lldb] and attach to a process, for example...
 
 ```bash
 process attach --name TestExample-dev
@@ -128,10 +115,10 @@ To see logs, open `Console.app` (installed on MacOS by default) and in the
 right side panel pick `<YourSimulatorDeviceName>`. You can filter by `ssc`
 to see the logs that your app outputs.
 
-[A0]:https://developer.apple.com
-[A1]:https://developer.apple.com/account/resources/devices/add
-[A2]:https://developer.apple.com/account/resources/identifiers
-[A3]:https://appstoreconnect.apple.com/apps
-[A4]:https://developer.apple.com/account/resources/profiles/add
-[A5]:https://developer.apple.com/account/resources/certificates/add
-[1]:https://developer.apple.com/library/archive/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-terminal-workflow-tutorial.html
+[apple-dev-devices-add]:https://developer.apple.com/account/resources/devices/add
+[apple-dev-appid]:https://developer.apple.com/account/resources/identifiers
+[app-store-connect]:https://appstoreconnect.apple.com/apps
+[apple-dev-profiles-add]:https://developer.apple.com/account/resources/profiles/add
+[apple-dev-certificates-add]:https://developer.apple.com/account/resources/certificates/add
+[apple-dev-profiles-list]:https://developer.apple.com/account/resources/profiles/list
+[lldb]:https://developer.apple.com/library/archive/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-terminal-workflow-tutorial.html
