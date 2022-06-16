@@ -40,7 +40,7 @@ device while developing. -->
 
 #### Provisioning Profiles
 
-When you run `ssc --target=ios .` on your project for the first time, you may see the
+When you run `ssc compile --target=ios .` on your project for the first time, you may see the
 following because you don't have a [provisioning profile][A5]...
 
 ```

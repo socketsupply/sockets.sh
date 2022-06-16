@@ -29,7 +29,7 @@ files when there are changes. If you provide a port, the `ssc` command will try
 to load `http://localhost`.
 
 ```
-ssc -r --port=8000 .
+ssc compile -r --port=8000 .
 ```
 
 You'll need to tell your build script the output location. The `ssc` command
@@ -48,7 +48,7 @@ bundle, create and boot a simulator VM and then run your app in simulator if
 `-r` flag is provided.
 
 ```
-op . -ios -simulator -r
+ssc --target=iossimulator -r .
 ```
 
 ### Debugging on the simulator
