@@ -54,7 +54,7 @@ ssc compile --target=ios .
 
 ### Configuration
 
-1. Set the `ios_team_id` value in `ssc.config` to the value of Team ID [here][https://developer.apple.com/account/#!/membership/]
+1. Set the `ios_team_id` value in `ssc.config` to the value of Team ID [here][apple-dev-membership]
 1. Set the `ios_distribution_method` value in `ssc.config` to the `ad-hoc`
 1. Set the `ios_signing_certificate` value in `ssc.config` to the [certificate](#certificate) name as it's displayed in the Keychan
 1. Set the `ios_provisioning_profile` value in `ssc.config` to the filename of your certificate (i.e., "distribution.mobileprovision").
@@ -112,6 +112,7 @@ To see logs, open `Console.app` (installed on MacOS by default) and in the
 right side panel pick `<YourSimulatorDeviceName>`. You can filter by `ssc`
 to see the logs that your app outputs.
 
+[apple-dev-membership]:https://developer.apple.com/account/#!/membership/
 [apple-dev-devices-add]:https://developer.apple.com/account/resources/devices/add
 [apple-dev-appid]:https://developer.apple.com/account/resources/identifiers
 [app-store-connect]:https://appstoreconnect.apple.com/apps
