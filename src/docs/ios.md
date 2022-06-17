@@ -42,7 +42,7 @@ following because you don't have a provisioning profile:
 
 ```
 ssc compile --target=ios .
-• provisioning profile not found: /Users/chicoxyzzy/dev/socketsupply/birp/./distribution.mobileprovision. Please specify a valid provisioning profile in the ios_provisioning_profile field in your ssc.config
+• provisioning profile not found: /Users/chicoxyzzy/dev/socketsupply/birp/./distribution.mobileprovision. Please specify a valid provisioning profile in the ios_provisioning_profile field in your `ssc.config`
 ```
 
 1. [Create][apple-dev-profiles-add] a new Ad Hoc profile. Use the App ID you created with the wildcard.
@@ -50,7 +50,7 @@ ssc compile --target=ios .
 1. Add the devices that the profile will use.
 1. Add a name for your new distribution profile (we recommend to name it "distribution").
 1. Download the profile and double click it. This action will open Xcode. You can close it after it's completely loaded.
-1. Place your profile to your project directory (same directory as ssc.config). *The profiles are secret, add your profile to `.gitignore`*.
+1. Place your profile to your project directory (same directory as `ssc.config`). **The profiles are secret, add your profile to `.gitignore`**.
 
 ### Configuration
 
@@ -74,22 +74,15 @@ ssc compile --target=ios -c -p -xd . # package for distribution
 
 ### Install application on your device
 
-Install [Apple Configurator][apple-configurator], then connect your device to the computer and use one of methods below.
+Install [Apple Configurator][apple-configurator], open it and install Automation Tools from the menu.
 
-#### Using ssc
-
-Run `ssc install-app .` from the root directory of your application. If this command fails, follow the instructions from the output or try one of two methods below.
-
-#### Using Apple Configurator application
-
-Connect your device, open the the `Apple Configurator` app and drag
-the inner `/dist/build/[your app name].ipa/[your app name].ipa` file onto your phone.
-
-#### Using command-line
-
-1. Open `Apple Configurator` and install Automation Tools from the menu.
 ![](../images/screenshots/prov-prof-3.png)
-1. Run `cfgutil install-app dist/build/[your app name].ipa/[your app name]}.ipa` in your terminal.
+
+
+Connect your device and run `ssc install-app <path>` where path is the root directory of your application (the one where `ssc.config` is located).
+
+Alternative way to install your app is to open the the `Apple Configurator` app and drag
+the inner `/dist/build/[your app name].ipa/[your app name].ipa` file onto your phone.
 
 ### Apple App Store
 
