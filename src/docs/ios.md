@@ -23,7 +23,7 @@ to get your Device ID (UDID). Device should be connected to your mac by wire.
 4. Create an [App Store Connect][app-store-connect] record for your app (don't worry about
 filling in all the details yet, it just needs to exist).
 
-#### Certificates
+#### Certificate
 
 1. Open Keychain Access application on your mac (it's in Applications/Utilities).
 1. In the Keychain Access application choose Keychain Access -> Certificate Assistant -> Request a Certificate From a Certificate Authority...
@@ -56,7 +56,7 @@ ssc compile --target=ios .
 
 1. Set the "ios_team_id" value in `ssc.config` to the value of Team ID [here][https://developer.apple.com/account/#!/membership/]
 1. Set the "ios_distribution_method" value in `ssc.config` to the `ad-hoc`
-1. Set the "ios_signing_certificate" value in `ssc.config` to the ???
+1. Set the "ios_signing_certificate" value in `ssc.config` to the [certificate](#certificate) name as it's displayed in the Keychan
 1. Set the "ios_provisioning_profile" value in `ssc.config` to the filename of your certificate (i.e., "distribution.mobileprovision").
 1. Set the "ios_provisioning_specifier" value in `ssc.config` to the profile name (as in the [Profiles List][apple-dev-profiles-list])
 
