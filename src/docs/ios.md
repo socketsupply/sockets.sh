@@ -38,7 +38,7 @@ filling in all the details yet, it just needs to exist).
 #### Provisioning Profiles
 
 When you run `ssc compile --target=ios .` on your project for the first time, you may see the
-following because you don't have a [provisioning profile][A5]...
+following because you don't have a provisioning profile:
 
 ```
 ssc compile --target=ios .
