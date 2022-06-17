@@ -28,7 +28,7 @@ filling in all the details yet, it just needs to exist).
 1. Open Keychain Access application on your mac (it's in Applications/Utilities).
 1. In the Keychain Access application choose Keychain Access -> Certificate Assistant -> Request a Certificate From a Certificate Authority...
 ![](../images/screenshots/prov-prof-1.png)
-1. Type you email in the User Email Adress field. Other form elements are optional.
+1. Type you email in the User Email Address field. Other form elements are optional.
 ![](../images/screenshots/prov-prof-2.png)
 1. Choose Request is Saved to Disc and save your certificate request.
 1. [Create][apple-dev-certificates-add] a new iOS Distribution (App Store and Ad Hoc) certificate on the Apple Developers website.

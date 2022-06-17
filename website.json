@@ -57,7 +57,7 @@
   "633075417262": {
     "provider": "aws",
     "spa": "",
-    "lastDeployed": "2022-05-07T20:53:58.487Z",
+    "lastDeployed": "2022-06-17T13:51:53.382Z",
     "properties": {
       "relativeFolder": {
         "value": [
@@ -267,6 +267,62 @@
         "value": "",
         "hostedZoneId": "",
         "deployed": false
+      }
+    },
+    "created": false
+  },
+  "368772710094": {
+    "provider": "aws",
+    "spa": "",
+    "lastDeployed": null,
+    "properties": {
+      "relativeFolder": {
+        "value": [
+          ".."
+        ]
+      },
+      "cache": {
+        "value": 7800
+      },
+      "gzip": {
+        "value": true
+      },
+      "customLocalServer": {
+        "enabled": true,
+        "value": "node bin/server.js"
+      },
+      "apiRoute": {
+        "value": ""
+      },
+      "apiRouteDestination": {
+        "value": {
+          "apiGatewayId": null,
+          "apiGatewayRegion": null,
+          "localhostApiId": null,
+          "localhostWorkspace": null
+        }
+      },
+      "predeploy": {
+        "directory": [
+          "..",
+          "..",
+          "functions",
+          "dist",
+          "Functions-dev.app",
+          "Contents",
+          "Resources"
+        ],
+        "command": ""
+      },
+      "bucketName": {
+        "value": ""
+      },
+      "bucketRegion": {
+        "value": ""
+      },
+      "domain": {
+        "value": "",
+        "hostedZoneId": ""
       }
     },
     "created": false
