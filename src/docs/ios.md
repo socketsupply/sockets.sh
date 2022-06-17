@@ -5,7 +5,7 @@
 ### Software
 
 - [Xcode](https://developer.apple.com/xcode/resources/) (You won't need to even open it)
-- [Configurator 2](https://apps.apple.com/us/app/apple-configurator-2/id1037126344?mt=12) (Optional)
+- [Apple Configurator][apple-configurator]
 
 ### Administravia
 
@@ -72,11 +72,24 @@ ssc compile --target=iossimulator -r . # create a simulator VM and launch the ap
 ssc compile --target=ios -c -p -xd . # package for distribution
 ```
 
-### Your Device
+### Install application on your device
 
-Connect your device, open the the `Apple Configurator 2` app and drag
-the inner `/dist/build/{{name}}.ipa/{{name}}.ipa` file onto your phone.
+Install [Apple Configurator][apple-configurator], then connect your device to the computer and use one of methods below.
 
+#### Using ssc
+
+Run `ssc install-app .` from the root directory of your application. If this command fails, follow the instructions from the output or try one of two methods below.
+
+#### Using Apple Configurator application
+
+Connect your device, open the the `Apple Configurator` app and drag
+the inner `/dist/build/[your app name].ipa/[your app name].ipa` file onto your phone.
+
+#### Using command-line
+
+1. Open `Apple Configurator` and install Automation Tools from the menu.
+![](../images/screenshots/prov-prof-3.png)
+1. Run `cfgutil install-app dist/build/[your app name].ipa/[your app name]}.ipa` in your terminal.
 
 ### Apple App Store
 
@@ -120,3 +133,4 @@ to see the logs that your app outputs.
 [apple-dev-certificates-add]:https://developer.apple.com/account/resources/certificates/add
 [apple-dev-profiles-list]:https://developer.apple.com/account/resources/profiles/list
 [lldb]:https://developer.apple.com/library/archive/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-terminal-workflow-tutorial.html
+[apple-configurator]:https://apps.apple.com/us/app/apple-configurator/id1037126344
