@@ -161,3 +161,12 @@ You need to have [XCode](https://developer.apple.com/xcode/resources/) installed
 ### `You have not agreed to the Xcode license agreements, please run 'sudo xcodebuild -license' from within a Terminal window to review and agree to the Xcode license agreements.`
 
 You can run `sudo xcodebuild -license` to agree to the license.
+
+### Application crashes after `ssc compile -r`
+
+If you use iTerm2 you can get your app crashing with
+```
+This app has crashed because it attempted to access privacy-sensitive data without a usage description. The app's Info.plist must contain an NSBluetoothAlwaysUsageDescription key with a string value explaining to the user how the app uses this data.
+```
+Command line apps inherit their permissions from iTerm, so you need to grant Bluetooth permission to iTerm in macOS system preferences. Go to Security & Privacy, open the Privacy tab and select Bluetooth. Press the "+" button and add iTerm to the apps list.
+![](../images/screenshots/macos-bluetooth.png)
