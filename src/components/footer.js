@@ -5,7 +5,7 @@ export default class AppFooter extends Tonic {
     const buildDir = './build'
 
     let jsBundle
-    if (this.props.jsBundle === true || this.props.jsBundle === "true") {
+    if (this.props.jsBundle === true || this.props.jsBundle === 'true') {
       jsBundle = this.html`
         <bundle-js
           src="./src/index.client.js"

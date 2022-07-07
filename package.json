@@ -4,7 +4,7 @@
   "private": true,
   "description": "the socket-sdk.dev website.",
   "scripts": {
-    "lint": "npr standard",
+    "lint": "standard",
     "test": "npm run lint",
     "build": "./bin/build.js --out ./build",
     "build+deploy": "npm install && NODE_ENV=production npm run build"
@@ -17,6 +17,7 @@
     "uuid": "3.4.0"
   },
   "devDependencies": {
+    "standard": "14.3.1",
     "@pre-bundled/send": "^0.16.2-patch-1",
     "@types/node": "17.0.13",
     "esbuild": "0.14.23",
@@ -24,7 +25,6 @@
     "marked": "^1.2.8",
     "minimist": "1.2.5",
     "node-fetch": "2.6.1",
-    "npm-bin-deps": "1.10.1",
     "tonic-ssr": "1.2.1"
   },
   "standard": {
@@ -51,9 +51,6 @@
     "siteName": "Socket SDK",
     "image": "https://socket-sdk.dev/images/framework.svg",
     "url": "https://socket-sdk.dev"
-  },
-  "binDependencies": {
-    "standard": "14.3.1"
   },
   "domain": "socket-sdk.dev",
   "skiplist": []

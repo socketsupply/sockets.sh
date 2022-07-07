@@ -26,11 +26,11 @@ async function ready () {
 
     const toc = [...document.querySelector('main')
       .querySelectorAll('h1, h2, h3, h4')].map(el => {
-        const cls = el.tagName.toLowerCase()
-        const method = /\.(\w+)\(/.exec(el.textContent)
-        const title = method ? method[1] : el.textContent
-        return `<a class="${cls}" href="#${el.id}">${title}</a>`
-      })
+      const cls = el.tagName.toLowerCase()
+      const method = /\.(\w+)\(/.exec(el.textContent)
+      const title = method ? method[1] : el.textContent
+      return `<a class="${cls}" href="#${el.id}">${title}</a>`
+    })
 
     aside.innerHTML = toc.join('\n')
   }
