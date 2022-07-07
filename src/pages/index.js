@@ -1,6 +1,5 @@
 import Tonic from 'tonic-ssr'
 import head from '../mixins/head.js'
-import nav from '../mixins/nav.js'
 
 class PageIndex extends Tonic {
   async render () {
@@ -48,7 +47,7 @@ class PageIndex extends Tonic {
 
             <h2>Install</h2>
             <tonic-toaster-inline
-            	id="toaster-2"
+              id="toaster-2"
               dismiss="false"
               type="danger"
               display="true">
