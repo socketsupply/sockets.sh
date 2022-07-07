@@ -17,7 +17,6 @@
     "uuid": "3.4.0"
   },
   "devDependencies": {
-    "standard": "14.3.1",
     "@pre-bundled/send": "^0.16.2-patch-1",
     "@types/node": "17.0.13",
     "esbuild": "0.14.23",
@@ -25,11 +24,14 @@
     "marked": "^1.2.8",
     "minimist": "1.2.5",
     "node-fetch": "2.6.1",
+    "standard": "^17.0.0",
     "tonic-ssr": "1.2.1"
   },
   "standard": {
     "ignore": [
       "_old",
+      "bin/build.js",
+      "bin/server.js",
       "tests",
       "src/**/*.d.ts",
       "static/js/bundle.js"
