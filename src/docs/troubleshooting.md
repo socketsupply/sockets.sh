@@ -1,5 +1,20 @@
 ## MacOS
 
+### Cashes
+
+To produce a meaningful backtrace that can help debug the crash, you'll need to
+resign the binary with the ability to attach the `lldb` debugger tool. You'll
+also want to enable core dumps in case the analysis isn't exaustive enough.
+
+```
+sudo ulimit -c unlimited # enable core dumps (`ls -la /cores`)
+/usr/libexec/PlistBuddy -c "Add :com.apple.security.get-task-allow bool true" tmp.entitlements
+codesign -s - -f --entitlements tmp.entitlements ./path/to/your/binary
+lldb ./path/to/your/binary # type `r`, then after the crash type `bt`
+```
+
+### Clock Drift
+
 If you're running from a VM inside MacOS you may experience clock drift and the signing
 tool will refuse to sign. You can set sntp to refresh more frequently with the following
 command...
