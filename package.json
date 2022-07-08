@@ -22,7 +22,7 @@
     "esbuild": "0.14.23",
     "highlight.js": "^10.5.0",
     "marked": "^1.2.8",
-    "minimist": "1.2.5",
+    "minimist": "1.2.6",
     "node-fetch": "2.6.1",
     "standard": "^17.0.0",
     "tonic-ssr": "1.2.1"
