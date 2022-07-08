@@ -5,7 +5,7 @@ import path from 'node:path'
 
 import fetch from 'node-fetch'
 import Tonic from 'tonic-ssr'
-import marked from 'marked'
+import { marked } from 'marked'
 import hl from 'highlight.js'
 
 const renderer = new marked.Renderer()
