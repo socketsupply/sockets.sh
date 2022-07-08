@@ -23,7 +23,7 @@
     "highlight.js": "^10.5.0",
     "marked": "^4.0.10",
     "minimist": "1.2.6",
-    "node-fetch": "2.6.1",
+    "node-fetch": "2.6.7",
     "standard": "^17.0.0",
     "tonic-ssr": "1.2.1"
   },
