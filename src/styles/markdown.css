@@ -4,6 +4,16 @@ body.api markdown-module h3 {
   margin-top: 60px;
 }
 
+body.api markdown-module cite {
+  font-size: 14px;
+  font-style: initial;
+  background: var(--tonic-primary);
+  color: var(--tonic-window);
+  display: inline-block;
+  padding: 0 6px;
+  border-radius: 4px;
+}
+
 body:not(#index) markdown-module h1,
 body:not(#index) markdown-module h2 {
   margin-top: 60px;

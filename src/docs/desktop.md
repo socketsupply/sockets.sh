@@ -1,9 +1,6 @@
 When your program runs, it will forward its arguments to the Main process.
 The main process is responsible for showing a window to the user.
 
-## Methods
-
-
 ### [`window.resizeTo(width, height)`](https://developer.mozilla.org/en-US/docs/Web/API/Window/resizeTo)
 A method that dynamically resizes the window.
 
@@ -23,41 +20,6 @@ function quarter() {
 }
 ```
 
-
-### [`window.showOpenFilePicker()`](https://developer.mozilla.org/en-US/docs/Web/API/Window/showOpenFilePicker)
-Shows a file picker that allows a user to select a file or multiple files and
-returns an array of strings for the file(s).
-
-**&larr; Return** `Promise<Array<String>>`
-
-
-```js
-await window.showOpenFilePicker()
-```
-
-
-### [`window.showSaveFilePicker()`](https://developer.mozilla.org/en-US/docs/Web/API/window/showSaveFilePicker)
-
-Shows a file picker that allows a user to save a file. Either by selecting an
-existing file, or entering a name for a new file.
-
-**&larr; Return** `Promise<void>`
-
-```js
-await window.showSaveFilePicker()
-```
-
-### [`window.showDirectoryPicker()`](https://developer.mozilla.org/en-US/docs/Web/API/window/showDirectoryPicker)
-
-Shows a directory picker which allows the user to select a directory.
-
-**&larr; Return** `Promise<Array<String>>`
-
-```js
-await window.showDirectoryPicker()
-```
-
-
 ### `window.parent.hide(index)`
 
 Hides the entire app and all of its windows (unless a window `index` is specified).
@@ -72,9 +34,8 @@ Hides the entire app and all of its windows (unless a window `index` is specifie
 await window.hide()
 ```
 
-
 ### `window.parent.show(index)`
-Shows the entire app and all of its windows (unless a window `index` is specified).
+<cite>Desktop Only</cite> Shows the entire app and all of its windows (unless a window `index` is specified).
 
 | Parameter | Type | Required | Default | Description |
 | :--- | :--- | :--- | :--- | :--- |
@@ -186,6 +147,9 @@ window.addEventListener('menuItemSelected', event => {
   assert(event.detail.title === 'Apple')
 })
 ```
+
+
+
 
 ### `window.parent.send(opts: Object)`
 Send an "plain old javascript" object to the backend process and await a promise.

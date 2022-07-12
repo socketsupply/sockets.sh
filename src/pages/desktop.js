@@ -23,7 +23,7 @@ class PageDesktop extends Tonic {
 
             <markdown-module src="src/docs/desktop.md"></markdown-module>
             <markdown-module src="src/docs/ipc.md"></markdown-module>
-            </main>
+          </main>
 
           <app-footer js-bundle="true"></app-footer>
         </body>

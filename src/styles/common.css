@@ -191,7 +191,7 @@ body .flex > .col {
 }
 
 body p {
-  font: 16px/24px var(--tonic-body);
+  font: 16px/26px var(--tonic-body);
   word-break: keep-all;
 }
 
@@ -403,6 +403,9 @@ tonic-tab-panel code {
   display: block;
   padding: 10px;
   border-radius: 4px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 20px;
 }
 
 body code,

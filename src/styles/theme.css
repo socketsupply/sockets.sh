@@ -16,7 +16,7 @@
 @media (prefers-color-scheme: light) {
   body, *[theme="light"] {
     --tonic-background: rgba(245, 245, 245, 1);
-    --tonic-window: rgba(255, 255, 255, 1);
+    --tonic-window: rgba(235, 235, 235, 1);
     --tonic-accent: rgba(56, 185, 255, 1);
     --tonic-primary: rgba(54, 57, 61, 1);
     --tonic-secondary: rgba(232, 232, 228, 1);

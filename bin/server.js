@@ -8,7 +8,9 @@ import send from '@pre-bundled/send'
 import fetch from 'node-fetch'
 import minimist from 'minimist'
 import { dirname } from './build.js'
-import pkg from '../package.json' assert { type: 'json' }
+import fs from 'node:fs'
+
+const pkg = JSON.parse(fs.readFileSync('package.json'))
 
 process.on('unhandledRejection', err => process.nextTick(() => {
   throw err

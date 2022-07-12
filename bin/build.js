@@ -4,7 +4,10 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { parentPort } from 'node:worker_threads'
 import minimist from 'minimist'
-import pkg from '../package.json' assert { type: 'json' }
+
+const pkg = JSON.parse(fs.readFileSync('package.json'))
+
+console.log(process.arch)
 
 const dirname = meta => path.dirname(new URL(meta.url).pathname)
 

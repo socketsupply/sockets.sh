@@ -26,8 +26,8 @@ export default class AppFooter extends Tonic {
               <h4>Reference</h4>
               <ul>
                 <li><a href="/config">Configuration</a></li>
-                <li><a href="/desktop">Desktop API</a></li>
-                <li><a href="/mobile">Mobile API</a></li>
+                <li><a href="/api">API Documentation</a></li>
+                <li><a href="/api">Desktop Only APIs</a></li>
                 <li><a href="/compare">Framework Comparison</a></li>
               </ul>
             </div>

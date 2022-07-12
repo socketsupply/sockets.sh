@@ -16,49 +16,36 @@ body#index > header {
   justify-items: center;
 }
 
-body#index > header .hardware {
-  display: grid;
-  grid-template-columns: auto auto auto auto auto;
-  gap: 10px;
-  min-width: 42%;
-  align-items: end;
+body#index header p {
+  margin-top: 0;
+  font-size: 18px;
 }
 
-.word {
-  position: relative;
-  font-family: var(--tonic-header);
-  font-weight: 900;
-  font-size: 34px;
-  display: inline-block;
-  color: var(--tonic-primary);
+body#index header .hypno {
+  width: 314px;
 }
 
-.watdo {
-  padding: 0 10px;
+body#index header .compute {
+  max-width: 512px;
+  display: block;
+  margin: auto;
 }
 
-body#index > header .word-a-web {
-  top: 24px;
-  font-size: 1.5em;
-}
-
-body#index > header .word-owned-and-operated {
-  top: 54px;
-}
-
-body#index > header .word-by {
-  top: 70px;
-}
-
-body#index > header .word-everyone {
-  width: 50%;
-  top: 66px;
-  font-size: 4em;
+body#index header h1 {
+  margin-bottom: 0;
+  font-size: 42px;
 }
 
 body#index p.intro {
   font-size: 24px;
-  line-height: 32px;
+  line-height: 36px;
+  font-family: var(--tonic-header);
+  border: 5px solid;
+  padding: 25px;
+  text-align: center;
+  margin: 0;
+  display: block;
+  letter-spacing: 1.01px;
 }
 
 body > header .centered {
@@ -109,6 +96,7 @@ body#index h1 {
 body#index h2 {
   font: 32px/42px var(--tonic-header);
   margin: 30px auto 10px auto;
+  margin-top: 80px;
   font-weight: 900;
 }
 
@@ -124,6 +112,20 @@ body#index img {
 
 body > header .centered {
   width: 50%;
+}
+
+body#index .lists {
+  background: var(--tonic-primary);
+  color: var(--tonic-window);
+}
+
+body#index ul.checklist {
+  margin: 25px 25px;
+}
+
+body#index ul.checklist li:before {
+  border-right: 1px solid var(--tonic-window);
+  border-bottom: 1px solid var(--tonic-window);
 }
 
 @media (max-width: 699px) {

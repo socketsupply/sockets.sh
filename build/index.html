@@ -46,42 +46,44 @@
         <body id="index">
           <header>
             <div class="centered">
-              <img src="images/illustrations.svg" alt="A Laptop">
-              <div class="title" alt="A Web Owned &amp; Operated By Everyone">
-                <img src="images/title.svg" class="mark" alt="Socket SDK">
-              </div>
+              <img src="images/radius.svg" class="hypno" alt="A Laptop">
+              <img src="images/illustrations.svg" class="compute" alt="A Laptop">
+              <h1>Socket</h1>
+              <p>Software Development Kit</p>
             </div>
           </header>
 
           <main>
             <section>
               <p class="intro">
-                Build lean, fast, cross-platform apps for
-                desktop and mobile, using the web technologies you already know.
+                Use HTML, CSS, and JavaScript to build <br>lean and fast cross-platform apps.
               </p>
 
               <div class="lists">
                 <ul class="checklist">
-                  <li>Use any "backend", ie Python, Rust, Node.js</li>
-                  <li>Bring your own framework, ie React, Svelte</li>
-                  <li>Windows, Linux, MacOS, iOS, Android</li>
-                  <li>UDP, TCP &amp; File I/O in JS on Mobile</li>
+                  <li>Every major desktop &amp; mobile OS</li>
+                  <li>Provides UDP, TCP, file I/O &amp; Bluetooth</li>
+                  <li>Use any backend (ie Python, Rust, Node.js)</li>
+                  <li>Use any frontend (ie React, Svelte, Vue)</li>
                 </ul>
                 <ul class="checklist">
+                  <li>Ideal for local-first and peer-to-peer</li>
                   <li>Less than 20Mb base memory footprint</li>
                   <li>Less than 1Mb base binary distributable</li>
-                  <li>Uniform DX across platforms</li>
-                  <li>Minimal, readable and maintainable</li>
+                  <li>Minimal, readable, and maintainable</li>
                 </ul>
               </div>
             </section>
 
             <h2>Install</h2>
-            <tonic-toaster-inline id="toaster-2" dismiss="false" type="danger" display="true">
-               This is an early preview. You will need access to
-               install this binary. Please join our
-               <a href="https://discord.gg/YPV32gKCsH">discord</a> to request it.
-            </tonic-toaster-inline>
+
+            <p>
+              This is an early preview. You will need access to
+              install this binary. Please join our
+              <a href="https://discord.gg/YPV32gKCsH">discord</a> to request it.
+            </p>
+            <br>
+
             <tonic-tabs selected="tab-mac" id="get-started">
               <tonic-tab id="tab-mac" for="panel-mac">Mac</tonic-tab>
               <tonic-tab id="tab-linux" for="panel-linux">Linux</tonic-tab>
@@ -90,33 +92,33 @@
 
             <tonic-tab-panel id="panel-mac">
               <code>
-                brew install ssc
+                curl -o- https://sockets.sh | bash -s
               </code>
             </tonic-tab-panel>
 
             <tonic-tab-panel id="panel-linux">
               <code>
-                sudo apt-get install ssc
+                curl -o- https://sockets.sh | bash -s
               </code>
             </tonic-tab-panel>
 
             <tonic-tab-panel id="panel-win">
               <code>
-                nuget install ssc
+                &amp; $([scriptblock]::Create((New-Object Net.WebClient).DownloadString("https://sockets.sh/ell")))
               </code>
             </tonic-tab-panel>
 
             <h2>Getting Started</h2>
             <p>
-              In a new directory run <code>ssc init</code>. This will create
-              an <code>ssc.config</code> file, and create a <code>src</code>
-              directory with an a <code>index.html</code> file in it.
+              Running the above install script from your terminal will create the <code>ssc</code>
+              cli program for you. In a new directory run <code>ssc init</code>. This will create
+              an <code>ssc.config</code> file, and create a <code>src</code> directory with an a
+              <code>index.html</code> file in it. You can edit the file with your favorite editor.
             </p>
             <p>
-              Running <code>ssc compile -r .</code> will create <code>build</code> directory
-              and place the built artifacts in it. The <code>-r</code> flag will
-              find and run the binary for you. This is it! Click one of the links
-              below to move onto some more advanced features.
+              Running <code>ssc compile -r .</code> will build and run your program.
+              That's it! You just built a native application! Click one of the links below to move
+              onto more advanced use cases.
             </p>
           </main>
 
@@ -128,8 +130,8 @@
               <h4>Reference</h4>
               <ul>
                 <li><a href="/config">Configuration</a></li>
-                <li><a href="/desktop">Desktop API</a></li>
-                <li><a href="/mobile">Mobile API</a></li>
+                <li><a href="/api">API Documentation</a></li>
+                <li><a href="/api">Desktop Only APIs</a></li>
                 <li><a href="/compare">Framework Comparison</a></li>
               </ul>
             </div>
