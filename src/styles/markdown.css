@@ -4,6 +4,10 @@ body.api markdown-module h3 {
   margin-top: 60px;
 }
 
+body.api markdown-module p a {
+  display: inline-block;
+}
+
 body.api markdown-module cite {
   font-size: 14px;
   font-style: initial;
@@ -61,6 +65,7 @@ body.api aside .h1 {
 body.api aside .h2 {
   font-size: 18px;
   text-indent: 20px;
+  margin-top: 18px;
 }
 
 body.api aside .h3 {

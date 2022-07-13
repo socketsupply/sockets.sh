@@ -24,9 +24,9 @@ class PageIndex extends Tonic {
 
           <main>
             <section>
-              <p class="intro">
-                Use HTML, CSS, and JavaScript to build <br/>lean and fast cross-platform apps.
-              </p>
+              <h2 class="intro">
+                Use HTML, CSS, and JavaScript to build lean and fast cross-platform apps
+              </h2>
 
               <div class="lists">
                 <ul class="checklist">

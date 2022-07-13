@@ -180,19 +180,6 @@ the exit code used is the final exit code to the OS.
 window.exit(0)
 ```
 
-### `window.parent.openExternal(url)`
-Opens a link in the user's default browser.
-
-| Parameter | Type | Required | Default | Description |
-| :--- | :--- | :--- | :--- | :--- |
-| `url` | String | ![check](/images/icons/checkmark.svg) | | The URL that will be opened by the user's default browser. |
-
-**&larr; Return** `undefined`
-
-```ts
-window.parent.openExternal(url)
-```
-
 ### `window.parent.contextMenu(opts)`
 Opens a native context menu.
 
@@ -215,18 +202,6 @@ statement will evalute true.
 
 ```js
 assert(value === { title: 'Wizard', parent: 'contextMenu', state: 0 })
-```
-
-### `window.parent.getConfig()`
-Fetches config defiend in [`ssc.config`](/config) as a plain JSON object.
-
-**&larr; Return** [SocketConfig](/config)
-
-```ts
-const config = await window.parent.getConfig()
-console.log(config.title)
-console.log(config.version)
-console.log(config.description)
 ```
 
 ## Events
