@@ -16,10 +16,6 @@ window.parent.openExternal(url)
 ### `window.parent.getConfig()`
 Fetches config defiend in [`ssc.config`](/config) as a plain JSON object.
 
-| Argument | Type | Default | Required | Description |
-| :--- | :--- | :--- | :--- | :--- |
-|      |      |      |      |      |
-
 **&larr; Return** [`SocketConfig`](/config)
 
 ```ts
@@ -129,7 +125,8 @@ Creates a new TCP server.
 | `"closed"` | Emitted when the connection has fully closed. |
 
 ```js
-const server = window.parent.net.createServer()
+const net = require('@socketsupply/io/node/net')
+const server = net.createServer()
 
 server.on('connection', socket => {
   socket.on('data', data => {
@@ -197,7 +194,8 @@ Creates a new socket by immediately initiating a connection.
 | `"closed"` | Emitted when the connection has fully closed. |
 
 ```js
-const socket = window.parent.net.createConnection(9200, '192.168.1.22')
+const net = require('@socketsupply/io/node/net')
+const socket = net.createConnection(9200, '192.168.1.22')
 
 socket.on('connect', socket => {
   document.body.style.border = '1px solid green'
@@ -255,10 +253,6 @@ Half-closes the socket. i.e., it sends a FIN packet. It is possible the server w
 ### `udp.bind(...)`
 Bind an listen on a port and address (or all interfaces)
 
-| Argument | Type | Default | Required | Description |
-| :--- | :--- | :--- | :--- | :--- |
-|      |      |      |      |      |
-
 **&larr; Return** `undefined`
 
 ```js
@@ -267,10 +261,6 @@ Bind an listen on a port and address (or all interfaces)
 ### `udp.send(...)`
 Send a datagram to a port and address
 
-| Argument | Type | Default | Required | Description |
-| :--- | :--- | :--- | :--- | :--- |
-|      |      |      |      |      |
-
 **&larr; Return** `undefined`
 
 ```js
@@ -278,10 +268,6 @@ Send a datagram to a port and address
 
 ### `udp.readStart(...)`
 Start accepting and reading bytes
-
-| Argument | Type | Default | Required | Description |
-| :--- | :--- | :--- | :--- | :--- |
-|      |      |      |      |      |
 
 **&larr; Return** `undefined`
 
@@ -293,10 +279,6 @@ Start accepting and reading bytes
 ### [`window.showOpenFilePicker()`](https://developer.mozilla.org/en-US/docs/Web/API/Window/showOpenFilePicker)
 Shows a file picker that allows a user to select a file or multiple files and
 returns an array of strings for the file(s).
-
-| Parameter | Type | Required | Default | Description |
-| :--- | :--- | :--- | :--- | :--- |
-|      |      |      |      |      |
 
 **&larr; Return** `Promise<Array<String>>`
 
@@ -311,10 +293,6 @@ await window.showOpenFilePicker()
 Shows a file picker that allows a user to save a file. Either by selecting an
 existing file, or entering a name for a new file.
 
-| Parameter | Type | Required | Default | Description |
-| :--- | :--- | :--- | :--- | :--- |
-|      |      |      |      |      |
-
 **&larr; Return** `Promise<void>`
 
 ```js
@@ -324,10 +302,6 @@ await window.showSaveFilePicker()
 ### [`window.showDirectoryPicker()`](https://developer.mozilla.org/en-US/docs/Web/API/window/showDirectoryPicker)
 
 Shows a directory picker which allows the user to select a directory.
-
-| Parameter | Type | Required | Default | Description |
-| :--- | :--- | :--- | :--- | :--- |
-|      |      |      |      |      |
 
 **&larr; Return** `Promise<Array<String>>`
 
@@ -402,7 +376,7 @@ Write buffer to the file.
 | bytesWritten | integer | the number of bytes written |
 | buffer | Buffer | A reference to the passed in `buffer` argument |
 
-### `fsPromise.copyFile(src, dest[, mode])`
+### `fs.promises.copyFile(src, dest[, mode])`
 
 Asynchronously copies src to dest. By default, dest is overwritten if it already exists.
 
@@ -418,7 +392,7 @@ Modes:
 
 **&larr; Return** `Promise<void>`
 
-### `fsPromise.mkdir(path[, options])`
+### `fs.promises.mkdir(path[, options])`
 
 Asynchronously creates a directory.
 
@@ -429,7 +403,7 @@ Asynchronously creates a directory.
 | options.recursive | boolean| false | | ⚠️ Not implemented |
 | options.mode | string | 0o777 | | ⚠️ Not implemented |
 
-### `fsPromises.open(path, flags[, mode])`
+### `fs.promises.open(path, flags[, mode])`
 
 Opens a `FileHandle`.
 
@@ -441,7 +415,7 @@ Opens a `FileHandle`.
 
 **&larr; Return** `Promise<FileHandle>`
 
-### `fsPromises.readdir(path[, options])`
+### `fs.promises.readdir(path[, options])`
 
 Reads the contents of a directory.
 
@@ -454,7 +428,7 @@ Reads the contents of a directory.
 
 **&larr; Return** `Promise<String[]>`
 
-### `fsPromises.readFile(path[, options])`
+### `fs.promises.readFile(path[, options])`
 
 Asynchronously reads the entire contents of a file.
 
@@ -470,7 +444,7 @@ If no encoding is specified (using options.encoding), the data is returned as a 
 
 **&larr; Return** `Promise<string | Buffer>`
 
-### `fsPromises.rename(path[, options])`
+### `fs.promises.rename(path[, options])`
 
 Renames oldPath to newPath.
 
@@ -481,7 +455,7 @@ Renames oldPath to newPath.
 
 **&larr; Return** `Promise<void>`
 
-### `fsPromises.rm(path[, options])`
+### `fs.promises.rm(path[, options])`
 
 Removes files and directories
 
@@ -492,7 +466,7 @@ Removes files and directories
 
 **&larr; Return** `Promise<void>`
 
-### `fsPromises.rmdir(path[, options])`
+### `fs.promises.rmdir(path[, options])`
 
 Removes files and directories
 
@@ -503,11 +477,11 @@ Removes files and directories
 
 **&larr; Return** `Promise<void>`
 
-### `fsPromises.unlink(path[, options])`
+### `fs.promises.unlink(path[, options])`
 
-Currently, this is an alias for `fsPromises.rm`
+Currently, this is an alias for `fs.promises.rm`
 
-### `fsPromises.writeFile(file, data[, options])`
+### `fs.promises.writeFile(file, data[, options])`
 
 Asynchronously writes data to a file, replacing the file if it already exists. data can be a string or a buffer
 

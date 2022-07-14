@@ -8,8 +8,8 @@ All platforms can produce executables for `Windows`, `Linux`, and `MacOS`.
 | MacOS, Windows, Linux   | ![check](/images/icons/checkmark.svg) | ![check](/images/icons/checkmark.svg) | ![check](/images/icons/checkmark.svg) | ![check](/images/icons/checkmark.svg) |
 | Any Backend             | ![check](/images/icons/checkmark.svg) |                                       | ![check](/images/icons/checkmark.svg) |          |
 | Native Packaging        | ![check](/images/icons/checkmark.svg) | ![check](/images/icons/checkmark.svg) |                                       | |
-| iOS                     | QA                                    | In Progress                           |                                       | |
-| Android                 | Roadmap                               | Roadmap                               |                                       | |
+| iOS                     | ![check](/images/icons/checkmark.svg) | In Progress                           |                                       | |
+| Android                 | QA | Roadmap                               |                                       | |
 | Mobile UDP & TCP        | ![check](/images/icons/checkmark.svg) |                                       |                                       | |
 | Full Native Drag & Drop | ![check](/images/icons/checkmark.svg) |                                       |                                       | |
 | Desktop Tray            |                                       | ![check](/images/icons/checkmark.svg) |                                       | |
