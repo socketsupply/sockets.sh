@@ -15,6 +15,11 @@ window.parent.openExternal(url)
 
 ### `window.parent.getConfig()`
 Fetches config defiend in [`ssc.config`](/config) as a plain JSON object.
+<!-- 
+| Argument | Type | Default | Required | Description |
+| :--- | :--- | :--- | :--- | :--- |
+|      |      |      |      |      |
+-->
 
 **&larr; Return** [`SocketConfig`](/config)
 
@@ -252,6 +257,11 @@ Half-closes the socket. i.e., it sends a FIN packet. It is possible the server w
 
 ### `udp.bind(...)`
 Bind an listen on a port and address (or all interfaces)
+<!-- 
+| Argument | Type | Default | Required | Description |
+| :--- | :--- | :--- | :--- | :--- |
+|      |      |      |      |      |
+-->
 
 **&larr; Return** `undefined`
 
@@ -260,6 +270,11 @@ Bind an listen on a port and address (or all interfaces)
 
 ### `udp.send(...)`
 Send a datagram to a port and address
+<!-- 
+| Argument | Type | Default | Required | Description |
+| :--- | :--- | :--- | :--- | :--- |
+|      |      |      |      |      |
+-->
 
 **&larr; Return** `undefined`
 
@@ -268,6 +283,11 @@ Send a datagram to a port and address
 
 ### `udp.readStart(...)`
 Start accepting and reading bytes
+<!-- 
+| Argument | Type | Default | Required | Description |
+| :--- | :--- | :--- | :--- | :--- |
+|      |      |      |      |      |
+-->
 
 **&larr; Return** `undefined`
 
@@ -279,6 +299,11 @@ Start accepting and reading bytes
 ### [`window.showOpenFilePicker()`](https://developer.mozilla.org/en-US/docs/Web/API/Window/showOpenFilePicker)
 Shows a file picker that allows a user to select a file or multiple files and
 returns an array of strings for the file(s).
+<!-- 
+| Argument | Type | Default | Required | Description |
+| :--- | :--- | :--- | :--- | :--- |
+|      |      |      |      |      |
+-->
 
 **&larr; Return** `Promise<Array<String>>`
 
@@ -292,6 +317,11 @@ await window.showOpenFilePicker()
 
 Shows a file picker that allows a user to save a file. Either by selecting an
 existing file, or entering a name for a new file.
+<!-- 
+| Argument | Type | Default | Required | Description |
+| :--- | :--- | :--- | :--- | :--- |
+|      |      |      |      |      |
+-->
 
 **&larr; Return** `Promise<void>`
 
@@ -302,6 +332,11 @@ await window.showSaveFilePicker()
 ### [`window.showDirectoryPicker()`](https://developer.mozilla.org/en-US/docs/Web/API/window/showDirectoryPicker)
 
 Shows a directory picker which allows the user to select a directory.
+<!-- 
+| Argument | Type | Default | Required | Description |
+| :--- | :--- | :--- | :--- | :--- |
+|      |      |      |      |      |
+-->
 
 **&larr; Return** `Promise<Array<String>>`
 
