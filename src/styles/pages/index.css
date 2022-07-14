@@ -42,7 +42,8 @@ body#index .intro .small {
 }
 
 body#index header .hypno {
-  width: 314px;
+  width: 256px;
+  margin-bottom: 60px;
 }
 
 body#index header .compute {
