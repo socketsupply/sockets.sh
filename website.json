@@ -98,8 +98,8 @@
         "value": "us-east-1"
       },
       "domain": {
-        "value": "operatorframework.dev",
-        "hostedZoneId": "/hostedzone/Z09227523MLP9USR2VMK7"
+        "value": "socket-sdk.dev",
+        "hostedZoneId": "/hostedzone/Z08322581VDED7OB21ED3"
       }
     },
     "createResponse": {
