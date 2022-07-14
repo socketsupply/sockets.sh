@@ -21,6 +21,26 @@ body#index header p {
   font-size: 20px;
 }
 
+body#index .intro span {
+  margin: 0;
+  padding: 0;
+  display: block;
+}
+
+body#index .intro .large {
+  font-size: 64px;
+}
+
+body#index .intro .medium {
+  font-size: 48px;
+  margin-top: 14px;
+}
+
+body#index .intro .small {
+  font-size: 32px;
+  margin-bottom: 26px;
+}
+
 body#index header .hypno {
   width: 314px;
 }
@@ -128,6 +148,11 @@ body > header .centered {
   .lists {
     display: block;
     padding: 20px 0;
+  }
+
+  body#index header .hypno {
+    width: 200px;
+    margin-bottom: 48px;
   }
 
   body#index > header .centered {

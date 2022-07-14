@@ -32,7 +32,7 @@ footer .copy {
   font-family: var(--tonic-monospace);
   font-size: 12px;
   margin-top: 50px;
-  color: var(--tonic-secondary);
+  color: var(--tonic-info);
 }
 
 @media (max-width: 699px) {

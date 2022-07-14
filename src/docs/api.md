@@ -47,7 +47,7 @@ is a kind of firehose of data that can be helpful for debugging or building apis
 | `e.detail.params.serverId` | String? | If the message was sent by a server (cast to utf8 string from uint64). |
 | `e.detail.params.clientId` | String? | If the message was sent by a client (cast to utf8 string from uint64). |
 | `e.detail.headers` | String? | If the `data` field is of type `arraybuffer`, there may be an object of headers. |
-| `e.detail.data` | Object? | Could be anything, in the case of binary data, it will be of type `arraybuffer`. |
+| `e.detail.data` | Any? | Could be anything, in the case of binary data, it will be of type `arraybuffer`. |
 
 ```js
 window.addEventListener('data', e => {

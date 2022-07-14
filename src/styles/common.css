@@ -225,8 +225,8 @@ body h3 > code {
   position: relative;
   top: -2px;
   padding: 3px 5px;
-  margin: 0 2px;
   border-radius: 4px;
+  vertical-align: middle;
 }
 
 body ul {
@@ -360,7 +360,7 @@ ul.checklist {
 }
 
 ul.checklist li {
-  line-height: 28px;
+  line-height: 32px;
   list-style: none;
   position: relative;
   margin-left: 34px;
