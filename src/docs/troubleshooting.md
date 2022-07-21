@@ -27,7 +27,7 @@ sudo sntp -sS time.apple.com
 
 ### Development Environment
 
-[`clang++`][0] [version 12][1] required for building.
+[`clang++`][0] [version 14][1] required for building.
 
 You will need [build tools][3]
 
@@ -36,7 +36,7 @@ The `WebView2LoaderStatic.lib` file was sourced from [this][2] package.
 [0]:https://github.com/llvm/llvm-project/releases/tag/llvmorg-14.0.0
 [1]:https://github.com/llvm/llvm-project/releases/download/llvmorg-14.0.0/LLVM-14.0.0-win64.exe
 [2]:https://www.nuget.org/api/v2/package/Microsoft.Web.WebView2/1.0.864.35
-[3]: https://visualstudio.microsoft.com/downloads/#build-tools-for-visual-studio-2019
+[3]:https://visualstudio.microsoft.com/downloads/#build-tools-for-visual-studio-2019
 
 ### Cannot Run Scripts
 
@@ -84,14 +84,17 @@ For debian/ubuntu, before you install the packages, you may want
 to [add][0] these software update repos [here][1] to the software
 updater.
 
+Note that clang version 14 is only available on Ubuntu 22.04. Use clang 13
+for prior versions of Ubuntu.
+
 #### Ubuntu
 
 ```sh
 sudo apt install \
   build-essential \
-  clang-12 \
-  libc++1-12-dev \
-  libc++abi-12-dev \
+  clang-14 \
+  libc++1-14-dev \
+  libc++abi-14-dev \
   libwebkit2gtk-4.0-dev
 ```
 
@@ -115,14 +118,14 @@ versions of G++ on your system.
 ```sh
 sudo apt install software-properties-common
 sudo add-apt-repository ppa:ubuntu-toolchain-r/test
-sudo apt install gcc-7 g++-7 gcc-8 g++-8 gcc-9 g++-9 gcc-10 g++-10
+sudo apt install gcc-9 g++-9 gcc-10 g++-10 gcc-11 g++-11 gcc-12 g++-12
 ```
 
-Then you can set your C++ compiler as `g++-10`
+Then you can set your C++ compiler as `g++-12`
 
 ```sh
 # Add this to bashrc
-export CXX=g++-10
+export CXX=g++-12
 ```
 
 ### Can't find Webkit
