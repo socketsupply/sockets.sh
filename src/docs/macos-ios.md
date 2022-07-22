@@ -1,11 +1,11 @@
-# iOS Guide
+# macOS and iOS Guide
 
 ## Prerequisites
 
 ### Software
 
 - [Xcode](https://developer.apple.com/xcode/resources/) (You won't need to even open it)
-- [Apple Configurator][apple-configurator]
+- [Apple Configurator][apple-configurator] (If you want to build iOS apps)
 
 ### Administravia
 
@@ -35,7 +35,7 @@ filling in all the details yet, it just needs to exist).
 1. Choose a certificate request you've created 2 steps earlier.
 1. Download your certificate and double click to add it to your Keychain.
 
-#### Provisioning Profiles
+#### iOS Provisioning Profiles
 
 When you run `ssc compile --target=ios .` on your project for the first time, you may see the
 following because you don't have a provisioning profile:
@@ -52,7 +52,7 @@ ssc compile --target=ios .
 1. Download the profile and double click it. This action will open Xcode. You can close it after it's completely loaded.
 1. Place your profile to your project directory (same directory as `ssc.config`). **The profiles are secret, add your profile to `.gitignore`**.
 
-### Configuration
+### iOS Configuration
 
 1. Set the `ios_team_id` value in `ssc.config` to the value of Team ID [here][apple-dev-membership]
 1. Set the `ios_distribution_method` value in `ssc.config` to the `ad-hoc`
@@ -60,17 +60,22 @@ ssc compile --target=ios .
 1. Set the `ios_provisioning_profile` value in `ssc.config` to the filename of your certificate (i.e., "distribution.mobileprovision").
 1. Set the `ios_provisioning_specifier` value in `ssc.config` to the profile name (as in the [Profiles List][apple-dev-profiles-list])
 
-## Run the app in Simulator
+
+
+## Run the app in iOS Simulator
 
 ```bash
 ssc compile --target=iossimulator -r . # create a simulator VM and launch the app in it
 ```
 
-## Distribution
+## iOS Distribution
 
 ```bash
 ssc compile --target=ios -c -p -xd . # package for distribution
 ```
+
+If macOS is asking you a password every time you run the command with `-c` flag,
+follow [these instructions](/troubleshooting#macos-asks-for-password-multiple-times-on-code-signing)
 
 ### Install application on your device
 
