@@ -60,8 +60,6 @@ ssc compile --target=ios .
 1. Set the `ios_provisioning_profile` value in `ssc.config` to the filename of your certificate (i.e., "distribution.mobileprovision").
 1. Set the `ios_provisioning_specifier` value in `ssc.config` to the profile name (as in the [Profiles List][apple-dev-profiles-list])
 
-
-
 ## Run the app in iOS Simulator
 
 ```bash
