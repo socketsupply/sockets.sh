@@ -1,4 +1,4 @@
-## MacOS
+## macOS
 
 ### Cashes
 
@@ -22,6 +22,60 @@ command...
 ```
 sudo sntp -sS time.apple.com
 ```
+
+### macOS asks for password multiple times on code signing
+
+Open Keychain Access and find your developer certificate under the My Certificates section.
+Expand your certificate and double click on a private key. In the dialog click Access Control tab.
+
+![](../images/screenshots/macos-cert-access-control.png)
+
+`codesign` utility is located in the `/usr/bin/codesign`. To add it to the allowed applications
+list click the "+" button to open File Dialog, then press ⌘ + Shift + G and enter `/usr/bin`.
+Select `codesign` utility fom Finder.
+
+## Mac / iOS build/compile failures
+
+### `aclocal / automake: command not found`
+
+To build `ssc` for ios you need `automake` / `libtool` installed.
+
+```sh
+brew install automake
+brew install libtool
+```
+
+### `xcrun: error: SDK "iphoneos" cannot be located`
+
+You have to configure the xcode command line tools, to do this
+you can run the following command
+
+```
+sudo xcode-select --switch /Applications/Xcode.app
+```
+
+### `fatal error: 'lib/uv/include/uv.h' file not found`
+
+Make sure your local `ssc` binary has been compiled with `ios`
+parameter in `./bin/bootstrap.sh ios`, otherwise the uv.h
+does not exist.
+
+### `unable to find utility simctl`
+
+You need to have [XCode](https://developer.apple.com/xcode/resources/) installed on your macbook.
+
+### `You have not agreed to the Xcode license agreements, please run 'sudo xcodebuild -license' from within a Terminal window to review and agree to the Xcode license agreements.`
+
+You can run `sudo xcodebuild -license` to agree to the license.
+
+### Application crashes on start
+
+If you use iTerm2 you can get your app crashing with
+```
+This app has crashed because it attempted to access privacy-sensitive data without a usage description. The app's Info.plist must contain an NSBluetoothAlwaysUsageDescription key with a string value explaining to the user how the app uses this data.
+```
+Command line apps inherit their permissions from iTerm, so you need to grant Bluetooth permission to iTerm in macOS system preferences. Go to Security & Privacy, open the Privacy tab and select Bluetooth. Press the "+" button and add iTerm to the apps list.
+![](../images/screenshots/macos-bluetooth.png)
 
 ## Windows
 
@@ -154,47 +208,3 @@ Then you will want to install those dependencies
 ```sh
 sudo apt-get install libwebkit2gtk-4.0-dev
 ```
-
-## Mac / iOS build/compile failures
-
-
-### `aclocal / automake: command not found`
-
-To build `ssc` for ios you need `automake` / `libtool` installed.
-
-```sh
-brew install automake
-brew install libtool
-```
-
-### `xcrun: error: SDK "iphoneos" cannot be located`
-
-You have to configure the xcode command line tools, to do this
-you can run the following command
-
-```
-sudo xcode-select --switch /Applications/Xcode.app
-```
-
-### `fatal error: 'lib/uv/include/uv.h' file not found`
-
-Make sure your local `ssc` binary has been compiled with `ios`
-parameter in `./bin/bootstrap.sh ios`, otherwise the uv.h
-does not exist.
-
-### `unable to find utility simctl`
-
-You need to have [XCode](https://developer.apple.com/xcode/resources/) installed on your macbook.
-
-### `You have not agreed to the Xcode license agreements, please run 'sudo xcodebuild -license' from within a Terminal window to review and agree to the Xcode license agreements.`
-
-You can run `sudo xcodebuild -license` to agree to the license.
-
-### Application crashes after `ssc compile -r`
-
-If you use iTerm2 you can get your app crashing with
-```
-This app has crashed because it attempted to access privacy-sensitive data without a usage description. The app's Info.plist must contain an NSBluetoothAlwaysUsageDescription key with a string value explaining to the user how the app uses this data.
-```
-Command line apps inherit their permissions from iTerm, so you need to grant Bluetooth permission to iTerm in macOS system preferences. Go to Security & Privacy, open the Privacy tab and select Bluetooth. Press the "+" button and add iTerm to the apps list.
-![](../images/screenshots/macos-bluetooth.png)

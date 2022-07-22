@@ -19,7 +19,7 @@ class PageIos extends Tonic {
           <aside>
           </aside>
           <main>
-            <markdown-module src="src/docs/ios.md"></markdown-module>
+            <markdown-module src="src/docs/macos-ios.md"></markdown-module>
           </main>
 
           <app-footer js-bundle="true"></app-footer>
