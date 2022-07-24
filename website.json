@@ -57,7 +57,11 @@
   "633075417262": {
     "provider": "aws",
     "spa": "",
+<<<<<<< HEAD
     "lastDeployed": "2022-07-14T11:30:58.566Z",
+=======
+    "lastDeployed": "2022-07-14T11:45:38.489Z",
+>>>>>>> 6d0ece0 (wip style)
     "properties": {
       "relativeFolder": {
         "value": [
@@ -98,8 +102,8 @@
         "value": "us-east-1"
       },
       "domain": {
-        "value": "socket-sdk.dev",
-        "hostedZoneId": "/hostedzone/Z08322581VDED7OB21ED3"
+        "value": "sockets.sh",
+        "hostedZoneId": "/hostedzone/Z1038773E1TAJV660M4D"
       }
     },
     "createResponse": {
