@@ -44,6 +44,7 @@ body#index .intro .small {
 body#index header .hypno {
   width: 256px;
   margin-bottom: 60px;
+  border-radius: 99em;
 }
 
 body#index header .compute {

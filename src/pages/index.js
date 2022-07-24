@@ -15,7 +15,7 @@ class PageIndex extends Tonic {
         <body id="index">
           <header>
             <div class="centered">
-              <img src="images/radius.svg" class="hypno" alt="A Laptop" />
+              <img src="images/waves.svg" class="hypno" alt="Waves" />
               <img src="images/illustrations.svg" class="compute" alt="A Laptop" />
               <h1>Socket</h1>
               <p>Software Development Kit</p>
