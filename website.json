@@ -57,11 +57,7 @@
   "633075417262": {
     "provider": "aws",
     "spa": "",
-<<<<<<< HEAD
-    "lastDeployed": "2022-07-14T11:30:58.566Z",
-=======
-    "lastDeployed": "2022-07-14T11:45:38.489Z",
->>>>>>> 6d0ece0 (wip style)
+    "lastDeployed": "2022-07-24T12:49:27.134Z",
     "properties": {
       "relativeFolder": {
         "value": [
