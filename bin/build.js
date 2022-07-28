@@ -7,10 +7,7 @@ import minimist from 'minimist'
 
 const pkg = JSON.parse(fs.readFileSync('package.json'))
 
-console.log(process.arch)
-
 const dirname = meta => path.dirname(new URL(meta.url).pathname)
-
 const __dirname = dirname(import.meta)
 
 const SKIP_LIST = pkg.skiplist ?? []
@@ -105,7 +102,7 @@ const build = async argv => {
   fs.rmSync(buildDir, { force: true, recursive: true })
   fs.mkdirSync(buildDir, { recursive: true })
 
-  for (const dir of ['fonts', 'images', 'styles']) {
+  for (const dir of ['fonts', 'images', 'styles', 'ca']) {
     fs.symlinkSync(
       path.join(base, 'src', dir),
       path.join(buildDir, dir)
