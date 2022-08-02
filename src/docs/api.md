@@ -1,532 +1,457 @@
-## App
 
-### `window.parent.openExternal(url)`
-Opens a link in the user's default browser.
+# Bluetooth
 
-| Parameter | Type | Required | Default | Description |
-| :--- | :--- | :--- | :--- | :--- |
-| `url` | String | ![check](/images/icons/checkmark.svg) | | The URL that will be opened by the user's default browser. |
 
-**&larr; Return** `undefined`
+A high level, cross-platform API for Bluetooth Pub-Sub
 
-```ts
-window.parent.openExternal(url)
+
+## Bluetooth (extends EventEmitter)
+
+Create an instance of a Bluetooth service.
+
+
+### constructor
+
+constructor is an example property that is set to `true`
+Creates a new service with key-value pairs
+
+| Argument | Type | Default | Optional | Description |
+| :---     | :--- | :---:   | :---:    | :---        |
+| serviceId | string |  | false | Given a default value to determine the type |
+
+### publish
+
+Start advertising a new value for a well-known UUID
+
+
+# Dgram
+
+
+This module provides an implementation of UDP datagram sockets. It does
+not (yet) provide any of the multicast methods or properties.
+
+
+## Socket (extends EventEmitter)
+
+New instances of dgram.Socket are created using dgram.createSocket().
+The new keyword is not to be used to create dgram.Socket instances.
+
+
+### bind
+
+Listen for datagram messages on a named port and optional address
+If address is not specified, the operating system will attempt to
+listen on all addresses. Once binding is complete, a 'listening'
+event is emitted and the optional callback function is called.
+
+If binding fails, an 'error' event is emitted.
+
+
+| Argument | Type | Default | Optional | Description |
+| :---     | :--- | :---:   | :---:    | :---        |
+| port | number |  | false | The port to to listen for messages on |
+| address | string |  | false | The address to bind to (0.0.0.0) |
+| callback | function |  | false | With no parameters. Called when binding is complete. |
+
+## lookup
+
+
+This module enables name resolution. For example, use it to look up IP
+addresses of host names. Although named for the Domain Name System (DNS),
+it does not always use the DNS protocol for lookups. dns.lookup() uses the
+operating system facilities to perform name resolution. It may not need to
+perform any network communication. To perform name resolution the way other
+applications on the same system do, use dns.lookup().
+
+
+# IPC
+
+
+There are three important concepts for an application built with the Socket
+SDK. The `Render` process, the `Main` process, and the `Bridge` process.
+
+`IPC` is an acronym for Inter Process Communication. It's the method for
+which these [processes][processes] work together.
+
+The Bridge process handles communication between the Render and Main
+processes. For Desktop apps, the Render process is the user interface, and
+the Main process, which is optional, is strictly for computing and IO.
+
+When an applicaiton starts, the Bridge process will spawn a child process
+if one is specified.
+
+The Binding process uses standard input and output as a way to communicate.
+Data written to the write-end of the pipe is buffered by the OS until it is
+read from the read-end of the pipe.
+
+The IPC protocol uses a simple URI-like scheme.
+
+```uri
+ipc://command?key1=value1&key2=value2...
 ```
 
-### `window.parent.getConfig()`
-Fetches config defiend in [`ssc.config`](/config) as a plain JSON object.
+The query is encoded with `encodeURIComponent`.
 
-| Argument | Type | Default | Required | Description |
-| :--- | :--- | :--- | :--- | :--- |
-|      |      |      |      |      |
+Here is a reference [implementation][0] if you would like to use a language
+that does not yet have one.
 
-**&larr; Return** [`SocketConfig`](/config)
 
-```ts
-const config = await window.parent.getConfig()
-console.log(config.title)
-console.log(config.version)
-console.log(config.description)
-```
+## OK
 
-## Global Events
+Represents an OK IPC status.
 
-The following events are emitted on the `window` object, and can be listened to
-with `window.addEventListener`.
 
-### `"data"`
+## ERROR
 
-Emitted any time there is any data from the ipc channel, this
-is a kind of firehose of data that can be helpful for debugging or building apis.
+Represents an ERROR IPC status.
 
-| Property | Type | Description |
-| :--- | :--- | :--- |
-| `e.detail.params.source` | String? | `bluetooth` \| `tcp` \| `udp`. |
-| `e.detail.params.uuid` | String? | If the message was sent by bluetooth it will have the temporary uuid of the device. |
-| `e.detail.params.name` | String? | If the message was sent by bluetooth it may have the name of the device. |
-| `e.detail.params.serverId` | String? | If the message was sent by a server (cast to utf8 string from uint64). |
-| `e.detail.params.clientId` | String? | If the message was sent by a client (cast to utf8 string from uint64). |
-| `e.detail.headers` | String? | If the `data` field is of type `arraybuffer`, there may be an object of headers. |
-| `e.detail.data` | Any? | Could be anything, in the case of binary data, it will be of type `arraybuffer`. |
 
-```js
-window.addEventListener('data', e => {
-  myMessageCount++
-})
-```
+## TIMEOUT
 
-### `"blur"`
-Raised on the `window` object when the window is backgrounded by the user.
+Timeout in milliseconds for IPC requests.
 
-```js
-window.addEventListener('blur', e => {
-})
-```
 
-### `"focus"`
-Raised on the `window` object when the window is foregrounded by the user.
+## kDebugEnabled
 
-```js
-window.addEventListener('focus', e => {
-})
-```
+Symbol for the `ipc.debug.enabled` property
 
-<br/>
 
-### `"offline"`
+## parseSeq
 
-Emitted when the network becomes unavailable.
+Parses `seq` as integer value
 
-```js
-window.addEventListener('offline', e => {
-})
-```
+| Argument | Type | Default | Optional | Description |
+| :---     | :--- | :---:   | :---:    | :---        |
+| seq | string\|number |  | false |  |
+| [options] | (object) |  | true |  |
+| [options.bigint = false] | boolean |  | false |  |
 
-### `"online"`
+## Result
 
-Emitted when the network becomes available.
+A result type used internally for handling
+IPC result values from the native layer that are in the form
+of `{ err?, data? }`. The `data` and `err` properties on this
+type of object are in tuple form and be accessed at `[data?,err?]`
 
-```js
-window.addEventListener('online', e => {
-})
-```
 
-### `"protocol"`
+### from
 
-Emitted when your app is opened because you registered a protocol in the app's
-configuration file (ie `protocol: hyper`).
+Creates a `Result` instance from input that may be an object
+like `{ err?, data? }`, an `Error` instance, or just `data`.
 
-| Property | Type | Description |
-| :--- | :--- | :--- |
-| `e.detail.url` | String? | The url that opened the app. |
+| Argument | Type | Default | Optional | Description |
+| :---     | :--- | :---:   | :---:    | :---        |
+| result | (object\|Error|mixed) |  | true |  |
 
-```js
-window.addEventListener('protocol', e => {
-  const u = new URL(e.detail.url)
-  assert(u.protocol === 'ipfs:')
-})
-```
+## ready
 
+This is a `FunctionDeclaration` named `ready`in `ipc.js`, it's exported but undocumented.
 
 
-## Net
 
-### `net.createServer([options])`
-Creates a new TCP server.
+## sendSync
 
-| Argument | Type | Default | Required | Description |
-| :--- | :--- | :--- | :--- | :--- |
-| options | Object | `{}` | | An optional options object |
-| options.simultaneousAccepts | Boolean | true | | Enable / disable simultaneous asynchronous accept requests that are queued by the operating parent when listening for new TCP connections. See [libuv][uv0] docs for more info. |
+Sends a synchronous IPC command over XHR returning a `Result`
+upon success or error.
 
-**&larr; Return** `Server` (Instance of EventEmitter with the following events)
+| Argument | Type | Default | Optional | Description |
+| :---     | :--- | :---:   | :---:    | :---        |
+| command | string |  | false |  |
+| params | (object\|string) |  | true |  |
 
-| Event | Description |
-| :--- | :--- |
-| `"listening"` | Emitted when the server has been bound after calling the `listen` method. |
-| `"connection"` | Emitted when a new connection is made. The callback provides a single value, `socket`, which is an instance of `Socket` as described in this document. |
-| `"data"` | Emitted when data is received. The argument data will be a Buffer or String. Encoding of data is set by the `setEncoding` method. The data will be lost if there is no listener when a Socket emits a 'data' event. |
-| `"closed"` | Emitted when the connection has fully closed. |
+## resolve
 
-```js
-const net = require('@socketsupply/io/node/net')
-const server = net.createServer()
+This is a `FunctionDeclaration` named `resolve`in `ipc.js`, it's exported but undocumented.
 
-server.on('connection', socket => {
-  socket.on('data', data => {
-    console.log(data)
-  })
 
-  socket.write("hello")
-})
 
-server.listen(9200)
-```
+## send
 
-### `server.listen(port[, cb])`
+This is a `FunctionDeclaration` named `send`in `ipc.js`, it's exported but undocumented.
 
-Start a server listening for connections.
 
-| Argument | Type | Default | Required | Description |
-| :--- | :--- | :--- | :--- | :--- |
-| port | Object | | ![check](/images/icons/checkmark.svg) | The port on which to allow connections. |
-| cb | Function | |  | If supplied, will be added as a listener for the `"connect"` event on the returned socket once. |
 
-**&larr; Return** `undefined`
+## write
 
+This is a `FunctionDeclaration` named `write`in `ipc.js`, it's exported but undocumented.
 
-### `server.on(event, cb)`
 
-Adds the listener function to the end of the listeners array for the event named eventName. No checks are made to see if the listener has already been added. Multiple calls passing the same combination of eventName and listener will result in the listener being added, and called, multiple times. See the Node.js [`EventEmitter`][ee] documentation for all methods and properties.
 
-| Argument | Type | Default | Required | Description |
-| :--- | :--- | :--- | :--- | :--- |
-| name | String | | ![check](/images/icons/checkmark.svg) | The name of the event (continue reading this document for possible event names that can be observed). |
-| cb | Function | | ![check](/images/icons/checkmark.svg) | The function to be called when there an event is emitted which matches the event name. |
+## request
 
-**&larr; Return** `undefined`
+This is a `FunctionDeclaration` named `request`in `ipc.js`, it's exported but undocumented.
 
 
-### `server.close([cb])`
 
-Stops the server from accepting new connections and keeps existing connections. This function is asynchronous, the server is finally closed when all connections are ended and the server emits a 'close' event. The optional callback will be called once the 'close' event occurs. Unlike that event, it will be called with an Error as its only argument if the server was not open when it was closed.
+# OS
 
-| Argument | Type | Default | Required | Description |
-| :--- | :--- | :--- | :--- | :--- |
-| cb | Function |  |  | If supplied, will be added as a listener for the `"connect"` event on the returned socket once. |
 
-**&larr; Return** `undefined`
+This module provides normalized system information from all the major
+operating systems.
 
-<br/>
 
-### `net.createConnection(port[, address][, cb])`
+## arch
 
-Creates a new socket by immediately initiating a connection.
+This is a `FunctionDeclaration` named `arch`in `os.js`, it's exported but undocumented.
 
-| Argument | Type | Default | Required | Description |
-| :--- | :--- | :--- | :--- | :--- |
-| port | Object |  | ![check](/images/icons/checkmark.svg) | The port to connect with. |
-| address | String | |  | An `ipv4` or `ipv6` address. |
-| cb | Function | |  | If supplied, will be added as a listener for the `"connect"` event on the returned socket once. |
 
-**&larr; Return** `Client` (Instance of EventEmitter with the following events)
 
-| Event | Description |
-| :--- | :--- |
-| `"listening"` | Emitted when the server has been bound after calling the `listen` method. |
-| `"data"` | Emitted when data is received. The argument data will be a Buffer or String. Encoding of data is set by the `setEncoding` method. The data will be lost if there is no listener when a Socket emits a 'data' event. |
-| `"closed"` | Emitted when the connection has fully closed. |
+## networkInterfaces
 
-```js
-const net = require('@socketsupply/io/node/net')
-const socket = net.createConnection(9200, '192.168.1.22')
+This is a `FunctionDeclaration` named `networkInterfaces`in `os.js`, it's exported but undocumented.
 
-socket.on('connect', socket => {
-  document.body.style.border = '1px solid green'
-});
 
-socket.on('data', data => {
-  // data is of type string.
-})
-```
 
-<br/>
+## platform
 
-### `client.on(event, cb)`
+This is a `FunctionDeclaration` named `platform`in `os.js`, it's exported but undocumented.
 
-Adds the listener function to the end of the listeners array for the event named eventName. No checks are made to see if the listener has already been added. Multiple calls passing the same combination of eventName and listener will result in the listener being added, and called, multiple times. See the Node.js [`EventEmitter`][ee] documentation for all methods and properties.
 
-| Argument | Type | Default | Required | Description |
-| :--- | :--- | :--- | :--- | :--- |
-| name | String | | ![check](/images/icons/checkmark.svg) | The name of the event (continue reading this document for possible event names that can be observed). |
-| cb | Function | | ![check](/images/icons/checkmark.svg) | The function to be called when there an event is emitted which matches the event name. |
 
-**&larr; Return** `undefined`
+## type
 
+This is a `FunctionDeclaration` named `type`in `os.js`, it's exported but undocumented.
 
-### `client.write([data[, encoding]][, cb])`
 
-Sends data on the socket. The second parameter specifies the encoding in the case of a string. It defaults to UTF8 encoding.
 
-Returns true if the entire data was flushed successfully to the kernel buffer. Returns false if all or part of the data was queued in user memory. 'drain' will be emitted when the buffer is again free.
+## EOL
 
-The optional callback parameter will be executed when the data is finally written out, which may not be immediately.
+This is a `VariableDeclaration` named `EOL`in `os.js`, it's exported but undocumented.
 
-| Argument | Type | Default | Required | Description |
-| :--- | :--- | :--- | :--- | :--- |
-| data | String | | | The data to send to the socket. |
-| encoding | String | `utf8` | | Only used when data is string. May be either `utf8` or `Uint8Array` |
-| cb | Function | |  | If supplied, will be added as a listener for the `"connect"` event on the returned socket once. |
 
-**&larr; Return** `undefined`
 
-### `client.end([data[, encoding]][, cb])`
+## Server (extends EventEmitter)
 
-Half-closes the socket. i.e., it sends a FIN packet. It is possible the server will still send some data.
+This is a `ClassDeclaration` named `Server (extends EventEmitter)`in `net.js`, it's exported but undocumented.
 
-| Argument | Type | Default | Required | Description |
-| :--- | :--- | :--- | :--- | :--- |
-| data | String | | | The data to send to the socket. |
-| encoding | String | `utf8` | | Only used when data is string. May be either `utf8` or `Uint8Array`. |
-| cb | Function | |  | If supplied, will be added as a listener for the `"connect"` event on the returned socket once. |
 
-**&larr; Return** `undefined`
 
-## UDP
+## Socket (extends Duplex)
 
-### `udp.bind(...)`
-Bind an listen on a port and address (or all interfaces)
+This is a `ClassDeclaration` named `Socket (extends Duplex)`in `net.js`, it's exported but undocumented.
 
-| Argument | Type | Default | Required | Description |
-| :--- | :--- | :--- | :--- | :--- |
-|      |      |      |      |      |
 
-**&larr; Return** `undefined`
 
-```js
-```
+## connect
 
-### `udp.send(...)`
-Send a datagram to a port and address
+This is a `VariableDeclaration` named `connect`in `net.js`, it's exported but undocumented.
 
-| Argument | Type | Default | Required | Description |
-| :--- | :--- | :--- | :--- | :--- |
-|      |      |      |      |      |
 
-**&larr; Return** `undefined`
 
-```js
-```
+## createServer
 
-### `udp.readStart(...)`
-Start accepting and reading bytes
+This is a `VariableDeclaration` named `createServer`in `net.js`, it's exported but undocumented.
 
-| Argument | Type | Default | Required | Description |
-| :--- | :--- | :--- | :--- | :--- |
-|      |      |      |      |      |
 
-**&larr; Return** `undefined`
 
-```js
-```
+## getNetworkInterfaces
 
-## File System
+This is a `VariableDeclaration` named `getNetworkInterfaces`in `net.js`, it's exported but undocumented.
 
-### [`window.showOpenFilePicker()`](https://developer.mozilla.org/en-US/docs/Web/API/Window/showOpenFilePicker)
-Shows a file picker that allows a user to select a file or multiple files and
-returns an array of strings for the file(s).
 
-| Argument | Type | Default | Required | Description |
-| :--- | :--- | :--- | :--- | :--- |
-|      |      |      |      |      |
 
-**&larr; Return** `Promise<Array<String>>`
+## isIPv4
 
-```js
-await window.showOpenFilePicker()
-```
+This is a `VariableDeclaration` named `isIPv4`in `net.js`, it's exported but undocumented.
 
 
-### [`window.showSaveFilePicker()`](https://developer.mozilla.org/en-US/docs/Web/API/window/showSaveFilePicker)
 
-Shows a file picker that allows a user to save a file. Either by selecting an
-existing file, or entering a name for a new file.
+## undefined
 
-| Argument | Type | Default | Required | Description |
-| :--- | :--- | :--- | :--- | :--- |
-|      |      |      |      |      |
+This is a `ExportAllDeclaration` named `undefined`in `fs/index.js`, it's exported but undocumented.
 
 
-**&larr; Return** `Promise<void>`
 
-```js
-await window.showSaveFilePicker()
-```
+## access
 
-### [`window.showDirectoryPicker()`](https://developer.mozilla.org/en-US/docs/Web/API/window/showDirectoryPicker)
+Asynchronously check access a file for a given mode calling `callback`
+upon success or error.
 
-Shows a directory picker which allows the user to select a directory.
+| Argument | Type | Default | Optional | Description |
+| :---     | :--- | :---:   | :---:    | :---        |
+| path | string \| Buffer | URL |  | false |  |
+| [mode = F_OK(0)] | (string) |  | true |  |
+| callback | function(err, fd) |  | false |  |
 
-| Argument | Type | Default | Required | Description |
-| :--- | :--- | :--- | :--- | :--- |
-|      |      |      |      |      |
+## chmod
 
+This is a `FunctionDeclaration` named `chmod`in `fs/index.js`, it's exported but undocumented.
 
-**&larr; Return** `Promise<Array<String>>`
 
-```js
-await window.showDirectoryPicker()
-```
 
+## chown
 
+This is a `FunctionDeclaration` named `chown`in `fs/index.js`, it's exported but undocumented.
 
-### Class: `FileHandle`
 
-A `FileHandle` object is an object wrapper for a numeric file descriptor. It tries to mimic Node.js' [`FileHandle`](https://nodejs.org/api/fs.html#class-filehandle).
 
-### `FileHandle` event: `close`
+## close
 
-The 'close' event is emitted when the `FileHandle` has been closed and can no longer be used.
+Asynchronously close a file descriptor calling `callback` upon success or error.
 
-### `fileHandle.close()`
+| Argument | Type | Default | Optional | Description |
+| :---     | :--- | :---:   | :---:    | :---        |
+| fd | number |  | false |  |
+| callback | function(err) |  | false |  |
 
-Closes the file handle after waiting for any pending operation on the handle to complete.
+## createReadStream
 
-| Argument | Type | Default | Required | Description |
-| :--- | :--- | :--- | :--- | :--- |
+This is a `FunctionDeclaration` named `createReadStream`in `fs/index.js`, it's exported but undocumented.
 
-**&larr; Return** `Promise<void>`
 
-### `fileHandle.read([options])`
 
-Reads data from the file and stores that in the given buffer.
+## createWriteStream
 
-| Argument | Type | Default | Required | Description |
-| :--- | :--- | :--- | :--- | :--- |
-| options | Object | `{}` | | An optional options object |
-| options.buffer | Buffer | Buffer.alloc(16384) | | A buffer that will be filled with the file data read |
-| options.offset | integer | 0 | | The location in the buffer at which to start filling |
-| options.length | integer | buffer.byteLength - offset | | The number of bytes to read |
-| options.position | integer | null | null | | The location where to begin reading data from the file. If null, data will be read from the current file position, and the position will be updated. If position is an integer, the current file position will remain unchanged |
+This is a `FunctionDeclaration` named `createWriteStream`in `fs/index.js`, it's exported but undocumented.
 
-**&larr; Return** `Promise<Object>`
 
-| Property | Type | Description |
-| :--- | :--- | :--- |
-| bytesRead | integer | The number of bytes read |
-| buffer | Buffer | A reference to the passed in `buffer` argument |
 
-### `filehandle.stat([options])`
+## fstat
 
-The `Stats` class is the same as described in Node.js [fs.Stats](https://nodejs.org/api/fs.html#class-fsstats)
+Invokes the callback with the <fs.Stats> for the file descriptor. See
+the POSIX fstat(2) documentation for more detail.
 
-| Argument | Type | Default | Required | Description |
-| :--- | :--- | :--- | :--- | :--- |
-| options | Object | `{}` | | An optional options object |
-| options.bigint | boolean | false | | Whether the numeric values in the returned stats object should be bigint |
 
-**&larr; Return** `Promise<Stats>`
+| Argument | Type | Default | Optional | Description |
+| :---     | :--- | :---:   | :---:    | :---        |
+| fd | number |  | false | A file descriptor. |
+| options | Object |  | false | An options object. |
+| callback | function |  | false | The function to call after completion. |
 
-### `filehandle.write(buffer[, offset[, length[, position]]])`
+## lchown
 
-Write buffer to the file.
+This is a `FunctionDeclaration` named `lchown`in `fs/index.js`, it's exported but undocumented.
 
-| Argument | Type | Default | Required | Description |
-| :--- | :--- | :--- | :--- | :--- |
-| buffer | Buffer | | ![check](/images/icons/checkmark.svg) | |
-| offset | integer | 0 | | The start position from within buffer where the data to write begins |
-| length | integer | buffer.byteLength - offset | | The number of bytes to write |
-| position | integer | null | null | | The offset from the beginning of the file where the data from buffer should be written. If position is not a number, the data will be written at the current position |
 
-**&larr; Return** `Promise<Object>`
 
-| Property | Type | Description |
-| :--- | :--- | :--- |
-| bytesWritten | integer | the number of bytes written |
-| buffer | Buffer | A reference to the passed in `buffer` argument |
+## lutimes
 
-### `fs.promises.copyFile(src, dest[, mode])`
+This is a `FunctionDeclaration` named `lutimes`in `fs/index.js`, it's exported but undocumented.
 
-Asynchronously copies src to dest. By default, dest is overwritten if it already exists.
 
-| Argument | Type | Default | Required | Description |
-| :--- | :--- | :--- | :--- | :--- |
-| src | string \| Buffer | | ![check](/images/icons/checkmark.svg) | source filename to copy |
-| dest | string \| Buffer  | | ![check](/images/icons/checkmark.svg) | destination filename of the copy operation |
-| mode | integer | 0 | | Optional modifiers that specify the behavior of the copy operation. It is possible to create a mask consisting of the bitwise OR of two or more values |
-Modes:
-- `fs.constants.COPYFILE_EXCL`: The copy operation will fail if dest already exists.
-- `fs.constants.COPYFILE_FICLONE`: The copy operation will attempt to create a copy-on-write reflink. If the platform does not support copy-on-write, then a fallback copy mechanism is used.
-- `fs.constants.COPYFILE_FICLONE_FORCE`: The copy operation will attempt to create a copy-on-write reflink. If the platform does not support copy-on-write, then the operation will fail.
 
-**&larr; Return** `Promise<void>`
+## link
 
-### `fs.promises.mkdir(path[, options])`
+This is a `FunctionDeclaration` named `link`in `fs/index.js`, it's exported but undocumented.
 
-Asynchronously creates a directory.
 
-| Argument | Type | Default | Required | Description |
-| :--- | :--- | :--- | :--- | :--- |
-| path | string \| Buffer | | ![check](/images/icons/checkmark.svg) | |
-| options | Object | `{}` | | An optional options object |
-| options.recursive | boolean| false | | ⚠️ Not implemented |
-| options.mode | string | 0o777 | | ⚠️ Not implemented |
 
-### `fs.promises.open(path, flags[, mode])`
+## lstat
 
-Opens a `FileHandle`.
+This is a `FunctionDeclaration` named `lstat`in `fs/index.js`, it's exported but undocumented.
 
-| Argument | Type | Default | Required | Description |
-| :--- | :--- | :--- | :--- | :--- |
-| path | Buffer | | ![check](/images/icons/checkmark.svg) | |
-| flags | integer | 0 | | The start position from within buffer where the data to write begins |
-| mode | integer | buffer.byteLength - offset | | The number of bytes to write. ⚠️ We don't use this one so far, so it won't affect anything |
 
-**&larr; Return** `Promise<FileHandle>`
 
-### `fs.promises.readdir(path[, options])`
+## mkdir
 
-Reads the contents of a directory.
+This is a `FunctionDeclaration` named `mkdir`in `fs/index.js`, it's exported but undocumented.
 
-| Argument | Type | Default | Required | Description |
-| :--- | :--- | :--- | :--- | :--- |
-| path | string \| Buffer \| FileHandle | | ![check](/images/icons/checkmark.svg) | filename or FileHandle |
-| options | Object | `{}` | | An optional options object |
-| options.encoding | string \| 'utf8' | null | | ⚠️ Not implemented |
-| options.withFileTypes | boolean | falso | | ⚠️ Not implemented |
 
-**&larr; Return** `Promise<String[]>`
 
-### `fs.promises.readFile(path[, options])`
+## open
 
-Asynchronously reads the entire contents of a file.
+Asynchronously open a file calling `callback` upon success or error.
 
-If no encoding is specified (using options.encoding), the data is returned as a `Buffer` object. Otherwise, the data will be a string.
+| Argument | Type | Default | Optional | Description |
+| :---     | :--- | :---:   | :---:    | :---        |
+| path | string \| Buffer | URL |  | false |  |
+| [flags = 'r'] | (string) |  | true |  |
+| [mode = 0o666] | (string) |  | true |  |
+| callback | function(err, fd) |  | false |  |
 
-| Argument | Type | Default | Required | Description |
-| :--- | :--- | :--- | :--- | :--- |
-| path | string \| Buffer \| FileHandle | | ![check](/images/icons/checkmark.svg) | filename or FileHandle |
-| options | Object | `{}` | | An optional options object |
-| options.encoding | string \| null | null | | |
-| options.flag | string | | | |
-| options.signal | AbortSignal | | | allows aborting an in-progress readFile ⚠️ Not implemented |
+## read
 
-**&larr; Return** `Promise<string | Buffer>`
+Asynchronously read from an open file descriptor.
 
-### `fs.promises.rename(path[, options])`
+| Argument | Type | Default | Optional | Description |
+| :---     | :--- | :---:   | :---:    | :---        |
+| fd | number |  | false |  |
+| buffer | object \| Buffer | TypedArray |  | false |  |
 
-Renames oldPath to newPath.
+## readFile
 
-| Argument | Type | Default | Required | Description |
-| :--- | :--- | :--- | :--- | :--- |
-| oldPath | string \| Buffer | | ![check](/images/icons/checkmark.svg) | |
-| newPath | string \| Buffer | | ![check](/images/icons/checkmark.svg) | |
 
-**&larr; Return** `Promise<void>`
 
-### `fs.promises.rm(path[, options])`
+| Argument | Type | Default | Optional | Description |
+| :---     | :--- | :---:   | :---:    | :---        |
+| path | string \| Buffer | URL | number  |  | false |  |
+| [options] | object |  | false |  |
+| callback | function(err, buffer) |  | false |  |
 
-Removes files and directories
+## realpath
 
-| Argument | Type | Default | Required | Description |
-| :--- | :--- | :--- | :--- | :--- |
-| path | string \| Buffer \| FileHandle | | ![check](/images/icons/checkmark.svg) | filename or FileHandle |
-| options | Object | `{}` | | An optional options object ⚠️ Not implemented |
+This is a `FunctionDeclaration` named `realpath`in `fs/index.js`, it's exported but undocumented.
 
-**&larr; Return** `Promise<void>`
 
-### `fs.promises.rmdir(path[, options])`
 
-Removes files and directories
+## rename
 
-| Argument | Type | Default | Required | Description |
-| :--- | :--- | :--- | :--- | :--- |
-| path | string \| Buffer | | ![check](/images/icons/checkmark.svg) | |
-| options | Object | `{}` | | An optional options object ⚠️ Not implemented |
+This is a `FunctionDeclaration` named `rename`in `fs/index.js`, it's exported but undocumented.
 
-**&larr; Return** `Promise<void>`
 
-### `fs.promises.unlink(path[, options])`
 
-Currently, this is an alias for `fs.promises.rm`
+## rmdir
 
-### `fs.promises.writeFile(file, data[, options])`
+This is a `FunctionDeclaration` named `rmdir`in `fs/index.js`, it's exported but undocumented.
 
-Asynchronously writes data to a file, replacing the file if it already exists. data can be a string or a buffer
 
-| Argument | Type | Default | Required | Description |
-| :--- | :--- | :--- | :--- | :--- |
-| file | string \| Buffer \| FileHandle | | ![check](/images/icons/checkmark.svg) | filename or FileHandle |
-| data | string \| Buffer | | ![check](/images/icons/checkmark.svg) | |
-| options | Object | `{}` | | An optional options object |
-| options.encoding | string \| null | 'utf8' | | ⚠️ Not implemented |
-| options.mode | string | 0o666 | | ⚠️ Not implemented |
-| options.flag | string | 'w' | | ⚠️ Not implemented  |
-| options.signal | AbortSignal | | | allows aborting an in-progress readFile ⚠️ Not implemented |
 
-**&larr; Return** `Promise<string | Buffer>`
+## rm
 
-<br/>
+This is a `FunctionDeclaration` named `rm`in `fs/index.js`, it's exported but undocumented.
 
-[ee]:https://nodejs.org/api/events.html#class-eventemitter
-[uv0]:http://docs.libuv.org/en/v1.x/tcp.html#c.uv_tcp_simultaneous_accepts
+
+
+## stat
+
+This is a `FunctionDeclaration` named `stat`in `fs/index.js`, it's exported but undocumented.
+
+
+
+## symlink
+
+This is a `FunctionDeclaration` named `symlink`in `fs/index.js`, it's exported but undocumented.
+
+
+
+## truncate
+
+This is a `FunctionDeclaration` named `truncate`in `fs/index.js`, it's exported but undocumented.
+
+
+
+## unlink
+
+This is a `FunctionDeclaration` named `unlink`in `fs/index.js`, it's exported but undocumented.
+
+
+
+## utimes
+
+This is a `FunctionDeclaration` named `utimes`in `fs/index.js`, it's exported but undocumented.
+
+
+
+## watch
+
+This is a `FunctionDeclaration` named `watch`in `fs/index.js`, it's exported but undocumented.
+
+
+
+## write
+
+This is a `FunctionDeclaration` named `write`in `fs/index.js`, it's exported but undocumented.
+
+
+
+## writeFile
+
+This is a `FunctionDeclaration` named `writeFile`in `fs/index.js`, it's exported but undocumented.
+
+
+
+## writev
+
+This is a `FunctionDeclaration` named `writev`in `fs/index.js`, it's exported but undocumented.
+
+
