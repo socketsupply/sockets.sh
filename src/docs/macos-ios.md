@@ -97,9 +97,6 @@ ssc compile --target=iossimulator -r . # create a simulator VM and launch the ap
 ssc compile --target=ios -c -p -xd . # package for distribution
 ```
 
-If macOS is asking you a password every time you run the command with `-c` flag,
-follow [these instructions](/troubleshooting#macos-asks-for-password-multiple-times-on-code-signing)
-
 ### To your device
 
 Install [Apple Configurator][apple-configurator], open it and install Automation Tools from the menu.
@@ -132,7 +129,8 @@ xcrun altool --upload-app \
 
 ## Debugging
 
-You can run [`lldb`][lldb] and attach to a process, for example...
+Check the [troubleshooting guide][/troubleshooting] first. You can also run
+[`lldb`][lldb] and attach to a process, for example...
 
 ```bash
 process attach --name TestExample-dev

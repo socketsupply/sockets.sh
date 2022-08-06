@@ -34,7 +34,7 @@ Expand your certificate and double click on a private key. In the dialog click A
 list click the "+" button to open File Dialog, then press ⌘ + Shift + G and enter `/usr/bin`.
 Select `codesign` utility fom Finder.
 
-## Mac / iOS build/compile failures
+## Build or compile failures
 
 ### `aclocal / automake: command not found`
 
@@ -67,6 +67,11 @@ You need to have [XCode](https://developer.apple.com/xcode/resources/) installed
 ### `You have not agreed to the Xcode license agreements, please run 'sudo xcodebuild -license' from within a Terminal window to review and agree to the Xcode license agreements.`
 
 You can run `sudo xcodebuild -license` to agree to the license.
+
+### Multiple Password Prompts
+
+If macOS is asking you a password every time you run the command with `-c` flag,
+follow [these instructions](/troubleshooting#macos-asks-for-password-multiple-times-on-code-signing)
 
 ### Application crashes on start
 
