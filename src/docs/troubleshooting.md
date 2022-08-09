@@ -45,6 +45,14 @@ brew install automake
 brew install libtool
 ```
 
+### `unable to build chain to self-signed root for signer (...)`
+
+You need the intermediate certificate that matches your code signing certificate.
+To find which "Worldwide Developer Relations" matches you certificate, open the
+signing certificate in your keychain, open [this](https://www.apple.com/certificateauthority/)
+page and find the certificate that matches the details in the "Issuer" section
+of your certicicate.
+
 ### `xcrun: error: SDK "iphoneos" cannot be located`
 
 You have to configure the xcode command line tools, to do this
