@@ -81,7 +81,7 @@ mac_sign: Developer ID Application: Operator Tools Inc. (Z3M838H537)
 
 1. Set the `ios_team_id` value in `ssc.config` to the value of Team ID [here][apple-dev-membership]
 1. Set the `ios_distribution_method` value in `ssc.config` to the `ad-hoc`
-1. Set the `ios_signing_certificate` value in `ssc.config` to the [certificate](#certificate) name as it's displayed in the Keychan
+1. Set the `ios_codesign_identity` value in `ssc.config` to the [certificate](#certificate) name as it's displayed in the Keychan
 1. Set the `ios_provisioning_profile` value in `ssc.config` to the filename of your certificate (i.e., "distribution.mobileprovision").
 1. Set the `ios_provisioning_specifier` value in `ssc.config` to the profile name (as in the [Profiles List][apple-dev-profiles-list])
 

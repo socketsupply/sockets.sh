@@ -4,14 +4,13 @@
 | :--- | :--- | :--- | :--- |
 | `build` | | | Shell command to build an application |
 | `bundle_identifier` | | |  A unique ID that identifies the bundle (used by all app stores). |
-| `bundle_identifier_short` | | | A unique ID that identifies the bundle (used by all app stores). |
-| `copyRight` |  |  |  |
+| `copyright` |  |  |  |
 | `debug_flags` | | | Advanced Compiler Settings for debug purposes (ie C++ compiler -g, etc). |
 | `description` | | | A short description of the app |
 | `env` | | | An array of environment variables, separated by commas |
 | `executable` | ![check](/images/icons/checkmark.svg) | | The name of the file to be output. |
 | `flags` | | | Advanced Compiler Settings (ie C++ compiler -02, -03, etc). |
-| `forwardConsole` | | | |
+| `forward_console` | | | |
 | `height` | | | The initial height of the first window |
 | `input` | | | A directory is where your application's code is located |
 | `lang` | | | Localization |
@@ -20,7 +19,7 @@
 | `output` | ![check](/images/icons/checkmark.svg) | | The binary output path |
 | `title` | | | The initial title of the window (can have spaces and symbols etc). |
 | `version` | ![check](/images/icons/checkmark.svg) | | A string that indicates the version of the cli tool and resources. |
-| `versionShort` | | | A string that indicates the version for MacOS. |
+| `version_short` | | | A string that indicates the version for MacOS. |
 | `width` | | | The initial width of the first window |
 
 
@@ -44,8 +43,13 @@
 | `linux_cmd` | ![check](/images/icons/checkmark.svg) | | The command to execute to spawn the “back-end” process. |
 | `linux_icon` | ![check](/images/icons/checkmark.svg) | | The icon to use for identifying your app in Linux desktop environments. |
 
+## macOS and iOS
 
-## MacOS
+| Property | Required | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `apple_team_id` | ![check](/images/icons/checkmark.svg) | | |
+
+## macOS
 
 | Property | Required | Default | Description |
 | :--- | :--- | :--- | :--- |
@@ -57,9 +61,8 @@
 | `mac_icon` | ![check](/images/icons/checkmark.svg) | | The icon to use for identifying your app on MacOS. |
 | `mac_provisioning_profile` | | | |
 | `mac_sign` | | | |
-| `mac_signing_certificate` | | | |
+| `mac_codesign_identity` | | | |
 | `mac_sign_paths` | | | |
-| `mac_team_id` | | | |
 
 
 ## iOS
@@ -70,8 +73,7 @@
 | `ios_entitlements` | ![check](/images/icons/checkmark.svg) | | plist file path |
 | `ios_distribution_method` | ![check](/images/icons/checkmark.svg) | | |
 | `ios_provisioning_profile` | ![check](/images/icons/checkmark.svg) | | The provisioning profile that is used for signing (should be mac?) |
-| `ios_signing_certificate` | ![check](/images/icons/checkmark.svg) | | |
-| `ios_team_id` | ![check](/images/icons/checkmark.svg) | | |
+| `ios_codesign_identity` | ![check](/images/icons/checkmark.svg) | | |
 
 
 ## Android
