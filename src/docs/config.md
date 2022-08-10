@@ -28,7 +28,7 @@
 | Property | Required | Default | Description |
 | :--- | :--- | :--- | :--- |
 | `revision` | | | TODO: maybe the user doesn’t need to know about this? |
-| `win_cmd` | ![check](/images/icons/checkmark.svg) | | The command to execute to spawn the “back-end” process. |
+| `win_cmd` | | | The command to execute to spawn the “back-end” process, leave this out use front end only |
 | `win_icon` | | | The icon to use for identifying your app on Windows. |
 | `win_logo` | | | The icon to use for identifying your app on Windows. |
 | `win_pfx` | | | A relative path to the pfx file used for signing. |
@@ -40,7 +40,7 @@
 | Property | Required | Default | Description |
 | :--- | :--- | :--- | :--- |
 | `linux_categories` | | | Helps to make your app searchable in Linux desktop environments |
-| `linux_cmd` | ![check](/images/icons/checkmark.svg) | | The command to execute to spawn the “back-end” process. |
+| `linux_cmd` | | | The command to execute to spawn the “back-end” process, leave this out use front end only |
 | `linux_icon` | ![check](/images/icons/checkmark.svg) | | The icon to use for identifying your app in Linux desktop environments. |
 
 ## macOS and iOS
@@ -55,7 +55,7 @@
 | :--- | :--- | :--- | :--- |
 | `mac_appstore_icon` | | | Mac App Store icon |
 | `mac_category` | | | A category in the App Store |
-| `mac_cmd` | ![check](/images/icons/checkmark.svg) | | The command to execute to spawn the “back-end” process. |
+| `mac_cmd` | | | The command to execute to spawn the “back-end” process, leave this out use front end only |
 | `mac_distribution_method` | | | |
 | `mac_entitlements` | | | plist file path |
 | `mac_icon` | ![check](/images/icons/checkmark.svg) | | The icon to use for identifying your app on MacOS. |
