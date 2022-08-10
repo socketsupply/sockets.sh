@@ -9,7 +9,24 @@ ssc init
 
 This will create an `ssc.config` file as well as a `src` directory
 with an `index.html` file in it. First, open the config file in your editor
-and replace some of the example values with your own.
+and replace some of the example values with your own. Here's an example.
+
+```
+<!doctype html>
+<html>
+  <head>
+    <script src="index.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta http-equiv="Content-Security-Policy" content="connect-src child-src 'none';">
+    <link rel="stylesheet" href="index.css">
+  </head>
+  <body>
+    <h1>Hello, World</h1>
+  </body>
+</html>
+```
+
+> Note! Don't use `<script type="module"></script>`, iOS doesn't support it.
 
 ### Coding a UI
 
