@@ -204,15 +204,10 @@ Package webkit2gtk-4.1 was not found in the pkg-config search path.
 Perhaps you should add the directory containing `webkit2gtk-4.1.pc'
 to the PKG_CONFIG_PATH environment variable
 No package 'webkit2gtk-4.1' found
-In file included from /usr/local/lib/ssc/src/webview.h:164,
-                 from /usr/local/lib/ssc/src/main.cc:1:
-/usr/local/lib/ssc/src/linux.h:11:10: fatal error: JavaScriptCore/JavaScript.h: No such file or directory
-   11 | #include <JavaScriptCore/JavaScript.h>
+In file included from /home/runner/.config/socket-sdk/src/main.cc:9:
+/home/runner/.config/socket-sdk/src/linux.hh:4:10: fatal error: JavaScriptCore/JavaScript.h: No such file or directory
+    4 | #include <JavaScriptCore/JavaScript.h>
       |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-compilation terminated.
-/usr/local/lib/ssc/src/linux.cc:2:10: fatal error: gtk/gtk.h: No such file or directory
-    2 | #include <gtk/gtk.h>
-      |          ^~~~~~~~~~~
 compilation terminated.
 ```
 
