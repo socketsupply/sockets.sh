@@ -162,7 +162,7 @@ sudo apt install \
   clang-14 \
   libc++1-14-dev \
   libc++abi-14-dev \
-  libwebkit2gtk-4.0-dev
+  libwebkit2gtk-4.1-dev
 ```
 
 [0]:https://linuxize.com/post/how-to-add-apt-repository-in-ubuntu/
@@ -200,10 +200,10 @@ export CXX=g++-12
 If you run into an error about not finding webkit & gtk like this:
 
 ```
-Package webkit2gtk-4.0 was not found in the pkg-config search path.
-Perhaps you should add the directory containing `webkit2gtk-4.0.pc'
+Package webkit2gtk-4.1 was not found in the pkg-config search path.
+Perhaps you should add the directory containing `webkit2gtk-4.1.pc'
 to the PKG_CONFIG_PATH environment variable
-No package 'webkit2gtk-4.0' found
+No package 'webkit2gtk-4.1' found
 In file included from /usr/local/lib/ssc/src/webview.h:164,
                  from /usr/local/lib/ssc/src/main.cc:1:
 /usr/local/lib/ssc/src/linux.h:11:10: fatal error: JavaScriptCore/JavaScript.h: No such file or directory
@@ -219,5 +219,5 @@ compilation terminated.
 Then you will want to install those dependencies
 
 ```sh
-sudo apt-get install libwebkit2gtk-4.0-dev
+sudo apt-get install libwebkit2gtk-4.1-dev
 ```
