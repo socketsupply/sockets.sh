@@ -1,0 +1,9 @@
+body#api tonic-split {
+  top: 66px;
+}
+
+body#api tonic-split tonic-split-right {
+  overflow: scroll;
+  padding: 40px;
+}
+

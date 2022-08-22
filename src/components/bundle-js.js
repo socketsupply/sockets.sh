@@ -47,6 +47,9 @@ export default class BundleJs extends Tonic {
       await esbuild.build({
         ...this.props,
         entryPoints: [src],
+        format: 'esm',
+        sourcemap: true,
+        keepNames: true,
         bundle: true,
         minify: false,
         platform: 'browser',

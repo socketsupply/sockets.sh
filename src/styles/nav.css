@@ -20,7 +20,6 @@ body > nav > a {
 @media (prefers-color-scheme: dark) {
   body > nav {
     background: var(--tonic-dark);
-    border-bottom: 1px dashed var(--tonic-border);
   }
   body > nav img {
     filter: invert(100%);
@@ -29,8 +28,8 @@ body > nav > a {
 
 @media (prefers-color-scheme: light) {
   body > nav {
-    background: var(--tonic-window);
-    border-bottom: 1px dashed var(--tonic-primary);
+    background: var(--tonic-dark);
+    color: var(--tonic-window);
   }
 }
 

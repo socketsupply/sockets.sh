@@ -1,5 +1,6 @@
 import Tonic from 'tonic-ssr'
 import head from '../mixins/head.js'
+import nav from '../mixins/nav.js'
 
 class PageIndex extends Tonic {
   async render () {
@@ -13,29 +14,30 @@ class PageIndex extends Tonic {
         <head>${h}</head>
 
         <body id="index">
+          ${nav}
+
           <header>
             <div class="centered">
               <img src="images/waves.svg" class="hypno" alt="Waves" />
-              <img src="images/illustrations.svg" class="compute" alt="A Laptop" />
               <h1>Socket</h1>
-              <p>Software Development Kit</p>
+              <p>A modern runtime for Web Apps<br/>
             </div>
           </header>
 
           <main>
             <section>
               <h1 class="intro">
-                <span class="large">Native apps</span>
-                <span class="medium">built with web technology</span>
-                <span class="small">and powerful networking capabilities.</span>
+                <span class="large">Build Native Apps</span>
+                <span class="medium">For Desktop &amp; Mobile</span>
+                <span class="small">Using HTML, CSS, &amp; JavaScript</span>
               </h1>
 
               <div class="lists">
                 <ul class="checklist">
-                  <li>Every major desktop &amp; mobile OS</li>
                   <li>UDP, TCP, file I/O &amp; Bluetooth</li>
                   <li>Use any backend (ie Python, Rust, Node.js)</li>
                   <li>Use any frontend (ie React, Svelte, Vue)</li>
+                  <li>Every major desktop &amp; mobile OS</li>
                 </ul>
                 <ul class="checklist">
                   <li>Ideal for local-first and peer-to-peer</li>

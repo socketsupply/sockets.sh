@@ -24,6 +24,10 @@
   display: none;
 }
 
+app-sprite {
+  display: none;
+}
+
 body {
   background-color: var(--tonic-window);
   color: var(--tonic-primary);
@@ -95,12 +99,10 @@ body h2 {
 
 body:not(#index) h1 {
   margin-top: 20px;
-  border-top: 10px solid;
 }
 
 body:not(#index) h2 {
   margin-top: 60px;
-  border-top: 2px solid;
 }
 
 body h3 {

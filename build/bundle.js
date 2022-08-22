@@ -104,11 +104,11 @@ var require_tonic = __commonJS({
       }
     };
     __name(TonicTemplate, "TonicTemplate");
-    var Tonic3 = class extends window.HTMLElement {
+    var Tonic5 = class extends window.HTMLElement {
       constructor() {
         super();
-        const state = Tonic3._states[super.id];
-        delete Tonic3._states[super.id];
+        const state = Tonic5._states[super.id];
+        delete Tonic5._states[super.id];
         this._state = state || {};
         this.preventRenderOnReconnect = false;
         this.props = {};
@@ -119,7 +119,7 @@ var require_tonic = __commonJS({
         this._events();
       }
       static _createId() {
-        return `tonic${Tonic3._index++}`;
+        return `tonic${Tonic5._index++}`;
       }
       static _splitName(s) {
         return s.match(/[A-Z][a-z0-9]*/g).join("-");
@@ -152,16 +152,16 @@ var require_tonic = __commonJS({
       }
       _prop(o) {
         const id = this._id;
-        const p = `__${id}__${Tonic3._createId()}__`;
-        Tonic3._data[id] = Tonic3._data[id] || {};
-        Tonic3._data[id][p] = o;
+        const p = `__${id}__${Tonic5._createId()}__`;
+        Tonic5._data[id] = Tonic5._data[id] || {};
+        Tonic5._data[id][p] = o;
         return p;
       }
       _placehold(r) {
         const id = this._id;
-        const ref = `placehold:${id}:${Tonic3._createId()}__`;
-        Tonic3._children[id] = Tonic3._children[id] || {};
-        Tonic3._children[id][ref] = r;
+        const ref = `placehold:${id}:${Tonic5._createId()}__`;
+        Tonic5._children[id] = Tonic5._children[id] || {};
+        Tonic5._children[id][ref] = r;
         return ref;
       }
       static match(el, s) {
@@ -171,7 +171,7 @@ var require_tonic = __commonJS({
       }
       static getPropertyNames(proto) {
         const props = [];
-        while (proto && proto !== Tonic3.prototype) {
+        while (proto && proto !== Tonic5.prototype) {
           props.push(...Object.getOwnPropertyNames(proto));
           proto = Object.getPrototypeOf(proto);
         }
@@ -183,38 +183,38 @@ var require_tonic = __commonJS({
           throw Error("Mangling. https://bit.ly/2TkJ6zP");
         }
         if (!htmlName)
-          htmlName = Tonic3._splitName(c.name).toLowerCase();
-        if (!Tonic3.ssr && window.customElements.get(htmlName)) {
+          htmlName = Tonic5._splitName(c.name).toLowerCase();
+        if (!Tonic5.ssr && window.customElements.get(htmlName)) {
           throw new Error(`Cannot Tonic.add(${c.name}, '${htmlName}') twice`);
         }
         if (!c.prototype || !c.prototype.isTonicComponent) {
-          const tmp = { [c.name]: class extends Tonic3 {
+          const tmp = { [c.name]: class extends Tonic5 {
           } }[c.name];
           tmp.prototype.render = c;
           c = tmp;
         }
-        c.prototype._props = Tonic3.getPropertyNames(c.prototype);
-        Tonic3._reg[htmlName] = c;
-        Tonic3._tags = Object.keys(Tonic3._reg).join();
+        c.prototype._props = Tonic5.getPropertyNames(c.prototype);
+        Tonic5._reg[htmlName] = c;
+        Tonic5._tags = Object.keys(Tonic5._reg).join();
         window.customElements.define(htmlName, c);
         if (typeof c.stylesheet === "function") {
-          Tonic3.registerStyles(c.stylesheet);
+          Tonic5.registerStyles(c.stylesheet);
         }
         return c;
       }
       static registerStyles(stylesheetFn) {
-        if (Tonic3._stylesheetRegistry.includes(stylesheetFn))
+        if (Tonic5._stylesheetRegistry.includes(stylesheetFn))
           return;
-        Tonic3._stylesheetRegistry.push(stylesheetFn);
+        Tonic5._stylesheetRegistry.push(stylesheetFn);
         const styleNode = document.createElement("style");
-        if (Tonic3.nonce)
-          styleNode.setAttribute("nonce", Tonic3.nonce);
+        if (Tonic5.nonce)
+          styleNode.setAttribute("nonce", Tonic5.nonce);
         styleNode.appendChild(document.createTextNode(stylesheetFn()));
         if (document.head)
           document.head.appendChild(styleNode);
       }
       static escape(s) {
-        return s.replace(Tonic3.ESC, (c) => Tonic3.MAP[c]);
+        return s.replace(Tonic5.ESC, (c) => Tonic5.MAP[c]);
       }
       static unsafeRawString(s, templateStrings) {
         return new TonicTemplate(s, templateStrings, true);
@@ -242,11 +242,11 @@ var require_tonic = __commonJS({
             case "[object Function]":
               return this._prop(o);
             case "[object NamedNodeMap]":
-              return this._prop(Tonic3._normalizeAttrs(o));
+              return this._prop(Tonic5._normalizeAttrs(o));
             case "[object Number]":
               return `${o}__float`;
             case "[object String]":
-              return Tonic3.escape(o);
+              return Tonic5.escape(o);
             case "[object Boolean]":
               return `${o}__boolean`;
             case "[object Null]":
@@ -264,14 +264,14 @@ var require_tonic = __commonJS({
           out.push(strings[i], refs(values[i]));
         }
         out.push(strings[strings.length - 1]);
-        const htmlStr = out.join("").replace(Tonic3.SPREAD, (_, p) => {
-          const o = Tonic3._data[p.split("__")[1]][p];
+        const htmlStr = out.join("").replace(Tonic5.SPREAD, (_, p) => {
+          const o = Tonic5._data[p.split("__")[1]][p];
           return Object.entries(o).map(([key, value]) => {
             const k = key.replace(/([a-z])([A-Z])/g, "$1-$2").toLowerCase();
             if (value === true)
               return k;
             else if (value)
-              return `${k}="${Tonic3.escape(String(value))}"`;
+              return `${k}="${Tonic5.escape(String(value))}"`;
             else
               return "";
           }).filter(Boolean).join(" ");
@@ -314,17 +314,17 @@ var require_tonic = __commonJS({
         });
       }
       _set(target, render, content = "") {
-        for (const node of target.querySelectorAll(Tonic3._tags)) {
+        for (const node of target.querySelectorAll(Tonic5._tags)) {
           if (!node.isTonicComponent)
             continue;
           const id = node.getAttribute("id");
-          if (!id || !Tonic3._refIds.includes(id))
+          if (!id || !Tonic5._refIds.includes(id))
             continue;
-          Tonic3._states[id] = node.state;
+          Tonic5._states[id] = node.state;
         }
-        if (render instanceof Tonic3.AsyncFunction) {
+        if (render instanceof Tonic5.AsyncFunction) {
           return render.call(this, this.html, this.props).then((content2) => this._apply(target, content2));
-        } else if (render instanceof Tonic3.AsyncFunctionGenerator) {
+        } else if (render instanceof Tonic5.AsyncFunctionGenerator) {
           return this._drainIterator(target, render.call(this));
         } else if (render === null) {
           this._apply(target, content);
@@ -336,11 +336,11 @@ var require_tonic = __commonJS({
         if (content && content.isTonicTemplate) {
           content = content.rawText;
         } else if (typeof content === "string") {
-          content = Tonic3.escape(content);
+          content = Tonic5.escape(content);
         }
         if (typeof content === "string") {
           if (this.stylesheet) {
-            content = `<style nonce=${Tonic3.nonce || ""}>${this.stylesheet()}</style>${content}`;
+            content = `<style nonce=${Tonic5.nonce || ""}>${this.stylesheet()}</style>${content}`;
           }
           target.innerHTML = content;
           if (this.styles) {
@@ -351,7 +351,7 @@ var require_tonic = __commonJS({
               }
             }
           }
-          const children = Tonic3._children[this._id] || {};
+          const children = Tonic5._children[this._id] || {};
           const walk = /* @__PURE__ */ __name((node, fn) => {
             if (node.nodeType === 3) {
               const id = node.textContent.trim();
@@ -369,7 +369,7 @@ var require_tonic = __commonJS({
             for (const child of children2) {
               node.parentNode.insertBefore(child, node);
             }
-            delete Tonic3._children[this._id][id];
+            delete Tonic5._children[this._id][id];
             node.parentNode.removeChild(node);
           });
         } else {
@@ -379,8 +379,8 @@ var require_tonic = __commonJS({
       }
       connectedCallback() {
         this.root = this.shadowRoot || this;
-        if (super.id && !Tonic3._refIds.includes(super.id)) {
-          Tonic3._refIds.push(super.id);
+        if (super.id && !Tonic5._refIds.includes(super.id)) {
+          Tonic5._refIds.push(super.id);
         }
         const cc = /* @__PURE__ */ __name((s) => s.replace(/-(.)/g, (_, m) => m.toUpperCase()), "cc");
         for (const { name: _name, value } of this.attributes) {
@@ -388,7 +388,7 @@ var require_tonic = __commonJS({
           const p = this.props[name] = value;
           if (/__\w+__\w+__/.test(p)) {
             const { 1: root } = p.split("__");
-            this.props[name] = Tonic3._data[root][p];
+            this.props[name] = Tonic5._data[root][p];
           } else if (/\d+__float/.test(p)) {
             this.props[name] = parseFloat(p, 10);
           } else if (p === "null__null") {
@@ -397,11 +397,11 @@ var require_tonic = __commonJS({
             this.props[name] = p.includes("true");
           } else if (/placehold:\w+:\w+__/.test(p)) {
             const { 1: root } = p.split(":");
-            this.props[name] = Tonic3._children[root][p][0];
+            this.props[name] = Tonic5._children[root][p][0];
           }
         }
         this.props = Object.assign(this.defaults ? this.defaults() : {}, this.props);
-        this._id = this._id || Tonic3._createId();
+        this._id = this._id || Tonic5._createId();
         this.willConnect && this.willConnect();
         if (!this.isInDocument(this.root))
           return;
@@ -423,13 +423,13 @@ var require_tonic = __commonJS({
       }
       disconnectedCallback() {
         this.disconnected && this.disconnected();
-        delete Tonic3._data[this._id];
-        delete Tonic3._children[this._id];
+        delete Tonic5._data[this._id];
+        delete Tonic5._children[this._id];
       }
     };
-    __name(Tonic3, "Tonic");
-    Tonic3.prototype.isTonicComponent = true;
-    Object.assign(Tonic3, {
+    __name(Tonic5, "Tonic");
+    Tonic5.prototype.isTonicComponent = true;
+    Object.assign(Tonic5, {
       _tags: "",
       _refIds: [],
       _data: {},
@@ -448,7 +448,7 @@ var require_tonic = __commonJS({
       MAP: { '"': "&quot;", "&": "&amp;", "'": "&#x27;", "<": "&lt;", ">": "&gt;", "`": "&#x60;", "/": "&#x2F;" }
     });
     if (typeof module === "object")
-      module.exports = Tonic3;
+      module.exports = Tonic5;
   }
 });
 
@@ -919,8 +919,8 @@ var require_browser = __commonJS({
 var require_accordion = __commonJS({
   "node_modules/@socketsupply/components/accordion/index.js"(exports, module) {
     init_define_global();
-    var Tonic3 = require_tonic();
-    var TonicAccordion = class extends Tonic3 {
+    var Tonic5 = require_tonic();
+    var TonicAccordion = class extends Tonic5 {
       defaults() {
         return {
           multiple: false
@@ -969,13 +969,13 @@ var require_accordion = __commonJS({
           currentPanel.removeAttribute("hidden");
       }
       click(e) {
-        const trigger = Tonic3.match(e.target, "button");
+        const trigger = Tonic5.match(e.target, "button");
         if (!trigger)
           return;
         this.setVisibility(trigger.id);
       }
       keydown(e) {
-        const trigger = Tonic3.match(e.target, "button.tonic--title");
+        const trigger = Tonic5.match(e.target, "button.tonic--title");
         if (!trigger)
           return;
         const CTRL = e.ctrlKey;
@@ -1025,7 +1025,7 @@ var require_accordion = __commonJS({
       }
     };
     __name(TonicAccordion, "TonicAccordion");
-    var TonicAccordionSection = class extends Tonic3 {
+    var TonicAccordionSection = class extends Tonic5 {
       static stylesheet() {
         return `
       tonic-accordion-section {
@@ -1145,8 +1145,8 @@ var require_accordion = __commonJS({
 var require_badge = __commonJS({
   "node_modules/@socketsupply/components/badge/index.js"(exports, module) {
     init_define_global();
-    var Tonic3 = require_tonic();
-    var TonicBadge = class extends Tonic3 {
+    var Tonic5 = require_tonic();
+    var TonicBadge = class extends Tonic5 {
       defaults() {
         return {
           count: 0
@@ -1236,8 +1236,8 @@ var require_badge = __commonJS({
 var require_button = __commonJS({
   "node_modules/@socketsupply/components/button/index.js"(exports, module) {
     init_define_global();
-    var Tonic3 = require_tonic();
-    var TonicButton = class extends Tonic3 {
+    var Tonic5 = require_tonic();
+    var TonicButton = class extends Tonic5 {
       get value() {
         return this.props.value;
       }
@@ -1499,8 +1499,8 @@ var require_button = __commonJS({
 var require_chart = __commonJS({
   "node_modules/@socketsupply/components/chart/index.js"(exports, module) {
     init_define_global();
-    var Tonic3 = require_tonic();
-    var TonicChart = class extends Tonic3 {
+    var Tonic5 = require_tonic();
+    var TonicChart = class extends Tonic5 {
       static stylesheet() {
         return `
       tonic-chart {
@@ -1599,8 +1599,8 @@ var require_chart = __commonJS({
 var require_checkbox = __commonJS({
   "node_modules/@socketsupply/components/checkbox/index.js"(exports, module) {
     init_define_global();
-    var Tonic3 = require_tonic();
-    var TonicCheckbox = class extends Tonic3 {
+    var Tonic5 = require_tonic();
+    var TonicCheckbox = class extends Tonic5 {
       constructor() {
         super();
         this._modified = false;
@@ -1795,8 +1795,8 @@ var require_checkbox = __commonJS({
 var require_dialog = __commonJS({
   "node_modules/@socketsupply/components/dialog/index.js"(exports, module) {
     init_define_global();
-    var Tonic3 = require_tonic();
-    var TonicDialog = class extends Tonic3 {
+    var Tonic5 = require_tonic();
+    var TonicDialog = class extends Tonic5 {
       constructor() {
         super();
         this.classList.add("tonic--dialog");
@@ -1978,8 +1978,8 @@ var require_dialog = __commonJS({
                 resolve({});
             }, "resolver");
             const listener = /* @__PURE__ */ __name((event) => {
-              const close = Tonic3.match(event.target, ".tonic--dialog--close");
-              const value = Tonic3.match(event.target, "[value]");
+              const close = Tonic5.match(event.target, ".tonic--dialog--close");
+              const value = Tonic5.match(event.target, "[value]");
               if (close || value) {
                 that.removeEventListener(eventName, listener);
                 document.removeEventListener("keyup", resolver);
@@ -1995,7 +1995,7 @@ var require_dialog = __commonJS({
         };
       }
       click(e) {
-        if (Tonic3.match(e.target, ".tonic--dialog--close")) {
+        if (Tonic5.match(e.target, ".tonic--dialog--close")) {
           this.hide();
         }
       }
@@ -2017,9 +2017,9 @@ var require_dialog = __commonJS({
 var require_form = __commonJS({
   "node_modules/@socketsupply/components/form/index.js"(exports, module) {
     init_define_global();
-    var Tonic3 = require_tonic();
+    var Tonic5 = require_tonic();
     var NON_EXISTANT = { type: "TonicForm_NON_EXISTANT" };
-    var TonicForm = class extends Tonic3 {
+    var TonicForm = class extends Tonic5 {
       static isNumber(s) {
         return !isNaN(Number(s));
       }
@@ -2108,7 +2108,7 @@ var require_form = __commonJS({
         this.change(e);
       }
       change(e) {
-        const el = Tonic3.match(e.target, "[data-key]");
+        const el = Tonic5.match(e.target, "[data-key]");
         if (!el)
           return;
         TonicForm.setPropertyValue(this.state, el.dataset.key, el.value);
@@ -2177,8 +2177,8 @@ var require_form = __commonJS({
 var require_icon = __commonJS({
   "node_modules/@socketsupply/components/icon/index.js"(exports, module) {
     init_define_global();
-    var Tonic3 = require_tonic();
-    var TonicIcon = class extends Tonic3 {
+    var Tonic5 = require_tonic();
+    var TonicIcon = class extends Tonic5 {
       defaults() {
         return {
           size: "25px",
@@ -2246,8 +2246,8 @@ var require_icon = __commonJS({
 var require_input = __commonJS({
   "node_modules/@socketsupply/components/input/index.js"(exports, module) {
     init_define_global();
-    var Tonic3 = require_tonic();
-    var TonicInput = class extends Tonic3 {
+    var Tonic5 = require_tonic();
+    var TonicInput = class extends Tonic5 {
       constructor() {
         super();
         this._modified = false;
@@ -2632,8 +2632,8 @@ var require_input = __commonJS({
 var require_loader = __commonJS({
   "node_modules/@socketsupply/components/loader/index.js"(exports, module) {
     init_define_global();
-    var Tonic3 = require_tonic();
-    var TonicLoader = class extends Tonic3 {
+    var Tonic5 = require_tonic();
+    var TonicLoader = class extends Tonic5 {
       constructor() {
         super();
         this.attachShadow({ mode: "open" });
@@ -2769,8 +2769,8 @@ var require_panel = __commonJS({
 var require_popover = __commonJS({
   "node_modules/@socketsupply/components/popover/index.js"(exports, module) {
     init_define_global();
-    var Tonic3 = require_tonic();
-    var TonicPopover = class extends Tonic3 {
+    var Tonic5 = require_tonic();
+    var TonicPopover = class extends Tonic5 {
       constructor() {
         super();
         const target = this.getAttribute("for");
@@ -2933,7 +2933,7 @@ var require_popover = __commonJS({
         this.show(document.getElementById(target));
       }
       click(e) {
-        if (Tonic3.match(e.target, ".tonic--overlay")) {
+        if (Tonic5.match(e.target, ".tonic--overlay")) {
           return this.hide();
         }
       }
@@ -2960,8 +2960,8 @@ var require_popover = __commonJS({
 var require_profile_image = __commonJS({
   "node_modules/@socketsupply/components/profile-image/index.js"(exports, module) {
     init_define_global();
-    var Tonic3 = require_tonic();
-    var TonicProfileImage = class extends Tonic3 {
+    var Tonic5 = require_tonic();
+    var TonicProfileImage = class extends Tonic5 {
       get value() {
         const state = this.state;
         return state.data || this.props.src;
@@ -3154,8 +3154,8 @@ var require_profile_image = __commonJS({
 var require_progress_bar = __commonJS({
   "node_modules/@socketsupply/components/progress-bar/index.js"(exports, module) {
     init_define_global();
-    var Tonic3 = require_tonic();
-    var TonicProgressBar = class extends Tonic3 {
+    var Tonic5 = require_tonic();
+    var TonicProgressBar = class extends Tonic5 {
       set value(value) {
         this.setProgress(value);
       }
@@ -3231,8 +3231,8 @@ var require_progress_bar = __commonJS({
 var require_range = __commonJS({
   "node_modules/@socketsupply/components/range/index.js"(exports, module) {
     init_define_global();
-    var Tonic3 = require_tonic();
-    var TonicRange = class extends Tonic3 {
+    var Tonic5 = require_tonic();
+    var TonicRange = class extends Tonic5 {
       defaults() {
         return {
           width: "250px",
@@ -3436,7 +3436,7 @@ var require_range = __commonJS({
 var require_relative_time = __commonJS({
   "node_modules/@socketsupply/components/relative-time/index.js"(exports, module) {
     init_define_global();
-    var Tonic3 = require_tonic();
+    var Tonic5 = require_tonic();
     var weekdays = [
       "Sunday",
       "Monday",
@@ -3833,7 +3833,7 @@ var require_relative_time = __commonJS({
       throw new RangeError(`Invalid unit argument for format() '${unit}'`);
     }
     __name(formatEnRelativeTime, "formatEnRelativeTime");
-    var TonicRelativeTime = class extends Tonic3 {
+    var TonicRelativeTime = class extends Tonic5 {
       render() {
         let date = this.props.date || "";
         const locale = this.props.locale || localeFromElement(this);
@@ -3868,8 +3868,8 @@ var require_relative_time = __commonJS({
 var require_router = __commonJS({
   "node_modules/@socketsupply/components/router/index.js"(exports, module) {
     init_define_global();
-    var Tonic3 = require_tonic();
-    var TonicRouter = class extends Tonic3 {
+    var Tonic5 = require_tonic();
+    var TonicRouter = class extends Tonic5 {
       constructor() {
         super();
         if (TonicRouter.patched)
@@ -4116,8 +4116,8 @@ var require_router = __commonJS({
 var require_select = __commonJS({
   "node_modules/@socketsupply/components/select/index.js"(exports, module) {
     init_define_global();
-    var Tonic3 = require_tonic();
-    var TonicSelect = class extends Tonic3 {
+    var Tonic5 = require_tonic();
+    var TonicSelect = class extends Tonic5 {
       defaults() {
         return {
           disabled: false,
@@ -4459,8 +4459,8 @@ var require_select = __commonJS({
 var require_sprite = __commonJS({
   "node_modules/@socketsupply/components/sprite/index.js"(exports, module) {
     init_define_global();
-    var Tonic3 = require_tonic();
-    var TonicSprite = class extends Tonic3 {
+    var Tonic5 = require_tonic();
+    var TonicSprite = class extends Tonic5 {
       static stylesheet() {
         return `
       tonic-sprite svg {
@@ -4536,8 +4536,8 @@ var require_sprite = __commonJS({
 var require_split = __commonJS({
   "node_modules/@socketsupply/components/split/index.js"(exports, module) {
     init_define_global();
-    var Tonic3 = require_tonic();
-    var TonicSplitLeft = class extends Tonic3 {
+    var Tonic5 = require_tonic();
+    var TonicSplitLeft = class extends Tonic5 {
       render() {
         if (this.props.width) {
           this.style.width = this.props.width;
@@ -4548,7 +4548,7 @@ var require_split = __commonJS({
       }
     };
     __name(TonicSplitLeft, "TonicSplitLeft");
-    var TonicSplitTop = class extends Tonic3 {
+    var TonicSplitTop = class extends Tonic5 {
       render() {
         if (this.props.height) {
           this.style.height = this.props.height;
@@ -4565,7 +4565,7 @@ var require_split = __commonJS({
     var TonicSplitBottom = class extends TonicSplitTop {
     };
     __name(TonicSplitBottom, "TonicSplitBottom");
-    var TonicSplit = class extends Tonic3 {
+    var TonicSplit = class extends Tonic5 {
       constructor() {
         super();
         this.left = null;
@@ -4821,7 +4821,7 @@ var require_split = __commonJS({
         }
       }
       mousedown(e) {
-        const handle = Tonic3.match(e.target, ".tonic--split-handle");
+        const handle = Tonic5.match(e.target, ".tonic--split-handle");
         if (handle && handle.parentElement === this) {
           this.handle = handle;
           this.start();
@@ -4860,9 +4860,9 @@ var require_split = __commonJS({
 var require_tabs = __commonJS({
   "node_modules/@socketsupply/components/tabs/index.js"(exports, module) {
     init_define_global();
-    var Tonic3 = require_tonic();
+    var Tonic5 = require_tonic();
     var CustomEvent = window.CustomEvent;
-    var TonicTabs = class extends Tonic3 {
+    var TonicTabs = class extends Tonic5 {
       constructor(o) {
         super(o);
         this._setVisibilitySynchronously = false;
@@ -4968,7 +4968,7 @@ var require_tabs = __commonJS({
         }
       }
       click(e) {
-        const tab = Tonic3.match(e.target, ".tonic--tab");
+        const tab = Tonic5.match(e.target, ".tonic--tab");
         if (!tab)
           return;
         e.preventDefault();
@@ -4988,7 +4988,7 @@ var require_tabs = __commonJS({
             break;
           }
           case "Space": {
-            const isActive = Tonic3.match(e.target, ".tonic--tab:focus");
+            const isActive = Tonic5.match(e.target, ".tonic--tab:focus");
             if (!isActive)
               return;
             e.preventDefault();
@@ -5013,7 +5013,7 @@ var require_tabs = __commonJS({
       }
     };
     __name(TonicTabs, "TonicTabs");
-    var TonicTabPanel = class extends Tonic3 {
+    var TonicTabPanel = class extends Tonic5 {
       static stylesheet() {
         return `
       tonic-tab-panel {
@@ -5058,7 +5058,7 @@ var require_tabs = __commonJS({
       }
     };
     __name(TonicTabPanel, "TonicTabPanel");
-    var TonicTab = class extends Tonic3 {
+    var TonicTab = class extends Tonic5 {
       render() {
         const ariaControls = this.props.for;
         return this.html`
@@ -5089,8 +5089,8 @@ var require_tabs = __commonJS({
 var require_textarea = __commonJS({
   "node_modules/@socketsupply/components/textarea/index.js"(exports, module) {
     init_define_global();
-    var Tonic3 = require_tonic();
-    var TonicTextarea = class extends Tonic3 {
+    var Tonic5 = require_tonic();
+    var TonicTextarea = class extends Tonic5 {
       mutate(e) {
         const { width, height } = e.target.style;
         this.state = {
@@ -5375,8 +5375,8 @@ var require_textarea = __commonJS({
 var require_tooltip = __commonJS({
   "node_modules/@socketsupply/components/tooltip/index.js"(exports, module) {
     init_define_global();
-    var Tonic3 = require_tonic();
-    var TonicTooltip = class extends Tonic3 {
+    var Tonic5 = require_tonic();
+    var TonicTooltip = class extends Tonic5 {
       connected() {
         const target = this.props.for;
         const el = document.getElementById(target);
@@ -5527,8 +5527,8 @@ var require_tooltip = __commonJS({
 var require_toaster_inline = __commonJS({
   "node_modules/@socketsupply/components/toaster-inline/index.js"(exports, module) {
     init_define_global();
-    var Tonic3 = require_tonic();
-    var TonicToasterInline = class extends Tonic3 {
+    var Tonic5 = require_tonic();
+    var TonicToasterInline = class extends Tonic5 {
       defaults() {
         return {
           display: "true"
@@ -5628,7 +5628,7 @@ var require_toaster_inline = __commonJS({
         node.classList.remove("tonic--show");
       }
       click(e) {
-        const el = Tonic3.match(e.target, ".tonic--close");
+        const el = Tonic5.match(e.target, ".tonic--close");
         if (!el)
           return;
         this.hide();
@@ -5732,8 +5732,8 @@ var require_toaster_inline = __commonJS({
 var require_toaster = __commonJS({
   "node_modules/@socketsupply/components/toaster/index.js"(exports, module) {
     init_define_global();
-    var Tonic3 = require_tonic();
-    var TonicToaster = class extends Tonic3 {
+    var Tonic5 = require_tonic();
+    var TonicToaster = class extends Tonic5 {
       defaults() {
         return {
           position: "center"
@@ -5960,7 +5960,7 @@ var require_toaster = __commonJS({
         node.classList.remove("tonic--show");
       }
       click(e) {
-        const el = Tonic3.match(e.target, ".tonic--close");
+        const el = Tonic5.match(e.target, ".tonic--close");
         if (!el)
           return;
         const notification = el.closest(".tonic--notification");
@@ -5992,8 +5992,8 @@ var require_toaster = __commonJS({
 var require_toggle = __commonJS({
   "node_modules/@socketsupply/components/toggle/index.js"(exports, module) {
     init_define_global();
-    var Tonic3 = require_tonic();
-    var TonicToggle = class extends Tonic3 {
+    var Tonic5 = require_tonic();
+    var TonicToggle = class extends Tonic5 {
       constructor() {
         super();
         this._modified = false;
@@ -6196,14 +6196,14 @@ var require_toggle = __commonJS({
 var require_components = __commonJS({
   "node_modules/@socketsupply/components/index.js"(exports, module) {
     init_define_global();
-    var Tonic3;
+    var Tonic5;
     try {
-      Tonic3 = require_tonic();
+      Tonic5 = require_tonic();
     } catch (err) {
       console.error("Missing dependency. Try `npm install @socketsupply/tonic`.");
       throw err;
     }
-    var version = Tonic3.version;
+    var version = Tonic5.version;
     var major = version ? version.split(".")[0] : "0";
     if (parseInt(major, 10) < 12) {
       console.error("Out of date dependency. Try `npm install @socketsupply/tonic@12`.");
@@ -6237,45 +6237,45 @@ var require_components = __commonJS({
     var { TonicToggle } = require_toggle();
     var once = false;
     module.exports = components2;
-    components2.Tonic = Tonic3;
-    function components2(Tonic4) {
+    components2.Tonic = Tonic5;
+    function components2(Tonic6) {
       if (once) {
         return;
       }
       once = true;
-      Tonic4.add(TonicAccordion);
-      Tonic4.add(TonicAccordionSection);
-      Tonic4.add(TonicBadge);
-      Tonic4.add(TonicButton);
-      Tonic4.add(TonicChart);
-      Tonic4.add(TonicCheckbox);
-      Tonic4.add(TonicDialog);
-      Tonic4.add(TonicForm);
-      Tonic4.add(TonicInput);
-      Tonic4.add(TonicIcon);
-      Tonic4.add(TonicLoader);
-      Tonic4.add(TonicPanel);
-      Tonic4.add(TonicPopover);
-      Tonic4.add(TonicProfileImage);
-      Tonic4.add(TonicProgressBar);
-      Tonic4.add(TonicRange);
-      Tonic4.add(TonicRelativeTime);
-      Tonic4.add(TonicRouter);
-      Tonic4.add(TonicSelect);
-      Tonic4.add(TonicSprite);
-      Tonic4.add(TonicSplit);
-      Tonic4.add(TonicSplitLeft);
-      Tonic4.add(TonicSplitRight);
-      Tonic4.add(TonicSplitTop);
-      Tonic4.add(TonicSplitBottom);
-      Tonic4.add(TonicTabPanel);
-      Tonic4.add(TonicTab);
-      Tonic4.add(TonicTabs);
-      Tonic4.add(TonicTextarea);
-      Tonic4.add(TonicTooltip);
-      Tonic4.add(TonicToasterInline);
-      Tonic4.add(TonicToaster);
-      Tonic4.add(TonicToggle);
+      Tonic6.add(TonicAccordion);
+      Tonic6.add(TonicAccordionSection);
+      Tonic6.add(TonicBadge);
+      Tonic6.add(TonicButton);
+      Tonic6.add(TonicChart);
+      Tonic6.add(TonicCheckbox);
+      Tonic6.add(TonicDialog);
+      Tonic6.add(TonicForm);
+      Tonic6.add(TonicInput);
+      Tonic6.add(TonicIcon);
+      Tonic6.add(TonicLoader);
+      Tonic6.add(TonicPanel);
+      Tonic6.add(TonicPopover);
+      Tonic6.add(TonicProfileImage);
+      Tonic6.add(TonicProgressBar);
+      Tonic6.add(TonicRange);
+      Tonic6.add(TonicRelativeTime);
+      Tonic6.add(TonicRouter);
+      Tonic6.add(TonicSelect);
+      Tonic6.add(TonicSprite);
+      Tonic6.add(TonicSplit);
+      Tonic6.add(TonicSplitLeft);
+      Tonic6.add(TonicSplitRight);
+      Tonic6.add(TonicSplitTop);
+      Tonic6.add(TonicSplitBottom);
+      Tonic6.add(TonicTabPanel);
+      Tonic6.add(TonicTab);
+      Tonic6.add(TonicTabs);
+      Tonic6.add(TonicTextarea);
+      Tonic6.add(TonicTooltip);
+      Tonic6.add(TonicToasterInline);
+      Tonic6.add(TonicToaster);
+      Tonic6.add(TonicToggle);
     }
     __name(components2, "components");
   }
@@ -6283,14 +6283,682 @@ var require_components = __commonJS({
 
 // src/index.client.js
 init_define_global();
-var import_tonic2 = __toESM(require_tonic(), 1);
+var import_tonic4 = __toESM(require_tonic(), 1);
 var import_debug = __toESM(require_browser(), 1);
 var import_components = __toESM(require_components(), 1);
 
-// src/components/grid.js
+// src/components/tree.js
 init_define_global();
 var import_tonic = __toESM(require_tonic(), 1);
-var GridContainer = class extends import_tonic.default {
+
+// src/components/tree.css.js
+init_define_global();
+var tree_css_default = /* @__PURE__ */ __name((params) => `
+  app-tree {
+    user-select: none;
+    content-visibility: auto;
+    -webkit-user-select: none;
+    padding: 28px;
+    display: block;
+    position: absolute;
+    top: 0px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+  }
+
+  body.mobile app-tree {
+    transition: all .2s ease;
+    top: 40px;
+    bottom: 40px;
+    left: 20%;
+    transform: translateX(100%);
+  }
+
+  body[sidebar="true"] app-tree {
+    transform: translateX(0%);
+  }
+
+  app-tree * {
+    user-select: none;
+    -webkit-user-select: none;
+  }
+
+  app-tree:hover {
+    overflow-y: overlay;
+  }
+
+  app-tree .children {
+    display: block;
+  }
+
+  app-tree .node-data {
+    display: flex;
+    padding: 2 4px 0;
+    width: 100%;
+  }
+
+  app-tree .region {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    padding-right: 20px;
+  }
+
+  app-tree .item .node-data .label {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    margin-left: 8px;
+    text-indent: 28px;
+    text-decoration: none;
+    text-underline-offset: 2px;
+    line-height: 22px;
+    letter-spacing: 0.8px;
+  }
+
+  app-tree .item .handle:hover {
+    background: var(--tonic-border);
+    cursor: pointer;
+  }
+
+  app-tree .item .handle[data-selected="1"] .node-data .label {
+    color: var(--tonic-accent);
+    text-decoration: underline;
+  }
+
+  app-tree .item .node-data .label[disabled] {
+    color: var(--tonic-disabled);
+  }
+
+  app-tree .item .node-data .label[disabled]:hover {
+    border-bottom: 1px solid transparent;
+  }
+
+  app-tree .node[data-id="root"] {
+    margin: 30px 40px;
+  }
+
+  app-tree .node[data-state="0"] .children {
+    /* display: none; */
+  }
+
+  app-tree .node {
+    position: relative;
+    list-style: none;
+    padding: 0;
+    padding-left: 20px;
+  }
+
+  app-tree > .node,
+  app-tree main > .node {
+    padding-left: 0px;
+  }
+
+  app-tree .item .handle {
+    user-select: none;
+    text-decoration: none;
+    font-size: 14px;
+    color: var(--tonic-primary);
+    background: var(--tonic-window);
+    border-radius: 4px;
+    margin-left: 24px;
+    position: relative;
+    display: flex;
+    padding: 4px 0px;
+    min-height: 28px;
+  }
+
+  app-tree[draggable="false"] .item .handle a {
+    -webkit-user-drag: none;
+  }
+
+  app-tree .item .handle[data-state="0"] + .node {
+    display: none;
+  }
+
+  app-tree .item .handle[data-state="1"] + .node {
+    display: block;
+  }
+
+  app-tree .toggle {
+    position: absolute;
+    top: 8px;
+    left: -14px;
+    width: 14px;
+    height: 14px;
+  }
+
+  app-tree .item .handle[data-state="0"][data-toggle="false"] .toggle {
+    display: none;
+  }
+
+  app-tree .item .handle[data-dir="true"] .toggle:before,
+  app-tree .item .handle[data-state="0"][data-toggle="true"] .toggle:before,
+  app-tree .item .handle[data-state="1"][data-toggle="true"] .toggle:before {
+    content: ' ';
+    position: absolute;
+    top: 4px;
+    left: -4px;
+    border-top: 1px solid var(--tonic-primary);
+    border-right: 1px solid var(--tonic-primary);
+    transform: rotate(45deg);
+    width: 6px;
+    height: 6px;
+    cursor: pointer;
+  }
+
+  app-tree .item .handle[data-state="1"][data-toggle="true"] .toggle:before {
+    left: -2px;
+    top: 2px;
+    transform: rotate(135deg);
+  }
+
+  /* the vertical bars on each item */
+  app-tree .item {
+    /* background:
+      repeating-linear-gradient(
+        90deg,
+        var(--tonic-border),
+        var(--tonic-border) 1px,
+        transparent 1px,
+        transparent 32px
+      ); */
+    background-size: 32px;
+    position: relative;
+  }
+
+  app-tree .item::before {
+    /* position: absolute;
+    width: 12px;
+    height: 1px;
+    content: ' ';
+    top: 15px;
+    border-top: 1px solid var(--tonic-border); */
+  }
+
+  app-tree .item:last-child {
+    background: var(--tonic-window);
+  }
+
+  /* the L shape at the end of each node */
+  app-tree .item:last-child::before {
+    /* width: 12px;
+    height: 15px;
+    border: 1px solid var(--tonic-border);
+    content: ' ';
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    border-right: none;
+    border-top: none; */
+  }
+
+  app-tree tonic-icon {
+    position: absolute;
+    cursor: pointer;
+    top: 6px;
+    left: 8px;
+  }
+
+  app-tree tonic-icon[cached="true"]:after {
+    content: ' ';
+    border-radius: 128px;
+    border: 1px solid var(--tonic-window);
+    background: var(--tonic-warning);
+    position: absolute;
+    bottom: -2px;
+    right: -2px;
+    height: 6px;
+    width: 6px;
+  }
+`, "default");
+
+// src/components/tree.js
+var EXPANDED_STATE = 1;
+var CLOSED_STATE = 0;
+var NOT_SELECTED = 0;
+var IS_SELECTED = 1;
+var AppTree = class extends import_tonic.default {
+  static stylesheet() {
+    return tree_css_default();
+  }
+  defaults() {
+    return {
+      selectMode: "leaf-only",
+      autoExpand: true,
+      autoSort: "true",
+      draggable: true
+    };
+  }
+  walk(nodes, fn) {
+    nodes = Array.isArray(nodes) ? nodes.slice() : [nodes];
+    while (nodes.length) {
+      const node = nodes.shift();
+      const shouldBail = fn(node);
+      if (shouldBail) {
+        return shouldBail;
+      }
+      if (node.children) {
+        nodes.push(...node.children);
+      }
+    }
+  }
+  getNodeFromElement(el) {
+    const { path } = el.dataset;
+    if (!path) {
+      return null;
+    }
+    let parent = this.state.tree;
+    for (const position of path.split(".")) {
+      if (parent && parent.children) {
+        parent = parent.children[position];
+      }
+    }
+    return parent;
+  }
+  resetSelectedNodeState() {
+    this.walk(this.state.tree, (node) => {
+      node.selected = NOT_SELECTED;
+    });
+  }
+  resetLeafNodeState() {
+    this.walk(this.state.tree, (node) => {
+      if (node.children.length === 0) {
+        node.state = CLOSED_STATE;
+      }
+    });
+  }
+  click(e) {
+    const el = import_tonic.default.match(e.target, "[data-path]");
+    if (!el)
+      return;
+    if (e.detail === 2) {
+      return;
+    }
+    const node = this.getNodeFromElement(el);
+    if (!node)
+      this.getNodeFromElement(el.parentElement);
+    if (!node)
+      return;
+    const isIcon = import_tonic.default.match(e.target, ".toggle");
+    return this.clickNode(node, isIcon);
+  }
+  async keydown(e) {
+    if (e.keyCode === 32) {
+      const focused = this.querySelector("a:focus");
+      if (!focused)
+        return;
+      const el = import_tonic.default.match(focused, "[data-path]");
+      if (!el)
+        return;
+      const node = this.getNodeFromElement(el);
+      if (!node)
+        return;
+      const { x, y } = focused.getBoundingClientRect();
+      await this.clickNode(node, true);
+      const newElement = document.elementFromPoint(x, y);
+      if (newElement)
+        newElement.focus();
+    }
+  }
+  async onSelection(node, isToggle) {
+    node.element.scrollIntoView(true);
+  }
+  async connected() {
+    const tree = {
+      id: "root",
+      prec: 0,
+      children: []
+    };
+    const headers = [...document.querySelector("main").querySelectorAll("h1, h2, h3, h4")];
+    let parent = tree;
+    let sibling = 0;
+    for (const h of headers) {
+      const cls = h.tagName.toLowerCase();
+      const prec = parseInt(cls.slice(1), 10);
+      const method = /\.(\w+)\(/.exec(h.textContent);
+      const title = method ? method[1] : h.textContent;
+      const node = {
+        id: h.id,
+        element: h,
+        parent,
+        prec,
+        selected: 0,
+        state: 0,
+        label: title,
+        children: []
+      };
+      if (node.prec === 1) {
+        node.icon = "package";
+      } else {
+        node.icon = "file";
+      }
+      if (prec > sibling) {
+        parent.children.push(node);
+        parent = node;
+      }
+      if (prec === sibling && parent.parent) {
+        if (parent.prec >= sibling) {
+          parent = node.parent = parent.parent;
+        }
+        parent.children.push(node);
+      }
+      if (prec < sibling) {
+        while (parent.prec >= prec) {
+          parent = node.parent = parent.parent;
+        }
+        parent.children.push(node);
+        parent = node;
+      }
+      sibling = prec;
+    }
+    this.load(tree);
+  }
+  async clickNode(node, isIcon, forceOpen) {
+    if (!node)
+      return;
+    if (forceOpen) {
+      node.state = CLOSED_STATE;
+    }
+    let emitTreeChanged = false;
+    if (isIcon) {
+      if (node.state === EXPANDED_STATE) {
+        node.state = CLOSED_STATE;
+      } else if (node.state === CLOSED_STATE) {
+        node.state = EXPANDED_STATE;
+      }
+      if (this.onSelection) {
+        this.onSelection(node, true);
+        emitTreeChanged = true;
+      }
+    } else {
+      if (node.selected === NOT_SELECTED) {
+        this.resetSelectedNodeState();
+      }
+      if (!node.children.length && node.state === CLOSED_STATE) {
+        this.resetLeafNodeState();
+      }
+      if (node.state === CLOSED_STATE) {
+        node.state = EXPANDED_STATE;
+      }
+      if (this.onSelection) {
+        this.onSelection(node, false);
+        emitTreeChanged = true;
+      }
+      if (!node.disabled) {
+        node.selected = IS_SELECTED;
+        this.lastClickedNode = node;
+      }
+    }
+    await this.reRender();
+    return node;
+  }
+  load(value) {
+    this.state.tree = value;
+    this.reRender();
+  }
+  renderNode(node, path) {
+    if (!node)
+      return "";
+    if (!node.children)
+      return "";
+    const children = [];
+    const autoSort = this.props.autoSort;
+    if (autoSort === true || autoSort === "true" || !autoSort) {
+      node.children.sort((a, b) => a.label.localeCompare(b.label));
+    }
+    for (let i = 0; i < node.children.length; i++) {
+      const child = node.children[i];
+      const hasChildren = child.children && child.children.length;
+      const isSelected = child.selected;
+      const title = typeof child.title === "string" ? child.title : "";
+      let icon = child.icon;
+      if (!icon || icon === "folder") {
+        icon = child.state === 1 ? "folder-open" : "folder";
+      }
+      const iconColor = node.iconColor || "var(--tonic-info)";
+      let dragdrop = "";
+      let classes = "";
+      const childPath = [...path, i].join(".");
+      if (this.props.dragdrop === true || this.props.dragdrop === "true") {
+        classes = "draggable droppable";
+        if (window.process.platform === "linux") {
+          dragdrop = "draggable=true droppable=true";
+        } else {
+          dragdrop = import_tonic.default.unsafeRawString(`data-src="tree://${childPath}"`);
+        }
+      }
+      const hasToggle = hasChildren > 0 || icon === "folder";
+      children.push(this.html`
+        <div class="item">
+          <div
+            class="handle ${classes}"
+            ${dragdrop}
+            data-dir="${String(child.type !== "file")}"
+            data-state="${String(child.state)}"
+            data-selected="${String(isSelected)}"
+            data-path="${childPath}"
+            data-toggle="${String(hasToggle)}"
+            title="${title}"
+          >
+            ${import_tonic.default.unsafeRawString(hasToggle ? '<div class="toggle"></div>' : "")}
+            <div class="region">
+              <div class="node-data">
+                <tonic-icon
+                  symbol-id="${icon}"
+                  fill="${iconColor}"
+                  cached="${child.cached ? "true" : "false"}"
+                  size="18px">
+                </tonic-icon>
+                <div class="label" ${child.disabled ? "disabled" : ""}>
+                  ${child.label}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          ${hasChildren ? this.renderNode(child, [...path, i]) : ""}
+        </div>
+      `);
+    }
+    return this.html`
+      <div class="node">
+        <div class="item">
+          ${children}
+        </div>
+      </div>
+    `;
+  }
+  scroll(e) {
+    this.state._scrollTop = this.scrollTop;
+  }
+  updated() {
+    this.scrollTop = this.state._scrollTop;
+  }
+  render() {
+    this.classList.add("tonic-tree");
+    if (!this.state.tree) {
+      return this.html`<tonic-loader></tonic-loader>`;
+    }
+    return this.renderNode(this.state.tree, []);
+  }
+};
+__name(AppTree, "AppTree");
+
+// src/components/sprite.js
+init_define_global();
+var import_tonic2 = __toESM(require_tonic(), 1);
+var AppSprite = class extends import_tonic2.default {
+  render() {
+    return this.html`
+      <svg version="1.1" xmlns="http://www.w3.org/2000/svg" class="tonic--svg" viewBox="0 0 100 100">
+        <symbol id="bookmark" viewBox="0 0 100 100">
+          <path fill="currentColor" d="M50,73.5L20.2,94.8c-1.5,0-2.1-0.5-2.1-2.1v-81c0-3.5,3.2-6.4,7.5-6.4h49c4.3,0,7.5,2.9,7.5,6.4v80.9c0,1.6-0.6,2.1-2.1,2.1
+            L50,73.5z"/>
+        </symbol>
+
+        <symbol id="copy" viewBox="0 0 100 100">
+          <path stroke="currentColor" d="M80.36,12H38.42a7.64,7.64,0,0,0-7.64,7.64V30.78H19.64A7.64,7.64,0,0,0,12,38.41v42A7.64,7.64,0,0,0,19.64,88h42a7.64,7.64,0,0,0,7.63-7.64V69.22H80.36A7.64,7.64,0,0,0,88,61.58V19.64A7.64,7.64,0,0,0,80.36,12ZM65.22,67.16s0,0,0,.06,0,0,0,.06V80.36A3.64,3.64,0,0,1,61.59,84h-42A3.64,3.64,0,0,1,16,80.36v-42a3.64,3.64,0,0,1,3.64-3.63h42a3.64,3.64,0,0,1,3.63,3.63ZM84,61.58a3.64,3.64,0,0,1-3.64,3.64H69.22V38.41a7.64,7.64,0,0,0-7.63-7.63H34.78V19.64A3.64,3.64,0,0,1,38.42,16H80.36A3.64,3.64,0,0,1,84,19.64Z"></path>
+        </symbol>
+
+        <symbol id="trash" viewBox="0 0 100 100">
+          <path stroke="currentColor" fill="currentColor" d="M90,24.3v-4.9H66.3L62.5,6H36.7l-3.8,13.3H9.2v5.3h8.4l6.5,70.2h51l6.5-70.6H90z M40.6,11h18l2.4,8.3H38.2L40.6,11z"/>
+        </symbol>
+
+        <symbol id="lock" viewBox="0 0 100 100">
+          <path fill="currentColor" d="M26.8,97.7h46.5c6.3,0,9.4-3.1,9.4-10V51.9c0-6.2-2.5-9.3-7.8-9.9V29.6C74.9,11.2,62.8,2.3,50,2.3s-24.9,8.9-24.9,27.3v12.5
+            c-4.8,0.7-7.8,3.9-7.8,9.6v35.8C17.5,94.6,20.5,97.7,26.8,97.7z M33.1,28.7c0-12.3,7.9-18.8,17-18.8s17,6.5,17,18.8V42h-34V28.7z"/>
+        </symbol>
+
+        <symbol id="search" viewBox="0 0 100 100">
+          <path d="M55.4,18c-13.8,0-25.1,11.2-25.1,25.1c0,5.6,1.9,10.7,5,14.9L17.1,76.2l5.2,5.2l18.2-18.2c4.2,3.1,9.3,5,14.9,5
+            c13.8,0,25.1-11.2,25.1-25.1S69.3,18,55.4,18z M55.4,60.8c-9.8,0-17.8-8-17.8-17.8s8-17.8,17.8-17.8s17.8,8,17.8,17.8
+            S65.2,60.8,55.4,60.8z"/>
+        </symbol>
+
+        <symbol id="checked-circle" viewBox="0 0 100 100">
+          <path d="M49.88,1C22.88,1,1,22.88,1,49.88s21.88,48.88,48.88,48.88s48.88-21.88,48.88-48.88S76.87,1,49.88,1z M42.54,73.64
+            L17.1,48.2l4.95-4.95l20.5,20.5L77.7,28.58l4.95,4.95L42.54,73.64z"/>
+        </symbol>
+
+        <symbol id="checked" viewBox="0 0 100 100">
+          <path fill="currentColor" d="M79.7,1H21.3C10.4,1,1.5,9.9,1.5,20.8v58.4C1.5,90.1,10.4,99,21.3,99h58.4c10.9,0,19.8-8.9,19.8-19.8V20.8C99.5,9.9,90.6,1,79.7,1z M93.3,79.3c0,7.5-6.1,13.6-13.6,13.6H21.3c-7.5,0-13.6-6.1-13.6-13.6V20.9c0-7.5,6.1-13.6,13.6-13.6V7.2h58.4c7.5,0,13.6,6.1,13.6,13.6V79.3z"/>
+          <polygon points="44,61.7 23.4,41.1 17.5,47 44,73.5 85.1,32.4 79.2,26.5 "/>
+        </symbol>
+
+        <symbol id="close" viewBox="0 0 100 100">
+          <path d="M80.7,22.6l-3.5-3.5c-0.1-0.1-0.3-0.1-0.4,0L50,45.9L23.2,19.1c-0.1-0.1-0.3-0.1-0.4,0l-3.5,3.5c-0.1,0.1-0.1,0.3,0,0.4
+            l26.8,26.8L19.3,76.6c-0.1,0.1-0.1,0.3,0,0.4l3.5,3.5c0,0,0.1,0.1,0.2,0.1s0.1,0,0.2-0.1L50,53.6l25.9,25.9c0.1,0.1,0.3,0.1,0.4,0
+            l3.5-3.5c0.1-0.1,0.1-0.3,0-0.4L53.9,49.8l26.8-26.8C80.8,22.8,80.8,22.7,80.7,22.6z"/>
+        </symbol>
+
+        <symbol id="link" viewBox="0 0 100 100">
+          <path fill="currentColor" d="M35,68.7h-15C9.7,68.7,1.4,60.3,1.4,50s8.4-18.7,18.7-18.7h22.5c10.3,0,18.7,8.4,18.7,18.7c0,2.1-1.7,3.7-3.7,3.7
+            s-3.7-1.7-3.7-3.7c0-6.2-5-11.2-11.2-11.2H20.1c-6.2,0-11.2,5-11.2,11.2s5,11.2,11.2,11.2h15c2.1,0,3.7,1.7,3.7,3.7
+            S37.1,68.7,35,68.7z"/>
+          <path fill="currentColor" d="M79.9,68.7H57.5c-10.3,0-18.7-8.4-18.7-18.7c0-2.1,1.7-3.7,3.7-3.7s3.7,1.7,3.7,3.7c0,6.2,5,11.2,11.2,11.2h22.5
+            c6.2,0,11.2-5,11.2-11.2s-5-11.2-11.2-11.2H65c-2.1,0-3.7-1.7-3.7-3.7s1.7-3.7,3.7-3.7h15c10.3,0,18.7,8.4,18.7,18.7
+            S90.3,68.7,79.9,68.7z"/>
+        </symbol>
+
+        <symbol id="refresh" viewBox="0 0 100 100">
+          <path fill="currentColor" d="M64.3,76c-0.2-0.2-0.3-0.3-0.5-0.5c-0.2,0-0.5,0-0.6,0l-0.6,0.3l0,0c-3.3,1.6-6.8,2.5-10.6,2.9c-0.8,0-1.6,0.2-2.4,0.2
+            c-15.9,0.2-29-13-29-29c0-2.4,0.3-4.6,0.8-7.1l4.1,8.7c0.2,0.2,0.3,0.3,0.5,0.5c0.2,0,0.5,0,0.6,0l4.3-1.9c0.3-0.2,0.6-0.6,0.3-1
+            l-7.9-17.6C23,31,22.5,30.7,22.2,31L4.4,39.1c-0.2,0.2-0.3,0.3-0.5,0.5c0,0.2,0,0.5,0,0.6L6,44.3c0.2,0.5,0.6,0.6,1,0.3l9-4.1
+            c-0.8,3-1.3,6-1.3,9.5c0,19.5,15.9,35,35,35c0.8,0,1.7,0,2.7-0.2c4.4-0.3,8.9-1.6,12.7-3.5l0.6-0.3c0.3-0.2,0.5-0.6,0.3-1L64.3,76z
+            "/>
+          <path fill="currentColor" d="M95.9,58.7l-2.1-4.1c-0.2-0.5-0.6-0.6-1-0.5L84,58.2c0.8-2.5,1-5.4,1-8.2c0-19.5-15.9-35-35-35c-1.7,0-3.5,0.2-5.4,0.5
+            c0,0,0,0-0.2,0l-1.1,0.2c0,0,0,0-0.2,0c-3.8,0.8-7.3,2.1-10.6,4l-0.6,0.2c-0.3,0.2-0.5,0.6-0.3,1l2.4,4.1c0.2,0.2,0.3,0.3,0.5,0.3
+            s0.5,0,0.6,0l0.6-0.3c2.9-1.6,6-2.7,9.4-3.3c1.7-0.3,3.5-0.5,5.1-0.5c16,0,29.2,13.2,29.2,29.2c0,2.2-0.3,4.3-0.8,6.3l-4.1-8.9
+            c-0.2-0.2-0.3-0.3-0.5-0.5c-0.2,0-0.5,0-0.6,0l-4.3,2.1c-0.3,0.2-0.6,0.6-0.3,1l8.2,17.8c0.2,0.3,0.5,0.5,0.8,0.5
+            c0.2,0,0.2,0,0.3,0l17.6-8.1c0.2-0.2,0.3-0.3,0.5-0.5C95.9,59.2,95.9,58.9,95.9,58.7z"/>
+        </symbol>
+
+        <symbol id="theme" viewBox="0 0 100 100">
+          <path d="M51.2,2.6C25.3,2.6,4.2,23.7,4.2,49.6c0,25.9,21.1,46.9,46.9,46.9s46.9-21.1,46.9-46.9
+            C98.1,23.7,77.1,2.6,51.2,2.6z M10.2,49.6C10.2,27,28.6,8.6,51.2,8.6v81.9C28.6,90.5,10.2,72.2,10.2,49.6z"/>
+        </symbol>
+
+        <symbol id="folder" viewBox="0 0 100 100">
+          <path fill="currentColor" d="M50.6,82.2c12,0,24.1,0,36.1,0c2.1,0,2.6-0.6,2.6-2.6c-0.1-16.1,0-32.2,0-48.2c0-2.6,0-2.6-2.7-2.6c-9.8,0-19.5,0-29.3-0.1
+            c-1.1,0-2.3-0.6-3.1-1.3c-2.4-2.2-4.6-4.7-7.1-6.9c-0.9-0.8-2.2-1.4-3.3-1.4c-10-0.1-19.9,0-29.9-0.1c-1.9,0-2.3,0.7-2.3,2.4
+            c0.1,19.4,0.1,38.9,0,58.3c0,2,0.6,2.5,2.5,2.5C26.3,82.2,38.4,82.2,50.6,82.2z"/>
+        </symbol>
+
+        <symbol id="folder-icon" viewBox="0 0 100 100">
+          <path stroke-width="4" stroke="currentColor" fill="transparent" d="M86.1,28.6v-1.5c0-1.1-0.9-2-2-2H46.8l0,0"/>
+          <path stroke-width="3" stroke="currentColor" fill="transparent" d="M88.5,28.6H53.2c-1.5,0-2.9-0.5-4-1.4L42,20.7c-0.8-0.6-1.7-0.9-2.7-0.9H11.5c-1.1,0-2,0.9-2,2v56.5
+            c0,1.1,0.9,2,2,2h77c1.1,0,2-0.9,2-2V30.6C90.5,29.5,89.6,28.6,88.5,28.6z"/>
+        </symbol>
+
+        <symbol id="folder-open" viewBox="0 0 100 100">
+          <path fill="currentColor" d="M14.1,78.6c-0.1,0-0.2-0.1-0.4-0.1c2.8-12.8,5.7-25.6,8.5-38.5c0.3-1.2,0.9-1.5,2-1.4c4,0,8,0,12.1,0c12.4,0,24.8,0,37.2,0
+            c1.5,0,2.5-0.2,2.4-2c-0.1-1.7,0-3.5,0.1-5.2c0.1-1.8-0.5-2.6-2.5-2.6c-9.1,0.1-18.1,0.1-27.2,0c-1.1,0-2.3-0.6-3.1-1.3
+            c-2.5-2.3-4.8-4.8-7.4-7.1c-0.7-0.6-1.7-1.1-2.6-1.1c-6.2-0.1-12.3,0-18.5-0.1c-1.4,0-1.9,0.4-1.9,1.8c0,19.6,0,39.2,0,58.7
+            c0,1.8,0.6,2.3,2.4,2.3c19.5-0.1,39-0.1,58.5,0c1.5,0,2.3-0.4,2.8-1.9c4.3-11.6,8.6-23.2,13-34.9c0.2-0.6,0.3-1.2,0.5-1.9
+            c-0.7-0.1-1.1-0.1-1.5-0.1c-19.9,0-39.7,0-59.6,0c-1.3,0-1.9,0.5-2.3,1.7c-2,5.5-4.1,10.9-6.1,16.4C18.4,67,16.3,72.8,14.1,78.6z"
+            />
+        </symbol>
+
+        <symbol id="file" viewBox="0 0 100 100">
+          <path fill="currentColor" d="M19.5,14V86c0,1.7,1.4,3.2,3.2,3.2h54.5c1.7,0,3.2-1.4,3.2-3.2V14c0-1.7-1.4-3.2-3.2-3.2H22.7C21,10.9,19.5,12.2,19.5,14z
+             M69.8,72.2H30.3c-0.3,0-0.5-0.2-0.5-0.5s0.2-0.5,0.5-0.5h39.5c0.3,0,0.5,0.2,0.5,0.5C70.2,72,70.1,72.2,69.8,72.2z M69.8,61.3H30.3
+            c-0.3,0-0.5-0.2-0.5-0.5s0.2-0.5,0.5-0.5h39.5c0.3,0,0.5,0.2,0.5,0.5C70.2,61,70.1,61.3,69.8,61.3z M69.8,50.4H30.3
+            c-0.3,0-0.5-0.2-0.5-0.5c0-0.3,0.2-0.5,0.5-0.5h39.5c0.3,0,0.5,0.2,0.5,0.5C70.2,50.2,70.1,50.4,69.8,50.4z M69.8,39.5H30.3
+            c-0.3,0-0.5-0.2-0.5-0.5s0.2-0.5,0.5-0.5h39.5c0.3,0,0.5,0.2,0.5,0.5C70.2,39.4,70.1,39.5,69.8,39.5z M69.8,28.7H43.3
+            c-0.3,0-0.5-0.2-0.5-0.5c0-0.3,0.2-0.5,0.5-0.5h26.4c0.3,0,0.5,0.2,0.5,0.5C70.2,28.4,70.1,28.7,69.8,28.7z"/>
+        </symbol>
+
+        <symbol id="file-outline" viewBox="0 0 100 100">
+          <path stroke="currentColor" fill="transparent" d="M67.8,27.6c-1.4,0-2.6-1.2-2.6-2.6V11.9c-0.2-0.2-0.3-0.3-0.3-0.3H24.8c-1.4,0-2.6,1.2-2.6,2.6v73.1
+            c0,1.4,1.2,2.6,2.6,2.6h53.9c1.4,0,2.6-1.2,2.6-2.6V27.9c0,0-0.1-0.1-0.3-0.3H67.8z"/>
+          <line stroke="currentColor" x1="65.3" y1="11.9" x2="81" y2="27.6"/>
+        </symbol>
+
+        <symbol id="settings" viewBox="0 0 100 100">
+          <path fill="currentColor" d="M85.7,52.2c-1.1-0.5-2.1-1.1-3.2-1.7L82,50.1c-1-0.5-1.9-1-2.8-1.5c-0.4-0.2-0.7-0.4-0.8-1.2c-0.1-1.1-0.4-2.6-1-4.1
+            c-0.3-0.9-0.2-1.3,0.2-1.9c0.8-1,1.5-2.1,2.3-3.2c0.7-0.9,1.3-1.9,2-2.7c1.4-1.9,0.3-3.4-0.1-4c-0.5-0.5-1-1.2-1.5-1.9l-3.7-4.7
+            c-0.8-1-2.1-1.3-3.3-0.9l-2.2,0.9c-1.6,0.7-3.3,1.4-4.9,2.1c-0.5,0.2-0.9,0.2-1.5-0.1c-1.2-0.7-2.6-1.4-4.1-2
+            c-0.7-0.2-0.9-0.5-1.1-1.2c-0.3-1.2-0.7-2.4-1-3.6l-0.1-0.4c-0.2-0.9-0.5-1.7-0.8-2.6c-0.8-2.7-3.3-2.4-4.6-2.2h-0.2
+            c-1.7,0.2-3.7,0.2-5.6-0.1c-2.7-0.4-3.7,1-4,2.3c-0.3,1.2-0.7,2.4-1,3.5l-0.9,3.3c-0.1,0.4-0.3,0.8-0.9,1c-1.5,0.7-2.9,1.3-4.4,2.1
+            c-0.5,0.2-1,0.3-1.5,0l-7.8-3.2c-0.1,0-0.2,0-0.2,0L25.9,24c-1.1,0.3-1.7,1.2-2.2,1.7c-0.1,0.1-0.1,0.1-0.2,0.2
+            c-1.1,1.3-2.2,2.6-3.2,4l-2.1,2.6c-0.1,0.1-0.7,0.9-0.1,1.6c0.5,0.8,2,2.7,2,2.7c1.1,1.5,2.1,2.9,3.2,4.4c0.3,0.4,0.4,0.9,0.2,1.6
+            c-0.4,1.2-0.7,2.4-1,4.1c-0.1,0.9-0.4,1.2-0.9,1.4c-1.3,0.7-2.5,1.4-3.8,2.1l-0.2,0.1c-0.8,0.4-1.6,0.9-2.4,1.3s-2.3,1.5-1.3,4
+            c0.9,2.2,1.4,4.5,1.5,6.9c0.2,2.6,2.1,2.9,2.8,3.1l3.4,0.2c1.4,0.1,2.8,0.1,4.1,0.2c0.5,0,0.9,0.2,1.2,0.7c1,1.3,2,2.5,2.9,3.7
+            c0.3,0.4,0.4,0.8,0.4,1.2L30,73.5c-0.3,2-0.7,3.9-1,5.8c-0.2,1.4,0.3,2.6,1.6,3.3c2.5,1.2,5,2.4,7.5,3.6c1.3,0.7,2.7,0.3,3.7-0.8
+            c1.7-2,3.4-3.8,5.1-5.8c0.2-0.2,0.5-0.3,0.8-0.3c1.4,0,3.2,0.1,5,0c0.7,0,1,0.2,1.2,0.4l2.1,2.3c1,1.1,2,2.2,2.9,3.4
+            c0.3,0.4,1.1,1.1,2.3,1.1c0.4,0,1-0.1,1.4-0.3c2.9-1.4,5.2-2.5,7.4-3.6c1.4-0.7,2.1-2,1.9-3.5c-0.2-1.4-0.5-2.8-0.8-4.4l-0.5-2.8
+            c0-0.2-0.1-0.5,0.5-1.2c1.1-1.1,2-2.2,2.6-3.4c0.4-0.8,0.8-0.8,1.1-0.9c2.5-0.1,5.1-0.3,7.6-0.4c1.9-0.1,2.9-1.2,3.1-3.5
+            c0.1-2.1,0.7-4.1,1.4-6.2C88,54,86.9,52.7,85.7,52.2z M50.5,62.3c-2.9,0-5.6-1.1-7.6-3.2c-2.1-2.1-3.2-4.8-3.2-7.6
+            c0-2.9,1.1-5.6,3.2-7.6c2.1-2.1,4.8-3.2,7.6-3.2s5.6,1.1,7.6,3.2c2.1,2.1,3.2,4.8,3.2,7.6C61.3,57.4,56.4,62.3,50.5,62.3z"/>
+        </symbol>
+
+        <symbol id="export" viewBox="0 0 100 100">
+          <line fill="none" stroke="currentColor" stroke-width="6" stroke-miterlimit="10" x1="50.8" y1="17.4" x2="50.8" y2="72"/>
+          <line fill="none" stroke="currentColor" stroke-width="6" stroke-miterlimit="10" x1="80.2" y1="83.7" x2="20.9" y2="83.7"/>
+          <polyline fill="none" stroke="currentColor" stroke-width="6" stroke-miterlimit="10" points="28.2,40 50.8,17.5 73.3,40   "/>
+        </symbol>
+
+        <symbol id="delete" viewBox="0 0 100 100">
+          <polygon fill="currentColor" points="75,29 71,25 50,46 29,25 25,29 46,50 25,71 29,75 50,54 71,75 75,71 54,50 "/>
+        </symbol>
+
+        <symbol id="std-arrow-up-right" viewBox="0 0 100 100">
+          <path fill="currentColor" d="M85.1,68.7L84.9,17c0-0.7-0.5-1.2-1.2-1.2H32c-0.7,0-1.2,0.5-1.2,1.2c0,0.6,0.5,1.1,1.3,1.1h29.5
+            l19.8-0.2l-7.7,7.5l-58,58.1c-0.2,0.2-0.3,0.5-0.3,0.8c0,0.6,0.5,1.2,1.2,1.2c0.3,0,0.5-0.1,0.8-0.4l58-58l7.4-7.6v14.7v34.5
+            c0,0.7,0.5,1.3,1.2,1.3C84.6,70,85.1,69.4,85.1,68.7z"/>
+        </symbol>
+
+        <symbol id="package" viewBox="0 0 100 100">
+          <path fill="none" stroke="currentColor" stroke-width="2"
+            d="M89.2,26.3L89.2,26.3L70,14.9L50.9,3.4l0,0c-0.1,0-0.1-0.1-0.2-0.1c-0.1,0-0.2,0-0.2,0.1l0,0l-38.5,23l0,0l-0.1,0.1
+              c0,0,0,0,0,0.1c0,0.1-0.1,0.1-0.1,0.2v46c0,0.2,0.1,0.3,0.2,0.4l38.3,23l0,0c0.1,0,0.1,0.1,0.2,0.1s0.2,0,0.2-0.1l0,0l38.5-23
+              c0.2-0.1,0.2-0.3,0.2-0.4v-46c0-0.1,0-0.2-0.1-0.2c0,0,0,0,0-0.1C89.3,26.5,89.2,26.5,89.2,26.3z M50.5,4.5l18.1,10.8L31.5,37.6
+              L13.4,26.8L50.5,4.5z M87.7,26.8L50.5,49.1L32.5,38.3L69.6,16L87.7,26.8z M12.8,27.8L50,50.1v44.6L12.8,72.4V27.8z M51.1,94.7V50.1
+              l37.2-22.3v44.6L51.1,94.7z"/>
+        </symbol>
+
+        <symbol id="info" viewBox="0 0 100 100">
+          <path fill="currentColor" d="M50.1,6.7C26.3,6.7,6.9,26.2,6.9,50s19.4,43.2,43.2,43.2c23.8,0,43.2-19.5,43.2-43.3C93.3,26.1,74,6.7,50.1,6.7z M53.9,76.4h-7.6V68h7.6V76.4z M53.9,60.5h-7.6V25.6h7.6V60.5z"></path>
+        </symbol>
+
+        <symbol id="danger" viewBox="0 0 100 100">
+          <path fill="currentColor" d="M50.1,6.7C26.3,6.7,6.9,26.2,6.9,50s19.4,43.2,43.2,43.2c23.8,0,43.2-19.5,43.2-43.3C93.3,26.1,74,6.7,50.1,6.7z M53.9,76.4h-7.6V68h7.6V76.4z M53.9,60.5h-7.6V25.6h7.6V60.5z"></path>
+        </symbol>
+
+        <symbol id="warning" viewBox="0 0 100 100">
+          <path fill="currentColor" d="M98.6,86.6l-46-79.7c-1.2-2-4-2-5.2,0l-46,79.7c-1.2,2,0.3,4.5,2.6,4.5h92C98.3,91.1,99.8,88.6,98.6,86.6z M53.9,80.4h-7.6V72h7.6V80.4z M53.9,64.5h-7.6V29.6h7.6V64.5z"></path>
+        </symbol>
+    `;
+  }
+};
+__name(AppSprite, "AppSprite");
+
+// src/components/grid.js
+init_define_global();
+var import_tonic3 = __toESM(require_tonic(), 1);
+var GridContainer = class extends import_tonic3.default {
   connected() {
     const {
       columns,
@@ -6320,7 +6988,7 @@ var GridContainer = class extends import_tonic.default {
   }
 };
 __name(GridContainer, "GridContainer");
-var GridCell = class extends import_tonic.default {
+var GridCell = class extends import_tonic3.default {
   connected() {
     this.style.gridArea = this.props.area;
   }
@@ -6334,24 +7002,15 @@ __name(GridCell, "GridCell");
 
 // src/index.client.js
 window.localStorage.debug = "op:*";
-(0, import_components.default)(import_tonic2.default);
-import_tonic2.default.add(GridCell);
-import_tonic2.default.add(GridContainer);
+(0, import_components.default)(import_tonic4.default);
+import_tonic4.default.add(AppTree);
+import_tonic4.default.add(AppSprite);
+import_tonic4.default.add(GridCell);
+import_tonic4.default.add(GridContainer);
 var debug = (0, import_debug.default)("op:index");
 async function ready() {
   debug("op:ready");
-  if (document.body.classList.contains("api")) {
-    const aside = document.querySelector("aside");
-    if (!aside)
-      return;
-    const toc = [...document.querySelector("main").querySelectorAll("h1, h2, h3, h4")].map((el) => {
-      const cls = el.tagName.toLowerCase();
-      const method = /\.(\w+)\(/.exec(el.textContent);
-      const title = method ? method[1] : el.textContent;
-      return `<a class="${cls}" href="#${el.id}">${title}</a>`;
-    });
-    aside.innerHTML = toc.join("\n");
-  }
 }
 __name(ready, "ready");
 document.addEventListener("DOMContentLoaded", ready);
+//# sourceMappingURL=bundle.js.map

@@ -28,6 +28,7 @@ const html = async args => {
     'markdown.css',
     'footer.css',
     'table.css',
+    'pages/api.css',
     'page-base.css',
     'nav.css',
     'tonic-overrides.css'

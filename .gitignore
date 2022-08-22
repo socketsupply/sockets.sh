@@ -1,6 +1,8 @@
 .DS_Store
 /node_modules
 /build
+/build/bundle.js
+/build/index.html
 build/fonts
 build/images
 build/styles
