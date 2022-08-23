@@ -252,7 +252,7 @@ export default class AppTree extends Tonic {
         icon = child.state === 1 ? 'folder-open' : 'folder'
       }
 
-      const iconColor = node.iconColor || 'var(--tonic-info)'
+      const iconColor = node.iconColor || 'var(--tonic-primary)'
 
       let dragdrop = ''
       let classes = ''

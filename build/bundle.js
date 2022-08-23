@@ -6527,7 +6527,6 @@ var AppTree = class extends import_tonic.default {
     return {
       selectMode: "leaf-only",
       autoExpand: true,
-      autoSort: "true",
       draggable: true
     };
   }
@@ -6708,9 +6707,6 @@ var AppTree = class extends import_tonic.default {
     if (!node.children)
       return "";
     const children = [];
-    const autoSort = this.props.autoSort;
-    if (autoSort === true || autoSort === "true" || !autoSort) {
-    }
     for (let i = 0; i < node.children.length; i++) {
       const child = node.children[i];
       const hasChildren = child.children && child.children.length;
@@ -6720,7 +6716,7 @@ var AppTree = class extends import_tonic.default {
       if (!icon || icon === "folder") {
         icon = child.state === 1 ? "folder-open" : "folder";
       }
-      const iconColor = node.iconColor || "var(--tonic-info)";
+      const iconColor = node.iconColor || "var(--tonic-primary)";
       let dragdrop = "";
       let classes = "";
       const childPath = [...path, i].join(".");
