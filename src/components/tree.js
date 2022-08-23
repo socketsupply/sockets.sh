@@ -21,7 +21,6 @@ export default class AppTree extends Tonic {
     return {
       selectMode: 'leaf-only',
       autoExpand: true,
-      autoSort: 'true',
       draggable: true
     }
   }
@@ -236,11 +235,6 @@ export default class AppTree extends Tonic {
     if (!node.children) return ''
 
     const children = []
-
-    const autoSort = this.props.autoSort
-    if (autoSort === true || autoSort === 'true' || !autoSort) {
-      node.children.sort((a, b) => a.label.localeCompare(b.label))
-    }
 
     for (let i = 0; i < node.children.length; i++) {
       const child = node.children[i]

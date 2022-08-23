@@ -6710,7 +6710,6 @@ var AppTree = class extends import_tonic.default {
     const children = [];
     const autoSort = this.props.autoSort;
     if (autoSort === true || autoSort === "true" || !autoSort) {
-      node.children.sort((a, b) => a.label.localeCompare(b.label));
     }
     for (let i = 0; i < node.children.length; i++) {
       const child = node.children[i];

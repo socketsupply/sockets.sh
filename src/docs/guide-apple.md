@@ -1,4 +1,4 @@
-# Guide
+# Apple
 
 The following is a guide for building apps on Apple's `MacOS` and `iOS`
 operating systems.
@@ -86,15 +86,16 @@ mac_sign: Developer ID Application: Operator Tools Inc. (Z3M838H537)
 1. Set the `ios_provisioning_specifier` value in `ssc.config` to the profile name (as in the [Profiles List][apple-dev-profiles-list])
 
 ## Development
+Create a simulator VM and launch the app in it
 
 ```bash
-ssc compile --target=iossimulator -r . # create a simulator VM and launch the app in it
+ssc compile --target=iossimulator -r .
 ```
 
 ## Distribution And Deployment
 
 ```bash
-ssc compile --target=ios -c -p -xd . # package for distribution
+ssc compile --target=ios -c -p -xd .
 ```
 
 ### To your device
