@@ -9,32 +9,34 @@ All platforms can produce executables for `Windows`, `Linux`, and `MacOS`.
 | Any Backend             | ![check](/images/icons/checkmark.svg) |                                       | ![check](/images/icons/checkmark.svg) |          |
 | Native Packaging        | ![check](/images/icons/checkmark.svg) | ![check](/images/icons/checkmark.svg) |                                       | |
 | iOS                     | ![check](/images/icons/checkmark.svg) | In Progress                           |                                       | |
-| Android                 | QA | Roadmap                               |                                       | |
-| Mobile UDP & TCP        | ![check](/images/icons/checkmark.svg) |                                       |                                       | |
+| Android                 | ![check](/images/icons/checkmark.svg) | Roadmap                               |                                       | |
+| Native UDP & Bluetooth  | ![check](/images/icons/checkmark.svg) |                                       |                                       | |
 | Full Native Drag & Drop | ![check](/images/icons/checkmark.svg) |                                       |                                       | |
 | Desktop Tray            |                                       | ![check](/images/icons/checkmark.svg) |                                       | |
 
 ## Lines of Code
 
 <div class="complexity">
-  <div><div style="height: 3.603472260188678%;"></div><b>5932</b><br/>Socket SDK</div>
+  <div><div style="height: 9.696936562608204%;"></div><b>15963</b><br/>Socket</div>
   <div><div style="height: 25.61672710926442%;"></div><b>42170</b><br/>Tauri</div>
   <div><div style="height: 100%;"></div><b>164619</b><br/>Neutralinojs</div>
   <div><div style="height: 86.64552694403442%;"></div><b>142635</b><br/>Electron</div>
 </div>
 
 ### Socket SDK
-<time>Sat Mar 26 13:54:19 CET 2022</time>
+<time>Tue Aug 23 22:20:18 CEST 2022</time>
 
 ```
-cloc ./src/*.cc ./src/*.hh
+cloc ./src/*.cc ./src/*.hh ./src/*.kt ./src/*.mm
 ```
 
-|Language    |files|blank  |comment|  code|
-|:---        | ---:|   ---:|   ---:|  ---:|
-|C/C++ Header|    9|    919|    391|  4179|
-|C++         |    5|    478|    166|  1753|
-|*SUM*       | *14*| *1397*|  *557*|*5932*|
+|Language       |files|blank  |comment|    code|
+|:---           | ---:|   ---:|   ---:|    ---:|
+|C/C++ Header   |    9|   2104|    541|    9213|
+|C++            |    5|    915|    264|    3936|
+|Objective-C++  |    2|    364|     49|    1507|
+|Kotlin         |    1|    328|    182|    1307|
+|*SUM*          | *17*| *3711*| *1036*| *15963*|
 
 ### Neutralinojs
 <time>Sat Mar 26 13:54:19 CET 2022</time>

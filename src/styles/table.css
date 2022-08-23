@@ -24,6 +24,7 @@ th {
   background-color: var(--tonic-background);
   border-bottom: 1px solid var(--tonic-border);
   border-right: 1px solid var(--tonic-border);
+  color: var(--tonic-info);
 }
 
 td {

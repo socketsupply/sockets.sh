@@ -9,12 +9,18 @@ body > nav {
   left: 0;
   right: 0;
   z-index: 10;
+  display: grid;
+  grid-template-columns: auto 1fr auto auto auto;
+  justify-content: center;
+  align-content: center;
+  gap: 10px;
 }
 
 body > nav > a {
-  margin: 20px;
   display: inline-block;
-  font-size: 24px;
+  font-size: 16px;
+  line-height: 42px;
+  text-transform: uppercase;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -33,24 +39,30 @@ body > nav > a {
   }
 }
 
-body > nav > ul {
-  display: grid;
-  grid-template-columns: auto auto auto 1fr;
-  gap: 20px;
-}
-
-body > nav li {
-  padding: 28px;
-}
-
 body > nav img {
-  width: 200px;
+  width: 32px;
   display: block;
   margin: 4px;
-  margin-left: 10px;
+  border-radius: 99em;
+  vertical-align: middle;
+  border: 1px solid;
+}
+
+body > nav > a:first-of-type {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: auto 1fr;
+  margin-left: 20px;
+  gap: 10px;
+}
+
+body > nav > a:last-of-type {
+  margin-right: 20px;
 }
 
 body > nav a {
+  margin: 0 10px;
   -webkit-user-drag: none;
 }
 

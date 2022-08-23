@@ -24,6 +24,19 @@ body.api {
   grid-template-rows: 1fr auto;
 }
 
+body.api tonic-split {
+  top: 66px;
+}
+
+body.api tonic-split tonic-split-right {
+  overflow: scroll;
+}
+
+body.api tonic-split tonic-split-right markdown-module {
+  padding: 40px;
+  display: block;
+}
+
 body.api main {
   margin: 8% 10%;
   margin-left: 10px;

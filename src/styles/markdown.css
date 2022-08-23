@@ -1,14 +1,24 @@
-body.api markdown-module h3 {
+body markdown-module h3 {
   font-size: 24px;
   font-weight: 100;
+  font-family: var(--tonic-body);
   margin-top: 60px;
 }
 
-body.api markdown-module p a {
+body markdown-module ul {
+  list-style: decimal-leading-zero;
+  padding: 0 60px;
+}
+
+body markdown-module li {
+  margin: 16px 0;
+}
+
+body markdown-module p a {
   display: inline-block;
 }
 
-body.api markdown-module cite {
+body markdown-module cite {
   font-size: 14px;
   font-style: initial;
   background: var(--tonic-primary);
@@ -23,11 +33,11 @@ body:not(#index) markdown-module h2 {
   margin-top: 60px;
 }
 
-body.api markdown-module h3 code {
+body markdown-module h3 code {
   font-size: inherit;
 }
 
-body.api markdown-module h3 em code {
+body markdown-module h3 em code {
   font-size: 14px;
   padding: 4px;
   position: relative;
@@ -36,47 +46,7 @@ body.api markdown-module h3 em code {
   top: -2px;
 }
 
-body.api aside {
-  display: grid;
-  grid-auto-rows: max-content;
-  overflow: hidden;
-}
-
-body.api aside a {
-  margin: 4px 0;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
-}
-
-body.api aside a {
-  text-underline-offset: 2px;
-}
-
-body.api aside a:hover {
-  text-decoration: underline;
-  text-underline-offset: 2px;
-}
-
-body.api aside .h1 {
-  font-size: 20px;
-}
-
-body.api aside .h2 {
-  font-size: 18px;
-  text-indent: 20px;
-  margin-top: 18px;
-}
-
-body.api aside .h3 {
-  text-indent: 40px;
-}
-
-body.api aside .h4 {
-  text-indent: 60px;
-}
-
-body.api markdown-module table + p > strong {
+body markdown-module table + p > strong {
   font-size: 10px;
   border: 1px solid var(--tonic-accent);
   padding: 4px;
@@ -87,13 +57,25 @@ body.api markdown-module table + p > strong {
   vertical-align: middle;
 }
 
-body.api markdown-module h3 code,
-body.api markdown-module h3 {
-  color: var(--tonic-accent);
+body markdown-module h2,
+body markdown-module h3,
+body markdown-module h4 {
+  font-family: var(--tonic-monospace);
 }
 
-body.api markdown-module blockquote,
-body.api markdown-module blockquote {
+body markdown-module h2 code,
+body markdown-module h3 code,
+body markdown-module h4 code {
+  font-size: inherit;
+}
+
+body:not(#index) markdown-module h1:first-of-type {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+body markdown-module blockquote,
+body markdown-module blockquote {
   margin: 0;
 }
 
@@ -106,6 +88,7 @@ body.api markdown-module blockquote {
   align-items: end;
   height: 368px;
 }
+
 .complexity > div {
   align-self: baseline;
   height: 256px;
@@ -119,10 +102,4 @@ body.api markdown-module blockquote {
   max-width: 40px;
   background: var(--tonic-primary);
   margin-bottom: 20px;
-}
-
-@media (max-width: 699px) {
-  body.api > aside {
-    display: none;
-  }
 }

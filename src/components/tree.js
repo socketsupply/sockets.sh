@@ -119,8 +119,12 @@ export default class AppTree extends Tonic {
       children: []
     }
 
-    const headers = [...document.querySelector('main')
-      .querySelectorAll('h1, h2, h3, h4')]
+    let headers = []
+    const modules = [...document.querySelectorAll('markdown-module')]
+
+    for (const module of modules) {
+      headers = [...headers, ...module.querySelectorAll('h1, h2, h3, h4')]
+    }
 
     let parent = tree
     let sibling = 0

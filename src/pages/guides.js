@@ -13,15 +13,23 @@ class PageGuides extends Tonic {
 
         <head>${h}</head>
 
-        <body id="index">
+        <body class="api" id="guides">
           ${nav}
 
           <main>
-            <h1>Socket SDK</h1>
-            <h3>Guides</h3>
+            <tonic-split id="split-main" type="vertical">
+              <tonic-split-left width="25%">
+                <app-tree id="app-tree"></app-tree>
+              </tonic-split-left>
+
+              <tonic-split-right width="75%">
+                <markdown-module src="src/docs/guide-desktop.md"></markdown-module>
+                <markdown-module src="src/docs/guide-mobile.md"></markdown-module>
+                <app-footer js-bundle="true"></app-footer>
+              </tonic-split-right>
+            </tonic-split>
           </main>
 
-          <app-footer js-bundle="true"></app-footer>
         </body>
       </html>
     `
