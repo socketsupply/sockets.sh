@@ -31,6 +31,7 @@ class PageGuides extends Tonic {
               </tonic-split-right>
             </tonic-split>
           </main>
+          <app-sprite></app-sprite>
 
         </body>
       </html>

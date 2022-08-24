@@ -145,8 +145,10 @@ export default class AppTree extends Tonic {
         children: []
       }
 
+      const isCode = document.body.classList.contains('code')
+
       if (node.prec === 1) {
-        node.icon = 'package'
+        node.icon = isCode ? 'package' : 'folder'
       } else {
         node.icon = 'file'
       }

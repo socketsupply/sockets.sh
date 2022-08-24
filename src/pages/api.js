@@ -12,7 +12,7 @@ class PageApi extends Tonic {
       <html>
         <head>${h}</head>
 
-        <body id="api" class="api">
+        <body id="api" class="api code">
           ${nav}
 
           <main>

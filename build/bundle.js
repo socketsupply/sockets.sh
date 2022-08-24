@@ -6633,7 +6633,7 @@ var AppTree = class extends import_tonic.default {
         children: []
       };
       if (node.prec === 1) {
-        node.icon = "package";
+        node.icon = document.body.classList.contains("code") ? "package" : "folder";
       } else {
         node.icon = "file";
       }
