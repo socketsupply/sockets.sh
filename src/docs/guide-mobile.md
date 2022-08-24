@@ -88,7 +88,7 @@ and properties are available, check out the [Mobile API][0] docs.
 For specifics about production builds and deploying to devices and app stores,
 see either the [iOS][1] or [Android][2] guides.
 
-[0]:https://socket-sdk.dev/mobile
-[1]:https://socket-sdk.dev/ios
-[2]:https://socket-sdk.dev/android
+[0]:https://sockets.sh/mobile
+[1]:https://sockets.sh/ios
+[2]:https://sockets.sh/android
 

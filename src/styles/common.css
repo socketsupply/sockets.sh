@@ -198,11 +198,12 @@ body p {
 }
 
 body p a {
-  border-bottom: 1px solid var(--tonic-accent);
+  border-bottom: 1px dashed;
 }
 
 body p a:hover {
   color: var(--tonic-accent);
+  border-bottom-color: var(--tonic-accent);
 }
 
 body p.caption {

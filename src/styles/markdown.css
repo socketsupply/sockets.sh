@@ -11,7 +11,8 @@ body markdown-module ul {
 }
 
 body markdown-module li {
-  margin: 16px 0;
+  margin: 8px 0;
+  line-height: 24px;
 }
 
 body markdown-module p a {
@@ -57,9 +58,9 @@ body markdown-module table + p > strong {
   vertical-align: middle;
 }
 
-body markdown-module h2,
-body markdown-module h3,
-body markdown-module h4 {
+body markdown-module.code h2,
+body markdown-module.code h3,
+body markdown-module.code h4 {
   font-family: var(--tonic-monospace);
 }
 

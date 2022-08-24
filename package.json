@@ -1,8 +1,8 @@
 {
-  "name": "socket-sdk.dev",
+  "name": "sockets.sh",
   "version": "0.1.1",
   "private": true,
-  "description": "the socket-sdk.dev website.",
+  "description": "the sockets.sh website.",
   "scripts": {
     "lint": "standard",
     "test": "npm run lint",
@@ -42,19 +42,19 @@
   "bin": {},
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/socketsuply/socket-sdk.dev.git"
+    "url": "git+https://github.com/socketsuply/sockets.sh.git"
   },
   "bugs": {
-    "url": "https://github.com/socketsuply/socket-sdk.dev/issues"
+    "url": "https://github.com/socketsuply/sockets.sh/issues"
   },
-  "homepage": "https://github.com/socketsuply/socket-sdk.dev#readme",
+  "homepage": "https://github.com/socketsuply/sockets.sh#readme",
   "config": {
     "title": "Socket SDK",
     "description": "Build Native Desktop and Mobile Apps Using The Web Stack",
     "siteName": "Socket SDK",
-    "image": "https://socket-sdk.dev/images/framework.svg",
-    "url": "https://socket-sdk.dev"
+    "image": "https://sockets.sh/images/framework.svg",
+    "url": "https://sockets.sh"
   },
-  "domain": "socket-sdk.dev",
+  "domain": "sockets.sh",
   "skiplist": []
 }

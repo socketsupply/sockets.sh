@@ -16,14 +16,13 @@ class PageApi extends Tonic {
           ${nav}
 
           <main>
-
             <tonic-split id="split-main" type="vertical">
               <tonic-split-left width="25%">
                 <app-tree id="app-tree"></app-tree>
               </tonic-split-left>
 
               <tonic-split-right width="75%">
-                <markdown-module src="src/docs/api.md"></markdown-module>
+                <markdown-module class="code" src="src/docs/api.md"></markdown-module>
                 <app-footer js-bundle="true"></app-footer>
               </tonic-split-right>
             </tonic-split>
