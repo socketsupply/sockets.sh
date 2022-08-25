@@ -299,7 +299,7 @@ before using dns.lookup().
 | (Position 0) | Promise |  | false |  |
 
 
-## [promises.`lookup()`](https://github.com/socketsupply/io/blob/master/dns/promises.js#L10)
+## [`promises.lookup()`](https://github.com/socketsupply/io/blob/master/dns/promises.js#L10)
 
 
 
@@ -983,7 +983,7 @@ This is a `FunctionDeclaration` named `writev`in `fs/index.js`, it's exported bu
 
 
 
-## [promises.`access()`](https://github.com/socketsupply/io/blob/master/fs/promises.js#L33)
+## [`promises.access()`](https://github.com/socketsupply/io/blob/master/fs/promises.js#L33)
 
 Asynchronously check access a file.
 
@@ -995,67 +995,67 @@ Asynchronously check access a file.
 
 
 
-## [promises.appendFile](https://github.com/socketsupply/io/blob/master/fs/promises.js#L40)
+## [appendFile](https://github.com/socketsupply/io/blob/master/fs/promises.js#L40)
 
 
 
 
 
-## [promises.chmod](https://github.com/socketsupply/io/blob/master/fs/promises.js#L46)
+## [chmod](https://github.com/socketsupply/io/blob/master/fs/promises.js#L46)
 
 
 
 
 
-## [promises.chown](https://github.com/socketsupply/io/blob/master/fs/promises.js#L52)
+## [chown](https://github.com/socketsupply/io/blob/master/fs/promises.js#L52)
 
 
 
 
 
-## [promises.copyFile](https://github.com/socketsupply/io/blob/master/fs/promises.js#L58)
+## [copyFile](https://github.com/socketsupply/io/blob/master/fs/promises.js#L58)
 
 
 
 
 
-## [promises.lchmod](https://github.com/socketsupply/io/blob/master/fs/promises.js#L64)
+## [lchmod](https://github.com/socketsupply/io/blob/master/fs/promises.js#L64)
 
 
 
 
 
-## [promises.lchown](https://github.com/socketsupply/io/blob/master/fs/promises.js#L70)
+## [lchown](https://github.com/socketsupply/io/blob/master/fs/promises.js#L70)
 
 
 
 
 
-## [promises.lutimes](https://github.com/socketsupply/io/blob/master/fs/promises.js#L76)
+## [lutimes](https://github.com/socketsupply/io/blob/master/fs/promises.js#L76)
 
 
 
 
 
-## [promises.link](https://github.com/socketsupply/io/blob/master/fs/promises.js#L82)
+## [link](https://github.com/socketsupply/io/blob/master/fs/promises.js#L82)
 
 
 
 
 
-## [promises.lstat](https://github.com/socketsupply/io/blob/master/fs/promises.js#L88)
+## [lstat](https://github.com/socketsupply/io/blob/master/fs/promises.js#L88)
 
 
 
 
 
-## [promises.mkdir](https://github.com/socketsupply/io/blob/master/fs/promises.js#L94)
+## [mkdir](https://github.com/socketsupply/io/blob/master/fs/promises.js#L94)
 
 
 
 
 
-## [promises.`open()`](https://github.com/socketsupply/io/blob/master/fs/promises.js#L106)
+## [`promises.open()`](https://github.com/socketsupply/io/blob/master/fs/promises.js#L106)
 
 Asynchronously open a file.
 https://nodejs.org/api/fs.html#fspromisesopenpath-flags-mode
@@ -1069,19 +1069,19 @@ https://nodejs.org/api/fs.html#fspromisesopenpath-flags-mode
 
 
 
-## [promises.opendir](https://github.com/socketsupply/io/blob/master/fs/promises.js#L113)
+## [opendir](https://github.com/socketsupply/io/blob/master/fs/promises.js#L113)
 
 
 
 
 
-## [promises.readdir](https://github.com/socketsupply/io/blob/master/fs/promises.js#L121)
+## [readdir](https://github.com/socketsupply/io/blob/master/fs/promises.js#L121)
 
 
 
 
 
-## [promises.`readFile()`](https://github.com/socketsupply/io/blob/master/fs/promises.js#L150)
+## [`promises.readFile()`](https://github.com/socketsupply/io/blob/master/fs/promises.js#L150)
 
 
 
@@ -1092,73 +1092,73 @@ https://nodejs.org/api/fs.html#fspromisesopenpath-flags-mode
 
 
 
-## [promises.readlink](https://github.com/socketsupply/io/blob/master/fs/promises.js#L166)
+## [readlink](https://github.com/socketsupply/io/blob/master/fs/promises.js#L166)
 
 
 
 
 
-## [promises.realpath](https://github.com/socketsupply/io/blob/master/fs/promises.js#L172)
+## [realpath](https://github.com/socketsupply/io/blob/master/fs/promises.js#L172)
 
 
 
 
 
-## [promises.rename](https://github.com/socketsupply/io/blob/master/fs/promises.js#L178)
+## [rename](https://github.com/socketsupply/io/blob/master/fs/promises.js#L178)
 
 
 
 
 
-## [promises.rmdir](https://github.com/socketsupply/io/blob/master/fs/promises.js#L184)
+## [rmdir](https://github.com/socketsupply/io/blob/master/fs/promises.js#L184)
 
 
 
 
 
-## [promises.rm](https://github.com/socketsupply/io/blob/master/fs/promises.js#L190)
+## [rm](https://github.com/socketsupply/io/blob/master/fs/promises.js#L190)
 
 
 
 
 
-## [promises.stat](https://github.com/socketsupply/io/blob/master/fs/promises.js#L196)
+## [stat](https://github.com/socketsupply/io/blob/master/fs/promises.js#L196)
 
 
 
 
 
-## [promises.symlink](https://github.com/socketsupply/io/blob/master/fs/promises.js#L202)
+## [symlink](https://github.com/socketsupply/io/blob/master/fs/promises.js#L202)
 
 
 
 
 
-## [promises.truncate](https://github.com/socketsupply/io/blob/master/fs/promises.js#L208)
+## [truncate](https://github.com/socketsupply/io/blob/master/fs/promises.js#L208)
 
 
 
 
 
-## [promises.unlink](https://github.com/socketsupply/io/blob/master/fs/promises.js#L214)
+## [unlink](https://github.com/socketsupply/io/blob/master/fs/promises.js#L214)
 
 
 
 
 
-## [promises.utimes](https://github.com/socketsupply/io/blob/master/fs/promises.js#L220)
+## [utimes](https://github.com/socketsupply/io/blob/master/fs/promises.js#L220)
 
 
 
 
 
-## [promises.watch](https://github.com/socketsupply/io/blob/master/fs/promises.js#L226)
+## [watch](https://github.com/socketsupply/io/blob/master/fs/promises.js#L226)
 
 
 
 
 
-## [promises.`writeFile()`](https://github.com/socketsupply/io/blob/master/fs/promises.js#L235)
+## [`promises.writeFile()`](https://github.com/socketsupply/io/blob/master/fs/promises.js#L235)
 
 
 
