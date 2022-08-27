@@ -20,6 +20,10 @@
   color: #000;
 }
 
+.hl {
+  padding: 20px;
+}
+
 .hidden,
 [hidden] {
   display: none;
