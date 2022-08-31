@@ -186,8 +186,6 @@ export default class AppTree extends Tonic {
       node.state = CLOSED_STATE
     }
 
-    let emitTreeChanged = false
-
     if (isIcon) {
       if (node.state === EXPANDED_STATE) {
         node.state = CLOSED_STATE
@@ -197,7 +195,6 @@ export default class AppTree extends Tonic {
 
       if (this.onSelection) {
         this.onSelection(node, true)
-        emitTreeChanged = true
       }
     } else {
       if (/* allowSelect && */ node.selected === NOT_SELECTED) {
@@ -214,7 +211,6 @@ export default class AppTree extends Tonic {
 
       if (this.onSelection) {
         this.onSelection(node, false)
-        emitTreeChanged = true
       }
 
       if (!node.disabled) {
