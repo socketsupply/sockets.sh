@@ -6690,7 +6690,6 @@ var AppTree = class extends import_tonic.default {
     if (forceOpen) {
       node.state = CLOSED_STATE;
     }
-    let emitTreeChanged = false;
     if (isIcon) {
       if (node.state === EXPANDED_STATE) {
         node.state = CLOSED_STATE;
@@ -6699,7 +6698,6 @@ var AppTree = class extends import_tonic.default {
       }
       if (this.onSelection) {
         this.onSelection(node, true);
-        emitTreeChanged = true;
       }
     } else {
       if (node.selected === NOT_SELECTED) {
@@ -6713,7 +6711,6 @@ var AppTree = class extends import_tonic.default {
       }
       if (this.onSelection) {
         this.onSelection(node, false);
-        emitTreeChanged = true;
       }
       if (!node.disabled) {
         node.selected = IS_SELECTED;

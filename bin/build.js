@@ -8,7 +8,6 @@ import minimist from 'minimist'
 const pkg = JSON.parse(fs.readFileSync('package.json'))
 
 const dirname = meta => path.dirname(new URL(meta.url).pathname)
-const __dirname = dirname(import.meta)
 
 const SKIP_LIST = pkg.skiplist ?? []
 
