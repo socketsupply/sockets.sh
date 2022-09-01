@@ -39,19 +39,16 @@ executable: socket
 #
 # Package Metadata
 #
-version: v0.0.1
-versionShort: 0.0
-revision: 1
+version: 0.0.1
 name: Socket
 description: A demo appliation
-copyRight: Socket Supply Co. © 2021-2022
+copyright: Socket Supply Co. © 2021-2022
 maintainer: Contributors <floss@socketsupply.co>
 
 linux_categories: Developer
 
 mac_category: Developer Tools
 mac_bundle_identifier: co.optool.demo
-mac_entitlements: path/to/entitlements.plist
 mac_sign: Voltra Co. BV (DYE7429KTV)
 
 win32_sign: DigiCert: Socket Supply Co.
