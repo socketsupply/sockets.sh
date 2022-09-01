@@ -50,7 +50,7 @@
 
 ## macOS
 
-[macOS guide][/guide-apple#macOS]
+[macOS code signing guide][/guides/#macos-1]
 
 | Property | Required | Default | Description |
 | :--- | :--- | :--- | :--- |
@@ -65,7 +65,7 @@
 
 ## iOS
 
-[iOS guide][/guide-apple#iOS]
+[iOS code signing guide][/guides/#ios-1]
 
 | Property | Required | Default | Description |
 | :--- | :--- | :--- | :--- |
