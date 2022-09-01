@@ -50,6 +50,8 @@
 
 ## macOS
 
+[macOS guide][/guide-apple#macOS]
+
 | Property | Required | Default | Description |
 | :--- | :--- | :--- | :--- |
 | `mac_appstore_icon` | | | Mac App Store icon |
@@ -63,12 +65,15 @@
 
 ## iOS
 
+[iOS guide][/guide-apple#iOS]
+
 | Property | Required | Default | Description |
 | :--- | :--- | :--- | :--- |
-| `ios_simulator_device` | | | Which device to target when building for the simulator. The list of available devices: `xcrun simctl list devicetypes` |
+| `ios_codesign_identity` | | | Indicates the identity to be used for signing. |
 | `ios_distribution_method` | | | The distribution method (ad-hoc, etc.) |
 | `ios_provisioning_profile` | | | A path to the provisioning profile used for signing iOS app. |
-| `ios_codesign_identity` | | | |
+| `ios_provisioning_specifier` | | | A provisioning specifier used for signing iOS app. |
+| `ios_simulator_device` | | | Which device to target when building for the simulator. The list of available devices: `xcrun simctl list devicetypes` |
 
 
 ## Android
