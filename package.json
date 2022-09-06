@@ -8,7 +8,7 @@
     "test": "npm run lint",
     "build": "npm run docs:io && ./bin/build.js --out ./build",
     "build+deploy": "npm install && NODE_ENV=production npm run build",
-    "docs:io": "npm install && cd ./node_modules/@socketsupply/io && npm install && npm run readme && cp README.md ../../../src/docs/api.md"
+    "docs:io": "cd ./node_modules/@socketsupply/io && npm install && npm run readme && cp README.md ../../../src/docs/api.md"
   },
   "type": "module",
   "dependencies": {
@@ -22,6 +22,7 @@
     "@pre-bundled/send": "^0.16.2-patch-1",
     "@socketsupply/io": "github:socketsupply/io",
     "@types/node": "17.0.13",
+    "acorn-walk": "^8.2.0",
     "highlight.js": "^10.5.0",
     "marked": "^4.0.10",
     "minimist": "1.2.6",

@@ -326,5 +326,61 @@
       }
     },
     "created": false
+  },
+  "305103105464": {
+    "provider": "aws",
+    "spa": "",
+    "lastDeployed": null,
+    "properties": {
+      "relativeFolder": {
+        "value": [
+          ".."
+        ]
+      },
+      "cache": {
+        "value": 7800
+      },
+      "gzip": {
+        "value": true
+      },
+      "customLocalServer": {
+        "enabled": true,
+        "value": "node bin/server.js"
+      },
+      "apiRoute": {
+        "value": ""
+      },
+      "apiRouteDestination": {
+        "value": {
+          "apiGatewayId": null,
+          "apiGatewayRegion": null,
+          "localhostApiId": null,
+          "localhostWorkspace": null
+        }
+      },
+      "predeploy": {
+        "directory": [
+          "..",
+          "..",
+          "functions",
+          "dist",
+          "Functions-dev.app",
+          "Contents",
+          "Resources"
+        ],
+        "command": ""
+      },
+      "bucketName": {
+        "value": ""
+      },
+      "bucketRegion": {
+        "value": ""
+      },
+      "domain": {
+        "value": "",
+        "hostedZoneId": ""
+      }
+    },
+    "created": false
   }
 }
