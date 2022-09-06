@@ -40,7 +40,7 @@
 | `linux_categories` | | | Helps to make your app searchable in Linux desktop environments |
 | `linux_cmd` | | | The command to execute to spawn the “back-end” process. |
 | `linux_icon` | | | The icon to use for identifying your app in Linux desktop environments. |
-| `linux_log_stdout` | | false | A boolean that determines if WebKit WebView logs should get forwarded to stdout and stderr |
+| `linux_forward_console_to_stdout` | | false | A boolean that determines if WebKit WebView logs should get forwarded to stdout and stderr |
 
 ## macOS and iOS
 
