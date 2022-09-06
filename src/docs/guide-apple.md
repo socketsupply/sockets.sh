@@ -153,7 +153,7 @@ Apps can only access files in their own sandboxed home directory.
 | `Library` | The app’s sandboxed library directory. The contents of this directory are synchronised via iTunes (except the `Library/Caches` subdirectory, see below), but never exposed to the user. |
 | `Library/Caches` | The app’s sandboxed caches directory. The contents of this directory are not synchronised via iTunes, and may be deleted by the system at any time. It's a good place to store data which provides a good offline-first experience for the user. |
 | `Library/Preferences` | The app’s sandboxed preferences directory. The contents of this directory are synchronised via iTunes. It's purpose is to be used by the Settings app. Avoid creating your own files in this directory. |
-| `tmp` | The app’s sandboxed temporary directory. The contents of this directory are not synchronised via iTunes, and may be deleted by the system at any time. Although, it's recommended that you delete data which is not necessary anymore manually to minimize the space your app takes up on the file system. Use this directore to store data which is only useful during the app runtime. |
+| `tmp` | The app’s sandboxed temporary directory. The contents of this directory are not synchronised via iTunes, and may be deleted by the system at any time. Although, it's recommended that you delete data which is not necessary anymore manually to minimize the space your app takes up on the file system. Use this directory to store data which is only useful during the app runtime. |
 
 
 
