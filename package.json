@@ -7,7 +7,7 @@
     "lint": "standard",
     "test": "npm run lint",
     "build": "npm update && npm run docs:io && ./bin/build.js --out ./build",
-    "build+deploy": "npm install && NODE_ENV=production npm run build",
+    "build+deploy": "npm install && npm run build",
     "docs:io": "cd ./node_modules/@socketsupply/io && npm install && npm run readme && cp README.md ../../../src/docs/api.md"
   },
   "type": "module",
