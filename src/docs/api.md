@@ -77,7 +77,11 @@ External docs: https://nodejs.org/api/buffer.html#buffer_class_buffer
  Some high level methods around the `crypto.subtle` api for getting
  random bytes and hashing.
 
-## [`getRandomValues(buffer)`](https://github.com/socketsupply/io/blob/master/crypto.js#L19)
+## [webcrypto](https://github.com/socketsupply/io/blob/master/crypto.js#L16)
+
+WebCrypto API
+
+## [`getRandomValues(buffer)`](https://github.com/socketsupply/io/blob/master/crypto.js#L24)
 
 External docs: https://developer.mozilla.org/en-US/docs/Web/API/Crypto/getRandomValues
 Generate cryptographically strong random values into `buffer`
@@ -92,7 +96,7 @@ Generate cryptographically strong random values into `buffer`
 | Not specified | TypedArray |  |
 
 
-## [`randomBytes(size)`](https://github.com/socketsupply/io/blob/master/crypto.js#L26)
+## [`randomBytes(size)`](https://github.com/socketsupply/io/blob/master/crypto.js#L31)
 
 Generate `size` random bytes.
 
@@ -106,7 +110,7 @@ Generate `size` random bytes.
 | Not specified | Buffer | A promise that resolves with an instance of io.Buffer with random bytes. |
 
 
-## [`createDigest(algorithm, message)`](https://github.com/socketsupply/io/blob/master/crypto.js#L37)
+## [`createDigest(algorithm, message)`](https://github.com/socketsupply/io/blob/master/crypto.js#L42)
 
 
 
@@ -1097,7 +1101,7 @@ A result type used internally for handling
  of `{ err?, data? }`. The `data` and `err` properties on this
  type of object are in tuple form and be accessed at `[data?,err?]`
 
-### [`from(result)`](https://github.com/socketsupply/io/blob/master/ipc.js#L454)
+### [`from(result, maybeError, maybeSource)`](https://github.com/socketsupply/io/blob/master/ipc.js#L456)
 
 Creates a `Result` instance from input that may be an object
  like `{ err?, data? }`, an `Error` instance, or just `data`.
@@ -1105,6 +1109,8 @@ Creates a `Result` instance from input that may be an object
 | Argument | Type | Default | Optional | Description |
 | :---     | :--- | :---:   | :---:    | :---        |
 | result | object \| Error \| mixed |  | true |  |
+| maybeError | ?(Error) |  | false |  |
+| maybeSource | ?(string) |  | false |  |
 
 
 | Return Value | Type | Description |
@@ -1112,22 +1118,31 @@ Creates a `Result` instance from input that may be an object
 | Not specified | Result |  |
 
 
-### [`constructor(data, err)`](https://github.com/socketsupply/io/blob/master/ipc.js#L477)
+### [`constructor(err , data , source )`](https://github.com/socketsupply/io/blob/master/ipc.js#L489)
 
 `Result` class constructor.
 
 | Argument | Type | Default | Optional | Description |
 | :---     | :--- | :---:   | :---:    | :---        |
-| data | object |  | true |  |
-| err | Error |  | true |  |
+| err | ?(Error) | null | false |  |
+| data | ?(object) | null | false |  |
+| source | ?(string) | undefined | false |  |
 
 
-## [`ready()`](https://github.com/socketsupply/io/blob/master/ipc.js#L514)
+### [`length()`](https://github.com/socketsupply/io/blob/master/ipc.js#L518)
+
+Computed result length.
+
+### [`undefined()`](https://github.com/socketsupply/io/blob/master/ipc.js#L525)
+
+Generator for an `Iterable` interface over this instance.
+
+## [`ready()`](https://github.com/socketsupply/io/blob/master/ipc.js#L536)
 
 Waits for the native IPC layer to be ready and exposed on the
  global window object.
 
-## [`sendSync(command, params)`](https://github.com/socketsupply/io/blob/master/ipc.js#L539)
+## [`sendSync(command, params)`](https://github.com/socketsupply/io/blob/master/ipc.js#L561)
 
 Sends a synchronous IPC command over XHR returning a `Result`
  upon success or error.
@@ -1143,32 +1158,61 @@ Sends a synchronous IPC command over XHR returning a `Result`
 | Not specified | Result |  |
 
 
-## [`emit()`](https://github.com/socketsupply/io/blob/master/ipc.js#L607)
+## [`emit(name)`](https://github.com/socketsupply/io/blob/master/ipc.js#L638)
 
-This is a `FunctionDeclaration` named `emit` in `ipc.js`, it's exported but undocumented.
+Emit event to be dispatched on `window` object.
 
-
-## [`resolve()`](https://github.com/socketsupply/io/blob/master/ipc.js#L617)
-
-This is a `FunctionDeclaration` named `resolve` in `ipc.js`, it's exported but undocumented.
-
-
-## [`send()`](https://github.com/socketsupply/io/blob/master/ipc.js#L627)
-
-This is a `FunctionDeclaration` named `send` in `ipc.js`, it's exported but undocumented.
+| Argument | Type | Default | Optional | Description |
+| :---     | :--- | :---:   | :---:    | :---        |
+| name | string |  | false |  |
+| ...args | ..Mixed |  | false |  |
 
 
-## [`write()`](https://github.com/socketsupply/io/blob/master/ipc.js#L644)
+## [`resolve(seq)`](https://github.com/socketsupply/io/blob/master/ipc.js#L653)
 
-This is a `FunctionDeclaration` named `write` in `ipc.js`, it's exported but undocumented.
+Resolves a request by `seq` with possible value.
+
+| Argument | Type | Default | Optional | Description |
+| :---     | :--- | :---:   | :---:    | :---        |
+| seq | string |  | false |  |
+| ...args | ..Mixed |  | false |  |
 
 
-## [`request()`](https://github.com/socketsupply/io/blob/master/ipc.js#L739)
+## [`send(command)`](https://github.com/socketsupply/io/blob/master/ipc.js#L668)
 
-This is a `FunctionDeclaration` named `request` in `ipc.js`, it's exported but undocumented.
+Sends an async IPC command request with parameters.
+
+| Argument | Type | Default | Optional | Description |
+| :---     | :--- | :---:   | :---:    | :---        |
+| command | string |  | false |  |
+| ...args | ..Mixed |  | false |  |
 
 
-## [`createBinding(domain, ctx)`](https://github.com/socketsupply/io/blob/master/ipc.js#L842)
+## [`write(command, params, buffer, options)`](https://github.com/socketsupply/io/blob/master/ipc.js#L696)
+
+Sends an async IPC command request with parameters and buffered bytes.
+
+| Argument | Type | Default | Optional | Description |
+| :---     | :--- | :---:   | :---:    | :---        |
+| command | string |  | false |  |
+| params | ?(object) |  | false |  |
+| buffer | ?(Buffer \| TypeArray \| ArrayBuffer \| string \| Array) |  | false |  |
+| options | ?(object) |  | false |  |
+
+
+## [`request(command, params, options)`](https://github.com/socketsupply/io/blob/master/ipc.js#L802)
+
+Sends an async IPC command request with parameters requesting a response
+ with buffered bytes.
+
+| Argument | Type | Default | Optional | Description |
+| :---     | :--- | :---:   | :---:    | :---        |
+| command | string |  | false |  |
+| params | ?(object) |  | false |  |
+| options | ?(object) |  | false |  |
+
+
+## [`createBinding(domain, ctx)`](https://github.com/socketsupply/io/blob/master/ipc.js#L910)
 
 Factory for creating a proxy based IPC API.
 
@@ -1190,27 +1234,37 @@ Factory for creating a proxy based IPC API.
  This module provides normalized system information from all the major
  operating systems.
 
-## [`arch()`](https://github.com/socketsupply/io/blob/master/os.js#L19)
+## [`arch()`](https://github.com/socketsupply/io/blob/master/os.js#L20)
 
 This is a `FunctionDeclaration` named `arch` in `os.js`, it's exported but undocumented.
 
 
-## [`networkInterfaces()`](https://github.com/socketsupply/io/blob/master/os.js#L52)
+## [`networkInterfaces()`](https://github.com/socketsupply/io/blob/master/os.js#L53)
 
 This is a `FunctionDeclaration` named `networkInterfaces` in `os.js`, it's exported but undocumented.
 
 
-## [`platform()`](https://github.com/socketsupply/io/blob/master/os.js#L128)
+## [`platform()`](https://github.com/socketsupply/io/blob/master/os.js#L129)
 
 This is a `FunctionDeclaration` named `platform` in `os.js`, it's exported but undocumented.
 
 
-## [`type()`](https://github.com/socketsupply/io/blob/master/os.js#L157)
+## [`type()`](https://github.com/socketsupply/io/blob/master/os.js#L158)
 
 This is a `FunctionDeclaration` named `type` in `os.js`, it's exported but undocumented.
 
 
-## [EOL](https://github.com/socketsupply/io/blob/master/os.js#L197)
+## [`isWindows()`](https://github.com/socketsupply/io/blob/master/os.js#L198)
+
+This is a `FunctionDeclaration` named `isWindows` in `os.js`, it's exported but undocumented.
+
+
+## [`tmpdir()`](https://github.com/socketsupply/io/blob/master/os.js#L207)
+
+This is a `FunctionDeclaration` named `tmpdir` in `os.js`, it's exported but undocumented.
+
+
+## [EOL](https://github.com/socketsupply/io/blob/master/os.js#L249)
 
 This is a `VariableDeclaration` named `EOL` in `os.js`, it's exported but undocumented.
 
