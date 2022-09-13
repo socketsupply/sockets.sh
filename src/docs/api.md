@@ -71,6 +71,7 @@ Start advertising a new value for a well-known UUID
 External docs: https://nodejs.org/api/buffer.html#buffer_class_buffer
 
 
+
 # [Crypto](https://github.com/socketsupply/io/blob/master/crypto.js#L8)
 
 
@@ -84,6 +85,7 @@ WebCrypto API
 ## [`getRandomValues(buffer)`](https://github.com/socketsupply/io/blob/master/crypto.js#L24)
 
 External docs: https://developer.mozilla.org/en-US/docs/Web/API/Crypto/getRandomValues
+
 Generate cryptographically strong random values into `buffer`
 
 | Argument | Type | Default | Optional | Description |
@@ -131,42 +133,7 @@ Generate `size` random bytes.
  This module provides an implementation of UDP datagram sockets. It does
  not (yet) provide any of the multicast methods or properties.
 
-## [`SocketError` (extends `InternalError`)](https://github.com/socketsupply/io/blob/master/dgram.js#L23)
-
-This is a `ClassDeclaration` named ``SocketError` (extends `InternalError`)` in `dgram.js`, it's exported but undocumented.
-
-
-## [`ERR_SOCKET_ALREADY_BOUND` (extends `SocketError`)](https://github.com/socketsupply/io/blob/master/dgram.js#L27)
-
-This is a `ClassDeclaration` named ``ERR_SOCKET_ALREADY_BOUND` (extends `SocketError`)` in `dgram.js`, it's exported but undocumented.
-
-
-## [`ERR_SOCKET_BAD_BUFFER_SIZE` (extends `SocketError`)](https://github.com/socketsupply/io/blob/master/dgram.js#L28)
-
-This is a `ClassDeclaration` named ``ERR_SOCKET_BAD_BUFFER_SIZE` (extends `SocketError`)` in `dgram.js`, it's exported but undocumented.
-
-
-## [`ERR_SOCKET_BUFFER_SIZE` (extends `SocketError`)](https://github.com/socketsupply/io/blob/master/dgram.js#L29)
-
-This is a `ClassDeclaration` named ``ERR_SOCKET_BUFFER_SIZE` (extends `SocketError`)` in `dgram.js`, it's exported but undocumented.
-
-
-## [`ERR_SOCKET_DGRAM_IS_CONNECTED` (extends `SocketError`)](https://github.com/socketsupply/io/blob/master/dgram.js#L30)
-
-This is a `ClassDeclaration` named ``ERR_SOCKET_DGRAM_IS_CONNECTED` (extends `SocketError`)` in `dgram.js`, it's exported but undocumented.
-
-
-## [`ERR_SOCKET_DGRAM_NOT_CONNECTED` (extends `SocketError`)](https://github.com/socketsupply/io/blob/master/dgram.js#L31)
-
-This is a `ClassDeclaration` named ``ERR_SOCKET_DGRAM_NOT_CONNECTED` (extends `SocketError`)` in `dgram.js`, it's exported but undocumented.
-
-
-## [`ERR_SOCKET_DGRAM_NOT_RUNNING` (extends `SocketError`)](https://github.com/socketsupply/io/blob/master/dgram.js#L32)
-
-This is a `ClassDeclaration` named ``ERR_SOCKET_DGRAM_NOT_RUNNING` (extends `SocketError`)` in `dgram.js`, it's exported but undocumented.
-
-
-## [`createSocket(options, callback)`](https://github.com/socketsupply/io/blob/master/dgram.js#L84)
+## [`createSocket(options, callback)`](https://github.com/socketsupply/io/blob/master/dgram.js#L104)
 
 
 
@@ -187,12 +154,14 @@ This is a `ClassDeclaration` named ``ERR_SOCKET_DGRAM_NOT_RUNNING` (extends `Soc
 | Not specified | Socket |  |
 
 
-## [`Socket` (extends `EventEmitter`)](https://github.com/socketsupply/io/blob/master/dgram.js#L90)
+## [`Socket` (extends `EventEmitter`)](https://github.com/socketsupply/io/blob/master/dgram.js#L110)
 
 New instances of dgram.Socket are created using dgram.createSocket().
  The new keyword is not to be used to create dgram.Socket instances.
 
-### [`bind(port, address, callback)`](https://github.com/socketsupply/io/blob/master/dgram.js#L152)
+### [`bind(port, address, callback)`](https://github.com/socketsupply/io/blob/master/dgram.js#L175)
+
+External docs: https://nodejs.org/api/dgram.html#socketbindport-address-callback
 
 Listen for datagram messages on a named port and optional address
  If address is not specified, the operating system will attempt to
@@ -201,6 +170,7 @@ Listen for datagram messages on a named port and optional address
 
  If binding fails, an 'error' event is emitted.
 
+ 
 
 | Argument | Type | Default | Optional | Description |
 | :---     | :--- | :---:   | :---:    | :---        |
@@ -209,7 +179,9 @@ Listen for datagram messages on a named port and optional address
 | callback | function |  | false | With no parameters. Called when binding is complete. |
 
 
-### [`connect(port, host, connectListener)`](https://github.com/socketsupply/io/blob/master/dgram.js#L269)
+### [`connect(port, host, connectListener)`](https://github.com/socketsupply/io/blob/master/dgram.js#L325)
+
+External docs: https://nodejs.org/api/dgram.html#socketconnectport-address-callback
 
 Associates the dgram.Socket to a remote address and port. Every message sent
  by this handle is automatically sent to that destination. Also, the socket
@@ -221,6 +193,7 @@ Associates the dgram.Socket to a remote address and port. Every message sent
  In case of failure, the callback is called or, failing this, an 'error' event
  is emitted.
 
+ 
 
 | Argument | Type | Default | Optional | Description |
 | :---     | :--- | :---:   | :---:    | :---        |
@@ -229,7 +202,18 @@ Associates the dgram.Socket to a remote address and port. Every message sent
 | connectListener | function |  | true | Common parameter of socket.connect() methods. Will be added as a listener for the 'connect' event once. |
 
 
-### [`send(msg, offset, length, port, address, callback)`](https://github.com/socketsupply/io/blob/master/dgram.js#L413)
+### [`disconnect()`](https://github.com/socketsupply/io/blob/master/dgram.js#L412)
+
+External docs: https://nodejs.org/api/dgram.html#socketdisconnect
+
+A synchronous function that disassociates a connected dgram.Socket from
+ its remote address. Trying to call disconnect() on an unbound or already
+ disconnected socket will result in an ERR_SOCKET_DGRAM_NOT_CONNECTED exception.
+ 
+
+### [`send(msg, offset, length, port, address, callback)`](https://github.com/socketsupply/io/blob/master/dgram.js#L479)
+
+External docs: https://nodejs.org/api/dgram.html#socketsendmsg-offset-length-port-address-callback
 
 Broadcasts a datagram on the socket. For connectionless sockets, the
  destination port and address must be specified. Connected sockets, on the
@@ -269,34 +253,41 @@ Broadcasts a datagram on the socket. For connectionless sockets, the
  They are supported only when the first argument is a Buffer, a TypedArray,
  or a DataView.
 
+ 
 
 | Argument | Type | Default | Optional | Description |
 | :---     | :--- | :---:   | :---:    | :---        |
 | msg | Buffer \| TypedArray \| DataView \| string \| Array |  | false | Message to be sent. |
-| offset | integer |  | false | Offset in the buffer where the message starts. |
-| length | integer |  | false | Number of bytes in the message. |
-| port | integer |  | false | Destination port. |
-| address | string |  | false | Destination host name or IP address. |
-| callback | Function |  | false | Called when the message has been sent. |
+| offset | integer |  | true | Offset in the buffer where the message starts. |
+| length | integer |  | true | Number of bytes in the message. |
+| port | integer |  | true | Destination port. |
+| address | string |  | true | Destination host name or IP address. |
+| callback | Function |  | true | Called when the message has been sent. |
 
 
-### [`close(callback)`](https://github.com/socketsupply/io/blob/master/dgram.js#L510)
+### [`close(callback)`](https://github.com/socketsupply/io/blob/master/dgram.js#L577)
+
+External docs: https://nodejs.org/api/dgram.html#socketclosecallback
 
 Close the underlying socket and stop listening for data on it. If a
  callback is provided, it is added as a listener for the 'close' event.
 
 
+
 | Argument | Type | Default | Optional | Description |
 | :---     | :--- | :---:   | :---:    | :---        |
-| callback | function |  | false | Called when the connection is completed or on error. |
+| callback | function |  | true | Called when the connection is completed or on error. |
 
 
-### [`address()`](https://github.com/socketsupply/io/blob/master/dgram.js#L556)
+### [`address()`](https://github.com/socketsupply/io/blob/master/dgram.js#L625)
+
+External docs: https://nodejs.org/api/dgram.html#socketaddress
 
 Returns an object containing the address information for a socket. For
  UDP sockets, this object will contain address, family, and port properties.
 
  This method throws EBADF if called on an unbound socket.
+ 
 
 | Return Value | Type | Description |
 | :---         | :--- | :---        |
@@ -306,12 +297,15 @@ Returns an object containing the address information for a socket. For
 | socketInfo.family | string | The IP family of the socket |
 
 
-### [`remoteAddress()`](https://github.com/socketsupply/io/blob/master/dgram.js#L581)
+### [`remoteAddress()`](https://github.com/socketsupply/io/blob/master/dgram.js#L652)
+
+External docs: https://nodejs.org/api/dgram.html#socketremoteaddress
 
 Returns an object containing the address, family, and port of the remote
  endpoint. This method throws an ERR_SOCKET_DGRAM_NOT_CONNECTED exception
  if the socket is not connected.
 
+ 
 
 | Return Value | Type | Description |
 | :---         | :--- | :---        |
@@ -319,6 +313,56 @@ Returns an object containing the address, family, and port of the remote
 | socketInfo.address | string | The IP address of the socket |
 | socketInfo.port | string | The port of the socket |
 | socketInfo.family | string | The IP family of the socket |
+
+
+### [`setRecvBufferSize(size)`](https://github.com/socketsupply/io/blob/master/dgram.js#L675)
+
+External docs: https://nodejs.org/api/dgram.html#socketsetrecvbuffersizesize
+
+Sets the SO_RCVBUF socket option. Sets the maximum socket receive buffer in
+ bytes.
+ 
+
+
+| Argument | Type | Default | Optional | Description |
+| :---     | :--- | :---:   | :---:    | :---        |
+| size | number |  | false | The size of the new receive buffer |
+
+
+### [`setSendBufferSize(size)`](https://github.com/socketsupply/io/blob/master/dgram.js#L687)
+
+External docs: https://nodejs.org/api/dgram.html#socketsetsendbuffersizesize
+
+Sets the SO_SNDBUF socket option. Sets the maximum socket send buffer in
+ bytes.
+
+ 
+
+| Argument | Type | Default | Optional | Description |
+| :---     | :--- | :---:   | :---:    | :---        |
+| size | number |  | false | The size of the new send buffer |
+
+
+### [`getRecvBufferSize()`](https://github.com/socketsupply/io/blob/master/dgram.js#L696)
+
+External docs: https://nodejs.org/api/dgram.html#socketgetrecvbuffersize
+
+ 
+
+| Return Value | Type | Description |
+| :---         | :--- | :---        |
+| Not specified | number | the SO_RCVBUF socket receive buffer size in bytes. |
+
+
+### [`getSendBufferSize()`](https://github.com/socketsupply/io/blob/master/dgram.js#L705)
+
+External docs: https://nodejs.org/api/dgram.html#socketgetsendbuffersize
+
+ 
+
+| Return Value | Type | Description |
+| :---         | :--- | :---        |
+| Not specified | number | the SO_SNDBUF socket send buffer size in bytes. |
 
 
 # [DNS](https://github.com/socketsupply/io/blob/master/dns/index.js#L13)
@@ -334,6 +378,7 @@ Returns an object containing the address, family, and port of the remote
 ## [`lookup(hostname, opts, cb)`](https://github.com/socketsupply/io/blob/master/dns/index.js#L45)
 
 External docs: https://nodejs.org/api/dns.html#dns_dns_lookup_hostname_options_callback
+
 Resolves a host name (e.g. `example.org`) into the first found A (IPv4) or
  AAAA (IPv6) record. All option properties are optional. If options is an
  integer, then it must be 4 or 6 – if options is 0 or not provided, then IPv4
@@ -359,8 +404,8 @@ Resolves a host name (e.g. `example.org`) into the first found A (IPv4) or
 | Argument | Type | Default | Optional | Description |
 | :---     | :--- | :---:   | :---:    | :---        |
 | hostname | string |  | false | The host name to resolve. |
-| opts | Object |  | false | An options object. |
-| opts.family | number \| string |  | false | The record family. Must be 4, 6, or 0. For backward compatibility reasons,'IPv4' and 'IPv6' are interpreted as 4 and 6 respectively. The value 0 indicates that IPv4 and IPv6 addresses are both returned. Default: 0. |
+| opts | Object |  | true | An options object. |
+| opts.family | number \| string | 0 | false | The record family. Must be 4, 6, or 0. For backward compatibility reasons,'IPv4' and 'IPv6' are interpreted as 4 and 6 respectively. The value 0 indicates that IPv4 and IPv6 addresses are both returned. Default: 0. |
 | cb | function |  | false | The function to call after the method is complete. |
 
 
@@ -379,11 +424,12 @@ Resolves a host name (e.g. `example.org`) into the first found A (IPv4) or
 External docs: https://nodejs.org/api/dns.html#dnspromiseslookuphostname-options
 
 
+
 | Argument | Type | Default | Optional | Description |
 | :---     | :--- | :---:   | :---:    | :---        |
 | hostname | string |  | false | The host name to resolve. |
-| opts | Object |  | false | An options object. |
-| opts.family | number \| string |  | false | The record family. Must be 4, 6, or 0. For backward compatibility reasons,'IPv4' and 'IPv6' are interpreted as 4 and 6 respectively. The value 0 indicates that IPv4 and IPv6 addresses are both returned. Default: 0. |
+| opts | Object |  | true | An options object. |
+| opts.family | number \| string | 0 | false | The record family. Must be 4, 6, or 0. For backward compatibility reasons,'IPv4' and 'IPv6' are interpreted as 4 and 6 respectively. The value 0 indicates that IPv4 and IPv6 addresses are both returned. Default: 0. |
 
 
 | Return Value | Type | Description |
@@ -415,6 +461,8 @@ External docs: https://nodejs.org/api/dns.html#dnspromiseslookuphostname-options
 
 ## [`access(path, mode , callback)`](https://github.com/socketsupply/io/blob/master/fs/index.js#L76)
 
+External docs: https://nodejs.org/dist/latest-v16.x/docs/api/fs.html#fsopenpath-flags-mode-callback
+
 Asynchronously check access a file for a given mode calling `callback`
  upon success or error.
 
@@ -425,90 +473,88 @@ Asynchronously check access a file for a given mode calling `callback`
 | callback | function(err, fd) |  | false |  |
 
 
-## [`appendFile()`](https://github.com/socketsupply/io/blob/master/fs/index.js#L92)
+## [`chmod(path, mode, callback)`](https://github.com/socketsupply/io/blob/master/fs/index.js#L109)
 
-This is a `FunctionDeclaration` named `appendFile` in `fs/index.js`, it's exported but undocumented.
+External docs: https://nodejs.org/api/fs.html#fschmodpath-mode-callback
+
+Asynchronously changes the permissions of a file.
+ No arguments other than a possible exception are given to the completion callback
+ 
+ 
+
+| Argument | Type | Default | Optional | Description |
+| :---     | :--- | :---:   | :---:    | :---        |
+| path | string \| Buffer \| URL |  | false |  |
+| mode | number |  | false |  |
+| callback | function(err) |  | false |  |
 
 
-## [`chmod()`](https://github.com/socketsupply/io/blob/master/fs/index.js#L95)
-
-This is a `FunctionDeclaration` named `chmod` in `fs/index.js`, it's exported but undocumented.
-
-
-## [`chown()`](https://github.com/socketsupply/io/blob/master/fs/index.js#L113)
-
-This is a `FunctionDeclaration` named `chown` in `fs/index.js`, it's exported but undocumented.
-
-
-## [`close(fd, callback)`](https://github.com/socketsupply/io/blob/master/fs/index.js#L122)
+## [`close(fd, callback)`](https://github.com/socketsupply/io/blob/master/fs/index.js#L139)
 
 Asynchronously close a file descriptor calling `callback` upon success or error.
 
 | Argument | Type | Default | Optional | Description |
 | :---     | :--- | :---:   | :---:    | :---        |
 | fd | number |  | false |  |
-| callback | function(err) |  | false |  |
+| callback | function(err) |  | true |  |
 
 
-## [`copyFile()`](https://github.com/socketsupply/io/blob/master/fs/index.js#L138)
+## [`copyFile()`](https://github.com/socketsupply/io/blob/master/fs/index.js#L155)
 
 This is a `FunctionDeclaration` named `copyFile` in `fs/index.js`, it's exported but undocumented.
 
 
-## [`createReadStream()`](https://github.com/socketsupply/io/blob/master/fs/index.js#L141)
+## [`createReadStream(path, options)`](https://github.com/socketsupply/io/blob/master/fs/index.js#L164)
 
-This is a `FunctionDeclaration` named `createReadStream` in `fs/index.js`, it's exported but undocumented.
+External docs: https://nodejs.org/dist/latest-v16.x/docs/api/fs.html#fscreatewritestreampath-options
 
-
-## [`createWriteStream()`](https://github.com/socketsupply/io/blob/master/fs/index.js#L175)
-
-This is a `FunctionDeclaration` named `createWriteStream` in `fs/index.js`, it's exported but undocumented.
-
-
-## [`fstat(fd, options, callback)`](https://github.com/socketsupply/io/blob/master/fs/index.js#L217)
-
-Invokes the callback with the <fs.Stats> for the file descriptor. See
- the POSIX fstat(2) documentation for more detail.
 
 
 | Argument | Type | Default | Optional | Description |
 | :---     | :--- | :---:   | :---:    | :---        |
+| path | string \| Buffer \| URL |  | false |  |
+| options | object |  | true |  |
+
+
+| Return Value | Type | Description |
+| :---         | :--- | :---        |
+| Not specified | fs.ReadStream |  |
+
+
+## [`createWriteStream(path, options)`](https://github.com/socketsupply/io/blob/master/fs/index.js#L204)
+
+External docs: https://nodejs.org/dist/latest-v16.x/docs/api/fs.html#fscreatewritestreampath-options
+
+
+
+| Argument | Type | Default | Optional | Description |
+| :---     | :--- | :---:   | :---:    | :---        |
+| path | string \| Buffer \| URL |  | false |  |
+| options | object |  | true |  |
+
+
+| Return Value | Type | Description |
+| :---         | :--- | :---        |
+| Not specified | fs.WriteStream |  |
+
+
+## [`fstat(fd, options, callback)`](https://github.com/socketsupply/io/blob/master/fs/index.js#L248)
+
+External docs: https://nodejs.org/dist/latest-v16.x/docs/api/fs.html#fsfstatfd-options-callback
+
+Invokes the callback with the <fs.Stats> for the file descriptor. See
+ the POSIX fstat(2) documentation for more detail.
+
+ 
+
+| Argument | Type | Default | Optional | Description |
+| :---     | :--- | :---:   | :---:    | :---        |
 | fd | number |  | false | A file descriptor. |
-| options | Object |  | false | An options object. |
+| options | Object |  | true | An options object. |
 | callback | function |  | false | The function to call after completion. |
 
 
-## [`lchmod()`](https://github.com/socketsupply/io/blob/master/fs/index.js#L238)
-
-This is a `FunctionDeclaration` named `lchmod` in `fs/index.js`, it's exported but undocumented.
-
-
-## [`lchown()`](https://github.com/socketsupply/io/blob/master/fs/index.js#L241)
-
-This is a `FunctionDeclaration` named `lchown` in `fs/index.js`, it's exported but undocumented.
-
-
-## [`lutimes()`](https://github.com/socketsupply/io/blob/master/fs/index.js#L244)
-
-This is a `FunctionDeclaration` named `lutimes` in `fs/index.js`, it's exported but undocumented.
-
-
-## [`link()`](https://github.com/socketsupply/io/blob/master/fs/index.js#L247)
-
-This is a `FunctionDeclaration` named `link` in `fs/index.js`, it's exported but undocumented.
-
-
-## [`lstat()`](https://github.com/socketsupply/io/blob/master/fs/index.js#L250)
-
-This is a `FunctionDeclaration` named `lstat` in `fs/index.js`, it's exported but undocumented.
-
-
-## [`mkdir()`](https://github.com/socketsupply/io/blob/master/fs/index.js#L253)
-
-This is a `FunctionDeclaration` named `mkdir` in `fs/index.js`, it's exported but undocumented.
-
-
-## [`open(path, flags , mode , callback)`](https://github.com/socketsupply/io/blob/master/fs/index.js#L264)
+## [`open(path, flags , mode , callback)`](https://github.com/socketsupply/io/blob/master/fs/index.js#L308)
 
 Asynchronously open a file calling `callback` upon success or error.
 
@@ -520,7 +566,7 @@ Asynchronously open a file calling `callback` upon success or error.
 | callback | function(err, fd) |  | false |  |
 
 
-## [`opendir(path, options, callback)`](https://github.com/socketsupply/io/blob/master/fs/index.js#L317)
+## [`opendir(path, options, callback)`](https://github.com/socketsupply/io/blob/master/fs/index.js#L361)
 
 Asynchronously open a directory calling `callback` upon success or error.
 
@@ -533,104 +579,78 @@ Asynchronously open a directory calling `callback` upon success or error.
 | callback | function(err, fd) |  | false |  |
 
 
-## [`read(fd, buffer)`](https://github.com/socketsupply/io/blob/master/fs/index.js#L339)
+## [`read(fd, buffer, offset, length, position, callback)`](https://github.com/socketsupply/io/blob/master/fs/index.js#L387)
 
 Asynchronously read from an open file descriptor.
 
 | Argument | Type | Default | Optional | Description |
 | :---     | :--- | :---:   | :---:    | :---        |
 | fd | number |  | false |  |
-| buffer | object \| Buffer \| TypedArray |  | false |  |
+| buffer | object \| Buffer \| TypedArray |  | false | The buffer that the data will be written to. |
+| offset | number |  | false | The position in buffer to write the data to. |
+| length | number |  | false | The number of bytes to read. |
+| position | number \| BigInt \| null |  | false | Specifies where to begin reading from in the file. If position is null or -1 , data will be read from the current file position, and the file position will be updated. If position is an integer, the file position will be unchanged. |
+| callback | function(err, bytesRead, buffer) |  | false |  |
 
 
-## [`readdir(path, options, callback)`](https://github.com/socketsupply/io/blob/master/fs/index.js#L371)
+## [`readdir(path, options, callback)`](https://github.com/socketsupply/io/blob/master/fs/index.js#L421)
 
 Asynchronously read all entries in a directory.
 
 | Argument | Type | Default | Optional | Description |
 | :---     | :--- | :---:   | :---:    | :---        |
 | path | string \| Buffer \| URL  |  | false |  |
-| options | object |  | false |  |
+| options | object |  | true |  |
+| options.encoding | string | utf8 | true |  |
+| options.withFileTypes | boolean | false | true |  |
 | callback | function(err, buffer) |  | false |  |
 
 
-## [`readFile(path, options, callback)`](https://github.com/socketsupply/io/blob/master/fs/index.js#L419)
+## [`readFile(path, options, callback)`](https://github.com/socketsupply/io/blob/master/fs/index.js#L472)
 
 
 
 | Argument | Type | Default | Optional | Description |
 | :---     | :--- | :---:   | :---:    | :---        |
 | path | string \| Buffer \| URL \| number  |  | false |  |
-| options | object |  | false |  |
+| options | object |  | true |  |
+| options.encoding | string | utf8 | true |  |
+| options.flag | string | r | true |  |
+| options.signal | AbortSignal |  | true |  |
 | callback | function(err, buffer) |  | false |  |
 
 
-## [`readlink()`](https://github.com/socketsupply/io/blob/master/fs/index.js#L457)
-
-This is a `FunctionDeclaration` named `readlink` in `fs/index.js`, it's exported but undocumented.
+## [`stat(path, options, callback)`](https://github.com/socketsupply/io/blob/master/fs/index.js#L545)
 
 
-## [`realpath()`](https://github.com/socketsupply/io/blob/master/fs/index.js#L460)
 
-This is a `FunctionDeclaration` named `realpath` in `fs/index.js`, it's exported but undocumented.
-
-
-## [`rename()`](https://github.com/socketsupply/io/blob/master/fs/index.js#L463)
-
-This is a `FunctionDeclaration` named `rename` in `fs/index.js`, it's exported but undocumented.
-
-
-## [`rmdir()`](https://github.com/socketsupply/io/blob/master/fs/index.js#L466)
-
-This is a `FunctionDeclaration` named `rmdir` in `fs/index.js`, it's exported but undocumented.
+| Argument | Type | Default | Optional | Description |
+| :---     | :--- | :---:   | :---:    | :---        |
+| path | string \| Buffer \| URL \| number  |  | false | filename or file descriptor |
+| options | object |  | true |  |
+| options.encoding | string | utf8 | true |  |
+| options.flag | string | r | true |  |
+| options.signal | AbortSignal |  | true |  |
+| callback | function(err, data) |  | false |  |
 
 
-## [`rm()`](https://github.com/socketsupply/io/blob/master/fs/index.js#L469)
-
-This is a `FunctionDeclaration` named `rm` in `fs/index.js`, it's exported but undocumented.
+## [`writeFile(path, data, options, callback)`](https://github.com/socketsupply/io/blob/master/fs/index.js#L615)
 
 
-## [`stat()`](https://github.com/socketsupply/io/blob/master/fs/index.js#L472)
 
-This is a `FunctionDeclaration` named `stat` in `fs/index.js`, it's exported but undocumented.
-
-
-## [`symlink()`](https://github.com/socketsupply/io/blob/master/fs/index.js#L501)
-
-This is a `FunctionDeclaration` named `symlink` in `fs/index.js`, it's exported but undocumented.
-
-
-## [`truncate()`](https://github.com/socketsupply/io/blob/master/fs/index.js#L504)
-
-This is a `FunctionDeclaration` named `truncate` in `fs/index.js`, it's exported but undocumented.
+| Argument | Type | Default | Optional | Description |
+| :---     | :--- | :---:   | :---:    | :---        |
+| path | string \| Buffer \| URL \| number  |  | false | filename or file descriptor |
+| data | string \| Buffer \| TypedArray \| DataView \| object  |  | false |  |
+| options | object |  | true |  |
+| options.encoding | string | utf8 | true |  |
+| options.mode | string | 0o666 | true |  |
+| options.flag | string | w | true |  |
+| options.signal | AbortSignal |  | true |  |
+| callback | function(err) |  | false |  |
 
 
-## [`unlink()`](https://github.com/socketsupply/io/blob/master/fs/index.js#L507)
-
-This is a `FunctionDeclaration` named `unlink` in `fs/index.js`, it's exported but undocumented.
-
-
-## [`utimes()`](https://github.com/socketsupply/io/blob/master/fs/index.js#L510)
-
-This is a `FunctionDeclaration` named `utimes` in `fs/index.js`, it's exported but undocumented.
-
-
-## [`watch()`](https://github.com/socketsupply/io/blob/master/fs/index.js#L513)
-
-This is a `FunctionDeclaration` named `watch` in `fs/index.js`, it's exported but undocumented.
-
-
-## [`write()`](https://github.com/socketsupply/io/blob/master/fs/index.js#L516)
-
-This is a `FunctionDeclaration` named `write` in `fs/index.js`, it's exported but undocumented.
-
-
-## [`writeFile()`](https://github.com/socketsupply/io/blob/master/fs/index.js#L519)
-
-This is a `FunctionDeclaration` named `writeFile` in `fs/index.js`, it's exported but undocumented.
-
-
-## [`writev()`](https://github.com/socketsupply/io/blob/master/fs/index.js#L556)
+## [`writev()`](https://github.com/socketsupply/io/blob/master/fs/index.js#L652)
 
 This is a `FunctionDeclaration` named `writev` in `fs/index.js`, it's exported but undocumented.
 
@@ -639,61 +659,24 @@ This is a `FunctionDeclaration` named `writev` in `fs/index.js`, it's exported b
 
 
 
-## [`access(path, mode , options)`](https://github.com/socketsupply/io/blob/master/fs/promises.js#L36)
+## [`access(path, mode, options)`](https://github.com/socketsupply/io/blob/master/fs/promises.js#L36)
+
+External docs: https://nodejs.org/dist/latest-v16.x/docs/api/fs.html#fspromisesaccesspath-mode
 
 Asynchronously check access a file.
 
 | Argument | Type | Default | Optional | Description |
 | :---     | :--- | :---:   | :---:    | :---        |
 | path | string \| Buffer \| URL |  | false |  |
-| mode | string | F_OK(0) | true |  |
+| mode | string |  | true |  |
 | options | object |  | true |  |
 
 
-## [`appendFile()`](https://github.com/socketsupply/io/blob/master/fs/promises.js#L43)
+## [`open(path, flags, mode)`](https://github.com/socketsupply/io/blob/master/fs/promises.js#L119)
 
-
-
-## [`chmod()`](https://github.com/socketsupply/io/blob/master/fs/promises.js#L49)
-
-
-
-## [`chown()`](https://github.com/socketsupply/io/blob/master/fs/promises.js#L55)
-
-
-
-## [`copyFile()`](https://github.com/socketsupply/io/blob/master/fs/promises.js#L61)
-
-
-
-## [`lchmod()`](https://github.com/socketsupply/io/blob/master/fs/promises.js#L67)
-
-
-
-## [`lchown()`](https://github.com/socketsupply/io/blob/master/fs/promises.js#L73)
-
-
-
-## [`lutimes()`](https://github.com/socketsupply/io/blob/master/fs/promises.js#L79)
-
-
-
-## [`link()`](https://github.com/socketsupply/io/blob/master/fs/promises.js#L85)
-
-
-
-## [`lstat()`](https://github.com/socketsupply/io/blob/master/fs/promises.js#L91)
-
-
-
-## [`mkdir()`](https://github.com/socketsupply/io/blob/master/fs/promises.js#L97)
-
-
-
-## [`open(path, flags, mode)`](https://github.com/socketsupply/io/blob/master/fs/promises.js#L109)
+External docs: https://nodejs.org/api/fs.html#fspromisesopenpath-flags-mode
 
 Asynchronously open a file.
- https://nodejs.org/api/fs.html#fspromisesopenpath-flags-mode
 
 
 | Argument | Type | Default | Optional | Description |
@@ -708,15 +691,42 @@ Asynchronously open a file.
 | Not specified | Promise<FileHandle> |  |
 
 
-## [`opendir()`](https://github.com/socketsupply/io/blob/master/fs/promises.js#L116)
+## [`opendir(path, options)`](https://github.com/socketsupply/io/blob/master/fs/promises.js#L131)
+
+External docs: https://nodejs.org/api/fs.html#fspromisesopendirpath-options
 
 
 
-## [`readdir()`](https://github.com/socketsupply/io/blob/master/fs/promises.js#L124)
+| Argument | Type | Default | Optional | Description |
+| :---     | :--- | :---:   | :---:    | :---        |
+| path | string \| Buffer \| URL |  | false |  |
+| options | object |  | true |  |
+| options.encoding | string | utf8 | true |  |
+| options.bufferSize | number | 32 | true |  |
+
+
+| Return Value | Type | Description |
+| :---         | :--- | :---        |
+| Not specified | Promise<FileSystem,Dir> |  |
+
+
+## [`readdir(path, options)`](https://github.com/socketsupply/io/blob/master/fs/promises.js#L143)
+
+External docs: https://nodejs.org/dist/latest-v16.x/docs/api/fs.html#fspromisesreaddirpath-options
 
 
 
-## [`readFile(path, options)`](https://github.com/socketsupply/io/blob/master/fs/promises.js#L153)
+| Argument | Type | Default | Optional | Description |
+| :---     | :--- | :---:   | :---:    | :---        |
+| path | string \| Buffer \| URL |  | false |  |
+| options | object |  | true |  |
+| options.encoding | string | utf8 | true |  |
+| options.withFileTypes | boolean | false | true |  |
+
+
+## [`readFile(path, options)`](https://github.com/socketsupply/io/blob/master/fs/promises.js#L176)
+
+External docs: https://nodejs.org/dist/latest-v16.x/docs/api/fs.html#fspromisesreadfilepath-options
 
 
 
@@ -724,53 +734,19 @@ Asynchronously open a file.
 | :---     | :--- | :---:   | :---:    | :---        |
 | path | string |  | false |  |
 | options | object |  | true |  |
+| options.encoding | string \| null | null | true |  |
+| options.flag | string | r | true |  |
+| options.signal | AbortSignal |  | true |  |
 
 
-## [`readlink()`](https://github.com/socketsupply/io/blob/master/fs/promises.js#L169)
+| Return Value | Type | Description |
+| :---         | :--- | :---        |
+| Not specified | Promise<Buffer | string> |  |
 
 
+## [`writeFile(path, data, options)`](https://github.com/socketsupply/io/blob/master/fs/promises.js#L272)
 
-## [`realpath()`](https://github.com/socketsupply/io/blob/master/fs/promises.js#L175)
-
-
-
-## [`rename()`](https://github.com/socketsupply/io/blob/master/fs/promises.js#L181)
-
-
-
-## [`rmdir()`](https://github.com/socketsupply/io/blob/master/fs/promises.js#L187)
-
-
-
-## [`rm()`](https://github.com/socketsupply/io/blob/master/fs/promises.js#L193)
-
-
-
-## [`stat()`](https://github.com/socketsupply/io/blob/master/fs/promises.js#L199)
-
-
-
-## [`symlink()`](https://github.com/socketsupply/io/blob/master/fs/promises.js#L205)
-
-
-
-## [`truncate()`](https://github.com/socketsupply/io/blob/master/fs/promises.js#L211)
-
-
-
-## [`unlink()`](https://github.com/socketsupply/io/blob/master/fs/promises.js#L217)
-
-
-
-## [`utimes()`](https://github.com/socketsupply/io/blob/master/fs/promises.js#L223)
-
-
-
-## [`watch()`](https://github.com/socketsupply/io/blob/master/fs/promises.js#L229)
-
-
-
-## [`writeFile(path, data, options)`](https://github.com/socketsupply/io/blob/master/fs/promises.js#L238)
+External docs: https://nodejs.org/dist/latest-v16.x/docs/api/fs.html#fspromiseswritefilefile-data-options
 
 
 
