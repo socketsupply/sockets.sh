@@ -26,10 +26,7 @@ var __copyProps = (to, from, except, desc) => {
   }
   return to;
 };
-var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps(
-  isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", { value: mod, enumerable: true }) : target,
-  mod
-));
+var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps(isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", { value: mod, enumerable: true }) : target, mod));
 
 // <define:global>
 var init_define_global = __esm({
@@ -403,10 +400,7 @@ var require_tonic = __commonJS({
             this.props[name] = Tonic5._children[root][p][0];
           }
         }
-        this.props = Object.assign(
-          this.defaults ? this.defaults() : {},
-          this.props
-        );
+        this.props = Object.assign(this.defaults ? this.defaults() : {}, this.props);
         this._id = this._id || Tonic5._createId();
         this.willConnect && this.willConnect();
         if (!this.isInDocument(this.root))
@@ -476,18 +470,14 @@ var require_ms = __commonJS({
       } else if (type === "number" && isFinite(val)) {
         return options.long ? fmtLong(val) : fmtShort(val);
       }
-      throw new Error(
-        "val is not a non-empty string or a valid number. val=" + JSON.stringify(val)
-      );
+      throw new Error("val is not a non-empty string or a valid number. val=" + JSON.stringify(val));
     };
     function parse(str) {
       str = String(str);
       if (str.length > 100) {
         return;
       }
-      var match = /^(-?(?:\d+)?\.?\d+) *(milliseconds?|msecs?|ms|seconds?|secs?|s|minutes?|mins?|m|hours?|hrs?|h|days?|d|weeks?|w|years?|yrs?|y)?$/i.exec(
-        str
-      );
+      var match = /^(-?(?:\d+)?\.?\d+) *(milliseconds?|msecs?|ms|seconds?|secs?|s|minutes?|mins?|m|hours?|hrs?|h|days?|d|weeks?|w|years?|yrs?|y)?$/i.exec(str);
       if (!match) {
         return;
       }
@@ -1840,9 +1830,7 @@ var require_dialog = __commonJS({
         };
       }
       _getZIndex() {
-        return Array.from(document.querySelectorAll("body *")).map((elt) => parseFloat(window.getComputedStyle(elt).zIndex)).reduce(
-          (z, highest = Number.MIN_SAFE_INTEGER) => isNaN(z) || z < highest ? highest : z
-        );
+        return Array.from(document.querySelectorAll("body *")).map((elt) => parseFloat(window.getComputedStyle(elt).zIndex)).reduce((z, highest = Number.MIN_SAFE_INTEGER) => isNaN(z) || z < highest ? highest : z);
       }
       static stylesheet() {
         return `
@@ -4769,10 +4757,7 @@ var require_split = __commonJS({
       afterResize() {
         clearTimeout(this.timeout);
         this.timeout = setTimeout(() => {
-          this.dispatchEvent(new window.CustomEvent(
-            "resize",
-            { bubbles: true }
-          ));
+          this.dispatchEvent(new window.CustomEvent("resize", { bubbles: true }));
         }, 64);
       }
       updated() {
@@ -4956,10 +4941,7 @@ var require_tabs = __commonJS({
             }
             this.state.selected = id;
             if (!this._setVisibilitySynchronously) {
-              this.dispatchEvent(new CustomEvent(
-                "tabvisible",
-                { detail: { id }, bubbles: true }
-              ));
+              this.dispatchEvent(new CustomEvent("tabvisible", { detail: { id }, bubbles: true }));
             }
           } else {
             if (!panel.visible && renderAll && detatchOnHide) {
@@ -4980,10 +4962,7 @@ var require_tabs = __commonJS({
               anchor.setAttribute("aria-selected", "false");
             }
             if (!this._setVisibilitySynchronously) {
-              this.dispatchEvent(new CustomEvent(
-                "tabhidden",
-                { detail: { id }, bubbles: true }
-              ));
+              this.dispatchEvent(new CustomEvent("tabhidden", { detail: { id }, bubbles: true }));
             }
           }
         }
@@ -5056,9 +5035,7 @@ var require_tabs = __commonJS({
         this.setAttribute("role", "tabpanel");
       }
       connected() {
-        const tab = document.querySelector(
-          `.tonic--tab[for="${this.props.id}"]`
-        );
+        const tab = document.querySelector(`.tonic--tab[for="${this.props.id}"]`);
         if (tab) {
           const tabid = tab.getAttribute("id");
           this.setAttribute("aria-labelledby", tabid);
@@ -5883,9 +5860,7 @@ var require_toaster = __commonJS({
     `;
       }
       _getZIndex() {
-        return Array.from(document.querySelectorAll("body *")).map((elt) => parseFloat(window.getComputedStyle(elt).zIndex)).reduce(
-          (z, highest = Number.MIN_SAFE_INTEGER) => isNaN(z) || z < highest ? highest : z
-        );
+        return Array.from(document.querySelectorAll("body *")).map((elt) => parseFloat(window.getComputedStyle(elt).zIndex)).reduce((z, highest = Number.MIN_SAFE_INTEGER) => isNaN(z) || z < highest ? highest : z);
       }
       create(options) {
         const sig = JSON.stringify(options);
