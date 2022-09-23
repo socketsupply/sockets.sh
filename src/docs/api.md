@@ -98,7 +98,7 @@ Generate cryptographically strong random values into `buffer`
 | Not specified | TypedArray |  |
 
 
-## [`randomBytes(size)`](https://github.com/socketsupply/io/blob/master/crypto.js#L31)
+## [`randomBytes(size)`](https://github.com/socketsupply/io/blob/master/crypto.js#L38)
 
 Generate `size` random bytes.
 
@@ -112,7 +112,7 @@ Generate `size` random bytes.
 | Not specified | Buffer | A promise that resolves with an instance of io.Buffer with random bytes. |
 
 
-## [`createDigest(algorithm, message)`](https://github.com/socketsupply/io/blob/master/crypto.js#L42)
+## [`createDigest(algorithm, message)`](https://github.com/socketsupply/io/blob/master/crypto.js#L49)
 
 
 
@@ -133,9 +133,34 @@ Generate `size` random bytes.
  This module provides an implementation of UDP datagram sockets. It does
  not (yet) provide any of the multicast methods or properties.
 
-## [`createSocket(options, callback)`](https://github.com/socketsupply/io/blob/master/dgram.js#L104)
+## [`ERR_SOCKET_ALREADY_BOUND` (extends `SocketError`)](https://github.com/socketsupply/io/blob/master/dgram.js#L35)
 
+Thrown when a socket is already bound.
 
+## [`ERR_SOCKET_DGRAM_IS_CONNECTED` (extends `SocketError`)](https://github.com/socketsupply/io/blob/master/dgram.js#L52)
+
+Thrown when the socket is already connected.
+
+## [`ERR_SOCKET_DGRAM_NOT_CONNECTED` (extends `SocketError`)](https://github.com/socketsupply/io/blob/master/dgram.js#L59)
+
+Thrown when the socket is not connected.
+
+## [`ERR_SOCKET_DGRAM_NOT_RUNNING` (extends `SocketError`)](https://github.com/socketsupply/io/blob/master/dgram.js#L67)
+
+Thrown when the socket is not running (not bound or connected).
+
+## [`ERR_SOCKET_BAD_TYPE` (extends `TypeError`)](https://github.com/socketsupply/io/blob/master/dgram.js#L74)
+
+Thrown when a bad socket type is used in an argument.
+
+## [`ERR_SOCKET_BAD_PORT` (extends `RangeError`)](https://github.com/socketsupply/io/blob/master/dgram.js#L84)
+
+Thrown when a bad port is given.
+
+## [`createSocket(options, callback)`](https://github.com/socketsupply/io/blob/master/dgram.js#L481)
+
+Creates a `Socket` instance.
+    if ()
 
 | Argument | Type | Default | Optional | Description |
 | :---     | :--- | :---:   | :---:    | :---        |
@@ -154,12 +179,12 @@ Generate `size` random bytes.
 | Not specified | Socket |  |
 
 
-## [`Socket` (extends `EventEmitter`)](https://github.com/socketsupply/io/blob/master/dgram.js#L110)
+## [`Socket` (extends `EventEmitter`)](https://github.com/socketsupply/io/blob/master/dgram.js#L487)
 
 New instances of dgram.Socket are created using dgram.createSocket().
  The new keyword is not to be used to create dgram.Socket instances.
 
-### [`bind(port, address, callback)`](https://github.com/socketsupply/io/blob/master/dgram.js#L175)
+### [`bind(port, address, callback)`](https://github.com/socketsupply/io/blob/master/dgram.js#L544)
 
 External docs: https://nodejs.org/api/dgram.html#socketbindport-address-callback
 
@@ -170,7 +195,6 @@ Listen for datagram messages on a named port and optional address
 
  If binding fails, an 'error' event is emitted.
 
- 
 
 | Argument | Type | Default | Optional | Description |
 | :---     | :--- | :---:   | :---:    | :---        |
@@ -179,7 +203,7 @@ Listen for datagram messages on a named port and optional address
 | callback | function |  | false | With no parameters. Called when binding is complete. |
 
 
-### [`connect(port, host, connectListener)`](https://github.com/socketsupply/io/blob/master/dgram.js#L325)
+### [`connect(port, host, connectListener)`](https://github.com/socketsupply/io/blob/master/dgram.js#L643)
 
 External docs: https://nodejs.org/api/dgram.html#socketconnectport-address-callback
 
@@ -193,7 +217,7 @@ Associates the dgram.Socket to a remote address and port. Every message sent
  In case of failure, the callback is called or, failing this, an 'error' event
  is emitted.
 
- 
+
 
 | Argument | Type | Default | Optional | Description |
 | :---     | :--- | :---:   | :---:    | :---        |
@@ -202,16 +226,16 @@ Associates the dgram.Socket to a remote address and port. Every message sent
 | connectListener | function |  | true | Common parameter of socket.connect() methods. Will be added as a listener for the 'connect' event once. |
 
 
-### [`disconnect()`](https://github.com/socketsupply/io/blob/master/dgram.js#L412)
+### [`disconnect()`](https://github.com/socketsupply/io/blob/master/dgram.js#L688)
 
 External docs: https://nodejs.org/api/dgram.html#socketdisconnect
 
 A synchronous function that disassociates a connected dgram.Socket from
  its remote address. Trying to call disconnect() on an unbound or already
  disconnected socket will result in an ERR_SOCKET_DGRAM_NOT_CONNECTED exception.
- 
 
-### [`send(msg, offset, length, port, address, callback)`](https://github.com/socketsupply/io/blob/master/dgram.js#L479)
+
+### [`send(msg, offset, length, port, address, callback)`](https://github.com/socketsupply/io/blob/master/dgram.js#L749)
 
 External docs: https://nodejs.org/api/dgram.html#socketsendmsg-offset-length-port-address-callback
 
@@ -253,7 +277,6 @@ Broadcasts a datagram on the socket. For connectionless sockets, the
  They are supported only when the first argument is a Buffer, a TypedArray,
  or a DataView.
 
- 
 
 | Argument | Type | Default | Optional | Description |
 | :---     | :--- | :---:   | :---:    | :---        |
@@ -265,7 +288,7 @@ Broadcasts a datagram on the socket. For connectionless sockets, the
 | callback | Function |  | true | Called when the message has been sent. |
 
 
-### [`close(callback)`](https://github.com/socketsupply/io/blob/master/dgram.js#L577)
+### [`close(callback)`](https://github.com/socketsupply/io/blob/master/dgram.js#L839)
 
 External docs: https://nodejs.org/api/dgram.html#socketclosecallback
 
@@ -279,7 +302,7 @@ Close the underlying socket and stop listening for data on it. If a
 | callback | function |  | true | Called when the connection is completed or on error. |
 
 
-### [`address()`](https://github.com/socketsupply/io/blob/master/dgram.js#L625)
+### [`address()`](https://github.com/socketsupply/io/blob/master/dgram.js#L897)
 
 External docs: https://nodejs.org/api/dgram.html#socketaddress
 
@@ -287,7 +310,7 @@ Returns an object containing the address information for a socket. For
  UDP sockets, this object will contain address, family, and port properties.
 
  This method throws EBADF if called on an unbound socket.
- 
+
 
 | Return Value | Type | Description |
 | :---         | :--- | :---        |
@@ -297,7 +320,7 @@ Returns an object containing the address information for a socket. For
 | socketInfo.family | string | The IP family of the socket |
 
 
-### [`remoteAddress()`](https://github.com/socketsupply/io/blob/master/dgram.js#L652)
+### [`remoteAddress()`](https://github.com/socketsupply/io/blob/master/dgram.js#L928)
 
 External docs: https://nodejs.org/api/dgram.html#socketremoteaddress
 
@@ -305,7 +328,6 @@ Returns an object containing the address, family, and port of the remote
  endpoint. This method throws an ERR_SOCKET_DGRAM_NOT_CONNECTED exception
  if the socket is not connected.
 
- 
 
 | Return Value | Type | Description |
 | :---         | :--- | :---        |
@@ -315,13 +337,12 @@ Returns an object containing the address, family, and port of the remote
 | socketInfo.family | string | The IP family of the socket |
 
 
-### [`setRecvBufferSize(size)`](https://github.com/socketsupply/io/blob/master/dgram.js#L675)
+### [`setRecvBufferSize(size)`](https://github.com/socketsupply/io/blob/master/dgram.js#L955)
 
 External docs: https://nodejs.org/api/dgram.html#socketsetrecvbuffersizesize
 
 Sets the SO_RCVBUF socket option. Sets the maximum socket receive buffer in
  bytes.
- 
 
 
 | Argument | Type | Default | Optional | Description |
@@ -329,36 +350,30 @@ Sets the SO_RCVBUF socket option. Sets the maximum socket receive buffer in
 | size | number |  | false | The size of the new receive buffer |
 
 
-### [`setSendBufferSize(size)`](https://github.com/socketsupply/io/blob/master/dgram.js#L687)
+### [`setSendBufferSize(size)`](https://github.com/socketsupply/io/blob/master/dgram.js#L966)
 
 External docs: https://nodejs.org/api/dgram.html#socketsetsendbuffersizesize
 
 Sets the SO_SNDBUF socket option. Sets the maximum socket send buffer in
  bytes.
 
- 
 
 | Argument | Type | Default | Optional | Description |
 | :---     | :--- | :---:   | :---:    | :---        |
 | size | number |  | false | The size of the new send buffer |
 
 
-### [`getRecvBufferSize()`](https://github.com/socketsupply/io/blob/master/dgram.js#L696)
+### [`getRecvBufferSize()`](https://github.com/socketsupply/io/blob/master/dgram.js#L973)
 
 External docs: https://nodejs.org/api/dgram.html#socketgetrecvbuffersize
 
- 
-
-| Return Value | Type | Description |
-| :---         | :--- | :---        |
-| Not specified | number | the SO_RCVBUF socket receive buffer size in bytes. |
 
 
-### [`getSendBufferSize()`](https://github.com/socketsupply/io/blob/master/dgram.js#L705)
+### [`getSendBufferSize()`](https://github.com/socketsupply/io/blob/master/dgram.js#L981)
 
 External docs: https://nodejs.org/api/dgram.html#socketgetsendbuffersize
 
- 
+
 
 | Return Value | Type | Description |
 | :---         | :--- | :---        |
@@ -1202,6 +1217,64 @@ Factory for creating a proxy based IPC API.
 | Return Value | Type | Description |
 | :---         | :--- | :---        |
 | Not specified | Proxy |  |
+
+
+# [Network](https://github.com/socketsupply/io/blob/master/network.js#L21)
+
+
+ The network module allows you to create basic, reliable swarms
+ where messages can be broadcast or sent to a specific peer.
+
+ ```js
+ import io from '@socketsupply/io'
+ const network = new io.Network()
+ const swarm = network.createSwarm('my-swarm')
+
+ swarm.on('peer', peer => {
+   peer.send('hello')
+   peer.on('message', d => {
+     document.body.textContent += d.toString()
+   })
+ })
+ ```
+
+## [`Network` (extends `EventEmitter`)](https://github.com/socketsupply/io/blob/master/network.js#L66)
+
+Creates an instance of the `Network` object. The network may contain
+ one or more swarms. A swarm is a group of peers that are interested
+ in a particular topic.
+
+
+| Argument | Type | Default | Optional | Description |
+| :---     | :--- | :---:   | :---:    | :---        |
+| config | object |  | false | A configuration object |
+| config.keepAlive | number |  | false | The interval of the ping in milliseconds |
+| config.port | number |  | false | The UDP port that will be bound |
+| config.spinPort | number |  | false | The UDP port that is used to detect static nat |
+| config.introducer1 | object |  | false | If you have no state, you may need to be introduced to other peers. |
+| config.introducer1.id | object |  | false | The id of the peer |
+| config.introducer1.port | object |  | false | The UDP port of the peer |
+| config.introducer1.address | object |  | false | The 'IPv4' or 'IPv6' port of the peer |
+| config.introducer2 | object |  | false | If you have no state, you may need to be introduced to other peers. |
+| config.introducer2.id | object |  | false | The id of the peer |
+| config.introducer2.port | object |  | false | The UDP port of the peer |
+| config.introducer2.address | object |  | false | The IPv4|IPv6 port of the peer |
+
+
+### [`createSwarm(id, type)`](https://github.com/socketsupply/io/blob/master/network.js#L107)
+
+Create a swarm on the network
+
+
+| Argument | Type | Default | Optional | Description |
+| :---     | :--- | :---:   | :---:    | :---        |
+| id | string |  | false | a 32 byte buffer that uniquely identifies the swarm |
+| type | string |  | false | the type of the swarm ('reliable' | undefined) |
+
+
+| Return Value | Type | Description |
+| :---         | :--- | :---        |
+| Not specified | EventEmitter | an event emitter that provides events from the swarm |
 
 
 # [OS](https://github.com/socketsupply/io/blob/master/os.js#L8)

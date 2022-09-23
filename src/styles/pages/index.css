@@ -20,6 +20,7 @@ body#index > header {
   background-position-x: center;
   background-position-y: bottom;
   background-repeat: no-repeat;
+  margin-bottom: -4px;
 }
 
 body#index > section {

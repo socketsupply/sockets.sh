@@ -7,6 +7,7 @@ All platforms can produce executables for `Windows`, `Linux`, and `MacOS`.
 | :---                    | :---:                                 | :---:                                 | :---:                                 | :---:    |
 | MacOS, Windows, Linux   | ![check](/images/icons/checkmark.svg) | ![check](/images/icons/checkmark.svg) | ![check](/images/icons/checkmark.svg) | ![check](/images/icons/checkmark.svg) |
 | Any Backend             | ![check](/images/icons/checkmark.svg) |                                       | ![check](/images/icons/checkmark.svg) |          |
+| Backend Optional        | ![check](/images/icons/checkmark.svg) |                                       |                                       |          |
 | Native Packaging        | ![check](/images/icons/checkmark.svg) | ![check](/images/icons/checkmark.svg) |                                       | |
 | iOS                     | ![check](/images/icons/checkmark.svg) | In Progress                           |                                       | |
 | Android                 | ![check](/images/icons/checkmark.svg) | Roadmap                               |                                       | |
