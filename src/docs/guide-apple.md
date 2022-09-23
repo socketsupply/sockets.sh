@@ -79,7 +79,6 @@ mac_sign: Developer ID Application: Operator Tools Inc. (Z3M838H537)
 
 ### iOS
 
-1. Set the `apple_team_id` value in `ssc.config` to the value of Team ID [here][apple-dev-membership]
 1. Set the `ios_distribution_method` value in `ssc.config` to the `ad-hoc`
 1. Set the `ios_codesign_identity` value in `ssc.config` to the [certificate](#certificate) name as it's displayed in the Keychan or copy it from the output of `security find-identity -v -p codesigning`
 1. Set the `ios_provisioning_profile` value in `ssc.config` to the filename of your certificate (i.e., "distribution.mobileprovision").
@@ -155,11 +154,8 @@ Apps can only access files in their own sandboxed home directory.
 | `tmp` | The app’s sandboxed temporary directory. The contents of this directory are not synchronised via iTunes, and may be deleted by the system at any time. Although, it's recommended that you delete data which is not necessary anymore manually to minimize the space your app takes up on the file system. Use this directory to store data which is only useful during the app runtime. |
 
 
-
-[apple-dev-membership]:https://developer.apple.com/account/#!/membership/
 [apple-dev-devices-add]:https://developer.apple.com/account/resources/devices/add
 [apple-dev-appid]:https://developer.apple.com/account/resources/identifiers
-[app-store-connect]:https://appstoreconnect.apple.com/apps
 [apple-dev-profiles-add]:https://developer.apple.com/account/resources/profiles/add
 [apple-dev-certificates-add]:https://developer.apple.com/account/resources/certificates/add
 [lldb]:https://developer.apple.com/library/archive/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-terminal-workflow-tutorial.html
