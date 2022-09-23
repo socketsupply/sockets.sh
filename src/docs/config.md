@@ -41,12 +41,15 @@
 | `linux_categories` | | | Helps to make your app searchable in Linux desktop environments |
 | `linux_cmd` | | | The command to execute to spawn the “back-end” process. |
 | `linux_icon` | | | The icon to use for identifying your app in Linux desktop environments. |
+<<<<<<< Updated upstream
 
 ## macOS and iOS
 
 | Property | Required | Default | Description |
 | :--- | :--- | :--- | :--- |
 | `apple_team_id` | | | The team ID needed for MacOS and iOS distribution and development |
+=======
+>>>>>>> Stashed changes
 
 ## macOS
 
