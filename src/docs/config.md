@@ -42,12 +42,6 @@
 | `linux_icon` | | | The icon to use for identifying your app in Linux desktop environments. |
 | `linux_forward_console_to_stdout` | | false | A boolean that determines if WebKit WebView logs should get forwarded to stdout and stderr |
 
-## macOS and iOS
-
-| Property | Required | Default | Description |
-| :--- | :--- | :--- | :--- |
-| `apple_team_id` | | | The team ID needed for MacOS and iOS distribution and development |
-
 ## macOS
 
 [macOS code signing guide][/guides/#macos-1]
