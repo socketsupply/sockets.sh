@@ -83,7 +83,6 @@ mac_sign: Developer ID Application: Operator Tools Inc. (Z3M838H537)
 1. Set the `ios_distribution_method` value in `ssc.config` to the `ad-hoc`
 1. Set the `ios_codesign_identity` value in `ssc.config` to the [certificate](#certificate) name as it's displayed in the Keychan or copy it from the output of `security find-identity -v -p codesigning`
 1. Set the `ios_provisioning_profile` value in `ssc.config` to the filename of your certificate (i.e., "distribution.mobileprovision").
-1. Set the `ios_provisioning_specifier` value in `ssc.config` to the profile name (as in the [Profiles List][apple-dev-profiles-list])
 
 ## Development
 Create a simulator VM and launch the app in it
@@ -163,6 +162,5 @@ Apps can only access files in their own sandboxed home directory.
 [app-store-connect]:https://appstoreconnect.apple.com/apps
 [apple-dev-profiles-add]:https://developer.apple.com/account/resources/profiles/add
 [apple-dev-certificates-add]:https://developer.apple.com/account/resources/certificates/add
-[apple-dev-profiles-list]:https://developer.apple.com/account/resources/profiles/list
 [lldb]:https://developer.apple.com/library/archive/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-terminal-workflow-tutorial.html
 [apple-configurator]:https://apps.apple.com/us/app/apple-configurator/id1037126344

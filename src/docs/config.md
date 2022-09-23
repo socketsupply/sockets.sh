@@ -72,7 +72,6 @@
 | `ios_codesign_identity` | | | Indicates the identity to be used for signing. |
 | `ios_distribution_method` | | | The distribution method (ad-hoc, etc.) |
 | `ios_provisioning_profile` | | | A path to the provisioning profile used for signing iOS app. |
-| `ios_provisioning_specifier` | | | A provisioning specifier used for signing iOS app. |
 | `ios_simulator_device` | | | Which device to target when building for the simulator. The list of available devices: `xcrun simctl list devicetypes` |
 
 
