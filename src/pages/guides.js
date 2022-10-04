@@ -26,6 +26,7 @@ class PageGuides extends Tonic {
                 <markdown-module src="src/docs/guide-apple.md"></markdown-module>
                 <markdown-module src="src/docs/guide-desktop.md"></markdown-module>
                 <markdown-module src="src/docs/guide-mobile.md"></markdown-module>
+                <markdown-module src="src/docs/troubleshooting.md"></markdown-module>
                 <markdown-module src="src/docs/faq.md"></markdown-module>
                 <app-footer js-bundle="true"></app-footer>
               </tonic-split-right>

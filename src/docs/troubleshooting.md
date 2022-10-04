@@ -1,3 +1,5 @@
+# Troubleshooting
+
 ## macOS
 
 ### Cashes

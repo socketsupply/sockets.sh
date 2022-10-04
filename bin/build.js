@@ -101,6 +101,9 @@ const build = async argv => {
   fs.rmSync(buildDir, { force: true, recursive: true })
   fs.mkdirSync(buildDir, { recursive: true })
 
+  fs.promises.cp(path.join(base, 'src', 'ps'), path.join(buildDir, 'ps'))
+  fs.promises.cp(path.join(base, 'src', 'sh'), path.join(buildDir, 'sh'))
+
   for (const dir of ['fonts', 'images', 'styles', 'ca']) {
     fs.symlinkSync(
       path.join(base, 'src', dir),

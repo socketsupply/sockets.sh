@@ -66,13 +66,13 @@ class PageIndex extends Tonic {
 
             <tonic-tab-panel id="panel-mac">
               <code>
-                curl -oL https://sockets.sh/sh ios android | bash -s
+                curl -o- https://sockets.sh/sh | bash -s
               </code>
             </tonic-tab-panel>
 
             <tonic-tab-panel id="panel-linux">
               <code>
-                curl -oL https://sockets.sh/sh android | bash -s
+                curl -o- https://sockets.sh/sh | bash -s
               </code>
             </tonic-tab-panel>
 
