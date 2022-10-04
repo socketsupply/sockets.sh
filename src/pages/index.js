@@ -51,10 +51,9 @@ class PageIndex extends Tonic {
             <h2>Install</h2>
 
             <p class="hl">
-              This is an early preview. You will need access to install this binary. Join us on the <b>Dogfood</b> p2p app using
+              This software is in ALPHA. Check the arguments for the install script. Join us on the <b>Dogfood</b> p2p app using
               <a href="dogfood://group=594085b1d40f8bf3e73fca7a5e72602fa15aca64f7685ecf914d75b21449d930">this link</a> (if your
-              browser complains, it means you don't have Dogfood installed), or join our <a href="https://discord.gg/YPV32gKCsH">discord</a>
-              to request it.
+              browser complains, it means you don't have Dogfood installed), or join our <a href="https://discord.gg/YPV32gKCsH">discord</a>.
             </p>
 
             <br/>
@@ -67,19 +66,19 @@ class PageIndex extends Tonic {
 
             <tonic-tab-panel id="panel-mac">
               <code>
-                curl -o- https://sockets.sh | bash -s
+                curl -oL https://sockets.sh/sh ios android | bash -s
               </code>
             </tonic-tab-panel>
 
             <tonic-tab-panel id="panel-linux">
               <code>
-                curl -o- https://sockets.sh | bash -s
+                curl -oL https://sockets.sh/sh android | bash -s
               </code>
             </tonic-tab-panel>
 
             <tonic-tab-panel id="panel-win">
               <code>
-                & $([scriptblock]::Create((New-Object Net.WebClient).DownloadString("https://sockets.sh/ell")))
+                & $([scriptblock]::Create((New-Object Net.WebClient).DownloadString("https://sockets.sh/ps")))
               </code>
             </tonic-tab-panel>
 
