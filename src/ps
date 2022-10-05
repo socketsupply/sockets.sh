@@ -1,0 +1,37 @@
+# download and install `choco.exe` if it isn't installed yet
+(Get-Command "choco.exe" -ErrorAction SilentlyContinue) > $null
+if ($? -ne 1) {
+  $InstallDir='C:\ProgramData\chocoportable'
+  $env:ChocolateyInstall="$InstallDir"
+
+  Set-ExecutionPolicy Bypass -Scope Process -Force;
+  iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
+}
+
+# check for or install git
+(Get-Command "git.exe" -ErrorAction SilentlyContinue) > $null
+if ($? -ne 1) {
+  choco install git
+
+  if ($? -ne 1) {
+    Write-Output "not ok - unable to install git"
+    Exit 1
+  }
+}
+
+Write-Output "# bulding libuv..."
+Write-Output ""#   __   ___  ___      ___ ____ "
+Write-Output "#  /__  /  / /   /_/  /__   /   "
+Write-Output "#  __/ /__/ /__ /  \\ /__   /  "
+Write-Output "# "
+Write-Output "# getting files..."
+
+(git clone -q --depth=1 https://github.com/socketsupply/socket.git socket) > $null
+if ($? -ne 1) {
+  Write-Output "not ok - unable to clone socket runtime"
+  Exit 1
+}
+
+cd socket
+
+& .\bin\install.ps1
