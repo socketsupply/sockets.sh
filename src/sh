@@ -13,7 +13,12 @@ function die {
 quiet command -v git
 die $? "not ok - missing build tools, try installing git"
 
-git clone --depth=1 https://github.com/socketsupply/socket.git socket
+echo "#   __   ___  ___      ___ ____ "
+echo "#  /__  /  / /   /_/  /__   /   "
+echo "#  __/ /__/ /__ /  \\ /__   /  "
+echo "# "
+echo "# getting files..."
+quiet git clone --depth=1 https://github.com/socketsupply/socket.git socket
 cd socket
 
 source ./bin/install.sh $1 $2
