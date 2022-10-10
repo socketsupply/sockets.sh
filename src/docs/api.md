@@ -1284,7 +1284,7 @@ This is a `FunctionDeclaration` named `isWindows` in `os.js`, it's exported but 
 This is a `FunctionDeclaration` named `tmpdir` in `os.js`, it's exported but undocumented.
 
 
-## [EOL](https://github.com/socketsupply/io/blob/master/os.js#L258)
+## [EOL](https://github.com/socketsupply/io/blob/master/os.js#L261)
 
 This is a `VariableDeclaration` named `EOL` in `os.js`, it's exported but undocumented.
 
