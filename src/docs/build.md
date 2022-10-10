@@ -5,7 +5,7 @@
 
 ## Command
 
-The CLI can be installed globally with the `bootstrap.sh` script.
+The CLI can be installed globally with the `install.sh` script.
 The script should install a binary called `ssc` which is placed
 in `/usr/local/bin` or `C:\Program Files`, so it should be in your
 path. Run the command with the `-h` flag to get help.

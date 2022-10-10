@@ -67,7 +67,7 @@ sudo xcode-select --switch /Applications/Xcode.app
 ### `fatal error: 'lib/uv/include/uv.h' file not found`
 
 Make sure your local `ssc` binary has been compiled with `ios`
-parameter in `./bin/bootstrap.sh ios`, otherwise the uv.h
+parameter in `./bin/install.sh ios`, otherwise the uv.h
 does not exist.
 
 ### `unable to find utility simctl`
@@ -133,7 +133,7 @@ This is possible by running the following command:
 source bin/mscv-bash-env.sh
 ```
 
-The `bin/bootstrap.sh` shell script should work for compiling the `ssc` tool.
+The `bin/install.sh` shell script should work for compiling the `ssc` tool.
 It is also recommneded to initialize this environment when building applications
 with `ssc` from the CLI so the correct build tools can be used which ensures
 header and library paths for the compiler
