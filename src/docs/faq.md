@@ -60,3 +60,30 @@ data that will be rendered in a UI.
 
 Possibly, create a PR and make an argument for why the feature is relevant to
 everyone who would use this project.
+
+
+### How can Webview based apps compete with the quality of native apps?
+
+Native apps require an enormous amount of developer effort if the developer
+wants their app to run across multiple platforms. Socket lowers the
+barrier to entry and lets in the worlds largest developer community. With care,
+avoiding bloated frameworks, a web-based app can run as well as any native app.
+
+
+### Why should I care that P2P is free? AWS is almost free!
+
+AWS is nearly free (until you have any kind of growth). But they still require your
+credit card and a lot of personally identifiable information. P2P is the only free and
+permissionless way to build networked software.
+
+
+### How effective are distributed networks at hosting the long tail of rarely-accessed content?
+
+In networks like BitTorrent, rarely-accessed content (content accessed less frequently than 72 hours)
+becomes unavailable as the few peers hosting that content drop offline.
+
+For this case, we enable developers to build hybrid networks. In hybrid networks, developers can
+choose to keep a centralized copy of all content. This keeps rarely-accessed content always available.
+For popular content, a distributed swarm of users’ devices also assist in distribution, reducing the
+cost of serving that content from a central location.
+

@@ -20,7 +20,7 @@ if ($? -ne 1) {
 }
 
 Write-Output "# bulding libuv..."
-Write-Output ""#   __   ___  ___      ___ ____ "
+Write-Output "#   __   ___  ___      ___ ____ "
 Write-Output "#  /__  /  / /   /_/  /__   /   "
 Write-Output "#  __/ /__/ /__ /  \\ /__   /  "
 Write-Output "# "
