@@ -50,11 +50,11 @@ and phystical `devices`.
 - Choose a certificate request you've created 2 steps earlier.
 - Download your certificate and double click to add it to your Keychain.
 
-When you run `ssc compile --target=ios .` on your project for the first time, you may see the
+When you run `ssc build --target=ios .` on your project for the first time, you may see the
 following because you don't have a provisioning profile:
 
 ```
-ssc compile --target=ios .
+ssc build --target=ios .
 • provisioning profile not found: /Users/chicoxyzzy/dev/socketsupply/birp/./distribution.mobileprovision. Please specify a valid provisioning profile in the ios_provisioning_profile field in your `ssc.config`
 ```
 
@@ -87,13 +87,13 @@ mac_sign: Developer ID Application: Operator Tools Inc. (Z3M838H537)
 Create a simulator VM and launch the app in it
 
 ```bash
-ssc compile --target=iossimulator -r .
+ssc build --target=iossimulator -r .
 ```
 
 ## Distribution And Deployment
 
 ```bash
-ssc compile --target=ios -c -p -xd .
+ssc build --target=ios -c -p -xd .
 ```
 
 ### To your device
