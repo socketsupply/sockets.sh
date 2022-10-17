@@ -90,7 +90,7 @@ class PageIndex extends Tonic {
               <code>index.html</code> file in it. You can edit the file with your favorite editor.
             </p>
             <p>
-              Running <code>ssc compile -r .</code> will build and run your program.
+              Running <code>ssc build -r .</code> will build and run your program.
               That's it! You just built a native application! Click one of the links below to move
               onto more advanced use cases.
             </p>
