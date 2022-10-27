@@ -15,9 +15,8 @@
 | `lang` | | en-us | Localization |
 | `maintainer` | | | A String used in the about dialog and meta info. |
 | `name` | ![check](/images/icons/checkmark.svg) | | The name of the program |
-| `output` | ![check](/images/icons/checkmark.svg) | dist | The binary output path. It's recommended to add this path to .gitignore. |
+| `output` | | dist | The binary output path. It's recommended to add this path to .gitignore. |
 | `revision` | | 1 | TODO: maybe the user doesn’t need to know about this? |
-| `title` | | | The initial title of the window (can have spaces and symbols etc). |
 | `version` | ![check](/images/icons/checkmark.svg) | | A string that indicates the version of the application. It should be a semver triple like 1.0.0 |
 | `width` | | | The initial width of the first window |
 
