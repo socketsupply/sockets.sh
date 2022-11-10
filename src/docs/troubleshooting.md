@@ -2,7 +2,7 @@
 
 ## macOS
 
-### Cashes
+### Crashes
 
 To produce a meaningful backtrace that can help debug the crash, you'll need to
 resign the binary with the ability to attach the `lldb` debugger tool. You'll
