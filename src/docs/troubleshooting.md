@@ -6,7 +6,7 @@
 
 To produce a meaningful backtrace that can help debug the crash, you'll need to
 resign the binary with the ability to attach the `lldb` debugger tool. You'll
-also want to enable core dumps in case the analysis isn't exaustive enough.
+also want to enable core dumps in case the analysis isn't exhaustive enough.
 
 ```
 sudo ulimit -c unlimited # enable core dumps (`ls -la /cores`)
