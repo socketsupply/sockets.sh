@@ -24,10 +24,10 @@ Start the bluetooth service.
 
 | Return Value | Type | Description |
 | :---         | :--- | :---        |
-| Not specified | Promise<Any> |  |
+| Not specified | Promise<ipc.Result> |  |
 
 
-### [`subscribe(id)`](https://github.com/socketsupply/io/blob/master/bluetooth.js#L78)
+### [`subscribe(id )`](https://github.com/socketsupply/io/blob/master/bluetooth.js#L78)
 
 Start scanning for published values that correspond to a well-known UUID.
  Once subscribed to a UUID, events that correspond to that UUID will be
@@ -49,21 +49,22 @@ Start scanning for published values that correspond to a well-known UUID.
 
 | Return Value | Type | Description |
 | :---         | :--- | :---        |
-| Not specified | Promise<any> |  |
+| Not specified | Promise<ipc.Result> |  |
 
 
-### [`publish(id)`](https://github.com/socketsupply/io/blob/master/bluetooth.js#L90)
+### [`publish(id, value)`](https://github.com/socketsupply/io/blob/master/bluetooth.js#L91)
 
 Start advertising a new value for a well-known UUID
 
 | Argument | Type | Default | Optional | Description |
 | :---     | :--- | :---:   | :---:    | :---        |
 | id | string |  | false | A well-known UUID |
+| value | string |  | false |  |
 
 
 | Return Value | Type | Description |
 | :---         | :--- | :---        |
-| Not specified | Promise<any> |  |
+| Not specified | Promise<void> |  |
 
 
 # [Buffer](https://github.com/socketsupply/io/blob/master/buffer.js#L7)
@@ -1198,7 +1199,7 @@ Resolves a request by `seq` with possible value.
 | ...args | ..Mixed |  | false |  |
 
 
-## [`send(command)`](https://github.com/socketsupply/io/blob/master/ipc.js#L732)
+## [`send(command)`](https://github.com/socketsupply/io/blob/master/ipc.js#L733)
 
 Sends an async IPC command request with parameters.
 
@@ -1208,7 +1209,12 @@ Sends an async IPC command request with parameters.
 | ...args | ..Mixed |  | false |  |
 
 
-## [`write(command, params, buffer, options)`](https://github.com/socketsupply/io/blob/master/ipc.js#L756)
+| Return Value | Type | Description |
+| :---         | :--- | :---        |
+| Not specified | Promise<Result> |  |
+
+
+## [`write(command, params, buffer, options)`](https://github.com/socketsupply/io/blob/master/ipc.js#L757)
 
 Sends an async IPC command request with parameters and buffered bytes.
 
@@ -1220,7 +1226,7 @@ Sends an async IPC command request with parameters and buffered bytes.
 | options | ?(object) |  | false |  |
 
 
-## [`request(command, params, options)`](https://github.com/socketsupply/io/blob/master/ipc.js#L851)
+## [`request(command, params, options)`](https://github.com/socketsupply/io/blob/master/ipc.js#L852)
 
 Sends an async IPC command request with parameters requesting a response
  with buffered bytes.
@@ -1232,7 +1238,7 @@ Sends an async IPC command request with parameters requesting a response
 | options | ?(object) |  | false |  |
 
 
-## [`createBinding(domain, ctx)`](https://github.com/socketsupply/io/blob/master/ipc.js#L942)
+## [`createBinding(domain, ctx)`](https://github.com/socketsupply/io/blob/master/ipc.js#L943)
 
 Factory for creating a proxy based IPC API.
 
