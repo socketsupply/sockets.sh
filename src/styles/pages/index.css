@@ -235,6 +235,10 @@ body > header .centered {
   width: 50%;
 }
 
+tonic-split-right {
+  width: 75%;
+}
+
 @media (max-width: 699px) {
   #value-props {
     display: block;
