@@ -31,6 +31,7 @@ body.api tonic-split {
 body.api tonic-split tonic-split-right {
   scroll-behavior: smooth;
   overflow: scroll;
+  width: 75%;
 }
 
 body.api tonic-split tonic-split-right markdown-module {
@@ -80,6 +81,18 @@ time {
   body main {
     margin: 40px;
     margin-bottom: 100px;
+  }
+
+  .tonic--split-handle {
+    display: none;
+  }
+
+  body.api tonic-split-left {
+    display: none;
+  }
+
+  body.api tonic-split tonic-split-right {
+    width: 100%;
   }
 
   body footer .content {

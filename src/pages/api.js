@@ -21,7 +21,7 @@ class PageApi extends Tonic {
                 <app-tree id="app-tree"></app-tree>
               </tonic-split-left>
 
-              <tonic-split-right width="75%">
+              <tonic-split-right>
                 <markdown-module class="code" src="src/docs/api.md"></markdown-module>
                 <app-footer js-bundle="true"></app-footer>
               </tonic-split-right>
