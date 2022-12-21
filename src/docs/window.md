@@ -16,7 +16,7 @@ window.parent.openExternal(url)
 ```
 
 ### `window.parent.getConfig()`
-Fetches config defiend in [`ssc.config`](/config) as a plain JSON object.
+Fetches config defined in [`ssc.config`](/config) as a plain JSON object.
 
 | Argument | Type | Default | Required | Description |
 | :--- | :--- | :--- | :--- | :--- |

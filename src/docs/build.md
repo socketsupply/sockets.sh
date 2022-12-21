@@ -41,7 +41,7 @@ executable: socket
 #
 version: 0.0.1
 name: Socket
-description: A demo appliation
+description: A demo application
 copyright: Socket Supply Co. © 2021-2022
 maintainer: Contributors <floss@socketsupply.co>
 

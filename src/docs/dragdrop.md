@@ -1,6 +1,6 @@
 # EVENTS
 
-A limiation of "native drag and drop" is support for dragging *out* more than
+A limitation of "native drag and drop" is support for dragging *out* more than
 one file, and providing useful meta data on dragging files *in*. This API fixes
 both these problems.
 
@@ -35,7 +35,7 @@ window.addEventListener('dragend', e => {
 Fired when a drag event leaves the app and files are dropped. The drag must be
 started from an element that defines the `data-src` property. One `dropout`
 event will fire for each item in the `data-src` property. Note that only
-tempoarary placeholder files are dropped (each with a file name that has the
+temporary placeholder files are dropped (each with a file name that has the
 format `{randomInt64}.download`). The `dest` value will be the path of the tmp
 file that should be written to and renamed.
 
