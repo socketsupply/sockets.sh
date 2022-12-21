@@ -3,7 +3,7 @@
 ## Getting Started
 
 Open a terminal, navigate to where you keep your code. Create a directory and
-initilaize it.
+initialize it.
 
 ```
 ssc init
@@ -62,7 +62,7 @@ can tell you the platform specific build destination. For example.
 
 After you get your UI looking how you want. The next step is to try it out
 on the simulator. At this point we can use either the `-ios` or `-android`
-flags as well as the `-simulator` flag. This will createa a platform specific
+flags as well as the `-simulator` flag. This will create a a platform specific
 bundle, create and boot a simulator VM and then run your app in simulator if
 `-r` flag is provided.
 

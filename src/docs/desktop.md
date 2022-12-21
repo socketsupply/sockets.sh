@@ -68,7 +68,7 @@ Set the native menu for the app (see a more significant example later on in the 
 
 | Parameter | Type | Required | Default | Description |
 | :--- | :--- | :--- | :--- | :--- |
-| `opts.value` | String | ![check](/images/icons/checkmark.svg) | | A String that conains the menu config DSL. |
+| `opts.value` | String | ![check](/images/icons/checkmark.svg) | | A String that contains the menu config DSL. |
 | `opts.index` | Number |  | `0` | Specifies the index of the window to set the menu on (Ignored on MacOS). |
 
 **&larr; Return** `Promise<void>`
@@ -158,7 +158,7 @@ receive a value from the main process.
 
 | Parameter | Type | Required | Default | Description |
 | :--- | :--- | :--- | :--- | :--- |
-| `opts.value` | String | ![check](/images/icons/checkmark.svg) | | A String that conains the menu config DSL. |
+| `opts.value` | String | ![check](/images/icons/checkmark.svg) | | A String that contains the menu config DSL. |
 
 **&larr; Return** `Promise<Any>`
 
@@ -198,7 +198,7 @@ const value = await window.contextMenu({
 ```
 
 If the user presses `w` or clicks the `Wizard` menu item, the following
-statement will evalute true.
+statement will evaluate true.
 
 ```js
 assert(value === { title: 'Wizard', parent: 'contextMenu', state: 0 })
