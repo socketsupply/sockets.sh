@@ -50,7 +50,7 @@ brew install libtool
 ### `unable to build chain to self-signed root for signer (...)`
 
 You need the intermediate certificate that matches your code signing certificate.
-To find which "Worldwide Developer Relations" matches you certificate, open the
+To find which "Worldwide Developer Relations" matches your certificate, open the
 signing certificate in your keychain, open [this](https://www.apple.com/certificateauthority/)
 page and find the certificate that matches the details in the "Issuer" section
 of your certificate.
@@ -181,7 +181,7 @@ sudo pacman -S base-devel
 ### Multiple g++ versions
 
 If you've tried running the above `apt install` and you get an error
-related `Unable to locate package` then you can also install multiple
+related to `Unable to locate package` then you can also install multiple
 versions of G++ on your system.
 
 ```sh
