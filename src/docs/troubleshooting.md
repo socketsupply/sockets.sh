@@ -6,7 +6,7 @@
 
 To produce a meaningful backtrace that can help debug the crash, you'll need to
 resign the binary with the ability to attach the `lldb` debugger tool. You'll
-also want to enable core dumps in case the analysis isn't exaustive enough.
+also want to enable core dumps in case the analysis isn't exhaustive enough.
 
 ```
 sudo ulimit -c unlimited # enable core dumps (`ls -la /cores`)
@@ -53,7 +53,7 @@ You need the intermediate certificate that matches your code signing certificate
 To find which "Worldwide Developer Relations" matches you certificate, open the
 signing certificate in your keychain, open [this](https://www.apple.com/certificateauthority/)
 page and find the certificate that matches the details in the "Issuer" section
-of your certicicate.
+of your certificate.
 
 ### `xcrun: error: SDK "iphoneos" cannot be located`
 
@@ -134,7 +134,7 @@ source bin/mscv-bash-env.sh
 ```
 
 The `bin/install.sh` shell script should work for compiling the `ssc` tool.
-It is also recommneded to initialize this environment when building applications
+It is also recommended to initialize this environment when building applications
 with `ssc` from the CLI so the correct build tools can be used which ensures
 header and library paths for the compiler
 
@@ -147,7 +147,7 @@ set to the location of your C++ compiler (`which g++`, or `which c++`).
 
 The latest version of MacOS should have installed C++ for you. But
 on Linux you may need to update some packages. To ensure you have
-the latest clang compiler and libraries you can try the follwing...
+the latest clang compiler and libraries you can try the following...
 
 For debian/ubuntu, before you install the packages, you may want
 to [add][0] these software update repos [here][1] to the software

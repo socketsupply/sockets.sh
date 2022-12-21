@@ -131,7 +131,7 @@ Generate `size` random bytes.
 | Argument | Type | Default | Optional | Description |
 | :---     | :--- | :---:   | :---:    | :---        |
 | algorithm | string |  | false | `SHA-1` | `SHA-256` | `SHA-384` | `SHA-512` |
-| message | Buffer \| TypedArray \| DataView |  | false | An instance of io.Buffer, TypedArray or Dataview. |
+| message | Buffer \| TypedArray \| DataView |  | false | An instance of io.Buffer, TypedArray or DataView. |
 
 
 | Return Value | Type | Description |
@@ -862,7 +862,7 @@ Sets file handle for the WriteStream.
 
 ### [`highWaterMark()`](https://github.com/socketsupply/io/blob/master/fs/stream.js#L202)
 
-The max buffer size for the Writetream.
+The max buffer size for the `WriteStream`.
 
 ### [`path()`](https://github.com/socketsupply/io/blob/master/fs/stream.js#L209)
 
@@ -894,7 +894,7 @@ This is a `VariableDeclaration` named `FileWriteStream` in `fs/stream.js`, it's 
 
  - The `Render` process, the UI where the HTML, CSS and JS is run.
  - The `Bridge` process, the thin layer of code that managers everything.
- - The `Main` processs, for apps that need to run heavier compute jobs. And
+ - The `Main` process, for apps that need to run heavier compute jobs. And
    unlike electron it's optional.
 
  The Bridge process manages the Render and Main process, it may also broker
