@@ -9,7 +9,7 @@ initialize it.
 ssc init
 ```
 
-This will create an `ssc.config` file as well as a `src` directory
+This will create an `ssc.config` file as well as an `src` directory
 with an `index.html` file in it. First, open the config file in your editor
 and replace some of the example values with your own. Here's an example.
 
@@ -32,7 +32,7 @@ and replace some of the example values with your own. Here's an example.
 
 ### Coding a UI
 
-UI is written in HTML, JS and CSS. Of course you can bring whatever tools you
+UI is written in HTML, JS , and CSS. Of course, you can bring whatever tools you
 want to the party. But let's start simple. The easiest way to see your UI is to
 build this as a desktop app and show a window that runs the code.
 
