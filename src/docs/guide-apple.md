@@ -6,8 +6,8 @@ operating systems.
 ## Prerequisites
 
 1. Sign up for a (free) [Apple Developer](https://developer.apple.com/) account.
-2. Register your [devices][apple-dev-devices-add] for testing. You can use `ssc list-devices`
-command to get your Device ID (UDID). Device should be connected to your mac by wire.
+2. Register your [devices][apple-dev-devices-add] for testing. You can use the `ssc list-devices`
+command to get your Device ID (UDID). The Device should be connected to your mac by wire.
 3. Create a wildcard [App ID][apple-dev-appid] for the application you are developing.
 4. Write down your `Team ID`. It's in the top right corner of the website. You'll need this later.
 
@@ -37,7 +37,7 @@ software is like using `http` instead of `https`.
 - [Create][apple-dev-certificates-add] a new `Developer ID Application` certificate
 on the Apple Developers website.
 - Choose a certificate request you've created 2 steps earlier.
-- Download your certificate and double click to add it to your Keychain.
+- Download your certificate and double-click to add it to your Keychain.
 
 ### iOS
 
@@ -48,7 +48,7 @@ and physical `devices`.
 
 - [Create][apple-dev-certificates-add] a new iOS Distribution (App Store and Ad Hoc) certificate on the Apple Developers website.
 - Choose a certificate request you've created 2 steps earlier.
-- Download your certificate and double click to add it to your Keychain.
+- Download your certificate and double-click to add it to your Keychain.
 
 When you run `ssc build --target=ios .` on your project for the first time, you may see the
 following because you don't have a provisioning profile:
@@ -100,9 +100,12 @@ ssc build --target=ios -c -p -xd .
 
 Install [Apple Configurator][apple-configurator], open it and install Automation Tools from the menu.
 
-Connect your device and run `ssc install-app <path>` where path is the root directory of your application (the one where `ssc.config` is located).
+![](../images/screenshots/prov-prof-3.png)
 
-Alternative way to install your app is to open the the `Apple Configurator` app and drag
+
+Connect your device and run `ssc install-app <path>` where the path is the root directory of your application (the one where `ssc.config` is located).
+
+An alternative way to install your app is to open the `Apple Configurator` app and drag
 the inner `/dist/build/[your app name].ipa/[your app name].ipa` file onto your phone.
 
 ### To the Apple App Store
@@ -134,8 +137,8 @@ process attach --name TestExample-dev
 
 ## Logging
 
-To see logs on either platform, open `Console.app` (installed on MacOS by default)
-and in the right side panel pick the device or computer name.
+To see logs on either platform, open `Console.app` (installed on macOS by default)
+and in the right-side panel pick the device or computer name.
 
 ## Working with the file system on iOS
 
@@ -144,11 +147,11 @@ Apps can only access files in their own sandboxed home directory.
 
 | Directory | Description |
 | --- | --- |
-| `Documents` | The app’s sandboxed documents directory. The contents of this directory is backed up by iTunes and may be set as accessible to the user via iTunes when `UIFileSharingEnabled` is set to `true` in application's `info.plist`. |
-| `Library` | The app’s sandboxed library directory. The contents of this directory are synchronised via iTunes (except the `Library/Caches` subdirectory, see below), but never exposed to the user. |
-| `Library/Caches` | The app’s sandboxed caches directory. The contents of this directory are not synchronised via iTunes, and may be deleted by the system at any time. It's a good place to store data which provides a good offline-first experience for the user. |
-| `Library/Preferences` | The app’s sandboxed preferences directory. The contents of this directory are synchronised via iTunes. It's purpose is to be used by the Settings app. Avoid creating your own files in this directory. |
-| `tmp` | The app’s sandboxed temporary directory. The contents of this directory are not synchronised via iTunes, and may be deleted by the system at any time. Although, it's recommended that you delete data which is not necessary anymore manually to minimize the space your app takes up on the file system. Use this directory to store data which is only useful during the app runtime. |
+| `Documents` | The app’s sandboxed documents directory. The contents of this directory are backed up by iTunes and may be set as accessible to the user via iTunes when `UIFileSharingEnabled` is set to `true` in the application's `info.plist`. |
+| `Library` | The app’s sandboxed library directory. The contents of this directory are synchronized via iTunes (except the `Library/Caches` subdirectory, see below), but never exposed to the user. |
+| `Library/Caches` | The app’s sandboxed caches directory. The contents of this directory are not synchronized via iTunes, and may be deleted by the system at any time. It's a good place to store data which provides a good offline-first experience for the user. |
+| `Library/Preferences` | The app’s sandboxed preferences directory. The contents of this directory are synchronized via iTunes. Its purpose is to be used by the Settings app. Avoid creating your own files in this directory. |
+| `tmp` | The app’s sandboxed temporary directory. The contents of this directory are not synchronized via iTunes, and may be deleted by the system at any time. Although, it's recommended that you delete data that is not necessary anymore manually to minimize the space your app takes up on the file system. Use this directory to store data that is only useful during the app runtime. |
 
 
 [apple-dev-devices-add]:https://developer.apple.com/account/resources/devices/add
