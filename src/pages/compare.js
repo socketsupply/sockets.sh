@@ -19,7 +19,7 @@ class PageCompare extends Tonic {
           <main>
             <h1>Compare Frameworks</h1>
             <p>
-              Below are high level features and a source code comparison that
+              Below are high-level features and a source code comparison that
               helps assess the <code>maintainability</code> and
               <code>readability</code> of each codebase.
             </p>
