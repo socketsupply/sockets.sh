@@ -5,7 +5,7 @@ function quiet () {
 }
 
 function die {
-  if [ ! $1 = 0 ]; then
+  if [ ! "$1" = 0 ]; then
     echo "$2 - please report (https://discord.gg/YPV32gKCsH)" && exit 1
   fi
 }
@@ -19,6 +19,7 @@ echo "#  __/ /__/ /__ /  \\ /__   /  "
 echo "# "
 echo "# getting files..."
 quiet git clone --depth=1 https://github.com/socketsupply/socket.git socket
-cd socket
+cd socket || exit
 
-source ./bin/install.sh $1 $2
+source ./bin/clean.sh
+source ./bin/install.sh "$1" "$2"

@@ -2,7 +2,7 @@ import Tonic from '@socketsupply/tonic'
 
 const nav = Tonic.unsafeRawString(`
   <nav>
-    <a href="/"><img src="/images/waves.svg" class="hypno" alt="Waves" /> <b id="name-brand">Socket SDK</b></a>
+    <a href="/"><img src="/images/waves.svg" class="hypno" alt="Waves" /> <b id="name-brand">Socket Runtime</b></a>
     <span></span>
     <a href="/api">API</a>
     <a href="/guides">Guides</a>

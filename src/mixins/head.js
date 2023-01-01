@@ -48,7 +48,7 @@ const html = async args => {
 
     <meta
         name="theme-color"
-        content="rgba(41, 41, 41, 1)"
+        content="var(--tonic-window)"
         media="(prefers-color-scheme: dark)">
 
     <link rel="preload" href="/fonts/Inter-Light.woff2" as="font" type="font/woff2" crossorigin="anonymous">

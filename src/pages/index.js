@@ -19,7 +19,7 @@ class PageIndex extends Tonic {
           <header>
             <div class="centered">
               <h1>Socket</h1>
-              <p>A modern runtime for Web Apps<br/>
+              <p>A Cross Platform Runtime for Web Apps<br/>
             </div>
           </header>
 
@@ -51,9 +51,9 @@ class PageIndex extends Tonic {
             <h2>Install</h2>
 
             <p class="hl">
-              This software is in ALPHA. Check the arguments for the install script. Join us on the <b>Dogfood</b> p2p app using
-              <a href="dogfood://group=594085b1d40f8bf3e73fca7a5e72602fa15aca64f7685ecf914d75b21449d930">this link</a> (if your
-              browser complains, it means you don't have Dogfood installed), or join our <a href="https://discord.gg/YPV32gKCsH">discord</a>.
+              Socket is pre-release. Read the install script before running it. Join us in the <b>Relay App</b> p2p app using
+              <a href="relay://channel=11E39280-8FF1-41B4-9170-EE5F306F969F">this link</a> (if your
+              browser complains, it means you don't have the app installed), or join our <a href="https://discord.gg/YPV32gKCsH">discord</a>.
             </p>
 
             <br/>
@@ -78,7 +78,7 @@ class PageIndex extends Tonic {
 
             <tonic-tab-panel id="panel-win">
               <code>
-                & $([scriptblock]::Create((New-Object Net.WebClient).DownloadString("https://sockets.sh/ps")))
+                iwr -useb https://sockets.sh/ps | iex
               </code>
             </tonic-tab-panel>
 

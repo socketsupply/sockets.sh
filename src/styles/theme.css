@@ -16,8 +16,8 @@
 @media (prefers-color-scheme: light) {
   body, *[theme="light"] {
     --tonic-background: rgba(223, 223, 223, 1);
-    --tonic-window: rgba(235, 235, 235, 1);
-    --tonic-accent: rgba(30, 124, 193, 1);
+    --tonic-window: rgba(255, 255, 255, 1);
+    --tonic-accent: rgba(56, 185, 255, 1);
     --tonic-primary: rgba(54, 57, 61, 1);
     --tonic-secondary: rgba(232, 232, 228, 1);
     --tonic-light: rgba(153, 157, 160, 1);
@@ -50,7 +50,7 @@
   body, *[theme="dark"] {
     --tonic-background: rgba(40, 40, 40, 1);
     --tonic-window: rgba(49, 49, 49, 1);
-    --tonic-accent: rgba(60, 138, 181, 1);
+    --tonic-accent: rgba(56, 185, 255, 1);
     --tonic-primary: rgba(198, 197, 193, 1);
     --tonic-secondary: rgba(195, 195, 195, 1);
     --tonic-medium: rgba(153, 157, 160, 1);

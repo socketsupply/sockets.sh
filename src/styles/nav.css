@@ -14,6 +14,7 @@ body > nav {
   justify-content: center;
   align-content: center;
   gap: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 body > nav > a {
@@ -25,7 +26,7 @@ body > nav > a {
 
 @media (prefers-color-scheme: dark) {
   body > nav {
-    background: var(--tonic-dark);
+    background: var(--tonic-window);
   }
   body > nav img {
     filter: invert(100%);
@@ -34,8 +35,8 @@ body > nav > a {
 
 @media (prefers-color-scheme: light) {
   body > nav {
-    background: var(--tonic-dark);
-    color: var(--tonic-window);
+    background: var(--tonic-window);
+    color: var(--tonic-primary);
   }
 }
 
@@ -45,7 +46,6 @@ body > nav img {
   margin: 4px;
   border-radius: 99em;
   vertical-align: middle;
-  border: 1px solid;
 }
 
 body > nav > a:first-of-type {
