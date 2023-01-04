@@ -19,6 +19,16 @@ const debug = Debug('op:index')
 
 async function ready () {
   debug('op:ready')
+
+  const nav = document.querySelector('nav')
+
+  window.addEventListener('scroll', e => {
+    if (window.scrollY > 16) {
+      nav.classList.add('shadow')
+      return
+    }
+    nav.classList.remove('shadow')
+  })
 }
 
 document.addEventListener('DOMContentLoaded', ready)

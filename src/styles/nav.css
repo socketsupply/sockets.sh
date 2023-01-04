@@ -14,6 +14,11 @@ body > nav {
   justify-content: center;
   align-content: center;
   gap: 10px;
+  transition: box-shadow .2s ease;
+}
+
+body.api > nav,
+body > nav.shadow {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 

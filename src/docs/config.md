@@ -1,76 +1,155 @@
-## Cross-Platform Properties
+```ini
+;  ___  __   ___      __ ____
+; /__  /  / /   /_/  /_   /
+; __/ /__/ /__ /  \ /__  /
+;
+; Socket ⚡︎ Runtime · A modern runtime for Web Apps · v{{ssc_version}}
+;
 
-| Property | Required | Default | Description |
-| :--- | :--- | :--- | :--- |
-| `build` | | | Shell command to build an application |
-| `bundle_identifier` | | |  A unique ID that identifies the bundle (used by all app stores). |
-| `copyright` |  |  | A string that gets used in the about dialog and package meta info. |
-| `debug_flags` | | | Advanced Compiler Settings for debug purposes (ie C++ compiler -g, etc). |
-| `description` | | | A short description of the app |
-| `env` | | | An array of environment variables, separated by commas |
-| `executable` | ![check](/images/icons/checkmark.svg) | | The name of the file to be output. |
-| `flags` | | | Advanced Compiler Settings (ie C++ compiler -02, -03, etc). |
-| `height` | | | The initial height of the first window |
-| `input` | | | A directory is where your application's code is located |
-| `lang` | | en-us | Localization |
-| `maintainer` | | | A String used in the about dialog and meta info. |
-| `name` | ![check](/images/icons/checkmark.svg) | | The name of the program |
-| `output` | ![check](/images/icons/checkmark.svg) | dist | The binary output path. It's recommended to add this path to .gitignore. |
-| `revision` | | 1 | TODO: maybe the user doesn’t need to know about this? |
-| `title` | | | The initial title of the window (can have spaces and symbols etc). |
-| `version` | ![check](/images/icons/checkmark.svg) | | A string that indicates the version of the application. It should be a semver triple like 1.0.0 |
-| `width` | | | The initial width of the first window |
+; The shell command to execute when building an application. This is the most
+; important command in this file. This will do all the heavy lifting and should
+; handle 99.9% of your use cases for moving files into place or tweaking
+; platform-specific build artifacts.
+build = "node build-script.js"
 
+; A unique ID that identifies the bundle (used by all app stores).
+bundle_identifier = "com.beepboop"
 
-## Windows
+; A string that gets used in the about dialog and package meta info.
+copyright = "(c) Beep Boop Corp. 1985"
 
-| Property | Required | Default | Description |
-| :--- | :--- | :--- | :--- |
-| `win_cmd` | | | The command to execute to spawn the “back-end” process. |
-| `win_icon` | | | The icon to use for identifying your app on Windows. |
-| `win_logo` | | | The icon to use for identifying your app on Windows. |
-| `win_pfx` | | | A relative path to the pfx file used for signing. |
-| `win_publisher` | | | The signing information needed by the appx api. |
+; A short description of the app.
+description = "A UI for the beep boop network"
 
+; An list of environment variables, separated by commas.
+env = USER, TMPDIR, PWD
 
-## Linux
+; The name of the file to be output.
+executable = "boop"
 
-| Property | Required | Default | Description |
-| :--- | :--- | :--- | :--- |
-| `linux_categories` | | | Helps to make your app searchable in Linux desktop environments |
-| `linux_cmd` | | | The command to execute to spawn the “back-end” process. |
-| `linux_icon` | | | The icon to use for identifying your app in Linux desktop environments. |
-| `linux_forward_console_to_stdout` | | false | A boolean that determines if WebKit WebView logs should get forwarded to stdout and stderr |
+; If false, the window will never be displayed.
+headless = false
 
-## macOS
+; Advanced Compiler Settings (ie C++ compiler -02, -03, etc).
+flags = -O3
 
-[macOS code signing guide][/guides/#macos-1]
+; Set the limit of files that can be opened by your process.
+file_limit = 1024,
 
-| Property | Required | Default | Description |
-| :--- | :--- | :--- | :--- |
-| `mac_appstore_icon` | | | Mac App Store icon |
-| `mac_category` | | | A category in the App Store |
-| `mac_cmd` | | | The command to execute to spawn the “back-end” process. |
-| `mac_icon` | | | The icon to use for identifying your app on MacOS. |
-| `mac_sign` | | | |
-| `mac_codesign_identity` | | | |
-| `mac_sign_paths` | | | |
+; A directory is where your application's code is located.
+input = "src"
 
+; Localization
+lang = "en-us"
 
-## iOS
+; A String used in the about dialog and meta info.
+maintainer = "Beep Boop Corp."
 
-[iOS code signing guide][/guides/#ios-1]
+; The name of the program
+name = "beepboop"
 
-| Property | Required | Default | Description |
-| :--- | :--- | :--- | :--- |
-| `ios_codesign_identity` | | | Indicates the identity to be used for signing. |
-| `ios_distribution_method` | | | The distribution method (ad-hoc, etc.) |
-| `ios_provisioning_profile` | | | A path to the provisioning profile used for signing iOS app. |
-| `ios_simulator_device` | | | Which device to target when building for the simulator. The list of available devices: `xcrun simctl list devicetypes` |
+; The binary output path. It's recommended to add this path to .gitignore.
+output = "dist"
+
+; TODO: maybe the user doesn't need to know about this? 
+revision = 123
+
+; A string that indicates the version of the application. It should be a semver triple like 1.0.0
+version = 0.0.1
+
+[debug]
+
+; Advanced Compiler Settings for debug purposes (ie C++ compiler -g, etc).
+flags = "-g"
 
 
-## Android
+[android]
 
-| Property | Optional | Default | Description |
-| :--- | :--- | :--- | :--- |
-|||||
+; TODO description needed
+main_activity = ""
+
+
+[ios]
+
+; signing guide: https://sockets.sh/guides/#ios-1
+codesign_identity = ""
+
+; Describes how Xcode should export the archive. Available options: app-store, package, ad-hoc, enterprise, development, and developer-id.
+distribution_method = "ad-hoc"
+
+; A path to the provisioning profile used for signing iOS app.
+provisioning_profile = ""
+
+; which device to target when building for the simulator
+simulator_device = "iPhone 14"
+
+
+[linux]
+; Helps to make your app searchable in Linux desktop environments.
+categories = "Developer Tools"
+
+; The command to execute to spawn the "back-end" process.
+cmd = "beepboop"
+
+; The icon to use for identifying your app in Linux desktop environments.
+icon = "src/icon.png"
+
+
+[mac]
+
+; Mac App Store icon
+appstore_icon = "src/icons/icon.png"
+
+; A category in the App Store
+category = ""
+
+; The command to execute to spawn the "back-end" process.
+cmd = ""
+
+; The icon to use for identifying your app on MacOS.
+icon = ""
+
+; TODO description & value (signing guide: https://sockets.sh/guides/#macos-1)
+sign = ""
+
+; TODO description & value
+codesign_identity = ""
+
+; TODO description & value
+sign_paths = ""
+
+
+[native]
+
+; Files that should be added to the compile step.
+files = native-module1.cc native-module2.cc
+
+; Extra Headers
+headers = native-module1.hh
+
+
+[win]
+
+; The command to execute to spawn the “back-end” process.
+cmd = "beepboop.exe"
+
+; The icon to use for identifying your app on Windows.
+icon = ""
+
+; The icon to use for identifying your app on Windows.
+logo = "src/icons/icon.png"
+
+; A relative path to the pfx file used for signing.
+pfx = "certs/cert.pfx"
+
+; The signing information needed by the appx api.
+publisher = "CN=Beep Boop Corp., O=Beep Boop Corp., L=San Francisco, S=California, C=US"
+
+[window]
+
+; The initial height of the first window.
+height = 80%
+
+; The initial width of the first window.
+width = 80%
+```

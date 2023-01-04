@@ -1363,7 +1363,6 @@ var require_button = __commonJS({
       tonic-button[disabled="true"],
       tonic-button[disabled="true"] button,
       tonic-button button[disabled] {
-        pointer-events: none;
         user-select: none;
         background-color: transparent
       }
@@ -1429,6 +1428,10 @@ var require_button = __commonJS({
           } else {
             window.open(href, "_self");
           }
+        }
+        if (disabled) {
+          e.preventDefault();
+          e.stopPropagation();
         }
       }
       styles() {
@@ -1663,12 +1666,25 @@ var require_checkbox = __commonJS({
         display: none;
       }
 
+      tonic-checkbox input:checked + label:after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 2px;
+        left: 6px;
+        width: 3px;
+        height: 8px;
+        border: solid var(--tonic-primary);
+        border-width: 0 2px 2px 0;
+        transform: rotate(45deg);
+      }
+
       tonic-checkbox input[type="checkbox"][disabled] + label {
         opacity: 0.35;
       }
 
       tonic-checkbox label {
-        color: var(--tonic-primary, #333);
+        color: var(--tonic-medium, #333);
         font: 12px var(--tonic-subheader, 'Arial', sans-serif);
         font-weight: 500;
         text-transform: uppercase;
@@ -1682,13 +1698,15 @@ var require_checkbox = __commonJS({
         display: inline-block;
         width: 100%;
         height: 100%;
+        border: 1px solid var(--tonic-border, #fff);
         background-size: contain;
+        background-color: var(--tonic-input-background);
+        border-radius: 2px;
         margin: 4px;
       }
 
-      tonic-checkbox .tonic--icon svg {
-        width: inherit;
-        height: inherit;
+      tonic-checkbox input[type="checkbox"][disabled] + .tonic--icon {
+        background-color: transparent;
       }
 
       tonic-checkbox label:nth-of-type(2) {
@@ -1721,21 +1739,6 @@ var require_checkbox = __commonJS({
             height: this.props.size
           }
         };
-      }
-      renderIcon() {
-        const checked = this.value;
-        const iconState = checked ? "checked" : "unchecked";
-        return this.html`
-      <svg>
-        <use ... ${{
-          href: `#${iconState}`,
-          "xlink:href": `#${iconState}`,
-          color: "var(--tonic-primary, #333)",
-          fill: "var(--tonic-primary, #333)"
-        }}>
-        </use>
-      </svg>
-    `;
       }
       renderLabel() {
         let {
@@ -1789,7 +1792,6 @@ var require_checkbox = __commonJS({
           styles="icon"
           class="tonic--icon"
         >
-          ${this.renderIcon()}
         </label>
         ${this.renderLabel()}
       </div>
@@ -1806,6 +1808,19 @@ var require_dialog = __commonJS({
   "node_modules/@socketsupply/components/dialog/index.js"(exports, module) {
     init_define_global();
     var Tonic5 = require_tonic();
+    var FOCUS_CHANGE_TIMEOUT = 100;
+    var focused = true;
+    var focusedTimeout = null;
+    window.addEventListener("blur", () => {
+      clearTimeout(focusedTimeout);
+      focused = false;
+    });
+    window.addEventListener("focus", () => {
+      clearTimeout(focusedTimeout);
+      focusedTimeout = setTimeout(() => {
+        focused = true;
+      }, FOCUS_CHANGE_TIMEOUT);
+    });
     var TonicDialog = class extends Tonic5 {
       constructor() {
         super();
@@ -1957,7 +1972,7 @@ var require_dialog = __commonJS({
           this.classList.remove("tonic--hide");
           this.classList.add("tonic--show");
           this._escapeHandler = (e) => {
-            if (e.keyCode === 27)
+            if (focused && e.keyCode === 27)
               this.hide();
           };
           document.addEventListener("keyup", this._escapeHandler);
@@ -2317,6 +2332,12 @@ var require_input = __commonJS({
         const wrapper = this.querySelector(".tonic--invalid");
         wrapper.style.display = "block";
       }
+      input(e) {
+        this.setValid();
+        if (!e.target.checkValidity()) {
+          this.setInvalid(this.props.errorMessage);
+        }
+      }
       static stylesheet() {
         return `
       tonic-input .tonic--wrapper {
@@ -2346,7 +2367,7 @@ var require_input = __commonJS({
       tonic-input[symbol-id] tonic-icon,
       tonic-input[src] tonic-icon {
         position: absolute;
-        bottom: 10px;
+        bottom: 8px;
       }
 
       tonic-input label {
@@ -2365,6 +2386,7 @@ var require_input = __commonJS({
         color: var(--tonic-primary, #333);
         font: 14px var(--tonic-monospace, 'Andale Mono', monospace);
         padding: 8px;
+        margin: 0;
         background-color: var(--tonic-input-background, var(--tonic-background, transparent));
         border: 1px solid var(--tonic-border, #ccc);
         -webkit-appearance: none;
@@ -2386,7 +2408,7 @@ var require_input = __commonJS({
 
       tonic-input[edited] input[invalid] ~ .tonic--invalid,
       tonic-input[edited] input:invalid ~ .tonic--invalid {
-        transform: translateY(0);
+        transform: translate(-50%, 0);
         visibility: visible;
         opacity: 1;
         transition: opacity 0.2s ease, transform 0.2s ease, visibility 1s ease 0s;
@@ -2406,8 +2428,8 @@ var require_input = __commonJS({
         margin-bottom: 13px;
         position: absolute;
         bottom: 100%;
-        left: 0;
-        right: 0;
+        left: 50%;
+        width: fit-content;
         transform: translateY(-10px);
         transition: opacity 0.2s ease, transform 0.2s ease, visibility 0s ease 1s;
         visibility: hidden;
@@ -2679,10 +2701,10 @@ var require_loader = __commonJS({
         <div class="inner">
           <svg version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
            width="40px" height="40px" viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve">
-          <path opacity="0.2" fill="#000" d="M20.201,5.169c-8.254,0-14.946,6.692-14.946,14.946c0,8.255,6.692,14.946,14.946,14.946
+          <path opacity="0.2" fill="var(--tonic-primary)" d="M20.201,5.169c-8.254,0-14.946,6.692-14.946,14.946c0,8.255,6.692,14.946,14.946,14.946
             s14.946-6.691,14.946-14.946C35.146,11.861,28.455,5.169,20.201,5.169z M20.201,31.749c-6.425,0-11.634-5.208-11.634-11.634
             c0-6.425,5.209-11.634,11.634-11.634c6.425,0,11.633,5.209,11.633,11.634C31.834,26.541,26.626,31.749,20.201,31.749z"/>
-          <path fill="#000" d="M26.013,10.047l1.654-2.866c-2.198-1.272-4.743-2.012-7.466-2.012h0v3.312h0
+          <path fill="var(--tonic-primary)" d="M26.013,10.047l1.654-2.866c-2.198-1.272-4.743-2.012-7.466-2.012h0v3.312h0
             C22.32,8.481,24.301,9.057,26.013,10.047z">
             <animateTransform attributeType="xml"
               attributeName="transform"
@@ -3856,6 +3878,7 @@ var require_relative_time = __commonJS({
           date = new Date();
         }
         if (this.props.refresh) {
+          clearInterval(this.interval);
           this.interval = setInterval(() => {
             this.reRender((props) => ({
               ...props,
@@ -4134,7 +4157,6 @@ var require_select = __commonJS({
         return {
           disabled: false,
           invalid: false,
-          iconArrow: TonicSelect.svg.default(),
           width: "250px",
           radius: "2px"
         };
@@ -4164,6 +4186,13 @@ var require_select = __commonJS({
         border-color: var(--tonic-border, #ccc);
       }
 
+      tonic-select .tonic--select {
+        position: relative;
+        border: 1px solid var(--tonic-border, #ccc);
+        border-radius: 2px;
+        background-color: var(--tonic-input-background, var(--tonic-background, #f66));
+      }
+
       tonic-select.tonic--loading .tonic--wrapper:before {
         margin-top: -8px;
         margin-left: -8px;
@@ -4180,22 +4209,50 @@ var require_select = __commonJS({
         transition: opacity 0.3s ease;
       }
 
+      tonic-select .tonic--arrow {
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 38px;
+        z-index: 1;
+      }
+
+      tonic-select .tonic--arrow:before {
+        content: "";
+        width: 6px;
+        height: 6px;
+        position: absolute;
+        top: 46%;
+        left: 50%;
+        -webkit-transform: translateY(-50%) translateX(-50%) rotate(135deg);
+        -moz-transform: translateY(-50%) translateX(-50%) rotate(135deg);
+        transform: translateY(-50%) translateX(-50%) rotate(135deg);
+        border-top: 1px solid var(--tonic-primary, #333);
+        border-right: 1px solid var(--tonic-primary, #333);
+      }
+
       tonic-select select {
         color: var(--tonic-primary, #333);
         font: 14px var(--tonic-monospace, 'Andale Mono', monospace);
-        background-color: var(--tonic-input-background, var(--tonic-background, #f66));
-        background-repeat: no-repeat;
-        background-position: center right;
-        border: 1px solid var(--tonic-border, #ccc);
+        background-color: transparent;
+        border: none;
+        width: 100%;
         -webkit-appearance: none;
         -moz-appearance: none;
         appearance: none;
         position: relative;
+        z-index: 2;
+        margin: 0;
+        outline: none;
       }
 
-      tonic-select select:focus {
+      tonic-select select:focus ~ .tonic--background {
+        content: " ";
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
         background-color: var(--tonic-input-background-focus, rgba(241, 241, 241, 0.75));
-        outline: none;
       }
 
       tonic-select[edited] select[invalid],
@@ -4207,7 +4264,7 @@ var require_select = __commonJS({
 
       tonic-select[edited] select[invalid] ~ .tonic--invalid,
       tonic-select[edited] select:invalid ~ .tonic--invalid {
-        transform: translateY(0);
+        transform: translate(-50%, 0);
         visibility: visible;
         opacity: 1;
         transition: opacity 0.2s ease, transform 0.2s ease, visibility 1s ease 0s;
@@ -4223,8 +4280,8 @@ var require_select = __commonJS({
         margin-bottom: 13px;
         position: absolute;
         bottom: 100%;
-        left: 0;
-        right: 0;
+        left: 50%;
+        width: fit-content;
         transform: translateY(-10px);
         transition: opacity 0.2s ease, transform 0.2s ease, visibility 0s ease 1s;
         visibility: hidden;
@@ -4297,6 +4354,14 @@ var require_select = __commonJS({
           return;
         input.setCustomValidity("");
         input.removeAttribute("invalid");
+        const wrapper = this.querySelector(".tonic--invalid");
+        if (!wrapper)
+          return;
+        Object.assign(wrapper.style, {
+          visibility: "",
+          display: "",
+          opacity: ""
+        });
       }
       setInvalid(msg) {
         const input = this.querySelector("select");
@@ -4312,6 +4377,14 @@ var require_select = __commonJS({
         if (!span)
           return;
         span.textContent = msg;
+        const wrapper = this.querySelector(".tonic--invalid");
+        if (!wrapper)
+          return;
+        Object.assign(wrapper.style, {
+          visibility: "visible",
+          display: "block",
+          opacity: 1
+        });
       }
       get value() {
         const el = this.querySelector("select");
@@ -4367,22 +4440,16 @@ var require_select = __commonJS({
       }
       styles() {
         const {
-          height,
-          width,
           padding,
-          radius,
-          iconArrow
+          radius
         } = this.props;
         return {
           wrapper: {
-            width
+            width: "100%"
           },
           select: {
-            width,
-            height,
             borderRadius: radius,
-            padding,
-            backgroundImage: `url('${iconArrow}')`
+            padding
           }
         };
       }
@@ -4435,8 +4502,11 @@ var require_select = __commonJS({
         return this.html`
       <div class="tonic--wrapper" styles="wrapper">
         ${this.renderLabel()}
-        <select ... ${{
+        <div class="tonic--select">
+          <select ... ${{
           styles: "select",
+          width: "100%",
+          height: "100%",
           disabled: disabled === "true",
           multiple: multiple === "true",
           name,
@@ -4445,8 +4515,11 @@ var require_select = __commonJS({
           size,
           id: `tonic--select_${this.props.id}`
         }}>
-          ${this.childNodes}
-        </select>
+            ${this.childNodes}
+          </select>
+          <div class="tonic--arrow"></div>
+          <div class="tonic--background"></div>
+        </div>
 
         <div class="tonic--invalid">
           <span id="tonic--error-${this.props.id}">${errorMessage}</span>
@@ -4456,13 +4529,6 @@ var require_select = __commonJS({
       }
     };
     __name(TonicSelect, "TonicSelect");
-    TonicSelect.svg = {};
-    TonicSelect.svg.toURL = (s) => `data:image/svg+xml;base64,${window.btoa(s)}`;
-    TonicSelect.svg.default = () => TonicSelect.svg.toURL(`
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-    <path fill="#D7DBDD" d="M61.4,45.8l-11,13.4c-0.2,0.3-0.5,0.3-0.7,0l-11-13.4c-0.3-0.3-0.1-0.8,0.4-0.8h22C61.4,45,61.7,45.5,61.4,45.8z"/>
-  </svg>
-`);
     module.exports = { TonicSelect };
   }
 });
@@ -4739,17 +4805,23 @@ var require_split = __commonJS({
         if (!previous && !state) {
           meta[panel] = {
             [panel]: this[panel].style[property],
+            [panel + "visibility"]: this[panel].style.visibility,
             [opposite]: this[opposite].style[property],
+            [opposite + "visibility"]: this[opposite].style.visibility,
             handle: this.handle.style.display
           };
           this[panel].style[property] = 0;
+          this[panel].style.visibility = "hidden";
           this[opposite].style[property] = "100%";
+          this[opposite].style.visibility = "inherit";
           this.handle.style.display = "none";
           return;
         }
         if (previous) {
           this[panel].style[property] = previous[panel];
+          this[panel].style.visibility = previous[panel + "visibility"];
           this[opposite].style[property] = previous[opposite];
+          this[opposite].style.visibility = previous[opposite + "visibility"];
           this.handle.style.display = previous.handle;
           delete meta[panel];
         }
@@ -5186,7 +5258,7 @@ var require_textarea = __commonJS({
 
       tonic-textarea[edited] textarea[invalid] ~ .tonic--invalid,
       tonic-textarea[edited] textarea:invalid ~ .tonic--invalid {
-        transform: translateY(0);
+        transform: translate(-50%, 0);
         visibility: visible;
         opacity: 1;
         transition: opacity 0.2s ease, transform 0.2s ease, visibility 1s ease 0s;
@@ -5206,8 +5278,8 @@ var require_textarea = __commonJS({
         margin-bottom: 13px;
         position: absolute;
         bottom: 100%;
-        left: 0;
-        right: 0;
+        left: 50%;
+        width: fit-content;
         transform: translateY(-10px);
         transition: opacity 0.2s ease, transform 0.2s ease, visibility 0s ease 1s;
         visibility: hidden;
@@ -5897,6 +5969,7 @@ var require_toaster = __commonJS({
         let dismiss = options.dismiss;
         const notification = document.createElement("div");
         notification.className = "tonic--notification";
+        notification.dataset.sig = sig;
         const node = this.querySelector(".tonic--wrapper");
         node.style.zIndex = this._getZIndex() + 100;
         const main = document.createElement("div");
@@ -5973,6 +6046,9 @@ var require_toaster = __commonJS({
         el.addEventListener("transitionend", (e) => {
           if (el && el.parentNode) {
             el.parentNode.removeChild(el);
+          }
+          if (this.lastToaster === el.dataset.sig) {
+            this.lastToaster = null;
           }
         });
       }
@@ -6230,7 +6306,7 @@ var require_components = __commonJS({
     }
     var version = Tonic5.version;
     var major = version ? version.split(".")[0] : "0";
-    if (parseInt(major, 10) < 12) {
+    if (version && parseInt(major, 10) < 12) {
       console.error("Out of date dependency. Try `npm install @socketsupply/tonic@12`.");
       throw new Error("Invalid Tonic version. requires at least v12");
     }
@@ -7032,6 +7108,14 @@ import_tonic4.default.add(GridContainer);
 var debug = (0, import_debug.default)("op:index");
 async function ready() {
   debug("op:ready");
+  const nav = document.querySelector("nav");
+  window.addEventListener("scroll", (e) => {
+    if (window.scrollY > 16) {
+      nav.classList.add("shadow");
+      return;
+    }
+    nav.classList.remove("shadow");
+  });
 }
 __name(ready, "ready");
 document.addEventListener("DOMContentLoaded", ready);

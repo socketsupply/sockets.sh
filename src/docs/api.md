@@ -24,10 +24,10 @@ Start the bluetooth service.
 
 | Return Value | Type | Description |
 | :---         | :--- | :---        |
-| Not specified | Promise<Any> |  |
+| Not specified | Promise<ipc.Result> |  |
 
 
-### [`subscribe(id)`](https://github.com/socketsupply/io/blob/master/bluetooth.js#L78)
+### [`subscribe(id )`](https://github.com/socketsupply/io/blob/master/bluetooth.js#L78)
 
 Start scanning for published values that correspond to a well-known UUID.
  Once subscribed to a UUID, events that correspond to that UUID will be
@@ -49,21 +49,22 @@ Start scanning for published values that correspond to a well-known UUID.
 
 | Return Value | Type | Description |
 | :---         | :--- | :---        |
-| Not specified | Promise<any> |  |
+| Not specified | Promise<ipc.Result> |  |
 
 
-### [`publish(id)`](https://github.com/socketsupply/io/blob/master/bluetooth.js#L90)
+### [`publish(id, value)`](https://github.com/socketsupply/io/blob/master/bluetooth.js#L91)
 
 Start advertising a new value for a well-known UUID
 
 | Argument | Type | Default | Optional | Description |
 | :---     | :--- | :---:   | :---:    | :---        |
 | id | string |  | false | A well-known UUID |
+| value | string |  | false |  |
 
 
 | Return Value | Type | Description |
 | :---         | :--- | :---        |
-| Not specified | Promise<any> |  |
+| Not specified | Promise<void> |  |
 
 
 # [Buffer](https://github.com/socketsupply/io/blob/master/buffer.js#L7)
@@ -78,11 +79,11 @@ External docs: https://nodejs.org/api/buffer.html#buffer_class_buffer
  Some high level methods around the `crypto.subtle` api for getting
  random bytes and hashing.
 
-## [webcrypto](https://github.com/socketsupply/io/blob/master/crypto.js#L16)
+## [webcrypto](https://github.com/socketsupply/io/blob/master/crypto.js#L14)
 
 WebCrypto API
 
-## [`getRandomValues(buffer)`](https://github.com/socketsupply/io/blob/master/crypto.js#L24)
+## [`getRandomValues(buffer)`](https://github.com/socketsupply/io/blob/master/crypto.js#L22)
 
 External docs: https://developer.mozilla.org/en-US/docs/Web/API/Crypto/getRandomValues
 
@@ -98,19 +99,19 @@ Generate cryptographically strong random values into `buffer`
 | Not specified | TypedArray |  |
 
 
-## [RANDOM_BYTES_QUOTA](https://github.com/socketsupply/io/blob/master/crypto.js#L36)
+## [RANDOM_BYTES_QUOTA](https://github.com/socketsupply/io/blob/master/crypto.js#L34)
 
 Maximum total size of random bytes per page
 
-## [MAX_RANDOM_BYTES](https://github.com/socketsupply/io/blob/master/crypto.js#L41)
+## [MAX_RANDOM_BYTES](https://github.com/socketsupply/io/blob/master/crypto.js#L39)
 
 Maximum total size for random bytes.
 
-## [MAX_RANDOM_BYTES_PAGES](https://github.com/socketsupply/io/blob/master/crypto.js#L46)
+## [MAX_RANDOM_BYTES_PAGES](https://github.com/socketsupply/io/blob/master/crypto.js#L44)
 
 Maximum total amount of allocated per page of bytes (max/quota)
 
-## [`randomBytes(size)`](https://github.com/socketsupply/io/blob/master/crypto.js#L53)
+## [`randomBytes(size)`](https://github.com/socketsupply/io/blob/master/crypto.js#L52)
 
 Generate `size` random bytes.
 
@@ -124,7 +125,7 @@ Generate `size` random bytes.
 | Not specified | Buffer | A promise that resolves with an instance of io.Buffer with random bytes. |
 
 
-## [`createDigest(algorithm, message)`](https://github.com/socketsupply/io/blob/master/crypto.js#L80)
+## [`createDigest(algorithm, message)`](https://github.com/socketsupply/io/blob/master/crypto.js#L79)
 
 
 
@@ -196,16 +197,7 @@ Creates a `Socket` instance.
 New instances of dgram.Socket are created using dgram.createSocket().
  The new keyword is not to be used to create dgram.Socket instances.
 
-### [`undefined()`](https://github.com/socketsupply/io/blob/master/dgram.js#L681)
-
-Implements `gc.finalizer` for gc'd resource cleanup.
-
-| Return Value | Type | Description |
-| :---         | :--- | :---        |
-| Not specified | gc.Finalizer |  |
-
-
-### [`bind(port, address, callback)`](https://github.com/socketsupply/io/blob/master/dgram.js#L704)
+### [`bind(port, address, callback)`](https://github.com/socketsupply/io/blob/master/dgram.js#L705)
 
 External docs: https://nodejs.org/api/dgram.html#socketbindport-address-callback
 
@@ -224,7 +216,7 @@ Listen for datagram messages on a named port and optional address
 | callback | function |  | false | With no parameters. Called when binding is complete. |
 
 
-### [`connect(port, host, connectListener)`](https://github.com/socketsupply/io/blob/master/dgram.js#L756)
+### [`connect(port, host, connectListener)`](https://github.com/socketsupply/io/blob/master/dgram.js#L757)
 
 External docs: https://nodejs.org/api/dgram.html#socketconnectport-address-callback
 
@@ -246,7 +238,7 @@ Associates the dgram.Socket to a remote address and port. Every message sent
 | connectListener | function |  | true | Common parameter of socket.connect() methods. Will be added as a listener for the 'connect' event once. |
 
 
-### [`disconnect()`](https://github.com/socketsupply/io/blob/master/dgram.js#L789)
+### [`disconnect()`](https://github.com/socketsupply/io/blob/master/dgram.js#L790)
 
 External docs: https://nodejs.org/api/dgram.html#socketdisconnect
 
@@ -255,7 +247,7 @@ A synchronous function that disassociates a connected dgram.Socket from
  disconnected socket will result in an ERR_SOCKET_DGRAM_NOT_CONNECTED exception.
 
 
-### [`send(msg, offset, length, port, address, callback)`](https://github.com/socketsupply/io/blob/master/dgram.js#L848)
+### [`send(msg, offset, length, port, address, callback)`](https://github.com/socketsupply/io/blob/master/dgram.js#L849)
 
 External docs: https://nodejs.org/api/dgram.html#socketsendmsg-offset-length-port-address-callback
 
@@ -308,7 +300,7 @@ Broadcasts a datagram on the socket. For connectionless sockets, the
 | callback | Function |  | true | Called when the message has been sent. |
 
 
-### [`close(callback)`](https://github.com/socketsupply/io/blob/master/dgram.js#L924)
+### [`close(callback)`](https://github.com/socketsupply/io/blob/master/dgram.js#L925)
 
 External docs: https://nodejs.org/api/dgram.html#socketclosecallback
 
@@ -322,7 +314,7 @@ Close the underlying socket and stop listening for data on it. If a
 | callback | function |  | true | Called when the connection is completed or on error. |
 
 
-### [`address()`](https://github.com/socketsupply/io/blob/master/dgram.js#L982)
+### [`address()`](https://github.com/socketsupply/io/blob/master/dgram.js#L983)
 
 External docs: https://nodejs.org/api/dgram.html#socketaddress
 
@@ -340,7 +332,7 @@ Returns an object containing the address information for a socket. For
 | socketInfo.family | string | The IP family of the socket |
 
 
-### [`remoteAddress()`](https://github.com/socketsupply/io/blob/master/dgram.js#L1017)
+### [`remoteAddress()`](https://github.com/socketsupply/io/blob/master/dgram.js#L1018)
 
 External docs: https://nodejs.org/api/dgram.html#socketremoteaddress
 
@@ -357,7 +349,7 @@ Returns an object containing the address, family, and port of the remote
 | socketInfo.family | string | The IP family of the socket |
 
 
-### [`setRecvBufferSize(size)`](https://github.com/socketsupply/io/blob/master/dgram.js#L1048)
+### [`setRecvBufferSize(size)`](https://github.com/socketsupply/io/blob/master/dgram.js#L1049)
 
 External docs: https://nodejs.org/api/dgram.html#socketsetrecvbuffersizesize
 
@@ -370,7 +362,7 @@ Sets the SO_RCVBUF socket option. Sets the maximum socket receive buffer in
 | size | number |  | false | The size of the new receive buffer |
 
 
-### [`setSendBufferSize(size)`](https://github.com/socketsupply/io/blob/master/dgram.js#L1065)
+### [`setSendBufferSize(size)`](https://github.com/socketsupply/io/blob/master/dgram.js#L1066)
 
 External docs: https://nodejs.org/api/dgram.html#socketsetsendbuffersizesize
 
@@ -383,13 +375,13 @@ Sets the SO_SNDBUF socket option. Sets the maximum socket send buffer in
 | size | number |  | false | The size of the new send buffer |
 
 
-### [`getRecvBufferSize()`](https://github.com/socketsupply/io/blob/master/dgram.js#L1078)
+### [`getRecvBufferSize()`](https://github.com/socketsupply/io/blob/master/dgram.js#L1079)
 
 External docs: https://nodejs.org/api/dgram.html#socketgetrecvbuffersize
 
 
 
-### [`getSendBufferSize()`](https://github.com/socketsupply/io/blob/master/dgram.js#L1086)
+### [`getSendBufferSize()`](https://github.com/socketsupply/io/blob/master/dgram.js#L1087)
 
 External docs: https://nodejs.org/api/dgram.html#socketgetsendbuffersize
 
@@ -477,7 +469,7 @@ External docs: https://nodejs.org/api/dns.html#dnspromiseslookuphostname-options
 
  This module enables interacting with the file system in a way modeled on
  standard POSIX functions.
- 
+
  The Application Sandbox restricts access to the file system.
  Please see the Application Sandbox documentation for more information:
  https://sockets.sh/guides/#working-with-the-file-system-on-ios
@@ -589,7 +581,7 @@ Invokes the callback with the <fs.Stats> for the file descriptor. See
 | callback | function |  | false | The function to call after completion. |
 
 
-## [`open(path, flags , mode , callback)`](https://github.com/socketsupply/io/blob/master/fs/index.js#L308)
+## [`open(path, flags , mode , callback)`](https://github.com/socketsupply/io/blob/master/fs/index.js#L331)
 
 Asynchronously open a file calling `callback` upon success or error.
 
@@ -601,7 +593,7 @@ Asynchronously open a file calling `callback` upon success or error.
 | callback | function(err, fd) |  | false |  |
 
 
-## [`opendir(path, options, callback)`](https://github.com/socketsupply/io/blob/master/fs/index.js#L361)
+## [`opendir(path, options, callback)`](https://github.com/socketsupply/io/blob/master/fs/index.js#L384)
 
 Asynchronously open a directory calling `callback` upon success or error.
 
@@ -614,7 +606,7 @@ Asynchronously open a directory calling `callback` upon success or error.
 | callback | function(err, fd) |  | false |  |
 
 
-## [`read(fd, buffer, offset, length, position, callback)`](https://github.com/socketsupply/io/blob/master/fs/index.js#L387)
+## [`read(fd, buffer, offset, length, position, callback)`](https://github.com/socketsupply/io/blob/master/fs/index.js#L410)
 
 Asynchronously read from an open file descriptor.
 
@@ -628,7 +620,7 @@ Asynchronously read from an open file descriptor.
 | callback | function(err, bytesRead, buffer) |  | false |  |
 
 
-## [`readdir(path, options, callback)`](https://github.com/socketsupply/io/blob/master/fs/index.js#L421)
+## [`readdir(path, options, callback)`](https://github.com/socketsupply/io/blob/master/fs/index.js#L444)
 
 Asynchronously read all entries in a directory.
 
@@ -641,7 +633,7 @@ Asynchronously read all entries in a directory.
 | callback | function(err, buffer) |  | false |  |
 
 
-## [`readFile(path, options, callback)`](https://github.com/socketsupply/io/blob/master/fs/index.js#L472)
+## [`readFile(path, options, callback)`](https://github.com/socketsupply/io/blob/master/fs/index.js#L495)
 
 
 
@@ -655,7 +647,7 @@ Asynchronously read all entries in a directory.
 | callback | function(err, buffer) |  | false |  |
 
 
-## [`stat(path, options, callback)`](https://github.com/socketsupply/io/blob/master/fs/index.js#L545)
+## [`stat(path, options, callback)`](https://github.com/socketsupply/io/blob/master/fs/index.js#L568)
 
 
 
@@ -669,7 +661,7 @@ Asynchronously read all entries in a directory.
 | callback | function(err, data) |  | false |  |
 
 
-## [`writeFile(path, data, options, callback)`](https://github.com/socketsupply/io/blob/master/fs/index.js#L615)
+## [`writeFile(path, data, options, callback)`](https://github.com/socketsupply/io/blob/master/fs/index.js#L638)
 
 
 
@@ -685,7 +677,7 @@ Asynchronously read all entries in a directory.
 | callback | function(err) |  | false |  |
 
 
-## [`writev()`](https://github.com/socketsupply/io/blob/master/fs/index.js#L652)
+## [`writev()`](https://github.com/socketsupply/io/blob/master/fs/index.js#L675)
 
 This is a `FunctionDeclaration` named `writev` in `fs/index.js`, it's exported but undocumented.
 
@@ -694,7 +686,7 @@ This is a `FunctionDeclaration` named `writev` in `fs/index.js`, it's exported b
 
 
 
-## [`access(path, mode, options)`](https://github.com/socketsupply/io/blob/master/fs/promises.js#L36)
+## [`access(path, mode, options)`](https://github.com/socketsupply/io/blob/master/fs/promises.js#L37)
 
 External docs: https://nodejs.org/dist/latest-v16.x/docs/api/fs.html#fspromisesaccesspath-mode
 
@@ -707,7 +699,40 @@ Asynchronously check access a file.
 | options | object |  | true |  |
 
 
-## [`open(path, flags, mode)`](https://github.com/socketsupply/io/blob/master/fs/promises.js#L119)
+## [`chmod(path, mode)`](https://github.com/socketsupply/io/blob/master/fs/promises.js#L54)
+
+External docs: https://nodejs.org/api/fs.html#fspromiseschmodpath-mode
+
+
+
+| Argument | Type | Default | Optional | Description |
+| :---     | :--- | :---:   | :---:    | :---        |
+| path | string \| Buffer \| URL |  | false |  |
+| mode | number |  | false |  |
+
+
+| Return Value | Type | Description |
+| :---         | :--- | :---        |
+| Not specified | Promise<void> |  |
+
+
+## [`mkdir(path, options)`](https://github.com/socketsupply/io/blob/master/fs/promises.js#L123)
+
+Asynchronously creates a directory.
+
+
+| Argument | Type | Default | Optional | Description |
+| :---     | :--- | :---:   | :---:    | :---        |
+| path | String |  | false | The path to create |
+| options | Object |  | false | The optional options argument can be an integer specifying mode (permission and sticky bits), or an object with a mode property and a recursive property indicating whether parent directories should be created. Calling fs.mkdir() when path is a directory that exists results in an error only when recursive is false. |
+
+
+| Return Value | Type | Description |
+| :---         | :--- | :---        |
+| Not specified | Primise<any> | Upon success, fulfills with undefined if recursive is false, or the first directory path created if recursive is true. |
+
+
+## [`open(path, flags, mode)`](https://github.com/socketsupply/io/blob/master/fs/promises.js#L147)
 
 External docs: https://nodejs.org/api/fs.html#fspromisesopenpath-flags-mode
 
@@ -726,7 +751,7 @@ Asynchronously open a file.
 | Not specified | Promise<FileHandle> |  |
 
 
-## [`opendir(path, options)`](https://github.com/socketsupply/io/blob/master/fs/promises.js#L131)
+## [`opendir(path, options)`](https://github.com/socketsupply/io/blob/master/fs/promises.js#L159)
 
 External docs: https://nodejs.org/api/fs.html#fspromisesopendirpath-options
 
@@ -745,7 +770,7 @@ External docs: https://nodejs.org/api/fs.html#fspromisesopendirpath-options
 | Not specified | Promise<FileSystem,Dir> |  |
 
 
-## [`readdir(path, options)`](https://github.com/socketsupply/io/blob/master/fs/promises.js#L143)
+## [`readdir(path, options)`](https://github.com/socketsupply/io/blob/master/fs/promises.js#L171)
 
 External docs: https://nodejs.org/dist/latest-v16.x/docs/api/fs.html#fspromisesreaddirpath-options
 
@@ -759,7 +784,7 @@ External docs: https://nodejs.org/dist/latest-v16.x/docs/api/fs.html#fspromisesr
 | options.withFileTypes | boolean | false | true |  |
 
 
-## [`readFile(path, options)`](https://github.com/socketsupply/io/blob/master/fs/promises.js#L176)
+## [`readFile(path, options)`](https://github.com/socketsupply/io/blob/master/fs/promises.js#L204)
 
 External docs: https://nodejs.org/dist/latest-v16.x/docs/api/fs.html#fspromisesreadfilepath-options
 
@@ -779,7 +804,25 @@ External docs: https://nodejs.org/dist/latest-v16.x/docs/api/fs.html#fspromisesr
 | Not specified | Promise<Buffer | string> |  |
 
 
-## [`writeFile(path, data, options)`](https://github.com/socketsupply/io/blob/master/fs/promises.js#L278)
+## [`stat(path, options)`](https://github.com/socketsupply/io/blob/master/fs/promises.js#L259)
+
+External docs: https://nodejs.org/api/fs.html#fspromisesstatpath-options
+
+
+
+| Argument | Type | Default | Optional | Description |
+| :---     | :--- | :---:   | :---:    | :---        |
+| path | string \| Buffer \| URL |  | false |  |
+| options | object |  | true |  |
+| options.bigint | boolean | false | true |  |
+
+
+| Return Value | Type | Description |
+| :---         | :--- | :---        |
+| Not specified | Promise<Stats> |  |
+
+
+## [`writeFile(path, data, options)`](https://github.com/socketsupply/io/blob/master/fs/promises.js#L313)
 
 External docs: https://nodejs.org/dist/latest-v16.x/docs/api/fs.html#fspromiseswritefilefile-data-options
 
@@ -886,7 +929,7 @@ This is a `VariableDeclaration` named `FileReadStream` in `fs/stream.js`, it's e
 This is a `VariableDeclaration` named `FileWriteStream` in `fs/stream.js`, it's exported but undocumented.
 
 
-# [IPC](https://github.com/socketsupply/io/blob/master/ipc.js#L27)
+# [IPC](https://github.com/socketsupply/io/blob/master/ipc.js#L28)
 
 
  This is a low level API which you don't need unless you are implementing
@@ -904,29 +947,35 @@ This is a `VariableDeclaration` named `FileWriteStream` in `fs/stream.js`, it's 
  Data written to the write-end of the pipe is buffered by the OS until it is
  read from the read-end of the pipe.
 
- The IPC protocol uses a simple URI-like scheme. Data is passed as ArrayBuffers.
+ The IPC protocol uses a simple URI-like scheme. Data is passed as
+ ArrayBuffers.
 
- ```uri
+ ```js
  ipc://command?key1=value1&key2=value2...
  ```
 
-## [OK](https://github.com/socketsupply/io/blob/master/ipc.js#L218)
+## [postMessage](https://github.com/socketsupply/io/blob/master/ipc.js#L47)
+
+This is a `VariableDeclaration` named `postMessage` in `ipc.js`, it's exported but undocumented.
+
+
+## [OK](https://github.com/socketsupply/io/blob/master/ipc.js#L313)
 
 Represents an OK IPC status.
 
-## [ERROR](https://github.com/socketsupply/io/blob/master/ipc.js#L223)
+## [ERROR](https://github.com/socketsupply/io/blob/master/ipc.js#L318)
 
 Represents an ERROR IPC status.
 
-## [TIMEOUT](https://github.com/socketsupply/io/blob/master/ipc.js#L228)
+## [TIMEOUT](https://github.com/socketsupply/io/blob/master/ipc.js#L323)
 
 Timeout in milliseconds for IPC requests.
 
-## [kDebugEnabled](https://github.com/socketsupply/io/blob/master/ipc.js#L233)
+## [kDebugEnabled](https://github.com/socketsupply/io/blob/master/ipc.js#L328)
 
 Symbol for the `ipc.debug.enabled` property
 
-## [`parseSeq(seq, options)`](https://github.com/socketsupply/io/blob/master/ipc.js#L241)
+## [`parseSeq(seq, options)`](https://github.com/socketsupply/io/blob/master/ipc.js#L336)
 
 Parses `seq` as integer value
 
@@ -937,7 +986,7 @@ Parses `seq` as integer value
 | options.bigint | boolean | false | false |  |
 
 
-## [`debug(enable)`](https://github.com/socketsupply/io/blob/master/ipc.js#L251)
+## [`debug(enable)`](https://github.com/socketsupply/io/blob/master/ipc.js#L346)
 
 If `debug.enabled === true`, then debug output will be printed to console.
 
@@ -951,15 +1000,15 @@ If `debug.enabled === true`, then debug output will be printed to console.
 | Not specified | boolean |  |
 
 
-## [`Message` (extends `URL`)](https://github.com/socketsupply/io/blob/master/ipc.js#L283)
+## [`Message` (extends `URL`)](https://github.com/socketsupply/io/blob/master/ipc.js#L378)
 
 A container for a IPC message based on a `ipc://` URI scheme.
 
-### [`PROTOCOL()`](https://github.com/socketsupply/io/blob/master/ipc.js#L288)
+### [`PROTOCOL()`](https://github.com/socketsupply/io/blob/master/ipc.js#L382)
 
 The expected protocol for an IPC message.
 
-### [`from(input, params)`](https://github.com/socketsupply/io/blob/master/ipc.js#L298)
+### [`from(input, params)`](https://github.com/socketsupply/io/blob/master/ipc.js#L392)
 
 Creates a `Message` instance from a variety of input.
 
@@ -974,7 +1023,7 @@ Creates a `Message` instance from a variety of input.
 | Not specified | Message |  |
 
 
-### [`isValidInput(input)`](https://github.com/socketsupply/io/blob/master/ipc.js#L351)
+### [`isValidInput(input)`](https://github.com/socketsupply/io/blob/master/ipc.js#L445)
 
 Predicate to determine if `input` is valid for constructing
  a new `Message` instance.
@@ -989,7 +1038,7 @@ Predicate to determine if `input` is valid for constructing
 | Not specified | boolean |  |
 
 
-### [`constructor(input)`](https://github.com/socketsupply/io/blob/master/ipc.js#L366)
+### [`constructor(input)`](https://github.com/socketsupply/io/blob/master/ipc.js#L460)
 
 `Message` class constructor.
 
@@ -998,39 +1047,39 @@ Predicate to determine if `input` is valid for constructing
 | input | string \| URL |  | false |  |
 
 
-### [`command()`](https://github.com/socketsupply/io/blob/master/ipc.js#L392)
+### [`command()`](https://github.com/socketsupply/io/blob/master/ipc.js#L486)
 
 Computed command for the IPC message.
 
-### [`id()`](https://github.com/socketsupply/io/blob/master/ipc.js#L399)
+### [`id()`](https://github.com/socketsupply/io/blob/master/ipc.js#L493)
 
 Computed `id` value for the command.
 
-### [`seq()`](https://github.com/socketsupply/io/blob/master/ipc.js#L406)
+### [`seq()`](https://github.com/socketsupply/io/blob/master/ipc.js#L500)
 
 Computed `seq` (sequence) value for the command.
 
-### [`value()`](https://github.com/socketsupply/io/blob/master/ipc.js#L414)
+### [`value()`](https://github.com/socketsupply/io/blob/master/ipc.js#L508)
 
 Computed message value potentially given in message parameters.
  This value is automatically decoded, but not treated as JSON.
 
-### [`index()`](https://github.com/socketsupply/io/blob/master/ipc.js#L423)
+### [`index()`](https://github.com/socketsupply/io/blob/master/ipc.js#L517)
 
 Computed `index` value for the command potentially referring to
  the window index the command is scoped to or originating from. If not
  specified in the message parameters, then this value defaults to `-1`.
 
-### [`json()`](https://github.com/socketsupply/io/blob/master/ipc.js#L440)
+### [`json()`](https://github.com/socketsupply/io/blob/master/ipc.js#L534)
 
 Computed value parsed as JSON. This value is `null` if the value is not present
  or it is invalid JSON.
 
-### [`params()`](https://github.com/socketsupply/io/blob/master/ipc.js#L447)
+### [`params()`](https://github.com/socketsupply/io/blob/master/ipc.js#L541)
 
 Computed readonly object of message parameters.
 
-### [`entries()`](https://github.com/socketsupply/io/blob/master/ipc.js#L455)
+### [`entries()`](https://github.com/socketsupply/io/blob/master/ipc.js#L549)
 
 Returns computed parameters as entries
 
@@ -1039,7 +1088,7 @@ Returns computed parameters as entries
 | Not specified | Array<Array<string,mixed>> |  |
 
 
-### [`set(key, value)`](https://github.com/socketsupply/io/blob/master/ipc.js#L466)
+### [`set(key, value)`](https://github.com/socketsupply/io/blob/master/ipc.js#L560)
 
 Set a parameter `value` by `key`.
 
@@ -1049,7 +1098,7 @@ Set a parameter `value` by `key`.
 | value | mixed |  | false |  |
 
 
-### [`get(key, defaultValue)`](https://github.com/socketsupply/io/blob/master/ipc.js#L480)
+### [`get(key, defaultValue)`](https://github.com/socketsupply/io/blob/master/ipc.js#L574)
 
 Get a parameter value by `key`.
 
@@ -1064,7 +1113,7 @@ Get a parameter value by `key`.
 | Not specified | mixed |  |
 
 
-### [`delete(key)`](https://github.com/socketsupply/io/blob/master/ipc.js#L493)
+### [`delete(key)`](https://github.com/socketsupply/io/blob/master/ipc.js#L587)
 
 Delete a parameter by `key`.
 
@@ -1078,7 +1127,7 @@ Delete a parameter by `key`.
 | Not specified | boolean |  |
 
 
-### [`keys()`](https://github.com/socketsupply/io/blob/master/ipc.js#L505)
+### [`keys()`](https://github.com/socketsupply/io/blob/master/ipc.js#L599)
 
 Computed parameter keys.
 
@@ -1087,7 +1136,7 @@ Computed parameter keys.
 | Not specified | Array<string> |  |
 
 
-### [`values()`](https://github.com/socketsupply/io/blob/master/ipc.js#L513)
+### [`values()`](https://github.com/socketsupply/io/blob/master/ipc.js#L607)
 
 Computed parameter values.
 
@@ -1096,7 +1145,7 @@ Computed parameter values.
 | Not specified | Array<mixed> |  |
 
 
-### [`has(key)`](https://github.com/socketsupply/io/blob/master/ipc.js#L522)
+### [`has(key)`](https://github.com/socketsupply/io/blob/master/ipc.js#L616)
 
 Predicate to determine if parameter `key` is present in parameters.
 
@@ -1110,18 +1159,18 @@ Predicate to determine if parameter `key` is present in parameters.
 | Not specified | boolean |  |
 
 
-### [`toJSON()`](https://github.com/socketsupply/io/blob/master/ipc.js#L529)
+### [`toJSON()`](https://github.com/socketsupply/io/blob/master/ipc.js#L623)
 
 Converts a `Message` instance into a plain JSON object.
 
-## [Result](https://github.com/socketsupply/io/blob/master/ipc.js#L541)
+## [Result](https://github.com/socketsupply/io/blob/master/ipc.js#L635)
 
 A result type used internally for handling
  IPC result values from the native layer that are in the form
  of `{ err?, data? }`. The `data` and `err` properties on this
  type of object are in tuple form and be accessed at `[data?,err?]`
 
-### [`from(result, maybeError, maybeSource)`](https://github.com/socketsupply/io/blob/master/ipc.js#L551)
+### [`from(result, maybeError, maybeSource)`](https://github.com/socketsupply/io/blob/master/ipc.js#L644)
 
 Creates a `Result` instance from input that may be an object
  like `{ err?, data? }`, an `Error` instance, or just `data`.
@@ -1129,8 +1178,8 @@ Creates a `Result` instance from input that may be an object
 | Argument | Type | Default | Optional | Description |
 | :---     | :--- | :---:   | :---:    | :---        |
 | result | object \| Error \| mixed |  | true |  |
-| maybeError | ?(Error) |  | false |  |
-| maybeSource | ?(string) |  | false |  |
+| maybeError | Error |  | true |  |
+| maybeSource | string |  | true |  |
 
 
 | Return Value | Type | Description |
@@ -1138,31 +1187,27 @@ Creates a `Result` instance from input that may be an object
 | Not specified | Result |  |
 
 
-### [`constructor(err , data , source )`](https://github.com/socketsupply/io/blob/master/ipc.js#L589)
+### [`constructor(err , data , source )`](https://github.com/socketsupply/io/blob/master/ipc.js#L682)
 
 `Result` class constructor.
 
 | Argument | Type | Default | Optional | Description |
 | :---     | :--- | :---:   | :---:    | :---        |
-| err | ?(Error) | null | false |  |
-| data | ?(object) | null | false |  |
-| source | ?(string) | undefined | false |  |
+| err | Error | null | true |  |
+| data | object | null | true |  |
+| source | string | undefined | true |  |
 
 
-### [`length()`](https://github.com/socketsupply/io/blob/master/ipc.js#L618)
+### [`length()`](https://github.com/socketsupply/io/blob/master/ipc.js#L711)
 
 Computed result length.
 
-### [`undefined()`](https://github.com/socketsupply/io/blob/master/ipc.js#L625)
-
-Generator for an `Iterable` interface over this instance.
-
-## [`ready()`](https://github.com/socketsupply/io/blob/master/ipc.js#L636)
+## [`ready()`](https://github.com/socketsupply/io/blob/master/ipc.js#L730)
 
 Waits for the native IPC layer to be ready and exposed on the
  global window object.
 
-## [`sendSync(command, params)`](https://github.com/socketsupply/io/blob/master/ipc.js#L661)
+## [`sendSync(command, params)`](https://github.com/socketsupply/io/blob/master/ipc.js#L755)
 
 Sends a synchronous IPC command over XHR returning a `Result`
  upon success or error.
@@ -1178,49 +1223,56 @@ Sends a synchronous IPC command over XHR returning a `Result`
 | Not specified | Result |  |
 
 
-## [`emit(name)`](https://github.com/socketsupply/io/blob/master/ipc.js#L702)
+## [`emit(name, value, target , options)`](https://github.com/socketsupply/io/blob/master/ipc.js#L800)
 
 Emit event to be dispatched on `window` object.
 
 | Argument | Type | Default | Optional | Description |
 | :---     | :--- | :---:   | :---:    | :---        |
 | name | string |  | false |  |
-| ...args | ..Mixed |  | false |  |
+| value | Mixed |  | false |  |
+| target | EventTarget | window | true |  |
+| options | Object |  | true |  |
 
 
-## [`resolve(seq)`](https://github.com/socketsupply/io/blob/master/ipc.js#L717)
+## [`resolve(seq, value)`](https://github.com/socketsupply/io/blob/master/ipc.js#L836)
 
 Resolves a request by `seq` with possible value.
 
 | Argument | Type | Default | Optional | Description |
 | :---     | :--- | :---:   | :---:    | :---        |
 | seq | string |  | false |  |
-| ...args | ..Mixed |  | false |  |
+| value | Mixed |  | false |  |
 
 
-## [`send(command)`](https://github.com/socketsupply/io/blob/master/ipc.js#L732)
+## [`send(command, value)`](https://github.com/socketsupply/io/blob/master/ipc.js#L855)
 
 Sends an async IPC command request with parameters.
 
 | Argument | Type | Default | Optional | Description |
 | :---     | :--- | :---:   | :---:    | :---        |
 | command | string |  | false |  |
-| ...args | ..Mixed |  | false |  |
+| value | Mixed |  | true |  |
 
 
-## [`write(command, params, buffer, options)`](https://github.com/socketsupply/io/blob/master/ipc.js#L756)
+| Return Value | Type | Description |
+| :---         | :--- | :---        |
+| Not specified | Promise<Result> |  |
+
+
+## [`write(command, params, buffer, options)`](https://github.com/socketsupply/io/blob/master/ipc.js#L906)
 
 Sends an async IPC command request with parameters and buffered bytes.
 
 | Argument | Type | Default | Optional | Description |
 | :---     | :--- | :---:   | :---:    | :---        |
 | command | string |  | false |  |
-| params | ?(object) |  | false |  |
-| buffer | ?(Buffer \| TypeArray \| ArrayBuffer \| string \| Array) |  | false |  |
-| options | ?(object) |  | false |  |
+| params | object |  | true |  |
+| buffer | Buffer \| TypeArray \| ArrayBuffer \| string \| Array |  | true |  |
+| options | object |  | true |  |
 
 
-## [`request(command, params, options)`](https://github.com/socketsupply/io/blob/master/ipc.js#L851)
+## [`request(command, params, options)`](https://github.com/socketsupply/io/blob/master/ipc.js#L1003)
 
 Sends an async IPC command request with parameters requesting a response
  with buffered bytes.
@@ -1228,11 +1280,11 @@ Sends an async IPC command request with parameters requesting a response
 | Argument | Type | Default | Optional | Description |
 | :---     | :--- | :---:   | :---:    | :---        |
 | command | string |  | false |  |
-| params | ?(object) |  | false |  |
-| options | ?(object) |  | false |  |
+| params | object |  | true |  |
+| options | object |  | true |  |
 
 
-## [`createBinding(domain, ctx)`](https://github.com/socketsupply/io/blob/master/ipc.js#L942)
+## [`createBinding(domain, ctx)`](https://github.com/socketsupply/io/blob/master/ipc.js#L1096)
 
 Factory for creating a proxy based IPC API.
 
@@ -1264,27 +1316,27 @@ This is a `FunctionDeclaration` named `arch` in `os.js`, it's exported but undoc
 This is a `FunctionDeclaration` named `networkInterfaces` in `os.js`, it's exported but undocumented.
 
 
-## [`platform()`](https://github.com/socketsupply/io/blob/master/os.js#L138)
+## [`platform()`](https://github.com/socketsupply/io/blob/master/os.js#L141)
 
 This is a `FunctionDeclaration` named `platform` in `os.js`, it's exported but undocumented.
 
 
-## [`type()`](https://github.com/socketsupply/io/blob/master/os.js#L167)
+## [`type()`](https://github.com/socketsupply/io/blob/master/os.js#L170)
 
 This is a `FunctionDeclaration` named `type` in `os.js`, it's exported but undocumented.
 
 
-## [`isWindows()`](https://github.com/socketsupply/io/blob/master/os.js#L207)
+## [`isWindows()`](https://github.com/socketsupply/io/blob/master/os.js#L210)
 
 This is a `FunctionDeclaration` named `isWindows` in `os.js`, it's exported but undocumented.
 
 
-## [`tmpdir()`](https://github.com/socketsupply/io/blob/master/os.js#L216)
+## [`tmpdir()`](https://github.com/socketsupply/io/blob/master/os.js#L219)
 
 This is a `FunctionDeclaration` named `tmpdir` in `os.js`, it's exported but undocumented.
 
 
-## [EOL](https://github.com/socketsupply/io/blob/master/os.js#L261)
+## [EOL](https://github.com/socketsupply/io/blob/master/os.js#L263)
 
 This is a `VariableDeclaration` named `EOL` in `os.js`, it's exported but undocumented.
 
@@ -1334,7 +1386,7 @@ Computes current working directory for a path
 
 
 
-## [`homedir()`](https://github.com/socketsupply/io/blob/master/process.js#L12)
+## [`homedir()`](https://github.com/socketsupply/io/blob/master/process.js#L31)
 
 
 
@@ -1343,13 +1395,247 @@ Computes current working directory for a path
 | Not specified | string | The home directory of the current user. |
 
 
-## [`exit(code)`](https://github.com/socketsupply/io/blob/master/process.js#L19)
+## [`exit(code)`](https://github.com/socketsupply/io/blob/master/process.js#L38)
 
 
 
 | Argument | Type | Default | Optional | Description |
 | :---     | :--- | :---:   | :---:    | :---        |
 | code | number | 0 | true | The exit code. Default: 0. |
+
+
+# [Runtime](https://github.com/socketsupply/io/blob/master/runtime.js#L8)
+
+
+ Provides runtime-specific methods
+
+## [currentWindow](https://github.com/socketsupply/io/blob/master/runtime.js#L12)
+
+This is a `VariableDeclaration` named `currentWindow` in `runtime.js`, it's exported but undocumented.
+
+
+## [debug](https://github.com/socketsupply/io/blob/master/runtime.js#L14)
+
+This is a `VariableDeclaration` named `debug` in `runtime.js`, it's exported but undocumented.
+
+
+## [config](https://github.com/socketsupply/io/blob/master/runtime.js#L16)
+
+This is a `VariableDeclaration` named `config` in `runtime.js`, it's exported but undocumented.
+
+
+## [`send()`](https://github.com/socketsupply/io/blob/master/runtime.js#L26)
+
+This is a `FunctionDeclaration` named `send` in `runtime.js`, it's exported but undocumented.
+
+
+## [`getWindows()`](https://github.com/socketsupply/io/blob/master/runtime.js#L42)
+
+This is a `FunctionDeclaration` named `getWindows` in `runtime.js`, it's exported but undocumented.
+
+
+## [`openExternal()`](https://github.com/socketsupply/io/blob/master/runtime.js#L46)
+
+This is a `FunctionDeclaration` named `openExternal` in `runtime.js`, it's exported but undocumented.
+
+
+## [`exit(options)`](https://github.com/socketsupply/io/blob/master/runtime.js#L55)
+
+Quits the backend process and then quits the render process, the exit code used is the final exit code to the OS.
+
+| Argument | Type | Default | Optional | Description |
+| :---     | :--- | :---:   | :---:    | :---        |
+| options | object |  | false | an options object |
+
+
+| Return Value | Type | Description |
+| :---         | :--- | :---        |
+| Not specified | Promise<Any> |  |
+
+
+## [`setTitle(options)`](https://github.com/socketsupply/io/blob/master/runtime.js#L64)
+
+Sets the title of the window (if applicable).
+
+| Argument | Type | Default | Optional | Description |
+| :---     | :--- | :---:   | :---:    | :---        |
+| options | obnject |  | false | an options object |
+
+
+| Return Value | Type | Description |
+| :---         | :--- | :---        |
+| Not specified | Promise<ipc.Result> |  |
+
+
+## [`inspect()`](https://github.com/socketsupply/io/blob/master/runtime.js#L68)
+
+This is a `FunctionDeclaration` named `inspect` in `runtime.js`, it's exported but undocumented.
+
+
+## [`show(opts)`](https://github.com/socketsupply/io/blob/master/runtime.js#L76)
+
+
+
+| Argument | Type | Default | Optional | Description |
+| :---     | :--- | :---:   | :---:    | :---        |
+| opts | object |  | false | an options object |
+
+
+| Return Value | Type | Description |
+| :---         | :--- | :---        |
+| Not specified | Promise<ipc.Result> |  |
+
+
+## [`hide(opts)`](https://github.com/socketsupply/io/blob/master/runtime.js#L89)
+
+
+
+| Argument | Type | Default | Optional | Description |
+| :---     | :--- | :---:   | :---:    | :---        |
+| opts | object |  | false | an options object |
+
+
+| Return Value | Type | Description |
+| :---         | :--- | :---        |
+| Not specified | Promise<ipc.Result> |  |
+
+
+## [`navigate(opts)`](https://github.com/socketsupply/io/blob/master/runtime.js#L100)
+
+
+
+| Argument | Type | Default | Optional | Description |
+| :---     | :--- | :---:   | :---:    | :---        |
+| opts | object |  | false | an options object |
+| opts.window | number | currentWindow | false | the index of the window |
+| opts.url | number |  | false | the path to the HTML file to load into the window |
+
+
+| Return Value | Type | Description |
+| :---         | :--- | :---        |
+| Not specified | Promise<ipc.Result> |  |
+
+
+## [`setWindowBackgroundColor()`](https://github.com/socketsupply/io/blob/master/runtime.js#L109)
+
+This is a `FunctionDeclaration` named `setWindowBackgroundColor` in `runtime.js`, it's exported but undocumented.
+
+
+## [`setContextMenu(options)`](https://github.com/socketsupply/io/blob/master/runtime.js#L120)
+
+Opens a native context menu.
+
+| Argument | Type | Default | Optional | Description |
+| :---     | :--- | :---:   | :---:    | :---        |
+| options | object |  | false | an options object |
+
+
+| Return Value | Type | Description |
+| :---         | :--- | :---        |
+| Not specified | Promise<Any> |  |
+
+
+## [`setSystemMenuItemEnabled()`](https://github.com/socketsupply/io/blob/master/runtime.js#L128)
+
+This is a `FunctionDeclaration` named `setSystemMenuItemEnabled` in `runtime.js`, it's exported but undocumented.
+
+
+## [`setSystemMenu(options)`](https://github.com/socketsupply/io/blob/master/runtime.js#L217)
+
+Set the native menu for the app.
+
+
+ Socket Runtime provides a minimalist DSL that makes it easy to create
+ cross platform native system and context menus.
+
+ Menus are created at run time. They can be created from either the Main or
+ Render process. The can be recreated instantly by calling the `setSystemMenu` method.
+
+ The method takes a string. Here's an example of a menu. The semi colon is
+ significant indicates the end of the menu. Use an underscore when there is no
+ accelerator key. Modifiers are optional. And well known OS menu options like
+ the edit menu will automatically get accelerators you dont need to specify them.
+
+
+ ```js
+ io.runtime.setSystemMenu({ index: 0, value: `
+   App:
+     Foo: f;
+
+   Edit:
+     Cut: x
+     Copy: c
+     Paste: v
+     Delete: _
+     Select All: a;
+
+   Other:
+     Apple: _
+     Another Test: T
+     !Im Disabled: I
+     Some Thing: S + Meta
+     ---
+     Bazz: s + Meta, Control, Alt;
+ `)
+ ```
+
+ #### Separators
+
+ To create a separator, use three dashes `---`.
+
+ #### Accelerator Modifiers
+
+ Accelerator modifiers are used as visual indicators but don't have a
+ material impact as the actual key binding is done in the event listener.
+
+ A capital letter implies that the accelerator is modified by the `Shift` key.
+
+ Additional accelerators are `Meta`, `Control`, `Option`, each separated
+ by commas. If one is not applicable for a platform, it will just be ignored.
+
+ On MacOS `Meta` is the same as `Command`.
+
+ #### Disabled Items
+
+ If you want to disable a menu item just prefix the item with the `!` character.
+ This will cause the item to appear disabled when the system menu renders.
+
+ #### Submenus
+
+ We feel like nested menus are an anti-pattern. We don't use them. If you have a
+ strong argument for them and a very simple pull request that makes them work we
+ may consider them.
+
+ #### Event Handling
+
+ When a menu item is activated, it raises the `menuItemSelected` event in
+ the front end code, you can then communicate with your backend code if you
+ want from there.
+
+ For example, if the `Apple` item is selected from the `Other` menu...
+
+ ```js
+ window.addEventListener('menuItemSelected', event => {
+   assert(event.detail.parent === 'Other')
+   assert(event.detail.title === 'Apple')
+ })
+ ```
+
+| Argument | Type | Default | Optional | Description |
+| :---     | :--- | :---:   | :---:    | :---        |
+| options | object |  | false | an options object |
+| options.value | string |  | false | the menu layout |
+| options.index | number |  | false | the window to target (if applicable) |
+
+
+| Return Value | Type | Description |
+| :---         | :--- | :---        |
+| Not specified | Promise<Any> |  |
+
+
+## [`reload()`](https://github.com/socketsupply/io/blob/master/runtime.js#L266)
+
+This is a `FunctionDeclaration` named `reload` in `runtime.js`, it's exported but undocumented.
 
 
 # [Stream](https://github.com/socketsupply/io/blob/master/stream.js#L5)

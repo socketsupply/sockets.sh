@@ -12,7 +12,7 @@
   },
   "type": "module",
   "dependencies": {
-    "@socketsupply/components": "13.2.0",
+    "@socketsupply/components": "^13.2.0",
     "@socketsupply/tonic": "14.1.0",
     "debug": "^4.3.1",
     "esbuild": "^0.14.49",

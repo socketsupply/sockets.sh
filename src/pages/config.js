@@ -19,19 +19,9 @@ class PageConfig extends Tonic {
           <main>
             <h1>Config File</h1>
             <p>
-              Each project needs a <code>ssc.config</code> file in the root
-              direcrory. This is a plain text file with key-value property pairs.
-              The file also supports comments.
+              Each project needs a <code>socket.ini</code> file in the root
+              direcrory. This is an <a href="https://en.wikipedia.org/wiki/INI_file">ini</a> file.
             </p>
-
-            <pre><code>#
-# This is a comment
-#
-foo: bar
-quxx: beep boop
-
-# another comment
-animals: cats, dogs, bears</code></pre>
 
             <markdown-module src="src/docs/config.md"></markdown-module>
           </main>

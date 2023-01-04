@@ -12,7 +12,7 @@ const renderer = new marked.Renderer()
 
 const highlight = (code, lang = 'javascript', escaped) => {
   if (!lang) lang = 'javascript'
-  return hl.highlight(code, { language: 'javascript', ignoreIllegals: true }).value
+  return hl.highlight(code, { language: lang, ignoreIllegals: true }).value
 }
 
 marked.setOptions({
