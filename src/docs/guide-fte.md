@@ -162,8 +162,13 @@ pipe.write(Message.from('setTitle', { value: 'hello' }))
 
 </tonic-tab-panel>
 
-## File Layout
+<h2>Next Steps</h2>
+<p>Ready to build something?</p>
 
-```
+<a href="#mobile-guide" class="cyoa mobile">
+  Mobile &rarr;
+</a>
 
-```
+<a href="#desktop-guide" class="cyoa desktop">
+  Desktop &rarr;
+</a>
