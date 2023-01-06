@@ -84,7 +84,6 @@
 #anatomy [data-id="ui"],
 #anatomy [data-id="socket"] {
   left: 40px;
-  background: var(--tonic-window);
   border: 1px solid var(--tonic-primary);
   height: 164px;
   width: 580px;
@@ -95,6 +94,8 @@
 #anatomy [data-id="ui"] {
   left: 80px;
   top: -100px;
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
 }
 
 #anatomy [data-id="ui"] span {

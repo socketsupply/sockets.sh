@@ -34,7 +34,7 @@ async function ready () {
   const selector = '[data-id]:not([data-id="stack"], [data-id="os"])'
 
   const all = [...document.querySelectorAll(selector)]
-  const tabs = document.querySelector('tonic-tabs')
+  const tabs = document.querySelector('tonic-tabs#code-01')
 
   for (const el of all) {
     el.addEventListener('mouseenter', e => {

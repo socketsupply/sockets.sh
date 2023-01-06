@@ -9,6 +9,41 @@ While it's very competitive to similar projects, its primary goal is to be
 the best batteries-inlcuded solution for web developers to create local-first
 and peer-to-peer software. What is a [socket](https://en.wikipedia.org/wiki/Network_socket)?
 
+## Install
+
+<tonic-tabs selected="tab-mac" id="get-started">
+  <tonic-tab id="tab-npm" for="panel-npm">npm</tonic-tab>
+  <tonic-tab id="tab-mac" for="panel-mac">macOS</tonic-tab>
+  <tonic-tab id="tab-linux" for="panel-linux">Linux</tonic-tab>
+  <tonic-tab id="tab-win" for="panel-win">Windows</tonic-tab>
+</tonic-tabs>
+
+<tonic-tab-panel id="panel-npm">
+  <code>
+    npx @socketsupply/install
+  </code>
+</tonic-tab-panel>
+
+<tonic-tab-panel id="panel-mac">
+  <code>
+    curl -s -o- https://sockets.sh/sh | bash -s
+  </code>
+</tonic-tab-panel>
+
+<tonic-tab-panel id="panel-linux">
+  <code>
+    curl -s -o- https://sockets.sh/sh | bash -s
+  </code>
+</tonic-tab-panel>
+
+<tonic-tab-panel id="panel-win">
+  <code>
+    iwr -useb https://sockets.sh/ps | iex
+  </code>
+</tonic-tab-panel>
+
+
+
 ## Anatomy of a Socket App
 
 <div id="anatomy">
@@ -35,7 +70,7 @@ and peer-to-peer software. What is a [socket](https://en.wikipedia.org/wiki/Netw
   <div class="content">
    <div data-content="subprocess">
      <label>Sub Process</label>
-     <p>Some apps that do computationally expensive work and want to move that logic into a sub process. That sub process will be piped to the render process, so it can be any language.</p>
+     <p>Some apps that do computationally intensive work and may want to move that logic into a sub process. That sub process will be piped to the render process, so it can be any language.</p>
    </div>
    <div data-content="ui">
      <label>User Interface</label>
@@ -126,3 +161,9 @@ pipe.write(Message.from('setTitle', { value: 'hello' }))
 ```
 
 </tonic-tab-panel>
+
+## File Layout
+
+```
+
+```

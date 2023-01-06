@@ -13,7 +13,7 @@ This will create an `ssc.config` file as well as a `src` directory
 with an `index.html` file in it. First, open the config file in your editor
 and replace some of the example values with your own. Here's an example.
 
-```
+```html
 <!doctype html>
 <html>
   <head>

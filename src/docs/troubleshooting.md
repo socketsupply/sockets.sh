@@ -201,7 +201,7 @@ export CXX=g++-12
 
 If you run into an error about not finding webkit & gtk like this:
 
-```
+```text
 Package webkit2gtk-4.1 was not found in the pkg-config search path.
 Perhaps you should add the directory containing `webkit2gtk-4.1.pc'
 to the PKG_CONFIG_PATH environment variable
