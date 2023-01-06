@@ -73,7 +73,7 @@ and peer-to-peer software. What is a [socket](https://en.wikipedia.org/wiki/Netw
 import io from '@socketsupply/io'
 
 window.addEventListener('DOMContentLoaded', () => {
-    io.process.load() // load the "backend" process (if it's specified in the ini file).
+  io.backend.open() // spawn the "backend" process (if specified in the ini file).
 })
 ```
 
@@ -115,11 +115,14 @@ h1 {
 // Unlike Electron or other frameworks, this is completely optional.
 // This is an example of using a javascript runtime as a sub process.
 
-import io from '@socketsupply/io/node.js'
+import { Message } from '@socketsupply/socket-api/ipc.js'
+import pipe from '@socketsupply/node-pipe'
 
-io.on('data', data => {
-    io.write(data)
+pipe.on('data', data => {
+  pipe.write(data)
 })
+
+pipe.write(Message.from('setTitle', { value: 'hello' }))
 ```
 
 </tonic-tab-panel>
