@@ -7116,6 +7116,47 @@ async function ready() {
     }
     nav.classList.remove("shadow");
   });
+  let timeout = null;
+  const selector = '[data-id]:not([data-id="stack"], [data-id="os"])';
+  const all = [...document.querySelectorAll(selector)];
+  const tabs = document.querySelector("tonic-tabs");
+  for (const el of all) {
+    el.addEventListener("mouseenter", (e) => {
+      clearTimeout(timeout);
+      const el2 = import_tonic4.default.match(e.target, selector);
+      if (!el2)
+        return;
+      if (el2.dataset.id === "js")
+        tabs.selected = "tab-js-01";
+      if (el2.dataset.id === "css")
+        tabs.selected = "tab-css-01";
+      if (el2.dataset.id === "html")
+        tabs.selected = "tab-html-01";
+      if (el2.dataset.id === "subprocess")
+        tabs.selected = "tab-sp-01";
+      for (const el3 of all) {
+        el3.classList.add("dim");
+      }
+      {
+        const partner2 = document.querySelector("[data-content].show");
+        if (partner2)
+          partner2.classList.remove("show");
+      }
+      const partner = document.querySelector(`[data-content="${el2.dataset.id}"]`);
+      if (partner)
+        partner.classList.add("show");
+      el2.classList.remove("dim");
+    });
+    el.addEventListener("mouseleave", (e) => {
+      clearTimeout(timeout);
+      timeout = setTimeout(() => {
+        for (const el2 of all) {
+          if (el2.classList.contains("dim"))
+            el2.classList.remove("dim");
+        }
+      }, 128);
+    });
+  }
 }
 __name(ready, "ready");
 document.addEventListener("DOMContentLoaded", ready);

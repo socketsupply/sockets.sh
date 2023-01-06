@@ -20,15 +20,14 @@ body#index > header {
   background-position-x: center;
   background-position-y: bottom;
   background-repeat: no-repeat;
-  margin-bottom: -4px;
 }
 
 body#index > section {
   padding-bottom: 60px;
-}
-
-body#index > section {
+  position: relative;
+  z-index: 2;
   background-color: #181818;
+  box-shadow: 0px -50px 30px 30px #181818;
 }
 
 body#index > section h1 {

@@ -1,0 +1,141 @@
+#anatomy {
+  position: relative;
+  height: 350px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 70% 30%;
+}
+
+#anatomy .isometric {
+  transform: perspective(1000px) rotateY(15deg) rotateX(30deg);
+  top: 80px;
+  left: 0;
+  position: relative;
+  width: 350px;
+  height: 250px;
+  text-transform: uppercase;
+}
+
+#anatomy [data-content] {
+  opacity: 0;
+  position: absolute;
+  z-index: -1;
+  text-align: right;
+  padding-right: 30px;
+  transition: opacity .2s ease, z-index .2s ease;
+}
+
+#anatomy [data-content] label {
+  border-bottom: 1px solid var(--tonic-primary);
+  text-transform: uppercase;
+  font-size: 18px;
+  padding-bottom: 4px;
+}
+
+#anatomy [data-content].show {
+  opacity: 1;
+  z-index: 1;
+}
+
+#anatomy .isometric [data-id] {
+  cursor: pointer;
+  display: grid;
+  font-weight: 900;
+  font-family: var(--tonic-header);
+  margin: 8px;
+  border-radius: 8px;
+  align-content: end;
+  text-align: right;
+  padding: 10px;
+  opacity: 1;
+  transition: transform .2s ease, opacity .2s ease;
+}
+
+#anatomy .isometric [data-id].dim {
+  opacity: 0.3;
+}
+
+#anatomy .isometric [data-id]:not([data-id="os"], [data-id="stack"]):hover {
+  transform: scale(1.05);
+}
+
+#anatomy .isometric [data-id="js"],
+#anatomy .isometric [data-id="html"],
+#anatomy .isometric [data-id="css"] {
+  height: 100px;
+  width: 100px;
+}
+
+#anatomy .isometric [data-id="subprocess"] {
+  width: 200px;
+  height: 100px;
+  border: 1px dashed var(--tonic-primary);
+}
+
+#anatomy [data-id="ui"],
+#anatomy [data-id="stack"],
+#anatomy [data-id="socket"],
+#anatomy [data-id="os"] {
+  position: absolute;
+}
+
+#anatomy [data-id="ui"],
+#anatomy [data-id="socket"] {
+  left: 40px;
+  background: var(--tonic-window);
+  border: 1px solid var(--tonic-primary);
+  height: 164px;
+  width: 580px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+#anatomy [data-id="ui"] {
+  left: 80px;
+  top: -100px;
+}
+
+#anatomy [data-id="ui"] span {
+  font-size: 42px;
+  font-weight: 900;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  width: 100%;
+}
+
+#anatomy [data-id="stack"] {
+  left: 42px;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+#anatomy [data-id="os"] {
+  left: 0px;
+  top: 90px;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+#anatomy [data-id="os"] [data-id] {
+  height: 100px;
+  width: 100px;
+  border: 1px solid;
+}
+
+#anatomy .isometric [data-id="js"] {
+  background-color: #F6DF2A;
+  color: var(--tonic-window);
+}
+
+#anatomy .isometric [data-id="html"] {
+  color: white;
+  background-color: #d5341a;
+}
+
+#anatomy .isometric [data-id="css"] {
+  color: white;
+  background-color: #185da8;
+}
