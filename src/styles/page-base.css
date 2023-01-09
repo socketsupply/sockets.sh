@@ -29,6 +29,7 @@ body.api tonic-split {
 }
 
 body.api tonic-split tonic-split-right {
+  scroll-behavior: smooth;
   overflow: scroll;
 }
 

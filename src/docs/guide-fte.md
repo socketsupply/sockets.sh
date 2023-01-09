@@ -58,8 +58,8 @@ and peer-to-peer software. What is a [socket](https://en.wikipedia.org/wiki/Netw
     <div data-id="socket"><span>Socket Runtime</span></div>
     <div data-id="stack">
       <div data-id="js"><span>JS</span></div>
-      <div data-id="css"><span>CSS</span></div>
       <div data-id="html"><span>HTML</span></div>
+      <div data-id="css"><span>CSS</span></div>
       <div data-id="subprocess"><span>Sub Process</span></div>
     </div>
     <div data-id="ui">
