@@ -45,8 +45,8 @@ and peer-to-peer software. What is a [socket](https://en.wikipedia.org/wiki/Netw
 ## Create Socket App
 
 This is similar to React's `Create React App`. The idea is that it provides a
-few basic boilerplates and provides some stong opinions so you can get coding
-on your app as quickly as possible.
+few basic boilerplates and some stong opinions so you can get coding on a
+production quality app as quickly as possible.
 
 ```bash
 $npx init socket-app -h
