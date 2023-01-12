@@ -59,7 +59,7 @@ class PageIndex extends Tonic {
 
             <tonic-tab-panel id="panel-npm">
               <code>
-                npx init socket-app
+                npm install @socketsupply/socket -g
               </code>
             </tonic-tab-panel>
 

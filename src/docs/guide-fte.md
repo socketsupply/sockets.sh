@@ -20,7 +20,7 @@ and peer-to-peer software. What is a [socket](https://en.wikipedia.org/wiki/Netw
 
 <tonic-tab-panel id="panel-npm">
   <code>
-    npx @socketsupply/install
+    npm install @socketsupply/socket -g
   </code>
 </tonic-tab-panel>
 
@@ -120,8 +120,8 @@ $tree
 
 <tonic-tabs selected="tab-js-01" id="code-01">
   <tonic-tab id="tab-js-01" for="panel-js-01">JavaScript</tonic-tab>
-  <tonic-tab id="tab-css-01" for="panel-css-01">CSS</tonic-tab>
   <tonic-tab id="tab-html-01" for="panel-html-01">HTML</tonic-tab>
+  <tonic-tab id="tab-css-01" for="panel-css-01">CSS</tonic-tab>
   <tonic-tab id="tab-sp-01" for="panel-sp-01">Sub Process</tonic-tab>
 </tonic-tabs>
 
