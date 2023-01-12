@@ -50,11 +50,13 @@ production quality app as quickly as possible.
 
 ```bash
 $npx init socket-app -h
+
 usage: create-socket-app <next | react | svelt | vanilla | vue>
 ```
 
 ```bash
 $npx init socket-app vanilla
+
 $tree
 .
 ├── build.js

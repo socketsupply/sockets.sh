@@ -27,6 +27,12 @@
   border-radius: 4px;
 }
 
+img.shadowed {
+  border-radius: 10px;
+  margin: 40px 0;
+  box-shadow: 0 0px 40px 20px var(--tonic-shadow);
+}
+
 .hidden,
 [hidden] {
   display: none;

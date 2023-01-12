@@ -24,7 +24,7 @@ you can run the command `xcode-select --install`.
 
 - Open Keychain Access application on your mac (it's in Applications/Utilities).
 - In the Keychain Access application choose Keychain Access -> Certificate Assistant -> Request a Certificate From a Certificate Authority...
-![](../images/screenshots/prov-prof-1.png)
+<img src="../images/screenshots/prov-prof-1.png" class="shadowed">
 - Type you email in the User Email Address field. Other form elements are optional.
 ![](../images/screenshots/prov-prof-2.png)
 - Choose Request is Saved to Disc and save your certificate request.
@@ -99,9 +99,6 @@ ssc build --target=ios -c -p -xd .
 ### To your device
 
 Install [Apple Configurator][apple-configurator], open it and install Automation Tools from the menu.
-
-![](../images/screenshots/prov-prof-3.png)
-
 
 Connect your device and run `ssc install-app <path>` where path is the root directory of your application (the one where `ssc.config` is located).
 
