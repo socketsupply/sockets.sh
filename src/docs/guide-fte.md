@@ -189,8 +189,8 @@ pipe.write(Message.from('setTitle', { value: 'hello' }))
 
 ## Next Steps
 
-Ready to build something? The same codebase will run on mobile and desktop, but
-there are some features unique to each both. Ready to dive a bit deeper?
+The same codebase will run on mobile and desktop, but there are some features
+unique to both. Ready to dive a bit deeper?
 
 <a href="#mobile-guide" class="cyoa mobile">
   Mobile &rarr;
