@@ -1,25 +1,25 @@
 ## Feature Matrix
 <time>Sat Apr  9 11:37:09 CEST 2022</time>
 
-|                         | Socket                                | Capacitorjs                           | Tauri                                 | Neutralinojs                          | Electron |
-| :---                    | :---:                                 | :---:                                 | :---:                                 | :---:                                 | :---:    |
-| MacOS, Windows, Linux   | ![check](/images/icons/checkmark.svg) |                                       | ![check](/images/icons/checkmark.svg) | ![check](/images/icons/checkmark.svg) | ![check](/images/icons/checkmark.svg) |
-| Any Backend             | ![check](/images/icons/checkmark.svg) |                                       |                                       | ![check](/images/icons/checkmark.svg) | |
-| Backend Optional        | ![check](/images/icons/checkmark.svg) |                                       |                                       |                                       | |
-| Native Packaging        | ![check](/images/icons/checkmark.svg) | ![check](/images/icons/checkmark.svg) | ![check](/images/icons/checkmark.svg) |                                       | |
-| iOS                     | ![check](/images/icons/checkmark.svg) | ![check](/images/icons/checkmark.svg) | In Progress                           |                                       | |
-| Android                 | ![check](/images/icons/checkmark.svg) | ![check](/images/icons/checkmark.svg) | Roadmap                               |                                       | |
-| Native UDP & Bluetooth  | ![check](/images/icons/checkmark.svg) |                                       |                                       |                                       | |
-| Full Native Drag & Drop | ![check](/images/icons/checkmark.svg) |                                       |                                       |                                       | |
-| Desktop Tray            |                                       |                                       | ![check](/images/icons/checkmark.svg) |                                       | |
+|                         | Socket                                | Tauri                                 | Electron |
+| :---                    | :---:                                 | :---:                                 | :---:    |
+| MacOS, Windows, Linux   | ![check](/images/icons/checkmark.svg) | ![check](/images/icons/checkmark.svg) | ![check](/images/icons/checkmark.svg) |
+| Any Backend             | ![check](/images/icons/checkmark.svg) |                                       | |
+| Backend Optional        | ![check](/images/icons/checkmark.svg) |                                       | |
+| Native Packaging        | ![check](/images/icons/checkmark.svg) | ![check](/images/icons/checkmark.svg) | |
+| iOS                     | ![check](/images/icons/checkmark.svg) | In Progress                           | |
+| Android                 | ![check](/images/icons/checkmark.svg) | Roadmap                               | |
+| Native UDP & Bluetooth  | ![check](/images/icons/checkmark.svg) |                                       | |
+| Native P2P              | ![check](/images/icons/checkmark.svg) |                                       | |
+| Native Drag & Drop      | ![check](/images/icons/checkmark.svg) |                                       | |
+| Desktop Tray            |                                       | ![check](/images/icons/checkmark.svg) | |
 
 #### Maintainability Profile Summary (Measured with `cloc`)
 
 <div class="complexity">
-  <div><div style="height: 10.216362608255707%;"></div><b>17164</b><br/>Socket</div>
-  <div><div style="height: 30.943721913038303%;"></div><b>51987</b><br/>Tauri</div>
-  <div><div style="height: 100%;"></div><b>168005</b><br/>Neutralinojs</div>
-  <div><div style="height: 87.00038689324722%;"></div><b>146165</b><br/>Electron</div>
+  <div><div style="height: 11.742893305510895%;"></div><b>17164</b><br/>Socket</div>
+  <div><div style="height: 35.567338282078474%;"></div><b>51987</b><br/>Tauri</div>
+  <div><div style="height: 100%;"></div><b>146165</b><br/>Electron</div>
 </div>
 
 #### Memory Profile Summary (Desktop only, measured with `mprof`)
@@ -27,7 +27,6 @@
 <div class="complexity">
   <div><div style="height: 51.2962962962963%;"></div><b>&plusmn;55.4</b><br/>Socket</div>
   <div><div style="height: 78.70370370370371%;"></div><b>&plusmn;85Mb</b><br/>Tauri</div>
-  <div><div style="height: 100%;"></div><b>&plusmn;108Mb</b><br/>Capacitorjs</div>
   <div><div style="height: 100%;"></div><b>&plusmn;108Mb</b><br/>Electron</div>
 </div>
 
@@ -59,41 +58,6 @@ SUM:                            40           3494            925          17164
 ### Memory Profile
 
 ![socket-mprof](/images/mprof/socket-mprof.png)
-
-
-## Neutralinojs
-<time>Sat Mar 26 13:54:19 CET 2022</time>
-
-### Maintainability Profile
-
-```
-cloc *.cpp *.h schemas server spec api auth bin lib
-```
-
-```text
-Language                     files          blank        comment           code
--------------------------------------------------------------------------------
-C/C++ Header                   712          29657          53250         131218
-C++                            146           4920           2594          28487
-JSON                             8              0              0           2627
-JavaScript                      18            259             32           2486
-Perl                             6            233            174           1869
-make                             3             12              1            701
-Objective-C++                    1             64             15            267
-m4                               1             31              0            213
-HTML                             2              0              0             38
-Text                             2              6              0             37
-Bourne Shell                     1             10             14             31
-Markdown                         1              8              0             17
-CSS                              1              2              0             12
-CMake                            1              0              0              2
--------------------------------------------------------------------------------
-SUM:                           903          35202          56080         168005
-```
-
-### Memory Profile
-
-![tauri-mprof](/images/mprof/tauri-mprof.png)
 
 
 ## Tauri

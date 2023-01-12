@@ -42,7 +42,30 @@ and peer-to-peer software. What is a [socket](https://en.wikipedia.org/wiki/Netw
   </code>
 </tonic-tab-panel>
 
+## Create Socket App
 
+This is similar to React's `Create React App`. The idea is that it provides a
+few basic boilerplates and provides some stong opinions so you can get coding
+on your app as quickly as possible.
+
+```bash
+$npx init socket-app -h
+usage: create-socket-app <next | react | svelt | vanilla | vue>
+```
+
+```bash
+$npx init socket-app vanilla
+$tree
+.
+├── build.js
+├── package.json
+├── socket.ini
+└── src
+    ├── icon.png
+    ├── index.css
+    ├── index.html
+    └── index.js
+```
 
 ## Anatomy of a Socket App
 
