@@ -49,13 +49,13 @@ few basic boilerplates and some stong opinions so you can get coding on a
 production quality app as quickly as possible.
 
 ```bash
-$npx init socket-app -h
+$npx create-socket-app -h
 
 usage: create-socket-app <next | react | svelt | vanilla | vue>
 ```
 
 ```bash
-$npx init socket-app vanilla
+$npx create-socket-app vanilla
 
 Creating socket files...OK
 Initializing npm package...OK
