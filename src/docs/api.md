@@ -202,8 +202,8 @@ New instances of dgram.Socket are created using dgram.createSocket().
 External docs: https://nodejs.org/api/dgram.html#socketbindport-address-callback
 
 Listen for datagram messages on a named port and optional address
- If the address is not specified, the operating system will attempt to
- listen on all addresses. Once the binding is complete, a 'listening'
+ If address is not specified, the operating system will attempt to
+ listen on all addresses. Once binding is complete, a 'listening'
  event is emitted and the optional callback function is called.
 
  If binding fails, an 'error' event is emitted.
@@ -266,8 +266,8 @@ Broadcasts a datagram on the socket. For connectionless sockets, the
  character position. If msg is an array, offset and length must not be
  specified.
 
- > The address argument is a string. If the value of the address is a hostname,
- DNS will be used to resolve the address of the host. If the address is not
+ > The address argument is a string. If the value of address is a host name,
+ DNS will be used to resolve the address of the host. If address is not
  provided or otherwise nullish, '127.0.0.1' (for udp4 sockets) or '::1'
  (for udp6 sockets) will be used by default.
 
@@ -467,7 +467,7 @@ External docs: https://nodejs.org/api/dns.html#dnspromiseslookuphostname-options
 # [File System](https://github.com/socketsupply/io/blob/master/fs/index.js#L24)
 
 
- This module enables interaction with the file system in a way modeled on
+ This module enables interacting with the file system in a way modeled on
  standard POSIX functions.
 
  The Application Sandbox restricts access to the file system.
