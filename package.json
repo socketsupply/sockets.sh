@@ -6,9 +6,9 @@
   "scripts": {
     "lint": "standard",
     "test": "npm run lint",
-    "build": "npm update && npm run docs:io && ./bin/build.js --out ./build",
+    "build": "npm update && npm run build:docs:api && ./bin/build.js --out ./build",
     "build+deploy": "npm install && npm run build",
-    "docs:socket-api": "cd ./node_modules/@socketsupply/socket-api && npm install && npm run readme && cp README.md ../../../src/docs/api.md"
+    "build:docs:api": "rm -rf node_modules/@socketsupply/socket-api && npm install && ./bin/generate-docs.js"
   },
   "type": "module",
   "dependencies": {
@@ -20,7 +20,7 @@
   },
   "devDependencies": {
     "@pre-bundled/send": "^0.16.2-patch-1",
-    "@socketsupply/socket-api": "github:socketsupply/socket-api#master",
+    "@socketsupply/socket-api": "latest",
     "@types/node": "17.0.13",
     "acorn-walk": "^8.2.0",
     "highlight.js": "^10.5.0",
