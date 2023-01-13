@@ -31,16 +31,11 @@
         }
       },
       "predeploy": {
+        "command": "",
         "directory": [
           "..",
-          "..",
-          "functions",
-          "dist",
-          "Functions-dev.app",
-          "Contents",
-          "Resources"
-        ],
-        "command": ""
+          "build"
+        ]
       },
       "bucketName": {
         "value": ""

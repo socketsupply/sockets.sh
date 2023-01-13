@@ -56,9 +56,7 @@ export default class BundleJs extends Tonic {
         external: ['util'],
         outfile: dest,
         define: {
-          'process.env.NODE_ENV': `"${process.env.NODE_ENV}"`,
-          global: '{}',
-          NODE_ENV: process.env.NODE_ENV
+          global: '{}'
         }
       })
 

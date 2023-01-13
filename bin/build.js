@@ -117,18 +117,20 @@ const build = async argv => {
       load(path.join(cbase, 'footer.js')),
       load(path.join(cbase, 'module-markdown.js'))
     ])
-  } catch {}
+  } catch (err) {
+    console.log(err)
+  }
 
   const files = readDir(src)
   const jobs = files.map(p => {
     for (const dir of SKIP_LIST) {
       if (p.startsWith(dir)) {
-        return
+        return null
       }
     }
 
     return compile(src, p, buildDir)
-  })
+  }).filter(Boolean)
 
   const p = Promise.all(jobs)
 

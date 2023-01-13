@@ -27,6 +27,10 @@ var __copyProps = (to, from, except, desc) => {
   return to;
 };
 var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps(
+  // If the importer is in node compatibility mode or this is not an ESM
+  // file that has been converted to a CommonJS file using a Babel-
+  // compatible transform (i.e. "__esModule" has not been set), then set
+  // "default" to the CommonJS "module.exports" for node compatibility.
   isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", { value: mod, enumerable: true }) : target,
   mod
 ));
@@ -857,7 +861,11 @@ var require_browser = __commonJS({
       if (typeof navigator !== "undefined" && navigator.userAgent && navigator.userAgent.toLowerCase().match(/(edge|trident)\/(\d+)/)) {
         return false;
       }
-      return typeof document !== "undefined" && document.documentElement && document.documentElement.style && document.documentElement.style.WebkitAppearance || typeof window !== "undefined" && window.console && (window.console.firebug || window.console.exception && window.console.table) || typeof navigator !== "undefined" && navigator.userAgent && navigator.userAgent.toLowerCase().match(/firefox\/(\d+)/) && parseInt(RegExp.$1, 10) >= 31 || typeof navigator !== "undefined" && navigator.userAgent && navigator.userAgent.toLowerCase().match(/applewebkit\/(\d+)/);
+      return typeof document !== "undefined" && document.documentElement && document.documentElement.style && document.documentElement.style.WebkitAppearance || // Is firebug? http://stackoverflow.com/a/398120/376773
+      typeof window !== "undefined" && window.console && (window.console.firebug || window.console.exception && window.console.table) || // Is firefox >= v31?
+      // https://developer.mozilla.org/en-US/docs/Tools/Web_Console#Styling_messages
+      typeof navigator !== "undefined" && navigator.userAgent && navigator.userAgent.toLowerCase().match(/firefox\/(\d+)/) && parseInt(RegExp.$1, 10) >= 31 || // Double check webkit in userAgent just in case we are in a worker
+      typeof navigator !== "undefined" && navigator.userAgent && navigator.userAgent.toLowerCase().match(/applewebkit\/(\d+)/);
     }
     __name(useColors, "useColors");
     function formatArgs(args) {
@@ -4136,9 +4144,19 @@ var require_router = __commonJS({
           return regexpToRegexp(path, keys);
         }
         if (Array.isArray(path)) {
-          return arrayToRegexp(path, keys, options);
+          return arrayToRegexp(
+            /** @type {!Array} */
+            path,
+            keys,
+            options
+          );
         }
-        return stringToRegexp(path, keys, options);
+        return stringToRegexp(
+          /** @type {string} */
+          path,
+          keys,
+          options
+        );
       }
       __name(pathToRegexp, "pathToRegexp");
       return pathToRegexp;
@@ -5959,6 +5977,15 @@ var require_toaster = __commonJS({
           (z, highest = Number.MIN_SAFE_INTEGER) => isNaN(z) || z < highest ? highest : z
         );
       }
+      /**
+       * @param {{
+       *    message?: string,
+       *    title: string,
+       *    type: string,
+       *    duration?: number,
+       *    dismiss?: boolean
+       * }} options
+       */
       create(options) {
         const sig = JSON.stringify(options);
         if (this.lastToaster === sig)
@@ -6624,6 +6651,9 @@ var AppTree = class extends import_tonic.default {
   static stylesheet() {
     return tree_css_default();
   }
+  /**
+   * auto-sort="false"
+   */
   defaults() {
     return {
       selectMode: "leaf-only",
@@ -6776,7 +6806,10 @@ var AppTree = class extends import_tonic.default {
         this.onSelection(node, true);
       }
     } else {
-      if (node.selected === NOT_SELECTED) {
+      if (
+        /* allowSelect && */
+        node.selected === NOT_SELECTED
+      ) {
         this.resetSelectedNodeState();
       }
       if (!node.children.length && node.state === CLOSED_STATE) {

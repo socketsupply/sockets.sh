@@ -57,6 +57,15 @@ usage: create-socket-app <next | react | svelt | vanilla | vue>
 ```bash
 $npx init socket-app vanilla
 
+Creating socket files...OK
+Initializing npm package...OK
+Installing dependencies...OK
+Adding package scripts...OK
+Updating project configuration...OK
+Copying project boilerplate...OK
+
+Type 'npm start' to launch the app
+
 $tree
 .
 ├── build.js

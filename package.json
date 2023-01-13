@@ -6,23 +6,23 @@
   "scripts": {
     "lint": "standard",
     "test": "npm run lint",
-    "build": "npm update && npm run docs:io && ./bin/build.js --out ./build",
-    "build+deploy": "npm install && npm run build",
-    "docs:io": "cd ./node_modules/@socketsupply/io && npm install && npm run readme && cp README.md ../../../src/docs/api.md"
+    "build": "npm update && ./bin/build.js --out ./build",
+    "build+deploy": "npm install && npm run build"
   },
   "type": "module",
   "dependencies": {
     "@socketsupply/components": "^13.2.0",
     "@socketsupply/tonic": "14.1.0",
     "debug": "^4.3.1",
-    "esbuild": "^0.14.49",
     "uuid": "3.4.0"
   },
   "devDependencies": {
     "@pre-bundled/send": "^0.16.2-patch-1",
     "@socketsupply/io": "github:socketsupply/io#master",
+    "@socketsupply/socket-api": "^0.2.11",
     "@types/node": "17.0.13",
     "acorn-walk": "^8.2.0",
+    "esbuild": "^0.16.17",
     "highlight.js": "^10.5.0",
     "marked": "^4.0.10",
     "minimist": "1.2.6",

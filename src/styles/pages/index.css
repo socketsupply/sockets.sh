@@ -222,6 +222,10 @@ p#obviously {
   }
 
   body#index #os-list img {
+    filter: unset;
+  }
+
+  body#index #frameworks {
     filter: invert(100%);
   }
 
