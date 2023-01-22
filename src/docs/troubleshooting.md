@@ -112,7 +112,7 @@ The `WebView2LoaderStatic.lib` file was sourced from [this][2] package.
 If the app cannot be loaded because running scripts is disabled on this system.
 
 ```
-./bin/bootstrap.ps1 : File C:\Users\user\sources\socket-sdk\bin\bootstrap.ps1 cannot be loaded because running scripts is
+./bin/bootstrap.ps1 : File C:\Users\user\sources\socket\bin\bootstrap.ps1 cannot be loaded because running scripts is
 disabled on this system. For more information, see about_Execution_Policies at
 https:/go.microsoft.com/fwlink/?LinkID=135170.
 ```
@@ -206,8 +206,8 @@ Package webkit2gtk-4.1 was not found in the pkg-config search path.
 Perhaps you should add the directory containing `webkit2gtk-4.1.pc'
 to the PKG_CONFIG_PATH environment variable
 No package 'webkit2gtk-4.1' found
-In file included from /home/runner/.config/socket-sdk/src/main.cc:9:
-/home/runner/.config/socket-sdk/src/linux.hh:4:10: fatal error: JavaScriptCore/JavaScript.h: No such file or directory
+In file included from /home/runner/.config/socket/src/main.cc:9:
+/home/runner/.config/socket/src/linux.hh:4:10: fatal error: JavaScriptCore/JavaScript.h: No such file or directory
     4 | #include <JavaScriptCore/JavaScript.h>
       |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 compilation terminated.

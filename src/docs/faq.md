@@ -1,5 +1,7 @@
 # FAQ
 
+## Cross Platform Development
+
 ### What is a Modern Runtime for Web Apps?
 
 *Modern* does not refer to how recently any component of the software was
@@ -11,17 +13,6 @@ powerful. Now we are surrounded by billions of computers that can connect
 directly to each other, so servers are becoming less relevant no mater how fast
 they are.
 
-### How can a peer replace a server?
-
-A peer should not be asked to handle the same kind of work-loads as a server. If
-you develop an app that monopolizes a user's device, they will be unhappy,
-regardless of what architecture you are using. Peers should handle smaller
-work-loads in shorter bursts.
-
-With Peer To Peer networks, growth increases availability and compute capacity.
-Despite how many peers join your network, you should continue to design with the
-assumption that peers are unreliable and infrequently online.
-
 
 ### Why not Electron?
 
@@ -30,13 +21,10 @@ developers. The bulk of the weight comes from the decision to build-in V8 and
 a custom distribution of node.js.
 
 
-### Why not Tauri?
+### Why not Tauri, Rust?
 
 Tauri is a project for people who want to write Rust. Socket SDK is for Web
 Developers who want to create connected apps with HTML, CSS and JavaScript.
-
-
-### Why not Rust?
 
 Webview is C++, so are the platforms that it runs on. The memory safety offered
 by Rust is great but becomes irrelevant when it's just a thin wrapper around a
@@ -70,20 +58,34 @@ barrier to entry and lets in the worlds largest developer community. With care,
 avoiding bloated frameworks, a web-based app can run as well as any native app.
 
 
+## Peer To Peer
+
 ### Why should I care that P2P is free? AWS is almost free!
 
-AWS is nearly free (until you have any kind of growth). But they still require your
-credit card and a lot of personally identifiable information. P2P is the only free and
-permissionless way to build networked software.
+AWS is nearly free, until you experience any kind of growth. The cost of The Cloud scales up
+with the demand of a product. And for most companies, The Cloud becomes their largest cost center.
+When this cost is combined with non-cloud costs (the cost of experts, their managers, key-person
+churn, it can make profitability impossible.
 
 
 ### How effective are distributed networks at hosting the long tail of rarely-accessed content?
 
-In networks like BitTorrent, rarely-accessed content (content accessed less frequently than 72 hours)
-becomes unavailable as the few peers hosting that content drop offline.
+We make it possible to send a receive packets even when peers are offline. But this isn't the same
+as "free storage". In networks like BitTorrent, rarely-accessed content (content accessed less
+frequently than 72 hours) becomes unavailable as the few peers hosting that content drop offline.
 
 For this case, we enable developers to build hybrid networks. In hybrid networks, developers can
 choose to keep a centralized copy of all content. This keeps rarely-accessed content always available.
 For popular content, a distributed swarm of users’ devices also assist in distribution, reducing the
 cost of serving that content from a central location.
 
+
+### How can a peer replace a server?
+
+A peer should not be asked to handle the same kind of work-loads as a server. If you develop an app
+that monopolizes a user's device, they will be unhappy, regardless of what architecture you are using.
+Peers should handle smaller work-loads in shorter bursts.
+
+With Peer To Peer networks, growth increases availability and compute capacity. Despite how many peers
+join your network, you should continue to design with the assumption that peers are unreliable and
+infrequently online.
