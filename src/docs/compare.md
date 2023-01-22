@@ -12,7 +12,8 @@
 | Native UDP & Bluetooth  | ![check](/images/icons/checkmark.svg) |                                       | |
 | Native P2P              | ![check](/images/icons/checkmark.svg) |                                       | |
 | Native Drag & Drop      | ![check](/images/icons/checkmark.svg) |                                       | |
-| Desktop Tray            |                                       | ![check](/images/icons/checkmark.svg) | |
+| Desktop Tray            |                                       | ![check](/images/icons/checkmark.svg) | ![check](/images/icons/checkmark.svg) |
+| Desktop Icon Badges     |                                       |                                       | ![check](/images/icons/checkmark.svg) |
 
 #### Maintainability Profile Summary (Measured with `cloc`)
 
@@ -29,8 +30,6 @@
   <div><div style="height: 78.70370370370371%;"></div><b>&plusmn;85Mb</b><br/>Tauri</div>
   <div><div style="height: 100%;"></div><b>&plusmn;108Mb</b><br/>Electron</div>
 </div>
-
-> Note: `capacitorjs` uses electron, so we don't include it in the tests.
 
 > Note: `mprof` was also run for periods of up to 1 hour. Also, the `uss` and
 `pss` backends yielded results that are relative to the default backend.

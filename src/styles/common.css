@@ -418,6 +418,12 @@ img[alt="check"] {
   display: block;
 }
 
+@media (prefers-color-scheme: dark) {
+  img[alt="check"] {
+    filter: invert();
+  }
+}
+
 tonic-tab-panel code {
   display: block;
   padding: 10px;
