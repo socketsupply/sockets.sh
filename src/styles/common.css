@@ -23,8 +23,8 @@
 }
 
 .hl {
+  margin: 0;
   padding: 20px;
-  border-radius: 4px;
 }
 
 img.shadowed {
@@ -82,7 +82,6 @@ body h2,
 body h3,
 body h4,
 body h5 {
-  font-weight: 900;
   margin: 20px 0;
   color: var(--tonic-primary);
   padding-top: 10px;
@@ -421,6 +420,11 @@ img[alt="check"] {
 @media (prefers-color-scheme: dark) {
   img[alt="check"] {
     filter: invert();
+  }
+
+  .hl {
+    background: var(--tonic-dark);
+    color: var(--tonic-primary);
   }
 }
 

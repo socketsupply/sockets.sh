@@ -1,14 +1,5 @@
 # Getting Started
 
-## What is the Socket Runtime
-
-Socket is a lightweight, portable runtime for building cross-platform apps
-using standard web technology. That means, we build your HTML, CSS, and
-JavaScript into an executable that can run on any OS, desktop or mobile.
-While it's very competitive to similar projects, its primary goal is to be
-the best batteries-inlcuded solution for web developers to create local-first
-and peer-to-peer software. What is a [socket](https://en.wikipedia.org/wiki/Network_socket)?
-
 ## Install
 
 <tonic-tabs selected="tab-mac" id="get-started">

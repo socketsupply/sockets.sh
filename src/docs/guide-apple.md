@@ -1,4 +1,4 @@
-# Apple
+# Apple Guide
 
 The following is a guide for building apps on Apple's `MacOS` and `iOS`
 operating systems.

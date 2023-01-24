@@ -19,7 +19,7 @@ body > nav {
 
 body.api > nav,
 body > nav.shadow {
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
 body > nav > a {
@@ -126,7 +126,13 @@ body > nav .account-link {
 }
 
 @media (max-width: 699px) {
-  body > nav .account-link {
-    display: none;
+  body main, #split-main {
+    top: 0;
+  }
+  tonic-split-right {
+    width: 100% !important;
+  }
+  body > nav, tonic-split-left, markdown-module, .tonic--split-handle {
+    display: none !important;
   }
 }

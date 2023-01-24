@@ -1,5 +1,9 @@
 @import './highlight.js.css';
 
+body section.primer {
+  padding: 60px;
+}
+
 body markdown-module h3 {
   font-size: 24px;
   font-weight: 100;

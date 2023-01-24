@@ -34,7 +34,7 @@ body.api tonic-split tonic-split-right {
 }
 
 body.api tonic-split tonic-split-right markdown-module {
-  padding: 40px;
+  padding: 60px;
   display: block;
 }
 
@@ -54,9 +54,7 @@ body h1 {
   margin: 0;
 }
 
-body h1,
-body h2,
-body h3 {
+body h1 {
   font-family: var(--tonic-header);
   font-weight: 900;
 }
@@ -78,12 +76,12 @@ time {
 @media (max-width: 699px) {
   body:not(.api) main,
   body main {
-    margin: 40px;
+    margin: 60px;
     margin-bottom: 100px;
   }
 
   body footer .content {
-    margin: 40px;
+    margin: 60px;
   }
 
   body.api {
@@ -93,7 +91,7 @@ time {
 
   body.api main,
   body main {
-    margin: 40px;
+    margin: 60px;
     margin-bottom: 100px;
   }
 }

@@ -44,132 +44,761 @@
     <meta name="twitter:description" content="Build Native Desktop and Mobile Apps Using The Web Stack">
   </head>
 
-        <body id="index">
+        <body class="api" id="guides">
           
   <nav>
-    <a href="/"><img src="/images/waves.svg" class="hypno" alt="Waves"> <b id="name-brand">Socket Runtime</b></a>
+    <a href="/">Socket Runtime</a>
     <span></span>
     <a href="/api">API</a>
-    <a href="/guides">Guides</a>
+    <a href="https://github.com/socketsupply/socket-examples">Examples</a>
     <a href="https://github.com/socketsupply">Github</a>
   </nav>
 
 
-          <header>
-            <div class="centered">
-              <h1>Socket</h1>
-              <p>Build apps for any OS, desktop &amp; mobile<br>
-            </p></div>
-          </header>
-
-          <section>
-            <div id="os-list">
-              <img src="/images/android.svg">
-              <img src="/images/apple.svg">
-              <img src="/images/windows.svg">
-              <img src="/images/linux.svg">
-            </div>
-            <h1 class="intro">
-              <span class="large">Build Native Apps</span>
-              <span class="medium">For Desktop &amp; Mobile</span>
-              <span class="small">Using HTML, CSS, &amp; JavaScript</span>
-            </h1>
-
-            <p id="obviously">Use any framework...</p>
-            <img id="frameworks" src="/images/frameworks.svg">
-
-          </section>
-
           <main>
-            <h2>Install</h2>
+            <tonic-split id="split-main" type="vertical">
+              <tonic-split-left width="25%">
+                <app-tree id="app-tree"></app-tree>
+              </tonic-split-left>
 
-            <p class="hl">
-              Socket is pre-release, please track and discuss issues on <a class="dotted" href="https://github.com/socketsupply/socket">GitHub</a>.
-            </p>
+              <tonic-split-right width="75%">
+                <p class="hl">
+                  The Socket Runtime is pre-release, please track and discuss issues on <a class="dotted" href="https://github.com/socketsupply/socket">GitHub</a>.
+                </p>
 
-            <br>
+                <section class="primer">
+                  <h1>Socket Runtime</h1>
+                  <h2>Write once, run anywhere, connect everyone</h2>
 
-            <tonic-tabs selected="tab-mac" id="get-started">
-              <tonic-tab id="tab-npm" for="panel-npm">npm</tonic-tab>
-              <tonic-tab id="tab-mac" for="panel-mac">macOS</tonic-tab>
-              <tonic-tab id="tab-linux" for="panel-linux">Linux</tonic-tab>
-              <tonic-tab id="tab-win" for="panel-win">Windows</tonic-tab>
-            </tonic-tabs>
+                  <p>
+                    Socket Runtime is like a next-generation Electron. It helps you build native apps using
+                    HTML, CSS and JavaScript, for every OS, desktop and mobile! Not only that, but it also
+                    allows users of your apps to communicate directly, without the cloud or any servers!
+                  </p>
 
-            <tonic-tab-panel id="panel-npm">
-              <code>
-                npm install @socketsupply/socket -g
-              </code>
-            </tonic-tab-panel>
+                  <h2>Features</h2>
 
-            <tonic-tab-panel id="panel-mac">
-              <code>
-                curl -s -o- https://sockets.sh/sh | bash -s
-              </code>
-            </tonic-tab-panel>
+                  <div id="value-props">
+                    <div>
+                      <h3>Local First</h3>
+                      <p>A full featured File System API &amp; Bluetooth ensure its possible to create excellent offline and local-first user experiences.</p>
+                    </div>
 
-            <tonic-tab-panel id="panel-linux">
-              <code>
-                curl -s -o- https://sockets.sh/sh | bash -s
-              </code>
-            </tonic-tab-panel>
+                    <div>
+                      <h3>P2P &amp; Cloud</h3>
+                      <p>Built to support a new generation of apps that can connect directly to each other by providing a high performance UDP API.</p>
+                    </div>
 
-            <tonic-tab-panel id="panel-win">
-              <code>
-                iwr -useb https://sockets.sh/ps | iex
-              </code>
-            </tonic-tab-panel>
+                    <div>
+                      <h3>Use any backend</h3>
+                      <p>Business logic can be written in any language, Python, Rust, Node.js, etc. The backend is even completely optional.</p>
+                    </div>
 
-            <h2>Features</h2>
-            <div id="value-props">
-              <div>
-                <h3>Local First</h3>
-                <p>A full featured File System API &amp; Bluetooth ensure its possible to create excellent offline and local-first user experiences.</p>
-              </div>
+                    <div>
+                      <h3>Use any frontend</h3>
+                      <p>All the standard browser APIs are supported, so you can use your favorite front end framework to create your UIs, React, Svelte, Vue for example.</p>
+                    </div>
 
-              <div>
-                <h3>P2P &amp; Cloud</h3>
-                <p>Built to support a new generation of apps that can connect directly to each other by providing a high performance UDP API.</p>
-              </div>
+                    <div>
+                      <h3>Maintainable</h3>
+                      <p>Socket itself is built to be maintainable. Zero dependencies and a smaller code base than any other competing project.</p>
+                    </div>
 
-              <div>
-                <h3>Use any backend</h3>
-                <p>Business logic can be written in any language, Python, Rust, Node.js, etc. The backend is even completely optional.</p>
-              </div>
+                    <div>
+                      <h3>Lean &amp; Fast</h3>
+                      <p>Uses a smaller memory footprint and creates smaller binaries than any other competing project.</p>
+                    </div>
+                  </div>
+                </section>
 
-              <div>
-                <h3>Use any frontend</h3>
-                <p>All the standard browser APIs are supported, so you can use your favorite front end framework to create your UIs, React, Svelte, Vue for example.</p>
-              </div>
+                <markdown-module src="src/docs/guide-fte.md"><h1 id="getting-started">Getting Started</h1>
+<h2 id="install">Install</h2>
+<tonic-tabs selected="tab-mac" id="get-started">
+  <tonic-tab id="tab-npm" for="panel-npm">npm</tonic-tab>
+  <tonic-tab id="tab-mac" for="panel-mac">macOS</tonic-tab>
+  <tonic-tab id="tab-linux" for="panel-linux">Linux</tonic-tab>
+  <tonic-tab id="tab-win" for="panel-win">Windows</tonic-tab>
+</tonic-tabs>
 
-              <div>
-                <h3>Maintainable</h3>
-                <p>Socket itself is built to be maintainable. Zero dependencies and a smaller code base than any other competing project.</p>
-              </div>
+<tonic-tab-panel id="panel-npm">
+  <code>
+    npm install @socketsupply/socket -g
+  </code>
+</tonic-tab-panel>
 
-              <div>
-                <h3>Lean &amp; Fast</h3>
-                <p>Uses a smaller memory footprint and creates smaller binaries than any other competing project.</p>
-              </div>
-            </div>
+<tonic-tab-panel id="panel-mac">
+  <code>
+    curl -s -o- https://sockets.sh/sh | bash -s
+  </code>
+</tonic-tab-panel>
 
-            <!-- div class="lists">
-              <ul class="checklist">
-                <li>UDP, file I/O &amp; Bluetooth</li>
-                <li>Use any backend (ie Python, Rust, Node.js)</li>
-                <li>Use any frontend (ie React, Svelte, Vue)</li>
-                <li>Every major desktop &amp; mobile OS</li>
-              </ul>
-              <ul class="checklist">
-                <li>Ideal for local-first and peer-to-peer</li>
-                <li>Less than 20Mb base memory footprint</li>
-                <li>Less than 1Mb base binary distributable</li>
-                <li>Minimal, readable, and maintainable</li>
-              </ul>
-            </div -->
-          </main>
+<tonic-tab-panel id="panel-linux">
+  <code>
+    curl -s -o- https://sockets.sh/sh | bash -s
+  </code>
+</tonic-tab-panel>
 
-          <app-footer js-bundle="true">
+<tonic-tab-panel id="panel-win">
+  <code>
+    iwr -useb https://sockets.sh/ps | iex
+  </code>
+</tonic-tab-panel>
+
+<h2 id="create-socket-app">Create Socket App</h2>
+<p>This is similar to React's <code>Create React App</code>. The idea is that it provides a
+few basic boilerplates and some stong opinions so you can get coding on a
+production quality app as quickly as possible.</p>
+<pre><code class="language-bash"><span class="hljs-variable">$npx</span> create-socket-app -h
+
+usage: create-socket-app &lt;next | react | svelt | vanilla | vue&gt;
+</code></pre>
+<pre><code class="language-bash"><span class="hljs-variable">$npx</span> create-socket-app vanilla
+
+Creating socket files...OK
+Initializing npm package...OK
+Installing dependencies...OK
+Adding package scripts...OK
+Updating project configuration...OK
+Copying project boilerplate...OK
+
+Type <span class="hljs-string">'npm start'</span> to launch the app
+
+<span class="hljs-variable">$tree</span>
+.
+├── build.js
+├── package.json
+├── socket.ini
+└── src
+    ├── icon.png
+    ├── index.css
+    ├── index.html
+    └── index.js
+</code></pre>
+<h2 id="anatomy-of-a-socket-app">Anatomy of a Socket App</h2>
+<div id="anatomy">
+  <div class="isometric">
+    <div data-id="os">
+      <div class="os" data-id="android"><span>Android</span></div>
+      <div class="os" data-id="ios"><span>iOS</span></div>
+      <div class="os" data-id="win"><span>Windows</span></div>
+      <div class="os" data-id="linux"><span>Linux</span></div>
+      <div class="os" data-id="mac"><span>MacOS</span></div>
+    </div>
+    <div data-id="socket"><span>Socket Runtime</span></div>
+    <div data-id="stack">
+      <div data-id="js"><span>JS</span></div>
+      <div data-id="html"><span>HTML</span></div>
+      <div data-id="css"><span>CSS</span></div>
+      <div data-id="subprocess"><span>Sub Process</span></div>
+    </div>
+    <div data-id="ui">
+      Mobile or Desktop UI
+      <span>Hello, World</span>
+    </div>
+  </div>
+  <div class="content">
+   <div data-content="subprocess">
+     <label>Sub Process</label>
+     <p>Some apps that do computationally intensive work and may want to move that logic into a sub process. That sub process will be piped to the render process, so it can be any language.</p>
+   </div>
+   <div data-content="ui">
+     <label>User Interface</label>
+     <p>This is what you see on your screen when you open an app either on your phone or your destkop.</p>
+   </div>
+   <div data-content="socket">
+     <label>Socket Runtime</label>
+     <p>The Socket CLI tool builds and packages and manages your application's assets. The runtime abstracts the operating systems details so you can focus on building your app.</p>
+   </div>
+   <div data-content="js">
+     <label>JavaScript</label>
+     <p>This is plain old JavaScript that is loaded by the HTML file. It may be bundled. It runs in a browser-like environment with all the standard browser APIs.</p>
+   </div>
+   <div data-content="css">
+     <label>CSS</label>
+     <p>This is plain old CSS that is loaded by the HTML file.</p>
+   </div>
+   <div data-content="html">
+     <label>HTML</label>
+     <p>This is plain old HTML that is loaded by the Socket Runtime.</p>
+   </div>
+ </div>
+</div>
+
+<tonic-tabs selected="tab-js-01" id="code-01">
+  <tonic-tab id="tab-js-01" for="panel-js-01">JavaScript</tonic-tab>
+  <tonic-tab id="tab-html-01" for="panel-html-01">HTML</tonic-tab>
+  <tonic-tab id="tab-css-01" for="panel-css-01">CSS</tonic-tab>
+  <tonic-tab id="tab-sp-01" for="panel-sp-01">Sub Process</tonic-tab>
+</tonic-tabs>
+
+<tonic-tab-panel id="panel-js-01">
+
+<pre><code class="language-js"><span class="hljs-keyword">import</span> io <span class="hljs-keyword">from</span> <span class="hljs-string">'@socketsupply/io'</span>
+
+<span class="hljs-built_in">window</span>.addEventListener(<span class="hljs-string">'DOMContentLoaded'</span>, <span class="hljs-function">() =&gt;</span> {
+  io.backend.open() <span class="hljs-comment">// spawn the "backend" process (if specified in the ini file).</span>
+})
+</code></pre>
+</tonic-tab-panel>
+
+<tonic-tab-panel id="panel-html-01">
+
+<pre><code class="language-html"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-meta-keyword">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"en"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"utf-8"</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"viewport"</span> <span class="hljs-attr">content</span>=<span class="hljs-string">"width=device-width, initial-scale=1"</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"stylesheet"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"./index.css"</span> /&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Hello, World<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"module"</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"./index.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</code></pre>
+</tonic-tab-panel>
+
+<tonic-tab-panel id="panel-css-01">
+
+<pre><code class="language-css"><span class="hljs-selector-tag">h1</span> {
+  <span class="hljs-attribute">text-transform</span>: uppercase;
+}
+</code></pre>
+</tonic-tab-panel>
+
+<tonic-tab-panel id="panel-sp-01">
+
+<pre><code class="language-js"><span class="hljs-comment">// This can be any program that can reads stdin and writes to stdout.</span>
+<span class="hljs-comment">// Unlike Electron or other frameworks, this is completely optional.</span>
+<span class="hljs-comment">// This is an example of using a javascript runtime as a sub process.</span>
+
+<span class="hljs-keyword">import</span> { Message } <span class="hljs-keyword">from</span> <span class="hljs-string">'@socketsupply/socket-api/ipc.js'</span>
+<span class="hljs-keyword">import</span> pipe <span class="hljs-keyword">from</span> <span class="hljs-string">'@socketsupply/node-pipe'</span>
+
+pipe.on(<span class="hljs-string">'data'</span>, <span class="hljs-function"><span class="hljs-params">data</span> =&gt;</span> {
+  pipe.write(data)
+})
+
+pipe.write(Message.from(<span class="hljs-string">'setTitle'</span>, { <span class="hljs-attr">value</span>: <span class="hljs-string">'hello'</span> }))
+</code></pre>
+</tonic-tab-panel>
+
+<h2 id="next-steps">Next Steps</h2>
+<p>The same codebase will run on mobile and desktop, but there are some features
+unique to both. Ready to dive a bit deeper?</p>
+<a href="#mobile-guide" class="cyoa mobile">
+  Mobile →
+</a>
+
+<a href="#desktop-guide" class="cyoa desktop">
+  Desktop →
+</a>
+</markdown-module>
+                <markdown-module src="src/docs/guide-apple.md"><h1 id="apple-guide">Apple Guide</h1>
+<p>The following is a guide for building apps on Apple's <code>MacOS</code> and <code>iOS</code>
+operating systems.</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<ol>
+<li>Sign up for a (free) <a href="https://developer.apple.com/">Apple Developer</a> account.</li>
+<li>Register your <a href="https://developer.apple.com/account/resources/devices/add">devices</a> for testing. You can use <code>ssc list-devices</code>
+command to get your Device ID (UDID). Device should be connected to your mac by wire.</li>
+<li>Create a wildcard <a href="https://developer.apple.com/account/resources/identifiers">App ID</a> for the application you are developing.</li>
+<li>Write down your <code>Team ID</code>. It's in the top right corner of the website. You'll need this later.</li>
+</ol>
+<h3 id="macos">MacOS</h3>
+<ul>
+<li>Xcode Command Line Tools. If you don't have them already, and you don't have xcode,
+you can run the command <code>xcode-select --install</code>.</li>
+</ul>
+<h3 id="ios">iOS</h3>
+<ul>
+<li><a href="https://developer.apple.com/xcode/resources/">Xcode</a> (You won't need to even open it)</li>
+<li><a href="https://apps.apple.com/us/app/apple-configurator/id1037126344">Apple Configurator</a> (If you want to build iOS apps)</li>
+</ul>
+<h2 id="code-signing-certificates">Code Signing Certificates</h2>
+<ul>
+<li>Open Keychain Access application on your mac (it's in Applications/Utilities).</li>
+<li>In the Keychain Access application choose Keychain Access -&gt; Certificate Assistant -&gt; Request a Certificate From a Certificate Authority...<img src="../images/screenshots/prov-prof-1.png" class="shadowed"></li>
+<li>Type you email in the User Email Address field. Other form elements are optional.
+<img src="../images/screenshots/prov-prof-2.png" alt=""></li>
+<li>Choose Request is Saved to Disc and save your certificate request.</li>
+</ul>
+<h3 id="macos-1">MacOS</h3>
+<p>Signing software on <code>MacOS</code> is optional but it's the best practice. Not signing
+software is like using <code>http</code> instead of <code>https</code>.</p>
+<ul>
+<li><a href="https://developer.apple.com/account/resources/certificates/add">Create</a> a new <code>Developer ID Application</code> certificate
+on the Apple Developers website.</li>
+<li>Choose a certificate request you've created 2 steps earlier.</li>
+<li>Download your certificate and double click to add it to your Keychain.</li>
+</ul>
+<h3 id="ios-1">iOS</h3>
+<p>To run software on iOS, it <strong>must</strong> be signed by Xcode using the certificate data
+contained in a "Provisioning Profile". This is a file generated by Apple and it
+links <code>app identity</code>, <code>certificates</code> (used for code signing), <code>app permissions</code>,
+and phystical <code>devices</code>.</p>
+<ul>
+<li><a href="https://developer.apple.com/account/resources/certificates/add">Create</a> a new iOS Distribution (App Store and Ad Hoc) certificate on the Apple Developers website.</li>
+<li>Choose a certificate request you've created 2 steps earlier.</li>
+<li>Download your certificate and double click to add it to your Keychain.</li>
+</ul>
+<p>When you run <code>ssc build --target=ios .</code> on your project for the first time, you may see the
+following because you don't have a provisioning profile:</p>
+<pre><code>ssc build --target=ios .
+• provisioning profile not found: <span class="hljs-regexp">/Users/</span>chicoxyzzy/dev/socketsupply/birp/./distribution.mobileprovision. Please specify a valid provisioning profile <span class="hljs-keyword">in</span> the ios_provisioning_profile field <span class="hljs-keyword">in</span> your <span class="hljs-string">`ssc.config`</span>
+</code></pre>
+<ul>
+<li><a href="https://developer.apple.com/account/resources/profiles/add">Create</a> a new Ad Hoc profile. Use the App ID you created with the wildcard.</li>
+<li>Pick the certificate that you added to your Keychain two steps earlier.</li>
+<li>Add the devices that the profile will use.</li>
+<li>Add a name for your new distribution profile (we recommend to name it "distribution").</li>
+<li>Download the profile and double click it. This action will open Xcode. You can close it after it's completely loaded.</li>
+<li>Place your profile to your project directory (same directory as <code>ssc.config</code>). <strong>The profiles are secret, add your profile to <code>.gitignore</code></strong>.</li>
+</ul>
+<h2 id="configuration">Configuration</h2>
+<h3 id="macos-2">MacOS</h3>
+<p>You will want to ensure the following fields are filled out in your <code>ssc.config</code>
+file. They will look something like this...</p>
+<pre><code class="language-yaml"><span class="hljs-attr">mac_team_id:</span> <span class="hljs-string">Z3M838H537</span>
+<span class="hljs-attr">mac_sign: Developer ID Application:</span> <span class="hljs-string">Operator</span> <span class="hljs-string">Tools</span> <span class="hljs-string">Inc.</span> <span class="hljs-string">(Z3M838H537)</span>
+</code></pre>
+<h3 id="ios-2">iOS</h3>
+<ol>
+<li>Set the <code>ios_distribution_method</code> value in <code>ssc.config</code> to the <code>ad-hoc</code></li>
+<li>Set the <code>ios_codesign_identity</code> value in <code>ssc.config</code> to the <a href="#certificate">certificate</a> name as it's displayed in the Keychan or copy it from the output of <code>security find-identity -v -p codesigning</code></li>
+<li>Set the <code>ios_provisioning_profile</code> value in <code>ssc.config</code> to the filename of your certificate (i.e., "distribution.mobileprovision").</li>
+</ol>
+<h2 id="development">Development</h2>
+<p>Create a simulator VM and launch the app in it</p>
+<pre><code class="language-bash">ssc build --target=iossimulator -r .
+</code></pre>
+<h2 id="distribution-and-deployment">Distribution And Deployment</h2>
+<pre><code class="language-bash">ssc build --target=ios -c -p -xd .
+</code></pre>
+<h3 id="to-your-device">To your device</h3>
+<p>Install <a href="https://apps.apple.com/us/app/apple-configurator/id1037126344">Apple Configurator</a>, open it and install Automation Tools from the menu.</p>
+<p>Connect your device and run <code>ssc install-app &lt;path&gt;</code> where path is the root directory of your application (the one where <code>ssc.config</code> is located).</p>
+<p>Alternative way to install your app is to open the the <code>Apple Configurator</code> app and drag
+the inner <code>/dist/build/[your app name].ipa/[your app name].ipa</code> file onto your phone.</p>
+<h3 id="to-the-apple-app-store">To the Apple App Store</h3>
+<pre><code class="language-bash">xcrun altool --validate-app \
+  -f file \
+  -t platform \
+  -u username [-p password] \
+  [--output-format xml]
+</code></pre>
+<pre><code class="language-bash">xcrun altool --upload-app \
+  -f file \
+  -t platform \
+  -u username [-p password] \
+  [—output-format xml]
+</code></pre>
+<h2 id="debugging">Debugging</h2>
+<p>Check the [troubleshooting guide][/troubleshooting] first. You can also run
+<a href="https://developer.apple.com/library/archive/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-terminal-workflow-tutorial.html"><code>lldb</code></a> and attach to a process, for example...</p>
+<pre><code class="language-bash">process attach --name TestExample-dev
+</code></pre>
+<h2 id="logging">Logging</h2>
+<p>To see logs on either platform, open <code>Console.app</code> (installed on MacOS by default)
+and in the right side panel pick the device or computer name.</p>
+<h2 id="working-with-the-file-system-on-ios">Working with the file system on iOS</h2>
+<p>iOS Application Sandboxing has a set of rules that limits access to the file system.
+Apps can only access files in their own sandboxed home directory.</p>
+<table>
+<thead>
+<tr>
+<th>Directory</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>Documents</code></td>
+<td>The app’s sandboxed documents directory. The contents of this directory is backed up by iTunes and may be set as accessable to the user via iTunes when <code>UIFileSharingEnabled</code> is set to <code>true</code> in application's <code>info.plist</code>.</td>
+</tr>
+<tr>
+<td><code>Library</code></td>
+<td>The app’s sandboxed library directory. The contents of this directory are synchronised via iTunes (except the <code>Library/Caches</code> subdirectory, see below), but never exposed to the user.</td>
+</tr>
+<tr>
+<td><code>Library/Caches</code></td>
+<td>The app’s sandboxed caches directory. The contents of this directory are not synchronised via iTunes, and may be deleted by the system at any time. It's a good place to store data which provides a good offline-first experience for the user.</td>
+</tr>
+<tr>
+<td><code>Library/Preferences</code></td>
+<td>The app’s sandboxed preferences directory. The contents of this directory are synchronised via iTunes. It's purpose is to be used by the Settings app. Avoid creating your own files in this directory.</td>
+</tr>
+<tr>
+<td><code>tmp</code></td>
+<td>The app’s sandboxed temporary directory. The contents of this directory are not synchronised via iTunes, and may be deleted by the system at any time. Although, it's recommended that you delete data which is not necessary anymore manually to minimize the space your app takes up on the file system. Use this directory to store data which is only useful during the app runtime.</td>
+</tr>
+</tbody></table>
+</markdown-module>
+                <markdown-module src="src/docs/guide-desktop.md"><h1 id="desktop-guide">Desktop Guide</h1>
+<h2 id="getting-started">Getting Started</h2>
+<p>Open a terminal, navigate to where you keep your code. Create a directory and
+initilaize it.</p>
+<pre><code>ssc init
+</code></pre>
+</markdown-module>
+                <markdown-module src="src/docs/guide-mobile.md"><h1 id="mobile-guide">Mobile Guide</h1>
+<h2 id="develop--debug-cycle">Develop &amp; Debug Cycle</h2>
+<p>You'll want to write code, see it, change it, and repeat this cycle. So the
+typical approach is to create a watch script that rebuilds your files when
+there are changes. If you provide a port, the <code>ssc</code> command will try to load
+<code>http://localhost</code>.</p>
+<pre><code>ssc build -r --port=<span class="hljs-number">8000</span>
+</code></pre>
+<p>You'll need to tell your build script the output location. The <code>ssc</code> command
+can tell you the platform specific build destination. For example.</p>
+<pre><code>./myscript <span class="hljs-string">`ssc list-build-target .`</span>
+</code></pre>
+<h2 id="running-the-mobile-simulator">Running the Mobile Simulator</h2>
+<p>After you get your UI looking how you want. The next step is to try it out
+on the simulator. At this point we can use either the <code>-ios</code> or <code>-android</code>
+flags as well as the <code>-simulator</code> flag. This will createa a platform specific
+bundle, create and boot a simulator VM and then run your app in simulator if
+<code>-r</code> flag is provided.</p>
+<pre><code>ssc build --target=iossimulator -r
+</code></pre>
+<h2 id="debugging-in-the-mobile-simulator">Debugging in the Mobile Simulator</h2>
+<p>You can use Safari to attach the Web Inspector to the Simulator. In the Safari
+menu, navigate <code>Develop -&gt; Simulator -&gt; index.html</code>. This will be the exact
+same inspector you get while developing desktop apps.</p>
+<h2 id="next-steps">Next Steps</h2>
+<p>The JavaScript APIs are the same on iOS and Android, check out the <a href="https://sockets.sh/api">API</a> docs.</p>
+</markdown-module>
+                <markdown-module src="src/docs/guide-p2p.md"><h1 id="peer-to-peer">Peer To Peer</h1>
+<h2 id="why">Why</h2>
+<p>There are broadly 3 categories of concerns addressed by P2P.</p>
+<h3 id="complexity">Complexity</h3>
+<p>One server to many users is a natural bottle-neck, and scaling them up quickly
+becomes a complex distribued system of shared state. A P2P network is many users
+to many users, and although it is also an eventually consistent, distribued
+system of shared state, the total complexity of all components needed to create
+a P2P network are finite, transparent and can be formally verified.</p>
+<h3 id="security--sovereignty">Security &amp; Sovereignty</h3>
+<p>Cloud (even Gov. Cloud) are closed systems, owned by third parties. There is
+always a non-zero chance for a greater number of incidents than if the network,
+data, and software was entirely self-contained without a man-in-the-middle.</p>
+<h3 id="cost">Cost</h3>
+<p>Servers, and cloud infrastructure in general, become more expensive as demand
+increases. Although "free tiers" can be cheap for trivial, they can be prohibitive
+for many kinds of businesses.</p>
+<h2 id="use-cases">Use Cases</h2>
+<p>The protocol is limited to connecting peers and delivering datagrams with a high
+degree of reliably. It sits directly on top of UDP and is suitable for building
+applications and protocols. Uses case examples include chat, social networks, mail,
+photo and file sharing, distribued computing.</p>
+<h2 id="how">How</h2>
+<p class="hl">The dependency for this api will be published 02.01.2023</p>
+
+<pre><code class="language-js"><span class="hljs-keyword">import</span> { Peer, sha256 } <span class="hljs-keyword">from</span> <span class="hljs-string">'@socketsupply/socket-api/p2p.js'</span>
+
+<span class="hljs-keyword">const</span> peer = <span class="hljs-keyword">new</span> Peer()
+
+peer.onPacket = <span class="hljs-function">(<span class="hljs-params">packet, port, address</span>) =&gt;</span> {
+  <span class="hljs-built_in">console</span>.log(packet)
+}
+
+peer.init()
+
+peer.publish({
+  <span class="hljs-attr">topicId</span>: <span class="hljs-keyword">await</span> sha256(<span class="hljs-string">'greetings'</span>),
+  <span class="hljs-attr">message</span>: <span class="hljs-string">'hello, world'</span>
+})
+</code></pre>
+<p>TODO link to the API docs and explain this code more.</p>
+<h3 id="nat-traversal">NAT Traversal</h3>
+<h4 id="problem-description">Problem Description</h4>
+<p>With client-server architecture, any client can directly request a response from
+a server. However in peer-to-peer architecture, any client can not request a
+response from any other client.</p>
+<p>P2P software needs to listen for new messages from unknown people. However most
+routers will discard unsolicited packets. It is possible to work around this
+problem.</p>
+<p>P2P connectivity requires coordination between three or more peers. Consider the
+following analogy.</p>
+<p>Alice wants to write a letter to Bob. But Bob moves frequently, and she has no
+other way to contact him. Before Alice can send Bob the letter, she needs to
+learn his address. The solution is for her to ask some friends who might have
+talked to Bob recently.</p>
+<p>In this anology, Alice's letter is really a packet of data. Bob's address is his
+external <code>IP address</code> and <code>port</code>. And their friends, are a serializable list of
+recently known IP addresses and ports. You can read more about the technical
+details in the <code>STATE_0</code> section of the <a href="https://github.com/socketsupply/stream-relay/spec/README.md">spec</a>.</p>
+<h3 id="small-networks">Small Networks</h3>
+<h4 id="problem-description-1">Problem Description</h4>
+<p>Imagine a scenario where Alice and Bob are sending each other messages. Alice
+goes offline. Bob continues to write messages to Alice. And because the App Bob
+is using has a good "local first" user experience, it appears to Bob as if
+everything is fine and that Alice should eventually receive all his messages,
+so he also goes offline. When Alice comes online, she doesn’t see Bob’s most
+recent messages because he’s not online to share them.</p>
+<h4 id="problem-summary--solution-deficits">Problem Summary &amp; Solution Deficits</h4>
+<p>This is a very common problem with P2P, it’s sometimes called the Small Network
+Problem. How well data can survive in a network with this problem is referred to
+as "partition tolerance". This problem is often solved by using
+<a href="https://datatracker.ietf.org/doc/html/rfc5766">STUN and TURN</a> (relay servers), but these add additional infrastructure that
+comes at a cost (both in terms of time, money, and expertise).</p>
+<h4 id="solution">Solution</h4>
+<p>The way Stream Relay Protocol solves this problem is with a shared, global
+packet caching strategy. Every peer in the entire network allocates a small
+budget (16Mb by default) for caching packets from any other peer in the network.</p>
+<p>A peer will cache random packets with a preference for packets that have a topic
+ID that the peer subscribes to. A packet starts out with a postage value of 16
+(A peer will never accept a packet with a postage value greater than 16). When a
+packet nears its max-age, it is re-broadcast to 3 more random peers in the
+network, each taxing its postage by a value of 1 when received, unless its
+postage value is 0, in which case it is no longer re-broadcast and is purged
+from the peer’s cache.</p>
+<p>When a message is published, it is also re-broadcast by at least 3 random peers,
+with a preference for the intended recipient and peers that subscribe to the
+same topic. The result of this is a high <code>r-value</code> (or <code>r0</code>, also known as Basic
+Reproduction Ratio in epidemiology).</p>
+<h4 id="solution-summary--solution-gains">Solution Summary &amp; Solution Gains</h4>
+<p>In <a href="/test/cases/ratio.js">simulations</a>, a network of <code>128 peers</code>, where the join and drop rate are
+<code>&gt;95%</code>, <code>+/-30%</code> of NATs are hard, and only <code>+/-50%</code> of the peers subscribe to
+the topic ID; an unsolicited packet can replicate to <code>100%</code> of the subscribers
+in an average of <code>2.5 seconds</code>, degrading to only <code>50%</code> after a 1000% churn
+(unrealistically hostile network conditions) over a <code>&gt;1 minute</code> period.</p>
+<p>This strategy also improves as the number of participants in the network
+increases, since the size of the cache and time packets need to live in it is
+reduced. If we revisit our original problem with this strategy, we can
+demonstrate a high degree of partition tolerance. It can be said that the peers
+in a network act as relays (hence the name of the protocol).</p>
+<p>Bob continues to write (optionally encrypted) messages to Alice after she goes
+offline, and his packets are published to the network. A network of only 1024
+peers (split across multiple apps), will provide Bob’s packets a 100% survival
+rate over a 24 hour period, without burdening any particular peer with storage
+or compute requirements. Allowing Alice to return to the network and see Bob’s
+most recent messages without the need for additional infrastructure.</p>
+<h3 id="cache-negotiation">Cache Negotiation</h3>
+<p>TODO</p>
+<h3 id="connectionless">Connectionless</h3>
+<p>TCP is oftern thought of as an ideal choice for packet delivery since it's
+considered "reliable". With TCP packet loss, all packets are withheld until all
+packets are received, this can be a delay of up to 1s (as per RFC6298 section
+2.4). If the packet can't be retransmitted, an exponential backoff could lead to
+another 600ms of delay needed for retransmission.</p>
+<p>In fact, <code>Head-of-Line Blocking</code> is generally a problem with any ordered stream,
+TCP (or UDP with additional higher level protocol code for solving this problem).</p>
+<p>TCP introduces other unwanted complexity that makes it less ideal for P2P.</p>
+<p>UDP is only considered "unreliable" in the way that packets are not guaranteed
+to be delivered. However, UDP is ideal for P2P networks because it’s message
+oriented and connectionless (ideal for NAT traversal). Also because of its
+message oriented nature, it’s light weight in terms of resource allocation. It's
+the responsibility of a higher level protocol to implement a strategy for
+ensuring UDP packets are delivered.</p>
+<p>Stream Relay Protocol eliminates Head-of-Line blocking entirely by reframing
+packets as content-addressable Doubly-Linked lists, allowing packets to be
+delivered out of order and become eventually consistent. Causal ordering is made
+possible by traversing the previous ID or next ID to determine if there were
+packets that came before or after one that is known.</p>
+<p>And in the case where there is loss (or simply missing data), the receiver MAY
+decide to request the packet. If the peer becomes unavailable, query the network
+for the missing packet.</p>
+<p>The trade-off is more data is required to re-frame the packet. The average
+<a href="https://en.wikipedia.org/wiki/Maximum_transmission_unit">MTU</a> for a UDP packet is ~1500 bytes. Stream Relay Protocol uses ~134 bytes
+for framing, allocating <code>1024</code> bytes of application or protocol data, which is
+<a href="https://gafferongames.com/post/snapshot_compression/">more than enough</a>.</p>
+<h3 id="further-reading">Further Reading</h3>
+<p>See the <a href="https://github.com/socketsupply/stream-relay/spec/README.md">specification</a> and the <a href="https://github.com/socketsupply/stream-relay/src">source code</a> for more details.</p>
+</markdown-module>
+                <markdown-module src="src/docs/troubleshooting.md"><h1 id="troubleshooting">Troubleshooting</h1>
+<h2 id="macos">macOS</h2>
+<h3 id="cashes">Cashes</h3>
+<p>To produce a meaningful backtrace that can help debug the crash, you'll need to
+resign the binary with the ability to attach the <code>lldb</code> debugger tool. You'll
+also want to enable core dumps in case the analysis isn't exaustive enough.</p>
+<pre><code>sudo ulimit -c unlimited # enable core dumps (<span class="hljs-string">`ls -la /cores`</span>)
+/usr/libexec/PlistBuddy -c <span class="hljs-string">"Add :com.apple.security.get-task-allow bool true"</span> tmp.entitlements
+codesign -s - -f --entitlements tmp.entitlements ./path/to/your/binary
+lldb ./path/to/your/binary # type <span class="hljs-string">`r`</span>, then after the crash type <span class="hljs-string">`bt`</span>
+</code></pre>
+<h3 id="clock-drift">Clock Drift</h3>
+<p>If you're running from a VM inside MacOS you may experience clock drift and the signing
+tool will refuse to sign. You can set sntp to refresh more frequently with the following
+command...</p>
+<pre><code>sudo sntp -sS time.apple.com
+</code></pre>
+<h3 id="macos-asks-for-password-multiple-times-on-code-signing">macOS asks for password multiple times on code signing</h3>
+<p>Open Keychain Access and find your developer certificate under the My Certificates section.
+Expand your certificate and double click on a private key. In the dialog click Access Control tab.</p>
+<p><img src="../images/screenshots/macos-cert-access-control.png" alt=""></p>
+<p><code>codesign</code> utility is located in the <code>/usr/bin/codesign</code>. To add it to the allowed applications
+list click the "+" button to open File Dialog, then press ⌘ + Shift + G and enter <code>/usr/bin</code>.
+Select <code>codesign</code> utility fom Finder.</p>
+<h2 id="build-or-compile-failures">Build or compile failures</h2>
+<h3 id="aclocal--automake-command-not-found"><code>aclocal / automake: command not found</code></h3>
+<p>To build <code>ssc</code> for ios you need <code>automake</code> / <code>libtool</code> installed.</p>
+<pre><code class="language-sh">brew install automake
+brew install libtool
+</code></pre>
+<h3 id="unable-to-build-chain-to-self-signed-root-for-signer-"><code>unable to build chain to self-signed root for signer (...)</code></h3>
+<p>You need the intermediate certificate that matches your code signing certificate.
+To find which "Worldwide Developer Relations" matches you certificate, open the
+signing certificate in your keychain, open <a href="https://www.apple.com/certificateauthority/">this</a>
+page and find the certificate that matches the details in the "Issuer" section
+of your certicicate.</p>
+<h3 id="xcrun-error-sdk-iphoneos-cannot-be-located"><code>xcrun: error: SDK "iphoneos" cannot be located</code></h3>
+<p>You have to configure the xcode command line tools, to do this
+you can run the following command</p>
+<pre><code>sudo xcode-select --<span class="hljs-keyword">switch</span> /Applications/Xcode.app
+</code></pre>
+<h3 id="fatal-error-libuvincludeuvh-file-not-found"><code>fatal error: 'lib/uv/include/uv.h' file not found</code></h3>
+<p>Make sure your local <code>ssc</code> binary has been compiled with <code>ios</code>
+parameter in <code>./bin/install.sh ios</code>, otherwise the uv.h
+does not exist.</p>
+<h3 id="unable-to-find-utility-simctl"><code>unable to find utility simctl</code></h3>
+<p>You need to have <a href="https://developer.apple.com/xcode/resources/">XCode</a> installed on your macbook.</p>
+<h3 id="you-have-not-agreed-to-the-xcode-license-agreements-please-run-sudo-xcodebuild--license-from-within-a-terminal-window-to-review-and-agree-to-the-xcode-license-agreements"><code>You have not agreed to the Xcode license agreements, please run 'sudo xcodebuild -license' from within a Terminal window to review and agree to the Xcode license agreements.</code></h3>
+<p>You can run <code>sudo xcodebuild -license</code> to agree to the license.</p>
+<h3 id="multiple-password-prompts">Multiple Password Prompts</h3>
+<p>If macOS is asking you a password every time you run the command with <code>-c</code> flag,
+follow <a href="/troubleshooting#macos-asks-for-password-multiple-times-on-code-signing">these instructions</a></p>
+<h3 id="application-crashes-on-start">Application crashes on start</h3>
+<p>If you use iTerm2 you can get your app crashing with</p>
+<pre><code>This app has crashed because it attempted to access privacy-sensitive data without a usage description. The app<span class="hljs-string">'s Info.plist must contain an NSBluetoothAlwaysUsageDescription key with a string value explaining to the user how the app uses this data.</span>
+</code></pre>
+<p>Command line apps inherit their permissions from iTerm, so you need to grant Bluetooth permission to iTerm in macOS system preferences. Go to Security &amp; Privacy, open the Privacy tab and select Bluetooth. Press the "+" button and add iTerm to the apps list.
+<img src="../images/screenshots/macos-bluetooth.png" alt=""></p>
+<h2 id="windows">Windows</h2>
+<h3 id="development-environment">Development Environment</h3>
+<p><a href="https://github.com/llvm/llvm-project/releases/tag/llvmorg-14.0.0"><code>clang++</code></a> <a href="https://github.com/llvm/llvm-project/releases/download/llvmorg-14.0.0/LLVM-14.0.0-win64.exe">version 14</a> required for building.</p>
+<p>You will need <a href="https://visualstudio.microsoft.com/downloads/#build-tools-for-visual-studio-2022">build tools</a></p>
+<p>The <code>WebView2LoaderStatic.lib</code> file was sourced from <a href="https://www.nuget.org/api/v2/package/Microsoft.Web.WebView2/1.0.864.35">this</a> package.</p>
+<h3 id="cannot-run-scripts">Cannot Run Scripts</h3>
+<p>If the app cannot be loaded because running scripts is disabled on this system.</p>
+<pre><code>./bin/bootstrap.ps1 : File C:\Users\user\sources\socket\bin\bootstrap.ps1 cannot be loaded because running scripts is
+disabled on <span class="hljs-built_in">this</span> system. For more information, see about_Execution_Policies at
+<span class="hljs-attr">https</span>:<span class="hljs-regexp">/go.microsoft.com/</span>fwlink/?LinkID=<span class="hljs-number">135170.</span>
+</code></pre>
+<p>Then you can follow <a href="https://superuser.com/a/106363">https://superuser.com/a/106363</a></p>
+<ol>
+<li>Start Windows PowerShell with the "Run as Administrator" option.</li>
+<li><code>set-executionpolicy remotesigned</code></li>
+</ol>
+<h3 id="msvc">MSVC</h3>
+<p>Setting up the MSVC build environment from Git Bash</p>
+<p>You can leverage the MSVC build tools (<code>clang++</code>) and environment headers directly in Git Bash by loading it into your shell environment directly.
+This is possible by running the following command:</p>
+<pre><code class="language-sh"><span class="hljs-built_in">source</span> bin/mscv-bash-env.sh
+</code></pre>
+<p>The <code>bin/install.sh</code> shell script should work for compiling the <code>ssc</code> tool.
+It is also recommneded to initialize this environment when building applications
+with <code>ssc</code> from the CLI so the correct build tools can be used which ensures
+header and library paths for the compiler</p>
+<h2 id="linux">Linux</h2>
+<h3 id="build-failures">Build failures</h3>
+<p>If you are getting a failure that the build tool cant locate your
+compiler, try making sure that the <code>CXX</code> environment variable is
+set to the location of your C++ compiler (<code>which g++</code>, or <code>which c++</code>).</p>
+<p>The latest version of MacOS should have installed C++ for you. But
+on Linux you may need to update some packages. To ensure you have
+the latest clang compiler and libraries you can try the follwing...</p>
+<p>For debian/ubuntu, before you install the packages, you may want
+to <a href="https://github.com/llvm/llvm-project/releases/tag/llvmorg-14.0.0">add</a> these software update repos <a href="https://github.com/llvm/llvm-project/releases/download/llvmorg-14.0.0/LLVM-14.0.0-win64.exe">here</a> to the software
+updater.</p>
+<p>Note that clang version 14 is only available on Ubuntu 22.04. Use clang 13
+for prior versions of Ubuntu.</p>
+<h4 id="ubuntu">Ubuntu</h4>
+<pre><code class="language-sh">sudo apt install \
+  build-essential \
+  clang-14 \
+  libc++1-14-dev \
+  libc++abi-14-dev \
+  libwebkit2gtk-4.1-dev
+</code></pre>
+<h4 id="archmanjaro">Arch/Manjaro</h4>
+<p>arch uses the latest versions, so just install <code>base-devel</code></p>
+<pre><code class="language-sh">sudo pacman -S base-devel
+</code></pre>
+<h3 id="multiple-g-versions">Multiple g++ versions</h3>
+<p>If you've tried running the above <code>apt install</code> and you get an error
+related <code>Unable to locate package</code> then you can also install multiple
+versions of G++ on your system.</p>
+<pre><code class="language-sh">sudo apt install software-properties-common
+sudo add-apt-repository ppa:ubuntu-toolchain-r/<span class="hljs-built_in">test</span>
+sudo apt install gcc-9 g++-9 gcc-10 g++-10 gcc-11 g++-11 gcc-12 g++-12
+</code></pre>
+<p>Then you can set your C++ compiler as <code>g++-12</code></p>
+<pre><code class="language-sh"><span class="hljs-comment"># Add this to bashrc</span>
+<span class="hljs-built_in">export</span> CXX=g++-12
+</code></pre>
+<h3 id="cant-find-webkit">Can't find Webkit</h3>
+<p>If you run into an error about not finding webkit &amp; gtk like this:</p>
+<pre><code class="language-text">Package webkit2gtk-4.1 was not found in the pkg-config search path.
+Perhaps you should add the directory containing `webkit2gtk-4.1.pc'
+to the PKG_CONFIG_PATH environment variable
+No package 'webkit2gtk-4.1' found
+In file included from /home/runner/.config/socket/src/main.cc:9:
+/home/runner/.config/socket/src/linux.hh:4:10: fatal error: JavaScriptCore/JavaScript.h: No such file or directory
+    4 | #include &lt;JavaScriptCore/JavaScript.h&gt;
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+compilation terminated.
+</code></pre>
+<p>Then you will want to install those dependencies</p>
+<pre><code class="language-sh">sudo apt-get install libwebkit2gtk-4.1-dev
+</code></pre>
+</markdown-module>
+                <markdown-module src="src/docs/faq.md"><h1 id="faq">FAQ</h1>
+<h2 id="cross-platform-development">Cross Platform Development</h2>
+<h3 id="what-is-a-modern-runtime-for-web-apps">What is a Modern Runtime for Web Apps?</h3>
+<p><em>Modern</em> does not refer to how recently any component of the software was
+written. For example we use <code>libuv</code> which certainly isn't new. In fact, it's
+considered boring and stable. It's the approach that's modern.</p>
+<p>The <code>client-server</code> model was more relevant when computers were fewer and less
+powerful. Now we are surrounded by billions of computers that can connect
+directly to each other, so servers are becoming less relevant no mater how fast
+they are.</p>
+<h3 id="why-not-electron">Why not Electron?</h3>
+<p>Electron's binary size and memory footprint are far from acceptable for most
+developers. The bulk of the weight comes from the decision to build-in V8 and
+a custom distribution of node.js.</p>
+<h3 id="why-not-tauri-rust">Why not Tauri, Rust?</h3>
+<p>Tauri is a project for people who want to write Rust. Socket SDK is for Web
+Developers who want to create connected apps with HTML, CSS and JavaScript.</p>
+<p>Webview is C++, so are the platforms that it runs on. The memory safety offered
+by Rust is great but becomes irrelevant when it's just a thin wrapper around a
+world of C++. It is possible to write C++ that is as safe as Rust, it's just a
+hell of a lot harder.</p>
+<h3 id="does-webview-render-consistently-across-platforms">Does Webview render consistently across platforms?</h3>
+<p>Historically it did not. Now it does.</p>
+<h3 id="is-it-secure">Is it secure?</h3>
+<p>Yes. As much as anything else. Just <em>NEVER</em> try to build a browser. <em>NEVER</em>
+evaluate arbitrary code. <em>ALWAYS</em> use a strong CSP. <em>ALWAYS</em> sanitize any
+data that will be rendered in a UI.</p>
+<h3 id="will-you-support-a-specific-feature">Will you support a specific feature?</h3>
+<p>Possibly, create a PR and make an argument for why the feature is relevant to
+everyone who would use this project.</p>
+<h3 id="how-can-webview-based-apps-compete-with-the-quality-of-native-apps">How can Webview based apps compete with the quality of native apps?</h3>
+<p>Native apps require an enormous amount of developer effort if the developer
+wants their app to run across multiple platforms. Socket lowers the
+barrier to entry and lets in the worlds largest developer community. With care,
+avoiding bloated frameworks, a web-based app can run as well as any native app.</p>
+<h2 id="peer-to-peer">Peer To Peer</h2>
+<h3 id="why-should-i-care-that-p2p-is-free-aws-is-almost-free">Why should I care that P2P is free? AWS is almost free!</h3>
+<p>AWS is nearly free, until you experience any kind of growth. The cost of The Cloud scales up
+with the demand of a product. And for most companies, The Cloud becomes their largest cost center.
+When this cost is combined with non-cloud costs (the cost of experts, their managers, key-person
+churn, it can make profitability impossible.</p>
+<h3 id="how-effective-are-distributed-networks-at-hosting-the-long-tail-of-rarely-accessed-content">How effective are distributed networks at hosting the long tail of rarely-accessed content?</h3>
+<p>We make it possible to send a receive packets even when peers are offline. But this isn't the same
+as "free storage". In networks like BitTorrent, rarely-accessed content (content accessed less
+frequently than 72 hours) becomes unavailable as the few peers hosting that content drop offline.</p>
+<p>For this case, we enable developers to build hybrid networks. In hybrid networks, developers can
+choose to keep a centralized copy of all content. This keeps rarely-accessed content always available.
+For popular content, a distributed swarm of users’ devices also assist in distribution, reducing the
+cost of serving that content from a central location.</p>
+<h3 id="how-can-a-peer-replace-a-server">How can a peer replace a server?</h3>
+<p>A peer should not be asked to handle the same kind of work-loads as a server. If you develop an app
+that monopolizes a user's device, they will be unhappy, regardless of what architecture you are using.
+Peers should handle smaller work-loads in shorter bursts.</p>
+<p>With Peer To Peer networks, growth increases availability and compute capacity. Despite how many peers
+join your network, you should continue to design with the assumption that peers are unreliable and
+infrequently online.</p>
+</markdown-module>
+                <app-footer js-bundle="true">
       <footer id="primary" class="tc-footer">
         <div class="content">
           <div class="footer-links">
@@ -178,7 +807,6 @@
               <ul>
                 <li><a href="/config">Configuration</a></li>
                 <li><a href="/api">API Documentation</a></li>
-                <li><a href="/desktop">Desktop Only APIs</a></li>
                 <li><a href="/compare">Framework Comparison</a></li>
               </ul>
             </div>
@@ -214,6 +842,11 @@
     </bundle-js>
       
     </app-footer>
+              </tonic-split-right>
+            </tonic-split>
+          </main>
+          <app-sprite></app-sprite>
+
         
       
     </body></html>
