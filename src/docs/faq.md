@@ -5,12 +5,12 @@
 ### What is a Modern Runtime for Web Apps?
 
 *Modern* does not refer to how recently any component of the software was
-written. For example we use `libuv` which certainly isn't new. In fact, it's
+written. For example, we use `libuv` which certainly isn't new. In fact, it's
 considered boring and stable. It's the approach that's modern.
 
 The `client-server` model was more relevant when computers were fewer and less
 powerful. Now we are surrounded by billions of computers that can connect
-directly to each other, so servers are becoming less relevant no mater how fast
+directly to each other, so servers are becoming less relevant no matter how fast
 they are.
 
 
@@ -24,9 +24,9 @@ a custom distribution of node.js.
 ### Why not Tauri, Rust?
 
 Tauri is a project for people who want to write Rust. Socket SDK is for Web
-Developers who want to create connected apps with HTML, CSS and JavaScript.
+Developers who want to create connected apps with HTML, CSS, and JavaScript.
 
-Webview is C++, so are the platforms that it runs on. The memory safety offered
+Webview is C++, and so are the platforms that it runs on. The memory safety offered
 by Rust is great but becomes irrelevant when it's just a thin wrapper around a
 world of C++. It is possible to write C++ that is as safe as Rust, it's just a
 hell of a lot harder.
@@ -54,7 +54,7 @@ everyone who would use this project.
 
 Native apps require an enormous amount of developer effort if the developer
 wants their app to run across multiple platforms. Socket lowers the
-barrier to entry and lets in the worlds largest developer community. With care,
+barrier to entry and lets in the world's largest developer community. With care, and
 avoiding bloated frameworks, a web-based app can run as well as any native app.
 
 
@@ -62,8 +62,8 @@ avoiding bloated frameworks, a web-based app can run as well as any native app.
 
 ### Why should I care that P2P is free? AWS is almost free!
 
-AWS is nearly free, until you experience any kind of growth. The cost of The Cloud scales up
-with the demand of a product. And for most companies, The Cloud becomes their largest cost center.
+AWS is nearly free until you experience any kind of growth. The cost of The Cloud scales up
+with the demand for a product. And for most companies, The Cloud becomes their largest cost center.
 When this cost is combined with non-cloud costs (the cost of experts, their managers, key-person
 churn, it can make profitability impossible.
 
@@ -74,7 +74,7 @@ We make it possible to send a receive packets even when peers are offline. But t
 as "free storage". In networks like BitTorrent, rarely-accessed content (content accessed less
 frequently than 72 hours) becomes unavailable as the few peers hosting that content drop offline.
 
-For this case, we enable developers to build hybrid networks. In hybrid networks, developers can
+In this case, we enable developers to build hybrid networks. In hybrid networks, developers can
 choose to keep a centralized copy of all content. This keeps rarely-accessed content always available.
 For popular content, a distributed swarm of users’ devices also assist in distribution, reducing the
 cost of serving that content from a central location.
@@ -82,7 +82,7 @@ cost of serving that content from a central location.
 
 ### How can a peer replace a server?
 
-A peer should not be asked to handle the same kind of work-loads as a server. If you develop an app
+A peer should not be asked to handle the same kind of workloads as a server. If you develop an app
 that monopolizes a user's device, they will be unhappy, regardless of what architecture you are using.
 Peers should handle smaller work-loads in shorter bursts.
 

@@ -21,8 +21,8 @@ can tell you the platform specific build destination. For example.
 ## Running the Mobile Simulator
 
 After you get your UI looking how you want. The next step is to try it out
-on the simulator. At this point we can use either the `-ios` or `-android`
-flags as well as the `-simulator` flag. This will createa a platform specific
+on the simulator. At this point, we can use either the `-ios` or `-android`
+flags as well as the `-simulator` flag. This will create a a platform specific
 bundle, create and boot a simulator VM and then run your app in simulator if
 `-r` flag is provided.
 
@@ -33,7 +33,7 @@ ssc build --target=iossimulator -r
 ## Debugging in the Mobile Simulator
 
 You can use Safari to attach the Web Inspector to the Simulator. In the Safari
-menu, navigate `Develop -> Simulator -> index.html`. This will be the exact
+menu, navigate to `Develop -> Simulator -> index.html`. This will be the exact
 same inspector you get while developing desktop apps.
 
 ## Next Steps
