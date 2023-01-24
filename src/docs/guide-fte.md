@@ -35,8 +35,8 @@
 
 ## Create Socket App
 This is similar to React's `Create React App`. The idea is that it provides a
-few basic boilerplates and some stong opinions so you can get coding on a
-production quality app as quickly as possible.
+few basic boilerplates and some strong opinions so you can get coding on a
+production-quality app as quickly as possible.
 
 ```bash
 $npx create-socket-app -h
@@ -98,15 +98,15 @@ $tree
   <div class="content">
    <div data-content="subprocess">
      <label>Sub Process</label>
-     <p>Some apps that do computationally intensive work and may want to move that logic into a sub process. That sub process will be piped to the render process, so it can be any language.</p>
+     <p>Some apps do computationally intensive work and may want to move that logic into a sub-process. That sub-process will be piped to the render process, so it can be any language.</p>
    </div>
    <div data-content="ui">
      <label>User Interface</label>
-     <p>This is what you see on your screen when you open an app either on your phone or your destkop.</p>
+     <p>This is what you see on your screen when you open an app either on your phone or your desktop.</p>
    </div>
    <div data-content="socket">
      <label>Socket Runtime</label>
-     <p>The Socket CLI tool builds and packages and manages your application's assets. The runtime abstracts the operating systems details so you can focus on building your app.</p>
+     <p>The Socket CLI tool builds and packages and manages your application's assets. The runtime abstracts the details of the operating system so you can focus on building your app.</p>
    </div>
    <div data-content="js">
      <label>JavaScript</label>
