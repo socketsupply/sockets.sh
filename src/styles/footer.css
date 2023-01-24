@@ -8,8 +8,8 @@ body.api app-footer {
 }
 
 footer {
-  background-color: var(--tonic-dark);
-  color: var(--tonic-secondary);
+  background-color: var(--tonic-background);
+  color: var(--tonic-primary);
   font-family: var(--tonic-monospace);
   min-height: 250px;
   padding: 24px 0;

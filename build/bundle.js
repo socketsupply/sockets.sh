@@ -6733,7 +6733,9 @@ var AppTree = class extends import_tonic.default {
     }
   }
   async onSelection(node, isToggle) {
-    node.element.scrollIntoView(true);
+    window.requestAnimationFrame(() => {
+      node.element.scrollIntoView(true);
+    });
   }
   async connected() {
     const tree = {

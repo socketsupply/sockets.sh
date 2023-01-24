@@ -32,9 +32,9 @@ class PageIndex extends Tonic {
                   <h2>Write once, run anywhere, connect everyone</h2>
 
                   <p>
-                    Socket Runtime is like a next-generation Electron. It helps you build native apps using
-                    HTML, CSS and JavaScript, for every OS, desktop and mobile! Not only that, but it also
-                    allows users of your apps to communicate directly, without the cloud or any servers!
+                    Socket Runtime is like a next-generation Electron. Build native apps for any OS
+                    using HTML, CSS and JavaScript, for desktop &amp; mobile! You can also connect
+                    your users, and let them communicate directly, without the cloud or any servers!
                   </p>
 
                   <h2>Features</h2>

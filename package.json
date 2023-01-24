@@ -32,7 +32,6 @@
   },
   "standard": {
     "ignore": [
-      "_old",
       "bin/build.js",
       "bin/server.js",
       "tests",
@@ -51,9 +50,9 @@
   },
   "homepage": "https://github.com/socketsuply/sockets.sh#readme",
   "config": {
-    "title": "Socket SDK",
-    "description": "Build Native Desktop and Mobile Apps Using The Web Stack",
-    "siteName": "Socket SDK",
+    "title": "Socket Runtime",
+    "description": "Build Cross-Platform Desktop and Mobile Apps - Write Once, Run Anywhere, Connect Everyone!",
+    "siteName": "Socket Runtime",
     "image": "https://sockets.sh/images/framework.svg",
     "url": "https://sockets.sh"
   },
