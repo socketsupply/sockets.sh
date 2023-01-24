@@ -34,7 +34,6 @@
 </tonic-tab-panel>
 
 ## Create Socket App
-
 This is similar to React's `Create React App`. The idea is that it provides a
 few basic boilerplates and some stong opinions so you can get coding on a
 production quality app as quickly as possible.
@@ -42,11 +41,11 @@ production quality app as quickly as possible.
 ```bash
 $npx create-socket-app -h
 
-usage: create-socket-app <next | react | svelt | vanilla | vue>
+usage: create-socket-app [react | svelt | tonic | vanilla | vue]
 ```
 
 ```bash
-$npx create-socket-app vanilla
+$npx init socket-app vanilla
 
 Creating socket files...OK
 Initializing npm package...OK
@@ -59,14 +58,18 @@ Type 'npm start' to launch the app
 
 $tree
 .
+├── README.md
 ├── build.js
 ├── package.json
 ├── socket.ini
-└── src
-    ├── icon.png
-    ├── index.css
-    ├── index.html
-    └── index.js
+├── src
+│   ├── icon.png
+│   ├── index.css
+│   ├── index.html
+│   └── index.js
+└── test
+    ├── index.js
+    └── test-context.js
 ```
 
 ## Anatomy of a Socket App
