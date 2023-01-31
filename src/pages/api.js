@@ -22,7 +22,7 @@ class PageApi extends Tonic {
               </tonic-split-left>
 
               <tonic-split-right width="75%">
-                <markdown-module class="code" src="node_modules/@socketsupply/socket-api/README.md"></markdown-module>
+                <markdown-module class="code" src="node_modules/@socketsupply/socket/README.md"></markdown-module>
                 <app-footer js-bundle="true"></app-footer>
               </tonic-split-right>
             </tonic-split>

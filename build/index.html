@@ -146,13 +146,13 @@
 
 <h2 id="create-socket-app">Create Socket App</h2>
 <p>This is similar to React's <code>Create React App</code>. The idea is that it provides a
-few basic boilerplates and some stong opinions so you can get coding on a
-production quality app as quickly as possible.</p>
+few basic boilerplates and some strong opinions so you can get coding on a
+production-quality app as quickly as possible.</p>
 <pre><code class="language-bash"><span class="hljs-variable">$npx</span> create-socket-app -h
 
-usage: create-socket-app &lt;next | react | svelt | vanilla | vue&gt;
+usage: create-socket-app [react | svelte | tonic | vanilla | vue]
 </code></pre>
-<pre><code class="language-bash"><span class="hljs-variable">$npx</span> create-socket-app vanilla
+<pre><code class="language-bash"><span class="hljs-variable">$npx</span> create-socket-app
 
 Creating socket files...OK
 Initializing npm package...OK
@@ -165,14 +165,18 @@ Type <span class="hljs-string">'npm start'</span> to launch the app
 
 <span class="hljs-variable">$tree</span>
 .
+├── README.md
 ├── build.js
 ├── package.json
 ├── socket.ini
-└── src
-    ├── icon.png
-    ├── index.css
-    ├── index.html
-    └── index.js
+├── src
+│&nbsp;&nbsp; ├── icon.png
+│&nbsp;&nbsp; ├── index.css
+│&nbsp;&nbsp; ├── index.html
+│&nbsp;&nbsp; └── index.js
+└── <span class="hljs-built_in">test</span>
+    ├── index.js
+    └── test-context.js
 </code></pre>
 <h2 id="anatomy-of-a-socket-app">Anatomy of a Socket App</h2>
 <div id="anatomy">
@@ -199,15 +203,15 @@ Type <span class="hljs-string">'npm start'</span> to launch the app
   <div class="content">
    <div data-content="subprocess">
      <label>Sub Process</label>
-     <p>Some apps that do computationally intensive work and may want to move that logic into a sub process. That sub process will be piped to the render process, so it can be any language.</p>
+     <p>Some apps do computationally intensive work and may want to move that logic into a sub-process. That sub-process will be piped to the render process, so it can be any language.</p>
    </div>
    <div data-content="ui">
      <label>User Interface</label>
-     <p>This is what you see on your screen when you open an app either on your phone or your destkop.</p>
+     <p>This is what you see on your screen when you open an app either on your phone or your desktop.</p>
    </div>
    <div data-content="socket">
      <label>Socket Runtime</label>
-     <p>The Socket CLI tool builds and packages and manages your application's assets. The runtime abstracts the operating systems details so you can focus on building your app.</p>
+     <p>The Socket CLI tool builds and packages and manages your application's assets. The runtime abstracts the details of the operating system so you can focus on building your app.</p>
    </div>
    <div data-content="js">
      <label>JavaScript</label>
@@ -301,7 +305,7 @@ operating systems.</p>
 <ol>
 <li>Sign up for a (free) <a href="https://developer.apple.com/">Apple Developer</a> account.</li>
 <li>Register your <a href="https://developer.apple.com/account/resources/devices/add">devices</a> for testing. You can use <code>ssc list-devices</code>
-command to get your Device ID (UDID). Device should be connected to your mac by wire.</li>
+command to get your Device ID (UDID). The device should be connected to your mac by wire.</li>
 <li>Create a wildcard <a href="https://developer.apple.com/account/resources/identifiers">App ID</a> for the application you are developing.</li>
 <li>Write down your <code>Team ID</code>. It's in the top right corner of the website. You'll need this later.</li>
 </ol>
@@ -319,7 +323,7 @@ you can run the command <code>xcode-select --install</code>.</li>
 <ul>
 <li>Open Keychain Access application on your mac (it's in Applications/Utilities).</li>
 <li>In the Keychain Access application choose Keychain Access -&gt; Certificate Assistant -&gt; Request a Certificate From a Certificate Authority...<img src="../images/screenshots/prov-prof-1.png" class="shadowed"></li>
-<li>Type you email in the User Email Address field. Other form elements are optional.
+<li>Type your email in the User Email Address field. Other form elements are optional.
 <img src="../images/screenshots/prov-prof-2.png" alt=""></li>
 <li>Choose Request is Saved to Disc and save your certificate request.</li>
 </ul>
@@ -330,13 +334,13 @@ software is like using <code>http</code> instead of <code>https</code>.</p>
 <li><a href="https://developer.apple.com/account/resources/certificates/add">Create</a> a new <code>Developer ID Application</code> certificate
 on the Apple Developers website.</li>
 <li>Choose a certificate request you've created 2 steps earlier.</li>
-<li>Download your certificate and double click to add it to your Keychain.</li>
+<li>Download your certificate and double-click to add it to your Keychain.</li>
 </ul>
 <h3 id="ios-1">iOS</h3>
 <p>To run software on iOS, it <strong>must</strong> be signed by Xcode using the certificate data
 contained in a "Provisioning Profile". This is a file generated by Apple and it
 links <code>app identity</code>, <code>certificates</code> (used for code signing), <code>app permissions</code>,
-and phystical <code>devices</code>.</p>
+and physical <code>devices</code>.</p>
 <ul>
 <li><a href="https://developer.apple.com/account/resources/certificates/add">Create</a> a new iOS Distribution (App Store and Ad Hoc) certificate on the Apple Developers website.</li>
 <li>Choose a certificate request you've created 2 steps earlier.</li>
@@ -351,9 +355,9 @@ following because you don't have a provisioning profile:</p>
 <li><a href="https://developer.apple.com/account/resources/profiles/add">Create</a> a new Ad Hoc profile. Use the App ID you created with the wildcard.</li>
 <li>Pick the certificate that you added to your Keychain two steps earlier.</li>
 <li>Add the devices that the profile will use.</li>
-<li>Add a name for your new distribution profile (we recommend to name it "distribution").</li>
-<li>Download the profile and double click it. This action will open Xcode. You can close it after it's completely loaded.</li>
-<li>Place your profile to your project directory (same directory as <code>ssc.config</code>). <strong>The profiles are secret, add your profile to <code>.gitignore</code></strong>.</li>
+<li>Add a name for your new distribution profile (we recommend naming it "distribution").</li>
+<li>Download the profile and double-click it. This action will open Xcode. You can close it after it's completely loaded.</li>
+<li>Place your profile in your project directory (same directory as <code>ssc.config</code>). <strong>The profiles are secret, add your profile to <code>.gitignore</code></strong>.</li>
 </ul>
 <h2 id="configuration">Configuration</h2>
 <h3 id="macos-2">MacOS</h3>
@@ -378,7 +382,7 @@ file. They will look something like this...</p>
 <h3 id="to-your-device">To your device</h3>
 <p>Install <a href="https://apps.apple.com/us/app/apple-configurator/id1037126344">Apple Configurator</a>, open it and install Automation Tools from the menu.</p>
 <p>Connect your device and run <code>ssc install-app &lt;path&gt;</code> where path is the root directory of your application (the one where <code>ssc.config</code> is located).</p>
-<p>Alternative way to install your app is to open the the <code>Apple Configurator</code> app and drag
+<p>An alternative way to install your app is to open the <code>Apple Configurator</code> app and drag
 the inner <code>/dist/build/[your app name].ipa/[your app name].ipa</code> file onto your phone.</p>
 <h3 id="to-the-apple-app-store">To the Apple App Store</h3>
 <pre><code class="language-bash">xcrun altool --validate-app \
@@ -413,23 +417,23 @@ Apps can only access files in their own sandboxed home directory.</p>
 </thead>
 <tbody><tr>
 <td><code>Documents</code></td>
-<td>The app’s sandboxed documents directory. The contents of this directory is backed up by iTunes and may be set as accessable to the user via iTunes when <code>UIFileSharingEnabled</code> is set to <code>true</code> in application's <code>info.plist</code>.</td>
+<td>The app’s sandboxed documents directory. The contents of this directory are backed up by iTunes and may be set as accessible to the user via iTunes when <code>UIFileSharingEnabled</code> is set to <code>true</code> in application's <code>info.plist</code>.</td>
 </tr>
 <tr>
 <td><code>Library</code></td>
-<td>The app’s sandboxed library directory. The contents of this directory are synchronised via iTunes (except the <code>Library/Caches</code> subdirectory, see below), but never exposed to the user.</td>
+<td>The app’s sandboxed library directory. The contents of this directory are synchronized via iTunes (except the <code>Library/Caches</code> subdirectory, see below), but never exposed to the user.</td>
 </tr>
 <tr>
 <td><code>Library/Caches</code></td>
-<td>The app’s sandboxed caches directory. The contents of this directory are not synchronised via iTunes, and may be deleted by the system at any time. It's a good place to store data which provides a good offline-first experience for the user.</td>
+<td>The app’s sandboxed caches directory. The contents of this directory are not synchronized via iTunes, and may be deleted by the system at any time. It's a good place to store data which provides a good offline-first experience for the user.</td>
 </tr>
 <tr>
 <td><code>Library/Preferences</code></td>
-<td>The app’s sandboxed preferences directory. The contents of this directory are synchronised via iTunes. It's purpose is to be used by the Settings app. Avoid creating your own files in this directory.</td>
+<td>The app’s sandboxed preferences directory. The contents of this directory are synchronized via iTunes. Its purpose is to be used by the Settings app. Avoid creating your own files in this directory.</td>
 </tr>
 <tr>
 <td><code>tmp</code></td>
-<td>The app’s sandboxed temporary directory. The contents of this directory are not synchronised via iTunes, and may be deleted by the system at any time. Although, it's recommended that you delete data which is not necessary anymore manually to minimize the space your app takes up on the file system. Use this directory to store data which is only useful during the app runtime.</td>
+<td>The app’s sandboxed temporary directory. The contents of this directory are not synchronized via iTunes, and may be deleted by the system at any time. Although, it's recommended that you delete data that is not necessary anymore manually to minimize the space your app takes up on the file system. Use this directory to store data that is only useful during the app runtime.</td>
 </tr>
 </tbody></table>
 </markdown-module>
@@ -454,15 +458,15 @@ can tell you the platform specific build destination. For example.</p>
 </code></pre>
 <h2 id="running-the-mobile-simulator">Running the Mobile Simulator</h2>
 <p>After you get your UI looking how you want. The next step is to try it out
-on the simulator. At this point we can use either the <code>-ios</code> or <code>-android</code>
-flags as well as the <code>-simulator</code> flag. This will createa a platform specific
+on the simulator. At this point, we can use either the <code>-ios</code> or <code>-android</code>
+flags as well as the <code>-simulator</code> flag. This will create a platform specific
 bundle, create and boot a simulator VM and then run your app in simulator if
 <code>-r</code> flag is provided.</p>
 <pre><code>ssc build --target=iossimulator -r
 </code></pre>
 <h2 id="debugging-in-the-mobile-simulator">Debugging in the Mobile Simulator</h2>
 <p>You can use Safari to attach the Web Inspector to the Simulator. In the Safari
-menu, navigate <code>Develop -&gt; Simulator -&gt; index.html</code>. This will be the exact
+menu, navigate to <code>Develop -&gt; Simulator -&gt; index.html</code>. This will be the exact
 same inspector you get while developing desktop apps.</p>
 <h2 id="next-steps">Next Steps</h2>
 <p>The JavaScript APIs are the same on iOS and Android, check out the <a href="https://sockets.sh/api">API</a> docs.</p>
@@ -745,11 +749,11 @@ compilation terminated.
 <h2 id="cross-platform-development">Cross Platform Development</h2>
 <h3 id="what-is-a-modern-runtime-for-web-apps">What is a Modern Runtime for Web Apps?</h3>
 <p><em>Modern</em> does not refer to how recently any component of the software was
-written. For example we use <code>libuv</code> which certainly isn't new. In fact, it's
+written. For example, we use <code>libuv</code> which certainly isn't new. In fact, it's
 considered boring and stable. It's the approach that's modern.</p>
 <p>The <code>client-server</code> model was more relevant when computers were fewer and less
 powerful. Now we are surrounded by billions of computers that can connect
-directly to each other, so servers are becoming less relevant no mater how fast
+directly to each other, so servers are becoming less relevant no matter how fast
 they are.</p>
 <h3 id="why-not-electron">Why not Electron?</h3>
 <p>Electron's binary size and memory footprint are far from acceptable for most
@@ -757,8 +761,8 @@ developers. The bulk of the weight comes from the decision to build-in V8 and
 a custom distribution of node.js.</p>
 <h3 id="why-not-tauri-rust">Why not Tauri, Rust?</h3>
 <p>Tauri is a project for people who want to write Rust. Socket SDK is for Web
-Developers who want to create connected apps with HTML, CSS and JavaScript.</p>
-<p>Webview is C++, so are the platforms that it runs on. The memory safety offered
+Developers who want to create connected apps with HTML, CSS, and JavaScript.</p>
+<p>Webview is C++, and so are the platforms that it runs on. The memory safety offered
 by Rust is great but becomes irrelevant when it's just a thin wrapper around a
 world of C++. It is possible to write C++ that is as safe as Rust, it's just a
 hell of a lot harder.</p>
@@ -774,24 +778,24 @@ everyone who would use this project.</p>
 <h3 id="how-can-webview-based-apps-compete-with-the-quality-of-native-apps">How can Webview based apps compete with the quality of native apps?</h3>
 <p>Native apps require an enormous amount of developer effort if the developer
 wants their app to run across multiple platforms. Socket lowers the
-barrier to entry and lets in the worlds largest developer community. With care,
+barrier to entry and lets in the world's largest developer community. With care, and
 avoiding bloated frameworks, a web-based app can run as well as any native app.</p>
 <h2 id="peer-to-peer">Peer To Peer</h2>
 <h3 id="why-should-i-care-that-p2p-is-free-aws-is-almost-free">Why should I care that P2P is free? AWS is almost free!</h3>
-<p>AWS is nearly free, until you experience any kind of growth. The cost of The Cloud scales up
-with the demand of a product. And for most companies, The Cloud becomes their largest cost center.
+<p>AWS is nearly free until you experience any kind of growth. The cost of The Cloud scales up
+with the demand for a product. And for most companies, The Cloud becomes their largest cost center.
 When this cost is combined with non-cloud costs (the cost of experts, their managers, key-person
 churn, it can make profitability impossible.</p>
 <h3 id="how-effective-are-distributed-networks-at-hosting-the-long-tail-of-rarely-accessed-content">How effective are distributed networks at hosting the long tail of rarely-accessed content?</h3>
 <p>We make it possible to send a receive packets even when peers are offline. But this isn't the same
 as "free storage". In networks like BitTorrent, rarely-accessed content (content accessed less
 frequently than 72 hours) becomes unavailable as the few peers hosting that content drop offline.</p>
-<p>For this case, we enable developers to build hybrid networks. In hybrid networks, developers can
+<p>In this case, we enable developers to build hybrid networks. In hybrid networks, developers can
 choose to keep a centralized copy of all content. This keeps rarely-accessed content always available.
 For popular content, a distributed swarm of users’ devices also assist in distribution, reducing the
 cost of serving that content from a central location.</p>
 <h3 id="how-can-a-peer-replace-a-server">How can a peer replace a server?</h3>
-<p>A peer should not be asked to handle the same kind of work-loads as a server. If you develop an app
+<p>A peer should not be asked to handle the same kind of workloads as a server. If you develop an app
 that monopolizes a user's device, they will be unhappy, regardless of what architecture you are using.
 Peers should handle smaller work-loads in shorter bursts.</p>
 <p>With Peer To Peer networks, growth increases availability and compute capacity. Despite how many peers
