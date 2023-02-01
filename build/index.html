@@ -237,10 +237,10 @@ Type <span class="hljs-string">'npm start'</span> to launch the app
 
 <tonic-tab-panel id="panel-js-01">
 
-<pre><code class="language-js"><span class="hljs-keyword">import</span> io <span class="hljs-keyword">from</span> <span class="hljs-string">'@socketsupply/io'</span>
+<pre><code class="language-js"><span class="hljs-keyword">import</span> fs <span class="hljs-keyword">from</span> <span class="hljs-string">'socket:fs/promisies'</span>
 
-<span class="hljs-built_in">window</span>.addEventListener(<span class="hljs-string">'DOMContentLoaded'</span>, <span class="hljs-function">() =&gt;</span> {
-  io.backend.open() <span class="hljs-comment">// spawn the "backend" process (if specified in the ini file).</span>
+<span class="hljs-built_in">window</span>.addEventListener(<span class="hljs-string">'DOMContentLoaded'</span>, <span class="hljs-keyword">async</span> () =&gt; {
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">await</span> fs.readFile(<span class="hljs-string">'index.html'</span>))
 })
 </code></pre>
 </tonic-tab-panel>
@@ -496,9 +496,9 @@ photo and file sharing, distribued computing.</p>
 <h2 id="how">How</h2>
 <p class="hl">The dependency for this api will be published 02.01.2023</p>
 
-<pre><code class="language-js"><span class="hljs-keyword">import</span> { Peer, sha256 } <span class="hljs-keyword">from</span> <span class="hljs-string">'@socketsupply/socket-api/p2p.js'</span>
+<pre><code class="language-js"><span class="hljs-keyword">import</span> { Peer, sha256 } <span class="hljs-keyword">from</span> <span class="hljs-string">'socket:peer'</span>
 
-<span class="hljs-keyword">const</span> peer = <span class="hljs-keyword">new</span> Peer()
+<span class="hljs-keyword">const</span> peer = <span class="hljs-keyword">new</span> Peer({ publicKey, privateKey })
 
 peer.onPacket = <span class="hljs-function">(<span class="hljs-params">packet, port, address</span>) =&gt;</span> {
   <span class="hljs-built_in">console</span>.log(packet)
@@ -818,7 +818,7 @@ infrequently online.</p>
               <h4>Guides</h4>
               <ul>
                 <li><a href="https://github.com/socketsupply/socket-examples">Examples</a></li>
-                <li><a href="/guides">Guides</a></li>
+                <li><a href="/">Guides</a></li>
               </ul>
             </div>
             <div>
