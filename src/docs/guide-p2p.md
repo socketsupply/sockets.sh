@@ -40,9 +40,9 @@ photo and file sharing, distribued computing.
 <p class="hl">The dependency for this api will be published 02.01.2023</p>
 
 ```js
-import { Peer, sha256 } from '@socketsupply/socket-api/p2p.js'
+import { Peer, sha256 } from 'socket:peer'
 
-const peer = new Peer()
+const peer = new Peer({ publicKey, privateKey })
 
 peer.onPacket = (packet, port, address) => {
   console.log(packet)

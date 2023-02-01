@@ -34,7 +34,7 @@ export default class AppFooter extends Tonic {
               <h4>Guides</h4>
               <ul>
                 <li><a href="https://github.com/socketsupply/socket-examples">Examples</a></li>
-                <li><a href="/guides">Guides</a></li>
+                <li><a href="/">Guides</a></li>
               </ul>
             </div>
             <div>

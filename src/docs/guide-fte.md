@@ -133,10 +133,10 @@ $tree
 <tonic-tab-panel id="panel-js-01">
 
 ```js
-import io from '@socketsupply/io'
+import fs from 'socket:fs/promisies'
 
-window.addEventListener('DOMContentLoaded', () => {
-  io.backend.open() // spawn the "backend" process (if specified in the ini file).
+window.addEventListener('DOMContentLoaded', async () => {
+  console.log(await fs.readFile('index.html'))
 })
 ```
 
