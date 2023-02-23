@@ -101,6 +101,26 @@ pnpm create socket-app [react | svelte | tonic | vanilla | vue]
 
 https://user-images.githubusercontent.com/79177582/219162686-649bbdb9-015a-41bd-a613-af665a5a199e.mov 
 
+## Output:
+
+Now inside of your directory, you should have a `directory structure` like this:
+
+```bash
+.
+├── README.md
+├── build.js
+├── package.json
+├── socket.ini
+├── src
+│   ├── icon.png
+│   ├── index.css
+│   ├── index.html
+│   └── index.js
+└── test
+    ├── index.js
+    └── test-context.js
+```
+
 ## Anatomy of a Socket App
 
 <div id="anatomy">
