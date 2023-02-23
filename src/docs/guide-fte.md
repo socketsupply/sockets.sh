@@ -39,10 +39,9 @@
 
 
 ## Create Socket App
-This is similar to React's `Create React App`. The idea is that it provides a
-few basic boilerplates and some strong opinions so you can get coding on a
-production-quality app as quickly as possible.
-
+[Create Socket App](https://github.com/socketsupply/create-socket-app) is similar to React's `Create React App`, it will help you build native apps for mobile and desktop with Svelte, Reactjs, Vuejs and others!
+The idea is to provides a few basic boilerplates and some strong opinions so you can get coding on a production quality app as quickly as possible.
+## Quick Overview
 ```bash
 $npx create-socket-app -h
 
