@@ -1,5 +1,5 @@
 # Getting Started
-
+<!-- 
 ## Install
 
 <tonic-tabs selected="tab-mac" id="get-started">
@@ -32,6 +32,7 @@
     iwr -useb https://sockets.sh/ps | iex
   </code>
 </tonic-tab-panel>
+-->
 
 ## Create Socket App
 This is similar to React's `Create React App`. The idea is that it provides a
