@@ -80,9 +80,7 @@ $tree
 ## Getting Started 
 
 **You’ll need to have Node 16.0.0 or later version on your local development machine .**  
-
 Creat an empty directory and that's it, you are ready to go!
-
 You may choose one of the following methods: 
 
 ### **npm**
@@ -102,9 +100,6 @@ yarn create socket-app [react | svelte | tonic | vanilla | vue]
 ```bash
 pnpm create socket-app [react | svelte | tonic | vanilla | vue]
 ```  
-## Quick Demonstration Video
-
-https://user-images.githubusercontent.com/79177582/219162686-649bbdb9-015a-41bd-a613-af665a5a199e.mov 
 
 ## Output:
 
