@@ -24,25 +24,25 @@ These will always be open-source and free to use by any developer, no matter wha
 
 Our Operator App has different tools which help in the entire lifecycle of building, deploying, and monitoring the Socket apps you build. Operator App has various pricing tiers which hackers, startups and enterprises can benefit from. (link to pricing grid)
 
-No Socket powered app is ever required to use any of these paid services. Additionally, Socket will ***never charge*** for any of its tools or services on a *consumption* basis -- meaning that you pay us more depending on how many users/customers you have, or how much data is transmitted. 
+No Socket powered app is ever required to use any of these paid services. Additionally, Socket will **_never charge_** for any of its tools or services on a _consumption_ basis -- meaning that you _never_ have to pay us more for these tools when your app grows how many users, clients, bytes transmitted, or any other metric of success you need to target. 
 
 
 ### How is Socket different from other hybrid-native app tooling, such as Electron, Tauri, NativeScript, React Native, Ionic, etc?
 
-Socket is the first and only runtime to be cross-platform across desktop and mobile. Write once, run anywhere (iOS, Android, Linux, Windows, MacOS, and more!). It’s built from scratch, 1000 lines of code, 1.5MB binary size and has a significantly small memory footprint compared to others. However, the most important core differentiation are JavaScript APIs that provide Bluetooth, UDP, and robust file system access. These make it possible to create an entirely need class of P2P and local-first apps. Apps where users can communicate directly, without the Cloud. Every other runtime is a means to an end, ours is intended to subvert Cloud infrastructure entirely ;)
+Socket is the first and only runtime to be cross-platform across desktop and mobile. Write once, run anywhere (iOS, Android, Linux, Windows, MacOS, and more!). It’s built from scratch, 1000 lines of code, 1.5MB binary size and has a significantly small memory footprint compared to others. However, the most important core differentiation are JavaScript APIs that provide Bluetooth, UDP, and robust file system access. These make it possible to create an entirely new class of P2P and local-first apps. Apps where users can communicate directly, without the Cloud. Every other runtime is a means to an end, ours is intended to subvert Cloud infrastructure entirely ;)
 
 
 ### We already have teams of engineers that build our web and other native-platform app experiences. Why would we benefit from Socket?
 
-Customers can prioritize what they want to solve when working with Socket. There are many benefits to choose from for a wide variety of reasons. 
+App builders can prioritize what they want to solve when working with Socket. There are many benefits to choose from for a wide variety of reasons. 
 
 Autonomy - Right now you’re entirely codependent on a 3rd party to run a mission critical part of your business. The Cloud is a landlord-tenant relationship with costs that can prevent your business from becoming profitable. Socket helps you connect your users directly to each other, allowing you to rely less on the Cloud, reclaim your sovereignty, and your profit margins.
 
 Reducing complexity is an important metric for many engineering teams. Companies whose applications are built across desktop and mobile would be moving from working and maintaining >=3 code bases in their current state to 1 code base with Socket. This drastically reduces complexity within the organization and speeds up innovation. 
 
-Decentralization is an important metric that can be solved by running p2p, Socket customers can claim they are truly decentralized. 
+Decentralization is an important metric that can be solved by running p2p, Socket app builders can confidently claim that they are truly decentralized. 
 
-Building multiplayer capabilities in products is a benefit Productivity / Collaboration tools would find as a major benefit to building on Socket. Evan Wallace, Co-founder and good friend from Figma said it best “these days it’s obvious that multiplayer is the way all productivity tools on the web should work, not just design.”(link for appendix). Costs.
+Builders of network enabled Productivity and Collaboration tools will realize major benefits by building on Socket. Evan Wallace, Co-founder and good friend from Figma said it best “these days it’s obvious that multiplayer is the way all productivity tools on the web should work, not just design.”(link for appendix). Costs.
 
 Cost reduction is a clear benefit from building on Socket. For smaller teams who don’t have native teams in place, they can get to their customers quicker by writing once, running anywhere. Cloud bills are the #1 cost for many organizations, building on Socket reduces that to $0, or as much as you want to migrate off the cloud. We say crawl, walk, run. 
 
