@@ -2,6 +2,11 @@
 
 ## Install
 
+### From Package Manager Or From Source
+
+The easiest way to install Socket Runtime is by using a package manager like `npm`.
+If you don't have npm installed but you want to use it, you can [download it here][0].
+
 <tonic-tabs selected="tab-npm" id="get-started">
   <tonic-tab id="tab-nix" for="panel-nix">curl</tonic-tab>
   <tonic-tab id="tab-win" for="panel-win">iwr</tonic-tab>
@@ -13,14 +18,14 @@
   <code>
     npm i @socketsupply/socket -g
   </code>
-  <p>Install using your package manager (any OS).</p>
+  <p>Let your package manager handle all the details (any OS).</p>
 </tonic-tab-panel>
 
 <tonic-tab-panel id="panel-pnpm">
   <code>
     pnpm add -g @socketsupply/socket
   </code>
-  <p>Install using your package manager (any OS).</p>
+  <p>Let your package manager handle all the details (any OS).</p>
 </tonic-tab-panel>
 
 <tonic-tab-panel id="panel-nix">
@@ -38,17 +43,16 @@
 </tonic-tab-panel>
 
 
-## Create Socket App
+### From Create React App
 
-> _Note: You’ll need to have Node 16.0.0 or later version on your local development machine._
+Installing Socket Runtime from [Create Socket App](https://github.com/socketsupply/create-socket-app)
+will be instantly familiar to anyone who has used React's `Create React App`. To
+use Create Socket App you’ll need to have Node 16.0.0 or later version installed
+on your computer.
 
-[Create Socket App](https://github.com/socketsupply/create-socket-app) is
-similar to React's `Create React App`, it will help you build native apps for
-mobile and desktop with Svelte, Reactjs, Vuejs and others!
-
-The idea is to provides a few basic boilerplates and some strong opinions so
-you can get coding on a production quality app as quickly as possible.Creat an
-empty directory and that's it, any try one of the following commands...
+The idea is to provide a few basic boilerplates and some strong opinions so
+you can get coding on a production quality app as quickly as possible. Create an
+empty directory and try one of the following commands...
 
 <tonic-tabs selected="tab-csa-npx" id="get-csa">
   <tonic-tab id="tab-csa-npx" for="panel-csa-npx">npx</tonic-tab>
@@ -230,3 +234,5 @@ unique to both. Ready to dive a bit deeper?
 <a href="#desktop-guide" class="cyoa desktop">
   Desktop &rarr;
 </a>
+
+[0]:https://nodejs.org/

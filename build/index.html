@@ -114,6 +114,9 @@
 
                 <markdown-module src="src/docs/guide-fte.md"><h1 id="getting-started">Getting Started</h1>
 <h2 id="install">Install</h2>
+<h3 id="from-package-manager-or-from-source">From Package Manager Or From Source</h3>
+<p>The easiest way to install Socket Runtime is by using a package manager like <code>npm</code>.
+If you don't have npm installed but you want to use it, you can <a href="https://nodejs.org/">download it here</a>.</p>
 <tonic-tabs selected="tab-npm" id="get-started">
   <tonic-tab id="tab-nix" for="panel-nix">curl</tonic-tab>
   <tonic-tab id="tab-win" for="panel-win">iwr</tonic-tab>
@@ -125,14 +128,14 @@
   <code>
     npm i @socketsupply/socket -g
   </code>
-  <p>Install using your package manager (any OS).</p>
+  <p>Let your package manager handle all the details (any OS).</p>
 </tonic-tab-panel>
 
 <tonic-tab-panel id="panel-pnpm">
   <code>
     pnpm add -g @socketsupply/socket
   </code>
-  <p>Install using your package manager (any OS).</p>
+  <p>Let your package manager handle all the details (any OS).</p>
 </tonic-tab-panel>
 
 <tonic-tab-panel id="panel-nix">
@@ -150,13 +153,11 @@
 </tonic-tab-panel>
 
 
-<h2 id="create-socket-app">Create Socket App</h2>
-<blockquote>
-<p><em>Note: You’ll need to have Node 16.0.0 or later version on your local development machine.</em></p>
-</blockquote>
-<p><a href="https://github.com/socketsupply/create-socket-app">Create Socket App</a> is
-similar to React's <code>Create React App</code>, it will help you build native apps for
-mobile and desktop with Svelte, Reactjs, Vuejs and others!</p>
+<h3 id="from-create-react-app">From Create React App</h3>
+<p>Installing Socket Runtime from <a href="https://github.com/socketsupply/create-socket-app">Create Socket App</a>
+will be instantly familiar to anyone who has used React's <code>Create React App</code>. To
+use Create Socket App you’ll need to have Node 16.0.0 or later version installed
+on your computer.</p>
 <p>The idea is to provides a few basic boilerplates and some strong opinions so
 you can get coding on a production quality app as quickly as possible.Creat an
 empty directory and that's it, any try one of the following commands...</p>
@@ -326,6 +327,7 @@ unique to both. Ready to dive a bit deeper?</p>
 <a href="#desktop-guide" class="cyoa desktop">
   Desktop →
 </a>
+
 </markdown-module>
                 <markdown-module src="src/docs/guide-apple.md"><h1 id="apple-guide">Apple Guide</h1>
 <p>The following is a guide for building apps on Apple's <code>MacOS</code> and <code>iOS</code>
