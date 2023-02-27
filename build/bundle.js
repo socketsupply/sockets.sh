@@ -6434,6 +6434,7 @@ var tree_css_default = /* @__PURE__ */ __name((params) => `
     right: 0;
     bottom: 0;
     overflow: hidden;
+    overflow-y: auto;
   }
 
   body.mobile app-tree {
@@ -6746,10 +6747,10 @@ var AppTree = class extends import_tonic.default {
   }
   async onSelection(node, isToggle) {
     if (!isToggle) {
-      document.body.removeAttribute("toc");
-      window.requestAnimationFrame(() => {
+      setTimeout(() => {
+        document.body.removeAttribute("toc");
         node.element.scrollIntoView(true);
-      });
+      }, 128);
     }
   }
   async connected() {

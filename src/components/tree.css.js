@@ -11,6 +11,7 @@ export default params => `
     right: 0;
     bottom: 0;
     overflow: hidden;
+    overflow-y: auto;
   }
 
   body.mobile app-tree {
