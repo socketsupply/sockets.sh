@@ -18,7 +18,7 @@
 
 <tonic-tab-panel id="panel-pnpm">
   <code>
-    pnpm i @socketsupply/socket -g
+    pnpm add -g @socketsupply/socket
   </code>
   <p>Install using your package manager (any OS).</p>
 </tonic-tab-panel>
