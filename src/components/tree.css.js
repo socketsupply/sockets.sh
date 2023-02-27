@@ -217,4 +217,16 @@ export default params => `
     height: 6px;
     width: 6px;
   }
+
+  @media (max-width: 699px) {
+    app-tree .item .handle {
+      font-size: 16px;
+      padding: 8px 0;
+    }
+
+    app-tree .toggle,
+    app-tree tonic-icon {
+      top: 10px;
+    }
+  }
 `

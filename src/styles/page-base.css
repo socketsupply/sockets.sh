@@ -33,11 +33,6 @@ body.api tonic-split tonic-split-right {
   overflow: scroll;
 }
 
-body.api tonic-split tonic-split-right markdown-module {
-  padding: 60px;
-  display: block;
-}
-
 body.api main {
   margin: 8% 10%;
   margin-left: 10px;
@@ -93,5 +88,13 @@ time {
   body main {
     margin: 60px;
     margin-bottom: 100px;
+  }
+
+  body.api #split-main {
+    top: 66px;
+  }
+
+  body.api tonic-split > tonic-split-right {
+    overflow-x: hidden;
   }
 }

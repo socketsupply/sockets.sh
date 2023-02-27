@@ -1,7 +1,16 @@
 @import './highlight.js.css';
 
 body section.primer {
-  padding: 60px;
+  padding: 30px;
+}
+
+body.api markdown-module {
+  padding: 30px;
+  display: block;
+}
+
+body:not(#index) section.primer h2:first-of-type {
+  margin-top: 10px;
 }
 
 body markdown-module h3 {
@@ -13,7 +22,7 @@ body markdown-module h3 {
 
 body markdown-module ul {
   list-style: decimal-leading-zero;
-  padding: 0 60px;
+  padding: 0 30px;
 }
 
 body markdown-module li {

@@ -6640,6 +6640,18 @@ var tree_css_default = /* @__PURE__ */ __name((params) => `
     height: 6px;
     width: 6px;
   }
+
+  @media (max-width: 699px) {
+    app-tree .item .handle {
+      font-size: 16px;
+      padding: 8px 0;
+    }
+
+    app-tree .toggle,
+    app-tree tonic-icon {
+      top: 10px;
+    }
+  }
 `, "default");
 
 // src/components/tree.js
@@ -6733,9 +6745,12 @@ var AppTree = class extends import_tonic.default {
     }
   }
   async onSelection(node, isToggle) {
-    window.requestAnimationFrame(() => {
-      node.element.scrollIntoView(true);
-    });
+    if (!isToggle) {
+      document.body.removeAttribute("toc");
+      window.requestAnimationFrame(() => {
+        node.element.scrollIntoView(true);
+      });
+    }
   }
   async connected() {
     const tree = {
@@ -7150,6 +7165,14 @@ async function ready() {
       return;
     }
     nav.classList.remove("shadow");
+  });
+  const navMenu = document.querySelector("nav");
+  navMenu.addEventListener("click", (e) => {
+    if (document.body.hasAttribute("toc")) {
+      document.body.removeAttribute("toc");
+    } else {
+      document.body.setAttribute("toc", true);
+    }
   });
   let timeout = null;
   const selector = '[data-id]:not([data-id="stack"], [data-id="os"])';

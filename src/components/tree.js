@@ -108,9 +108,12 @@ export default class AppTree extends Tonic {
   }
 
   async onSelection (node, isToggle) {
-    window.requestAnimationFrame(() => {
-      node.element.scrollIntoView(true)
-    })
+    if (!isToggle) {
+      document.body.removeAttribute('toc')
+      window.requestAnimationFrame(() => {
+        node.element.scrollIntoView(true)
+      })
+    }
   }
 
   async connected () {

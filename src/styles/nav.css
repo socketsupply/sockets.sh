@@ -15,6 +15,7 @@ body > nav {
   align-content: center;
   gap: 10px;
   transition: box-shadow .2s ease;
+  padding-top: 30px;
 }
 
 body.api > nav,
@@ -125,14 +126,77 @@ body > nav .account-link {
   top: 30px;
 }
 
+body > nav .menu {
+  display: none;
+  display: inline-block;
+  width: 30px;
+  height: 24px;
+  position: relative;
+  top: 8px;
+  cursor: pointer;
+}
+
 @media (max-width: 699px) {
   body main, #split-main {
     top: 0;
   }
+
   tonic-split-right {
     width: 100% !important;
   }
-  body > nav, tonic-split-left, markdown-module, .tonic--split-handle {
+
+  .tonic--split-handle {
     display: none !important;
+  }
+
+  tonic-split-left {
+    transform: translateX(-100%);
+  }
+
+  body > nav {
+    padding-top: 0px;
+  }
+
+  body > nav .menu {
+    display: block;
+    position: relative;
+  }
+
+  body > nav .menu {
+    border-top: 2px solid;
+    border-bottom: 2px solid;
+  }
+
+  body > nav .menu:after {
+    position: absolute;
+    content: ' ';
+    top: 50%;
+    border-top: 2px solid;
+    left: 0;
+    right: 0;
+    margin-top: -1px;
+  }
+
+  tonic-split-left {
+    width: 100% !important;
+    transform: translate(-100%);
+    transition: transform .2s ease;
+  }
+
+  tonic-split-right {
+    transform: translate(0%);
+    transition: transform .2s ease;
+  }
+
+  body[toc] tonic-split-right {
+    transform: translate(100%);
+  }
+
+  body[toc] tonic-split-left {
+    transform: translate(0%);
+  }
+
+  a:not(:first-of-type) {
+    display: none;
   }
 }

@@ -30,6 +30,15 @@ async function ready () {
     nav.classList.remove('shadow')
   })
 
+  const navMenu = document.querySelector('nav')
+  navMenu.addEventListener('click', e => {
+    if (document.body.hasAttribute('toc')) {
+      document.body.removeAttribute('toc')
+    } else {
+      document.body.setAttribute('toc', true)
+    }
+  })
+
   let timeout = null
   const selector = '[data-id]:not([data-id="stack"], [data-id="os"])'
 

@@ -7,6 +7,7 @@ const nav = Tonic.unsafeRawString(`
     <a href="/api">API</a>
     <a href="https://github.com/socketsupply/socket-examples">Examples</a>
     <a href="https://github.com/socketsupply">Github</a>
+    <div class="menu"></div>
   </nav>
 `)
 
