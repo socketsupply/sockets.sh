@@ -115,7 +115,7 @@
                 <markdown-module src="src/docs/guide-fte.md"><h1 id="getting-started">Getting Started</h1>
 <h2 id="install">Install</h2>
 <tonic-tabs selected="tab-npm" id="get-started">
-  <tonic-tab id="tab-mac" for="panel-nix">curl</tonic-tab>
+  <tonic-tab id="tab-nix" for="panel-nix">curl</tonic-tab>
   <tonic-tab id="tab-win" for="panel-win">iwr</tonic-tab>
   <tonic-tab id="tab-npm" for="panel-npm">npm</tonic-tab>
   <tonic-tab id="tab-pnpm" for="panel-pnpm">pnpm</tonic-tab>
@@ -130,7 +130,7 @@
 
 <tonic-tab-panel id="panel-pnpm">
   <code>
-    pnpm i @socketsupply/socket -g
+    pnpm add -g @socketsupply/socket
   </code>
   <p>Install using your package manager (any OS).</p>
 </tonic-tab-panel>
@@ -151,26 +151,49 @@
 
 
 <h2 id="create-socket-app">Create Socket App</h2>
-<p>This is similar to React's <code>Create React App</code>. The idea is that it provides a
-few basic boilerplates and some strong opinions so you can get coding on a
-production-quality app as quickly as possible.</p>
-<pre><code class="language-bash"><span class="hljs-variable">$npx</span> create-socket-app -h
+<blockquote>
+<p><em>Note: You’ll need to have Node 16.0.0 or later version on your local development machine.</em></p>
+</blockquote>
+<p><a href="https://github.com/socketsupply/create-socket-app">Create Socket App</a> is
+similar to React's <code>Create React App</code>, it will help you build native apps for
+mobile and desktop with Svelte, Reactjs, Vuejs and others!</p>
+<p>The idea is to provides a few basic boilerplates and some strong opinions so
+you can get coding on a production quality app as quickly as possible.Creat an
+empty directory and that's it, any try one of the following commands...</p>
+<tonic-tabs selected="tab-csa-npx" id="get-csa">
+  <tonic-tab id="tab-csa-npx" for="panel-csa-npx">npx</tonic-tab>
+  <tonic-tab id="tab-csa-npm" for="panel-csa-npm" npm<="" tonic-tab="">
+  <tonic-tab id="tab-csa-yarn" for="panel-csa-yarn">yarn</tonic-tab>
+  <tonic-tab id="tab-csa-pnpm" for="panel-csa-pnpm">pnpm</tonic-tab>
+</tonic-tab></tonic-tabs>
 
-usage: create-socket-app [react | svelte | tonic | vanilla | vue]
-</code></pre>
-<pre><code class="language-bash"><span class="hljs-variable">$npx</span> create-socket-app
+<tonic-tab-panel id="panel-csa-npx">
+  <code>
+    npx create-socket-app  [react | svelte | tonic | vanilla | vue]
+  </code>
+</tonic-tab-panel>
 
-Creating socket files...OK
-Initializing npm package...OK
-Installing dependencies...OK
-Adding package scripts...OK
-Updating project configuration...OK
-Copying project boilerplate...OK
+<tonic-tab-panel id="panel-csa-npm">
+  <code>
+    npm init socket-app [react | svelte | tonic | vanilla | vue]
+    npm create socket-app [react | svelte | tonic | vanilla | vue]
+  </code>
+</tonic-tab-panel>
 
-Type <span class="hljs-string">'npm start'</span> to launch the app
+<tonic-tab-panel id="panel-csa-yarn">
+  <code>
+    yarn create socket-app [react | svelte | tonic | vanilla | vue]
+  </code>
+</tonic-tab-panel>
 
-<span class="hljs-variable">$tree</span>
-.
+<tonic-tab-panel id="panel-csa-pnpm">
+  <code>
+    pnpm create socket-app [react | svelte | tonic | vanilla | vue]
+  </code>
+</tonic-tab-panel>
+
+<p>After running the command you'll see a directory structure like this...</p>
+<pre><code>.
 ├── README.md
 ├── build.js
 ├── package.json
@@ -180,7 +203,7 @@ Type <span class="hljs-string">'npm start'</span> to launch the app
 │&nbsp;&nbsp; ├── index.css
 │&nbsp;&nbsp; ├── index.html
 │&nbsp;&nbsp; └── index.js
-└── <span class="hljs-built_in">test</span>
+└── test
     ├── index.js
     └── test-context.js
 </code></pre>
@@ -763,15 +786,15 @@ compilation terminated.
 <p>As stated above, Socket Supply Co. builds and maintains a free and open source Runtime that helps web developers build apps for any OS, desktop and mobile, as well as a p2p library, that enables developers to create apps where users can communicate directly, without the Cloud. </p>
 <p>These will always be open-source and free to use by any developer, no matter what they use it for (commercial or personal). That will always be true.</p>
 <p>Our Operator App has different tools which help in the entire lifecycle of building, deploying, and monitoring the Socket apps you build. Operator App has various pricing tiers which hackers, startups and enterprises can benefit from. (link to pricing grid)</p>
-<p>No Socket powered app is ever required to use any of these paid services. Additionally, Socket will <em><strong>never charge</strong></em> for any of its tools or services on a <em>consumption</em> basis -- meaning that you pay us more depending on how many users/customers you have, or how much data is transmitted. </p>
+<p>No Socket powered app is ever required to use any of these paid services. Additionally, Socket will <strong><em>never charge</em></strong> for any of its tools or services on a <em>consumption</em> basis -- meaning that you <em>never</em> have to pay us more for these tools when your app grows how many users, clients, bytes transmitted, or any other metric of success you need to target. </p>
 <h3 id="how-is-socket-different-from-other-hybrid-native-app-tooling-such-as-electron-tauri-nativescript-react-native-ionic-etc">How is Socket different from other hybrid-native app tooling, such as Electron, Tauri, NativeScript, React Native, Ionic, etc?</h3>
-<p>Socket is the first and only runtime to be cross-platform across desktop and mobile. Write once, run anywhere (iOS, Android, Linux, Windows, MacOS, and more!). It’s built from scratch, 1000 lines of code, 1.5MB binary size and has a significantly small memory footprint compared to others. However, the most important core differentiation are JavaScript APIs that provide Bluetooth, UDP, and robust file system access. These make it possible to create an entirely need class of P2P and local-first apps. Apps where users can communicate directly, without the Cloud. Every other runtime is a means to an end, ours is intended to subvert Cloud infrastructure entirely ;)</p>
+<p>Socket is the first and only runtime to be cross-platform across desktop and mobile. Write once, run anywhere (iOS, Android, Linux, Windows, MacOS, and more!). It’s built from scratch, 1000 lines of code, 1.5MB binary size and has a significantly small memory footprint compared to others. However, the most important core differentiation are JavaScript APIs that provide Bluetooth, UDP, and robust file system access. These make it possible to create an entirely new class of P2P and local-first apps. Apps where users can communicate directly, without the Cloud. Every other runtime is a means to an end, ours is intended to subvert Cloud infrastructure entirely ;)</p>
 <h3 id="we-already-have-teams-of-engineers-that-build-our-web-and-other-native-platform-app-experiences-why-would-we-benefit-from-socket">We already have teams of engineers that build our web and other native-platform app experiences. Why would we benefit from Socket?</h3>
-<p>Customers can prioritize what they want to solve when working with Socket. There are many benefits to choose from for a wide variety of reasons. </p>
+<p>App builders can prioritize what they want to solve when working with Socket. There are many benefits to choose from for a wide variety of reasons. </p>
 <p>Autonomy - Right now you’re entirely codependent on a 3rd party to run a mission critical part of your business. The Cloud is a landlord-tenant relationship with costs that can prevent your business from becoming profitable. Socket helps you connect your users directly to each other, allowing you to rely less on the Cloud, reclaim your sovereignty, and your profit margins.</p>
 <p>Reducing complexity is an important metric for many engineering teams. Companies whose applications are built across desktop and mobile would be moving from working and maintaining &gt;=3 code bases in their current state to 1 code base with Socket. This drastically reduces complexity within the organization and speeds up innovation. </p>
-<p>Decentralization is an important metric that can be solved by running p2p, Socket customers can claim they are truly decentralized. </p>
-<p>Building multiplayer capabilities in products is a benefit Productivity / Collaboration tools would find as a major benefit to building on Socket. Evan Wallace, Co-founder and good friend from Figma said it best “these days it’s obvious that multiplayer is the way all productivity tools on the web should work, not just design.”(link for appendix). Costs.</p>
+<p>Decentralization is an important metric that can be solved by running p2p, Socket app builders can confidently claim that they are truly decentralized. </p>
+<p>Builders of network enabled Productivity and Collaboration tools will realize major benefits by building on Socket. Evan Wallace, Co-founder and good friend from Figma said it best “these days it’s obvious that multiplayer is the way all productivity tools on the web should work, not just design.”(link for appendix). Costs.</p>
 <p>Cost reduction is a clear benefit from building on Socket. For smaller teams who don’t have native teams in place, they can get to their customers quicker by writing once, running anywhere. Cloud bills are the #1 cost for many organizations, building on Socket reduces that to $0, or as much as you want to migrate off the cloud. We say crawl, walk, run. </p>
 <h3 id="is-this-somehow-related-to-web3">Is this somehow related to Web3?</h3>
 <p>If we define “web 3” to mean a decentralized web, then yes. We don’t really take a position on anything else.</p>

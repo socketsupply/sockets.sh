@@ -3,7 +3,7 @@
 ## Install
 
 <tonic-tabs selected="tab-npm" id="get-started">
-  <tonic-tab id="tab-mac" for="panel-nix">curl</tonic-tab>
+  <tonic-tab id="tab-nix" for="panel-nix">curl</tonic-tab>
   <tonic-tab id="tab-win" for="panel-win">iwr</tonic-tab>
   <tonic-tab id="tab-npm" for="panel-npm">npm</tonic-tab>
   <tonic-tab id="tab-pnpm" for="panel-pnpm">pnpm</tonic-tab>
@@ -40,72 +40,51 @@
 
 ## Create Socket App
 
-[Create Socket App](https://github.com/socketsupply/create-socket-app) is similar to React's `Create React App`, it will help you build native apps for mobile and desktop with Svelte, Reactjs, Vuejs and others!
-The idea is to provides a few basic boilerplates and some strong opinions so you can get coding on a production quality app as quickly as possible.
+> _Note: You’ll need to have Node 16.0.0 or later version on your local development machine._
 
-## Quick Overview
-```bash
-$npx create-socket-app -h
+[Create Socket App](https://github.com/socketsupply/create-socket-app) is
+similar to React's `Create React App`, it will help you build native apps for
+mobile and desktop with Svelte, Reactjs, Vuejs and others!
 
-usage: create-socket-app [react | svelte | tonic | vanilla | vue]
+The idea is to provides a few basic boilerplates and some strong opinions so
+you can get coding on a production quality app as quickly as possible.Creat an
+empty directory and that's it, any try one of the following commands...
+
+<tonic-tabs selected="tab-csa-npx" id="get-csa">
+  <tonic-tab id="tab-csa-npx" for="panel-csa-npx">npx</tonic-tab>
+  <tonic-tab id="tab-csa-npm" for="panel-csa-npm"npm</tonic-tab>
+  <tonic-tab id="tab-csa-yarn" for="panel-csa-yarn">yarn</tonic-tab>
+  <tonic-tab id="tab-csa-pnpm" for="panel-csa-pnpm">pnpm</tonic-tab>
+</tonic-tabs>
+
+<tonic-tab-panel id="panel-csa-npx">
+  <code>
+    npx create-socket-app  [react | svelte | tonic | vanilla | vue]
+  </code>
+</tonic-tab-panel>
+
+<tonic-tab-panel id="panel-csa-npm">
+  <code>
+    npm init socket-app [react | svelte | tonic | vanilla | vue]
+    npm create socket-app [react | svelte | tonic | vanilla | vue]
+  </code>
+</tonic-tab-panel>
+
+<tonic-tab-panel id="panel-csa-yarn">
+  <code>
+    yarn create socket-app [react | svelte | tonic | vanilla | vue]
+  </code>
+</tonic-tab-panel>
+
+<tonic-tab-panel id="panel-csa-pnpm">
+  <code>
+    pnpm create socket-app [react | svelte | tonic | vanilla | vue]
+  </code>
+</tonic-tab-panel>
+
+After running the command you'll see a directory structure like this...
+
 ```
-
-```bash
-$npx create-socket-app
-
-Creating socket files...OK
-Initializing npm package...OK
-Installing dependencies...OK
-Adding package scripts...OK
-Updating project configuration...OK
-Copying project boilerplate...OK
-
-Type 'npm start' to launch the app
-
-$tree
-.
-├── README.md
-├── build.js
-├── package.json
-├── socket.ini
-├── src
-│   ├── icon.png
-│   ├── index.css
-│   ├── index.html
-│   └── index.js
-└── test
-    ├── index.js
-    └── test-context.js
-```
-## Getting Started 
-
-**You’ll need to have Node 16.0.0 or later version on your local development machine .**  
-Creat an empty directory and that's it, you are ready to go!
-You may choose one of the following methods: 
-
-### **npm**
-
-Any of these following commands will work
-```bash
-npm init socket-app [react | svelte | tonic | vanilla | vue]
-npm create socket-app [react | svelte | tonic | vanilla | vue]
-
-``` 
-### **yarn**
-```bash
-yarn create socket-app [react | svelte | tonic | vanilla | vue]
-```
-
-### **pnpm**
-```bash
-pnpm create socket-app [react | svelte | tonic | vanilla | vue]
-```  
-
-## Output:
-
-Now inside of your directory, you should have a `directory structure` like this:
-
-```bash
 .
 ├── README.md
 ├── build.js
