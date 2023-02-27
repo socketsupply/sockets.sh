@@ -1,38 +1,42 @@
 # Getting Started
-<!-- 
+
 ## Install
 
-<tonic-tabs selected="tab-mac" id="get-started">
+<tonic-tabs selected="tab-npm" id="get-started">
+  <tonic-tab id="tab-mac" for="panel-nix">curl</tonic-tab>
+  <tonic-tab id="tab-win" for="panel-win">iwr</tonic-tab>
   <tonic-tab id="tab-npm" for="panel-npm">npm</tonic-tab>
-  <tonic-tab id="tab-mac" for="panel-mac">macOS</tonic-tab>
-  <tonic-tab id="tab-linux" for="panel-linux">Linux</tonic-tab>
-  <tonic-tab id="tab-win" for="panel-win">Windows</tonic-tab>
+  <tonic-tab id="tab-pnpm" for="panel-pnpm">pnpm</tonic-tab>
 </tonic-tabs>
 
 <tonic-tab-panel id="panel-npm">
   <code>
-    npm install @socketsupply/socket -g
+    npm i @socketsupply/socket -g
   </code>
+  <p>Install using your package manager (any OS).</p>
 </tonic-tab-panel>
 
-<tonic-tab-panel id="panel-mac">
+<tonic-tab-panel id="panel-pnpm">
+  <code>
+    pnpm i @socketsupply/socket -g
+  </code>
+  <p>Install using your package manager (any OS).</p>
+</tonic-tab-panel>
+
+<tonic-tab-panel id="panel-nix">
   <code>
     curl -s -o- https://sockets.sh/sh | bash -s
   </code>
-</tonic-tab-panel>
-
-<tonic-tab-panel id="panel-linux">
-  <code>
-    curl -s -o- https://sockets.sh/sh | bash -s
-  </code>
+  <p>Install by compiling from source (MacOS or Linux).</p>
 </tonic-tab-panel>
 
 <tonic-tab-panel id="panel-win">
   <code>
     iwr -useb https://sockets.sh/ps | iex
   </code>
+  <p>Install by compiling from source (Windows).</p>
 </tonic-tab-panel>
--->
+
 
 ## Create Socket App
 This is similar to React's `Create React App`. The idea is that it provides a
