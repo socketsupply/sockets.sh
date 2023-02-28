@@ -33,7 +33,7 @@ class PageIndex extends Tonic {
 
                   <p>
                     Socket Runtime is like a next-generation Electron. Build native apps for any OS
-                    using HTML, CSS and JavaScript, for desktop &amp; mobile! You can also connect
+                    using HTML, CSS, and JavaScript, for desktop &amp; mobile! You can also connect
                     your users, and let them communicate directly, without the cloud or any servers!
                   </p>
 
@@ -42,12 +42,12 @@ class PageIndex extends Tonic {
                   <div id="value-props">
                     <div>
                       <h3>Local First</h3>
-                      <p>A full featured File System API &amp; Bluetooth ensure its possible to create excellent offline and local-first user experiences.</p>
+                      <p>A full-featured File System API &amp; Bluetooth ensure it's possible to create excellent offline and local-first user experiences.</p>
                     </div>
 
                     <div>
                       <h3>P2P &amp; Cloud</h3>
-                      <p>Built to support a new generation of apps that can connect directly to each other by providing a high performance UDP API.</p>
+                      <p>Built to support a new generation of apps that can connect directly to each other by providing a high-performance UDP API.</p>
                     </div>
 
                     <div>
@@ -57,7 +57,7 @@ class PageIndex extends Tonic {
 
                     <div>
                       <h3>Use any frontend</h3>
-                      <p>All the standard browser APIs are supported, so you can use your favorite front end framework to create your UIs, React, Svelte, Vue for example.</p>
+                      <p>All the standard browser APIs are supported, so you can use your favorite front-end framework to create your UIs, React, Svelte, Vue for example.</p>
                     </div>
 
                     <div>
