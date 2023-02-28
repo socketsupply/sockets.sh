@@ -2,7 +2,7 @@
 
 ### What is Socket? Is it a framework or a tool? Is it a service?
 
-Socket Supply Co. builds and maintains a free and open source Runtime that helps web developers build apps for any OS, desktop and mobile. You can use plain old HTML, CSS, and JavaScript, as well as your favorite front-end libraries for example React, Svelte, and Vue.
+Socket Supply Co. builds and maintains a free and open source Runtime that helps web developers build apps for any OS, desktop, and mobile. You can use plain old HTML, CSS, and JavaScript, as well as your favorite front-end libraries for example React, Svelte, and Vue.
 
 A core feature of Socket Runtime is its p2p capabilities. Our runtime exposes primitives needed for building peer-to-peer and local-first applications, such as Bluetooth, UDP, and robust file system access. Our p2p component allows developers to create apps where users can communicate directly, without the Cloud, it doesn’t require any servers at all, and even works when people are offline.
 
@@ -18,7 +18,7 @@ Feel free to contact us as well and we can walk you through it.
 
 ### But you're also a business, so you have to have some private technologies that you charge for, to make money?
 
-As stated above, Socket Supply Co. builds and maintains a free and open source Runtime that helps web developers build apps for any OS, desktop and mobile, as well as a p2p library, that enables developers to create apps where users can communicate directly, without the Cloud. 
+As stated above, Socket Supply Co. builds and maintains a free and open source Runtime that helps web developers build apps for any OS, desktop, and mobile, as well as a p2p library, that enables developers to create apps where users can communicate directly, without the Cloud. 
 
 These will always be open-source and free to use by any developer, no matter what they use it for (commercial or personal). That will always be true.
 
@@ -29,14 +29,14 @@ No Socket powered app is ever required to use any of these paid services. Additi
 
 ### How is Socket different from other hybrid-native app tooling, such as Electron, Tauri, NativeScript, React Native, Ionic, etc?
 
-Socket is the first and only runtime to be cross-platform across desktop and mobile. Write once, run anywhere (iOS, Android, Linux, Windows, MacOS, and more!). It’s built from scratch, 1000 lines of code, 1.5MB binary size and has a significantly small memory footprint compared to others. However, the most important core differentiation are JavaScript APIs that provide Bluetooth, UDP, and robust file system access. These make it possible to create an entirely new class of P2P and local-first apps. Apps where users can communicate directly, without the Cloud. Every other runtime is a means to an end, ours is intended to subvert Cloud infrastructure entirely ;)
+Socket is the first and only runtime to be cross-platform across desktop and mobile. Write once,and run anywhere (iOS, Android, Linux, Windows, MacOS, and more!). It’s built from scratch, 1000 lines of code, 1.5MB binary size and has a significantly small memory footprint compared to others. However, the most important core differentiation are JavaScript APIs that provide Bluetooth, UDP, and robust file system access. These make it possible to create an entirely new class of P2P and local-first apps. Apps where users can communicate directly, without the Cloud. Every other runtime is a means to an end, ours is intended to subvert Cloud infrastructure entirely ;)
 
 
 ### We already have teams of engineers that build our web and other native-platform app experiences. Why would we benefit from Socket?
 
 App builders can prioritize what they want to solve when working with Socket. There are many benefits to choose from for a wide variety of reasons. 
 
-Autonomy - Right now you’re entirely codependent on a 3rd party to run a mission critical part of your business. The Cloud is a landlord-tenant relationship with costs that can prevent your business from becoming profitable. Socket helps you connect your users directly to each other, allowing you to rely less on the Cloud, reclaim your sovereignty, and your profit margins.
+Autonomy - Right now you’re entirely codependent on a 3rd party to run a mission-critical part of your business. The Cloud is a landlord-tenant relationship with costs that can prevent your business from becoming profitable. Socket helps you connect your users directly to each other, allowing you to rely less on the Cloud,and reclaim your sovereignty, and your profit margins.
 
 Reducing complexity is an important metric for many engineering teams. Companies whose applications are built across desktop and mobile would be moving from working and maintaining >=3 code bases in their current state to 1 code base with Socket. This drastically reduces complexity within the organization and speeds up innovation. 
 
@@ -44,7 +44,7 @@ Decentralization is an important metric that can be solved by running p2p, Socke
 
 Builders of network enabled Productivity and Collaboration tools will realize major benefits by building on Socket. Evan Wallace, Co-founder and good friend from Figma said it best “these days it’s obvious that multiplayer is the way all productivity tools on the web should work, not just design.”(link for appendix). Costs.
 
-Cost reduction is a clear benefit from building on Socket. For smaller teams who don’t have native teams in place, they can get to their customers quicker by writing once, running anywhere. Cloud bills are the #1 cost for many organizations, building on Socket reduces that to $0, or as much as you want to migrate off the cloud. We say crawl, walk, run. 
+Cost reduction is a clear benefit of building on Socket. For smaller teams who don’t have native teams in place, they can get to their customers quicker by writing once,and running anywhere. Cloud bills are the #1 cost for many organizations, building on Socket reduces that to $0, or as much as you want to migrate off the cloud. We say crawl, walk, run. 
 
 
 ### Is this somehow related to Web3?
@@ -53,7 +53,7 @@ If we define “web 3” to mean a decentralized web, then yes. We don’t reall
 
 We provide a technical foundation that makes it possible for many Web3 ideals to come to fruition.
 
-In its current state Web3 is not decentralized. The ecosystem relies heavily on centralized cloud providers like AWS for infrastructure. This is an economic disadvantage and in most cases a barrier to entry. However, apps built with Socket’s P2P capabilities can be 100% decentralized, absolutely no servers are required. They can be fully autonomous, aligning directly with the mission of the web3 community. 
+In its current state, Web3 is not decentralized. The ecosystem relies heavily on centralized cloud providers like AWS for infrastructure. This is an economic disadvantage and in most cases a barrier to entry. However, apps built with Socket’s P2P capabilities can be 100% decentralized, absolutely no servers are required. They can be fully autonomous, aligning directly with the mission of the web3 community. 
 
 
 ### Doesn't P2P (without centralized servers) mean that only users that are online at the same time can share and communicate with each other?
@@ -84,7 +84,7 @@ Corrupted (or manipulated) packets, or even dropped/missing packets, can be auto
 
 As for determining the identity authenticity of the sender, the network protocol does not employ overhead of digital signatures or verification, nor digital certificates.
 
-Socket powered apps are allowed, and expected, to employ their own security layered on top of (tunneled through) the network encryption provided automatically. This may included additional encryption, digital signatures, digital certificates (identity verification), and more, according to the needs and capabilities of the app.
+Socket powered apps are allowed, and expected, to employ their own security layered on top of (tunneled through) the network encryption provided automatically. This may includ additional encryption, digital signatures, digital certificates (identity verification), and more, according to the needs and capabilities of the app.
 
 All of those app-specific techniques are still able to be leveraged and negotiated across the Socket-powered peer network.
 
@@ -121,13 +121,13 @@ If you installed such an app, and opened it, your device would subject itself to
 **No unintended/background/abusive computation on your device is ever be possible** by virtue of the Socket P2P protocol itself. Only apps themselves can coordinate such distributed computation activities, and only with expressed installation consent from users.
 
 
-### Aside from CPU computation, doesn't allowing my device to participate in packet relay for many other peers subject my device to extra resource utilization (using up my memory, draining my battery more quickly, etc)?
+### Aside from CPU computation, doesn't allow my device to participate in packet relay for many other peers subject my device to extra resource utilization (using up my memory, draining my battery more quickly, etc)?
 
 The only resource utilization that occurs is that which you consent to by opening and using Socket powered apps.
 
-Socket limits the memory used for the packet relay cache, currently to 16MB (not GB!). This is an extremely small slice of typical device memory, even budget-level smart phones (which typically have at least 1-2 GB of memory).
+Socket limits the memory used for the packet relay cache, currently to 16MB (not GB!). This is an extremely small slice of typical device memory, even budget-level smartphones (which typically have at least 1-2 GB of memory).
 
-As for battery, Socket does not perform unnecessary background work, so any battery usage you experience should be directly proportional to the active use of a Socket powered app.
+As for the battery, Socket does not perform unnecessary background work, so any battery usage you experience should be directly proportional to the active use of a Socket powered app.
 
 Relaying packets is a very simple and resource-light type of task. In our testing, we haven't seen any noticeable increase in resource load on devices as a result of running a Socket powered app, compared to any other consumer apps users typically use.
 
@@ -138,25 +138,25 @@ As a matter of fact, Socket powered apps tend to use and transmit way less data 
 
 P2P packet relay, even across a broad network of many millions of devices, is surprisingly fast and efficient, compared to typical presumptions.
 
-If the sender and receiver of a message are both online at time of a message being sent, and are at most a few hops away in terms of the packet relay protocol of Socket, this transmission should take no more than a couple of seconds, but probably orders of magnitude faster.
+If the sender and receiver of a message are both online at the time of a message being sent and are at most a few hops away in terms of the packet relay protocol of Socket, this transmission should take no more than a couple of seconds, but probably orders of magnitude faster.
 
 In fact, since this communication is much more direct than in typical infrastructure, where messages have to go all the way out to a cloud server, and then on to the recipient, it's quite likely that communications will be at least as fast, if not much faster, via P2P communications techniques (relay, etc) as described.
 
 
 ### If the recipient of my message is not online when I send it, how long will the packets *stay alive* in the P2P network before being dropped, if the recipient has not yet come online and received the packets?
 
-There's a lot of *it depends* in this answer (including size of the message -- how many packets -- and network activity/congestion).
+There's a lot of *it depends* on this answer (including the size of the message -- how many packets -- and network activity/congestion).
 
-But in general, messages may be able to survive for as long as a couple of weeks, and almost never less than several days.
+But in general, messages may be able to survive for as long as a couple of weeks and almost never less than several days.
 
-Apps are expected to design with the nature of lack of delivery guarantees in P2P networks in focus. To help users compensate and adapt, these apps should provide appropriate user experience affordances, including "resend", "read receipt", and other such capabilities.
+Apps are expected to design with the nature of the lack of delivery guarantees in P2P networks in focus. To help users compensate and adapt, these apps should provide appropriate user experience affordances, including "resend", "read receipt", and other such capabilities.
 
 
 ### I've heard that P2P often suffers from NAT traversal complications (hard NAT, etc), so how reliably will peers using Socket powered apps be able to connect to other peers, depending on what network infrastructure they're connected to at the time?
 
 Socket's P2P protocol includes a collection of sophisticated and robust techniques for peer introduction, NAT type discovery, and communication negotiation.
 
-NAT traversal and negotiation is automatically handled, so that app developers do not need to worry about these messy details. That said, all our code is open-source, so we invite you to take a deeper look if you're curious how we handle these complicated tasks on your app's behalf.
+NAT traversal and negotiation are automatically handled, so that app developers do not need to worry about these messy details. That said, all our code is open-source, so we invite you to take a deeper look if you're curious about how we handle these complicated tasks on your app's behalf.
 
 
 ### Bad actors are certainly going to try to flood the network with junk, to deny/degrade service (DoS attacks), attack peers (DDoS attacks), etc. How can this P2P network possibly survive such abuse?
@@ -170,7 +170,7 @@ We've done a significant amount of modeling simulations and real-world field tes
 
 ### Is this like BitTorrent, Tor, Napster, Gnutella etc?
 
-The web's roots are P2P, and yes there have been a number of widely known (and sometimes infamous!) attempts to bring the web back to its P2P identity over the years; some good, some not so good. Most of these are focused on file sharing. We see a broader opportunity with P2P which is focused on connecitivity, reduced infrastructure cost and reduced complexity in general.
+The web's roots are P2P, and yes there have been a number of widely known (and sometimes infamous!) attempts to bring the web back to its P2P identity over the years; some good, some not so good. Most of these are focused on file sharing. We see a broader opportunity with P2P which is focused on connectivity, reduced infrastructure cost, and reduced complexity in general.
 
 We think the time has come for the web to return to the P2P model by default, to dismantle the wasteful and unnecessarily complicated (and expensive!) centralization trend that has given rise to the age of the "cloud". There are more than enough consumer devices, many of them highly connected, to accomplish a de-centralization.
 
