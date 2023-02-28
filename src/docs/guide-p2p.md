@@ -7,10 +7,10 @@ There are broadly 3 categories of concerns addressed by P2P.
 ### Complexity
 
 One server to many users is a natural bottle-neck, and scaling them up quickly
-becomes a complex distribued system of shared state. A P2P network is many users
-to many users, and although it is also an eventually consistent, distribued
+becomes a complex distributed system of shared state. A P2P network is many users
+to many users, and although it is also an eventually consistent, distributed
 system of shared state, the total complexity of all components needed to create
-a P2P network are finite, transparent and can be formally verified.
+a P2P network is finite, transparent, and can be formally verified.
 
 
 ### Security & Sovereignty
@@ -23,16 +23,16 @@ data, and software was entirely self-contained without a man-in-the-middle.
 ### Cost
 
 Servers, and cloud infrastructure in general, become more expensive as demand
-increases. Although "free tiers" can be cheap for trivial, they can be prohibitive
+increases. Although "free tiers" can be cheap or trivial, they can be prohibitive
 for many kinds of businesses.
 
 
 ## Use Cases
 
 The protocol is limited to connecting peers and delivering datagrams with a high
-degree of reliably. It sits directly on top of UDP and is suitable for building
+degree of reliability. It sits directly on top of UDP and is suitable for building
 applications and protocols. Uses case examples include chat, social networks, mail,
-photo and file sharing, distribued computing.
+photo and file sharing, distributed computing.
 
 
 ## How
@@ -64,10 +64,10 @@ TODO link to the API docs and explain this code more.
 #### Problem Description
 
 With client-server architecture, any client can directly request a response from
-a server. However in peer-to-peer architecture, any client can not request a
+a server. However, in peer-to-peer architecture, any client can not request a
 response from any other client.
 
-P2P software needs to listen for new messages from unknown people. However most
+P2P software needs to listen to new messages from unknown people. However, most
 routers will discard unsolicited packets. It is possible to work around this
 problem.
 
@@ -79,7 +79,7 @@ other way to contact him. Before Alice can send Bob the letter, she needs to
 learn his address. The solution is for her to ask some friends who might have
 talked to Bob recently.
 
-In this anology, Alice's letter is really a packet of data. Bob's address is his
+In this analogy, Alice's letter is really a packet of data. Bob's address is his
 external `IP address` and `port`. And their friends, are a serializable list of
 recently known IP addresses and ports. You can read more about the technical
 details in the `STATE_0` section of the [spec][G1].
@@ -140,7 +140,7 @@ in a network act as relays (hence the name of the protocol).
 Bob continues to write (optionally encrypted) messages to Alice after she goes
 offline, and his packets are published to the network. A network of only 1024
 peers (split across multiple apps), will provide Bob’s packets a 100% survival
-rate over a 24 hour period, without burdening any particular peer with storage
+rate over a 24-hour period, without burdening any particular peer with storage
 or compute requirements. Allowing Alice to return to the network and see Bob’s
 most recent messages without the need for additional infrastructure.
 
@@ -152,22 +152,22 @@ TODO
 
 ### Connectionless
 
-TCP is oftern thought of as an ideal choice for packet delivery since it's
+TCP is often thought of as an ideal choice for packet delivery since it's
 considered "reliable". With TCP packet loss, all packets are withheld until all
 packets are received, this can be a delay of up to 1s (as per RFC6298 section
 2.4). If the packet can't be retransmitted, an exponential backoff could lead to
 another 600ms of delay needed for retransmission.
 
 In fact, `Head-of-Line Blocking` is generally a problem with any ordered stream,
-TCP (or UDP with additional higher level protocol code for solving this problem).
+TCP (or UDP with additional higher-level protocol code for solving this problem).
 
 TCP introduces other unwanted complexity that makes it less ideal for P2P.
 
 UDP is only considered "unreliable" in the way that packets are not guaranteed
 to be delivered. However, UDP is ideal for P2P networks because it’s message
 oriented and connectionless (ideal for NAT traversal). Also because of its
-message oriented nature, it’s light weight in terms of resource allocation. It's
-the responsibility of a higher level protocol to implement a strategy for
+message-oriented nature, it’s light-weight in terms of resource allocation. It's
+the responsibility of a higher-level protocol to implement a strategy for
 ensuring UDP packets are delivered.
 
 Stream Relay Protocol eliminates Head-of-Line blocking entirely by reframing
