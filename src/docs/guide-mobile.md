@@ -12,7 +12,7 @@ ssc build -r --port=8000
 ```
 
 You'll need to tell your build script the output location. The `ssc` command
-can tell you the platform specific build destination. For example.
+can tell you the platform-specific build destination. For example.
 
 ```
 ./myscript `ssc list-build-target .`
@@ -22,8 +22,8 @@ can tell you the platform specific build destination. For example.
 
 After you get your UI looking how you want. The next step is to try it out
 on the simulator. At this point, we can use either the `-ios` or `-android`
-flags as well as the `-simulator` flag. This will create a platform specific
-bundle, create and boot a simulator VM and then run your app in simulator if
+flags as well as the `-simulator` flag. This will create a platform-specific
+bundle, create and boot a simulator VM and then run your app in the simulator if
 `-r` flag is provided.
 
 ```
