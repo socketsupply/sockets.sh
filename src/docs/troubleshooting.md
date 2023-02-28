@@ -6,7 +6,7 @@
 
 To produce a meaningful backtrace that can help debug the crash, you'll need to
 resign the binary with the ability to attach the `lldb` debugger tool. You'll
-also want to enable core dumps in case the analysis isn't exaustive enough.
+also want to enable core dumps in case the analysis isn't exhaustive enough.
 
 ```
 sudo ulimit -c unlimited # enable core dumps (`ls -la /cores`)
@@ -25,10 +25,10 @@ command...
 sudo sntp -sS time.apple.com
 ```
 
-### macOS asks for password multiple times on code signing
+### macOS asks for a password multiple times on code signing
 
 Open Keychain Access and find your developer certificate under the My Certificates section.
-Expand your certificate and double click on a private key. In the dialog click Access Control tab.
+Expand your certificate and double-click on a private key. In the dialog click the Access Control tab.
 
 ![](../images/screenshots/macos-cert-access-control.png)
 
@@ -50,14 +50,14 @@ brew install libtool
 ### `unable to build chain to self-signed root for signer (...)`
 
 You need the intermediate certificate that matches your code signing certificate.
-To find which "Worldwide Developer Relations" matches you certificate, open the
+To find which "Worldwide Developer Relations" matches your certificate, open the
 signing certificate in your keychain, open [this](https://www.apple.com/certificateauthority/)
-page and find the certificate that matches the details in the "Issuer" section
+page, and find the certificate that matches the details in the "Issuer" section
 of your certicicate.
 
 ### `xcrun: error: SDK "iphoneos" cannot be located`
 
-You have to configure the xcode command line tools, to do this
+You have to configure the Xcode command line tools, to do this
 you can run the following command
 
 ```
@@ -72,7 +72,7 @@ does not exist.
 
 ### `unable to find utility simctl`
 
-You need to have [XCode](https://developer.apple.com/xcode/resources/) installed on your macbook.
+You need to have [XCode](https://developer.apple.com/xcode/resources/) installed on your MacBook.
 
 ### `You have not agreed to the Xcode license agreements, please run 'sudo xcodebuild -license' from within a Terminal window to review and agree to the Xcode license agreements.`
 
@@ -80,23 +80,23 @@ You can run `sudo xcodebuild -license` to agree to the license.
 
 ### Multiple Password Prompts
 
-If macOS is asking you a password every time you run the command with `-c` flag,
+If macOS is asking you for a password every time you run the command with `-c` flag,
 follow [these instructions](/troubleshooting#macos-asks-for-password-multiple-times-on-code-signing)
 
 ### Application crashes on start
 
-If you use iTerm2 you can get your app crashing with
+If you use iTerm2 you can get your app crash with
 ```
 This app has crashed because it attempted to access privacy-sensitive data without a usage description. The app's Info.plist must contain an NSBluetoothAlwaysUsageDescription key with a string value explaining to the user how the app uses this data.
 ```
-Command line apps inherit their permissions from iTerm, so you need to grant Bluetooth permission to iTerm in macOS system preferences. Go to Security & Privacy, open the Privacy tab and select Bluetooth. Press the "+" button and add iTerm to the apps list.
+Command line apps inherit their permissions from iTerm, so you need to grant Bluetooth permission to iTerm in macOS system preferences. Go to Security & Privacy, open the Privacy tab, and select Bluetooth. Press the "+" button and add iTerm to the apps list.
 ![](../images/screenshots/macos-bluetooth.png)
 
 ## Windows
 
 ### Development Environment
 
-[`clang++`][0] [version 14][1] required for building.
+[`clang++`][0] [version 14][1] is required for building.
 
 You will need [build tools][3]
 
@@ -126,7 +126,7 @@ Then you can follow https://superuser.com/a/106363
 
 Setting up the MSVC build environment from Git Bash
 
-You can leverage the MSVC build tools (`clang++`) and environment headers directly in Git Bash by loading it into your shell environment directly.
+You can leverage the MSVC build tools (`clang++`) and environment headers directly in Git Bash by loading them into your shell environment directly.
 This is possible by running the following command:
 
 ```sh
@@ -134,7 +134,7 @@ source bin/mscv-bash-env.sh
 ```
 
 The `bin/install.sh` shell script should work for compiling the `ssc` tool.
-It is also recommneded to initialize this environment when building applications
+It is also recommended to initialize this environment when building applications
 with `ssc` from the CLI so the correct build tools can be used which ensures
 header and library paths for the compiler
 
@@ -147,7 +147,7 @@ set to the location of your C++ compiler (`which g++`, or `which c++`).
 
 The latest version of MacOS should have installed C++ for you. But
 on Linux you may need to update some packages. To ensure you have
-the latest clang compiler and libraries you can try the follwing...
+the latest clang compiler and libraries you can try the following...
 
 For debian/ubuntu, before you install the packages, you may want
 to [add][0] these software update repos [here][1] to the software
@@ -181,7 +181,7 @@ sudo pacman -S base-devel
 ### Multiple g++ versions
 
 If you've tried running the above `apt install` and you get an error
-related `Unable to locate package` then you can also install multiple
+related to `Unable to locate package` then you can also install multiple
 versions of G++ on your system.
 
 ```sh
@@ -206,7 +206,7 @@ Package webkit2gtk-4.1 was not found in the pkg-config search path.
 Perhaps you should add the directory containing `webkit2gtk-4.1.pc'
 to the PKG_CONFIG_PATH environment variable
 No package 'webkit2gtk-4.1' found
-In file included from /home/runner/.config/socket/src/main.cc:9:
+In the file included from /home/runner/.config/socket/src/main.cc:9:
 /home/runner/.config/socket/src/linux.hh:4:10: fatal error: JavaScriptCore/JavaScript.h: No such file or directory
     4 | #include <JavaScriptCore/JavaScript.h>
       |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
