@@ -45,13 +45,13 @@ If you don't have npm installed but you want to use it, you can [download it her
 
 ### From Create Socket App
 
-Installing Socket Runtime from [Create Socket App](https://github.com/socketsupply/create-socket-app)
+Installing `Socket Runtime` from [Create Socket App](https://github.com/socketsupply/create-socket-app)
 will be instantly familiar to anyone who has used React's `Create React App`. To
-use Create Socket App you’ll need to have Node 16.0.0 or later version installed
+use Create Socket App you’ll need to have **Node 16.0.0** or later version installed
 on your computer.
 
 The idea is to provide a few basic boilerplates and some strong opinions so
-you can get coding on a production quality app as quickly as possible. Create an
+you can get coding on a production-quality app as quickly as possible. Create an
 empty directory and try one of the following commands...
 
 <tonic-tabs selected="tab-csa-npx" id="get-csa">
