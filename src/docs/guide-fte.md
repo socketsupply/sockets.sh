@@ -43,7 +43,7 @@ If you don't have npm installed but you want to use it, you can [download it her
 </tonic-tab-panel>
 
 
-### From Create React App
+### From Create Socket App
 
 Installing Socket Runtime from [Create Socket App](https://github.com/socketsupply/create-socket-app)
 will be instantly familiar to anyone who has used React's `Create React App`. To

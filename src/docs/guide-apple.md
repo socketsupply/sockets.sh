@@ -12,7 +12,7 @@ command to get your Device ID (UDID). The device should be connected to your mac
 4. Write down your `Team ID`. It's in the top right corner of the website. You'll need this later.
 
 ### MacOS
-- Xcode Command Line Tools. If you don't have them already, and you don't have xcode,
+- Xcode Command Line Tools. If you don't have them already, and you don't have Xcode,
 you can run the command `xcode-select --install`.
 
 ### iOS
@@ -22,7 +22,7 @@ you can run the command `xcode-select --install`.
 
 ## Code Signing Certificates
 
-- Open Keychain Access application on your mac (it's in Applications/Utilities).
+- Open the Keychain Access application on your mac (it's in Applications/Utilities).
 - In the Keychain Access application choose Keychain Access -> Certificate Assistant -> Request a Certificate From a Certificate Authority...
 <img src="../images/screenshots/prov-prof-1.png" class="shadowed">
 - Type your email in the User Email Address field. Other form elements are optional.
@@ -36,7 +36,7 @@ software is like using `http` instead of `https`.
 
 - [Create][apple-dev-certificates-add] a new `Developer ID Application` certificate
 on the Apple Developers website.
-- Choose a certificate request you've created 2 steps earlier.
+- Choose a certificate request you created 2 steps earlier.
 - Download your certificate and double-click to add it to your Keychain.
 
 ### iOS
@@ -47,8 +47,8 @@ links `app identity`, `certificates` (used for code signing), `app permissions`,
 and physical `devices`.
 
 - [Create][apple-dev-certificates-add] a new iOS Distribution (App Store and Ad Hoc) certificate on the Apple Developers website.
-- Choose a certificate request you've created 2 steps earlier.
-- Download your certificate and double click to add it to your Keychain.
+- Choose a certificate request you created 2 steps earlier.
+- Download your certificate and double-click to add it to your Keychain.
 
 When you run `ssc build --target=ios .` on your project for the first time, you may see the
 following because you don't have a provisioning profile:
@@ -80,7 +80,7 @@ mac_sign: Developer ID Application: Operator Tools Inc. (Z3M838H537)
 ### iOS
 
 1. Set the `ios_distribution_method` value in `ssc.config` to the `ad-hoc`
-1. Set the `ios_codesign_identity` value in `ssc.config` to the [certificate](#certificate) name as it's displayed in the Keychan or copy it from the output of `security find-identity -v -p codesigning`
+1. Set the `ios_codesign_identity` value in `ssc.config` to the [certificate](#certificate) name as it's displayed in the Keychain or copy it from the output of `security find-identity -v -p codesigning`
 1. Set the `ios_provisioning_profile` value in `ssc.config` to the filename of your certificate (i.e., "distribution.mobileprovision").
 
 ## Development
@@ -98,9 +98,9 @@ ssc build --target=ios -c -p -xd .
 
 ### To your device
 
-Install [Apple Configurator][apple-configurator], open it and install Automation Tools from the menu.
+Install [Apple Configurator][apple-configurator], open it, and install Automation Tools from the menu.
 
-Connect your device and run `ssc install-app <path>` where path is the root directory of your application (the one where `ssc.config` is located).
+Connect your device and run `ssc install-app <path>` where the path is the root directory of your application (the one where `ssc.config` is located).
 
 An alternative way to install your app is to open the `Apple Configurator` app and drag
 the inner `/dist/build/[your app name].ipa/[your app name].ipa` file onto your phone.
@@ -135,7 +135,7 @@ process attach --name TestExample-dev
 ## Logging
 
 To see logs on either platform, open `Console.app` (installed on MacOS by default)
-and in the right side panel pick the device or computer name.
+and in the right-side panel pick the device or computer name.
 
 ## Working with the file system on iOS
 
@@ -144,11 +144,11 @@ Apps can only access files in their own sandboxed home directory.
 
 | Directory | Description |
 | --- | --- |
-| `Documents` | The app’s sandboxed documents directory. The contents of this directory are backed up by iTunes and may be set as accessible to the user via iTunes when `UIFileSharingEnabled` is set to `true` in application's `info.plist`. |
+| `Documents` | The app’s sandboxed documents directory. The contents of this directory are backed up by iTunes and may be set as accessible to the user via iTunes when `UIFileSharingEnabled` is set to `true` in the application's `info.plist`. |
 | `Library` | The app’s sandboxed library directory. The contents of this directory are synchronized via iTunes (except the `Library/Caches` subdirectory, see below), but never exposed to the user. |
-| `Library/Caches` | The app’s sandboxed caches directory. The contents of this directory are not synchronized via iTunes, and may be deleted by the system at any time. It's a good place to store data which provides a good offline-first experience for the user. |
+| `Library/Caches` | The app’s sandboxed caches directory. The contents of this directory are not synchronized via iTunes and may be deleted by the system at any time. It's a good place to store data which provides a good offline-first experience for the user. |
 | `Library/Preferences` | The app’s sandboxed preferences directory. The contents of this directory are synchronized via iTunes. Its purpose is to be used by the Settings app. Avoid creating your own files in this directory. |
-| `tmp` | The app’s sandboxed temporary directory. The contents of this directory are not synchronized via iTunes, and may be deleted by the system at any time. Although, it's recommended that you delete data that is not necessary anymore manually to minimize the space your app takes up on the file system. Use this directory to store data that is only useful during the app runtime. |
+| `tmp` | The app’s sandboxed temporary directory. The contents of this directory are not synchronized via iTunes and may be deleted by the system at any time. Although, it's recommended that you delete data that is not necessary anymore manually to minimize the space your app takes up on the file system. Use this directory to store data that is only useful during the app runtime. |
 
 
 [apple-dev-devices-add]:https://developer.apple.com/account/resources/devices/add
