@@ -56,7 +56,7 @@ empty directory and try one of the following commands...
 
 <tonic-tabs selected="tab-csa-npx" id="get-csa">
   <tonic-tab id="tab-csa-npx" for="panel-csa-npx">npx</tonic-tab>
-  <tonic-tab id="tab-csa-npm" for="panel-csa-npm"npm</tonic-tab>
+  <tonic-tab id="tab-csa-npm" for="panel-csa-npm">npm</tonic-tab>
   <tonic-tab id="tab-csa-yarn" for="panel-csa-yarn">yarn</tonic-tab>
   <tonic-tab id="tab-csa-pnpm" for="panel-csa-pnpm">pnpm</tonic-tab>
 </tonic-tabs>
