@@ -29,7 +29,7 @@ No Socket powered app is ever required to use any of these paid services. Additi
 
 ### How is Socket different from other hybrid-native app tooling, such as Electron, Tauri, NativeScript, React Native, Ionic, etc?
 
-Socket is the first and only runtime to be cross-platform across desktop and mobile. Write once,and run anywhere (iOS, Android, Linux, Windows, MacOS, and more!). It’s built from scratch, 1000 lines of code, 1.5MB binary size and has a significantly small memory footprint compared to others. However, the most important core differentiation are JavaScript APIs that provide Bluetooth, UDP, and robust file system access. These make it possible to create an entirely new class of P2P and local-first apps. Apps where users can communicate directly, without the Cloud. Every other runtime is a means to an end, ours is intended to subvert Cloud infrastructure entirely ;)
+Socket is the first and only runtime to be cross-platform across desktop and mobile. Write once, and run anywhere (iOS, Android, Linux, Windows, MacOS, and more!). It’s built from scratch, 1000 lines of code, 1.5MB binary size and has a significantly small memory footprint compared to others. However, the most important core differentiation are JavaScript APIs that provide Bluetooth, UDP, and robust file system access. These make it possible to create an entirely new class of P2P and local-first apps. Apps where users can communicate directly, without the Cloud. Every other runtime is a means to an end, ours is intended to subvert Cloud infrastructure entirely ;)
 
 
 ### We already have teams of engineers that build our web and other native-platform app experiences. Why would we benefit from Socket?
@@ -44,7 +44,7 @@ Decentralization is an important metric that can be solved by running p2p, Socke
 
 Builders of network enabled Productivity and Collaboration tools will realize major benefits by building on Socket. Evan Wallace, Co-founder and good friend from Figma said it best “these days it’s obvious that multiplayer is the way all productivity tools on the web should work, not just design.”(link for appendix). Costs.
 
-Cost reduction is a clear benefit of building on Socket. For smaller teams who don’t have native teams in place, they can get to their customers quicker by writing once,and running anywhere. Cloud bills are the #1 cost for many organizations, building on Socket reduces that to $0, or as much as you want to migrate off the cloud. We say crawl, walk, run. 
+Cost reduction is a clear benefit of building on Socket. For smaller teams who don’t have native teams in place, they can get to their customers quicker by writing once, and running anywhere. Cloud bills are the #1 cost for many organizations, building on Socket reduces that to $0, or as much as you want to migrate off the cloud. We say crawl, walk, run. 
 
 
 ### Is this somehow related to Web3?
@@ -84,7 +84,7 @@ Corrupted (or manipulated) packets, or even dropped/missing packets, can be auto
 
 As for determining the identity authenticity of the sender, the network protocol does not employ overhead of digital signatures or verification, nor digital certificates.
 
-Socket powered apps are allowed, and expected, to employ their own security layered on top of (tunneled through) the network encryption provided automatically. This may includ additional encryption, digital signatures, digital certificates (identity verification), and more, according to the needs and capabilities of the app.
+Socket powered apps are allowed, and expected, to employ their own security layered on top of (tunneled through) the network encryption provided automatically. This may include additional encryption, digital signatures, digital certificates (identity verification), and more, according to the needs and capabilities of the app.
 
 All of those app-specific techniques are still able to be leveraged and negotiated across the Socket-powered peer network.
 
