@@ -125,7 +125,7 @@ xcrun altool --upload-app \
 
 ## Debugging
 
-Check the [troubleshooting guide][/troubleshooting] first. You can also run
+Check the [troubleshooting guide](#troubleshooting) first. You can also run
 [`lldb`][lldb] and attach to a process, for example...
 
 ```bash
