@@ -15,7 +15,7 @@ die $? "not ok - missing build tools, try installing git"
 
 echo "#   __   ___  ___      ___ ____ "
 echo "#  /__  /  / /   /_/  /__   /   "
-echo "#  __/ /__/ /__ /  \\ /__   /  "
+echo "#  __/ /__/ /__ /  \ /__   /  "
 echo "# "
 echo "# getting files..."
 quiet git clone --depth=1 https://github.com/socketsupply/socket.git socket

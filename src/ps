@@ -1,37 +1,71 @@
-# download and install `choco.exe` if it isn't installed yet
-(Get-Command "choco.exe" -ErrorAction SilentlyContinue) > $null
-if ($? -ne 1) {
-  $InstallDir='C:\ProgramData\chocoportable'
-  $env:ChocolateyInstall="$InstallDir"
-
-  Set-ExecutionPolicy Bypass -Scope Process -Force;
-  iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
+param($p="socket")
+Function F-c {
+    param($cs)
+    (Get-Command $cs -ErrorAction SilentlyContinue -ErrorVariable F) > $null
+    $r = $($null -eq $F.length)
+    Write-Output $r
 }
 
-# check for or install git
-(Get-Command "git.exe" -ErrorAction SilentlyContinue) > $null
-if ($? -ne 1) {
-  choco install git
-
-  if ($? -ne 1) {
-    Write-Output "not ok - unable to install git"
-    Exit 1
-  }
+Function Pr {
+  param($t)
+  Write-Host "$t`n> " -NoNewLine
+  $i = $Host.UI.ReadLine()
+  Write-Output $i
 }
 
-Write-Output "# bulding libuv..."
+if ((Test-Path $p -PathT Co) -eq $true) {
+  Write-Output "$p already exists, use -p:<folder> to download somewhere else."
+  Exit 1
+}
+$op = (Get-Location).Path
+$g = "git.exe"
+
 Write-Output "#   __   ___  ___      ___ ____ "
 Write-Output "#  /__  /  / /   /_/  /__   /   "
-Write-Output "#  __/ /__/ /__ /  \\ /__   /  "
+Write-Output "#  __/ /__/ /__ /  \ /__   /  "
 Write-Output "# "
-Write-Output "# getting files..."
+Write-Output "# Looking for $g..."
 
-(git clone -q --depth=1 https://github.com/socketsupply/socket.git socket) > $null
-if ($? -ne 1) {
-  Write-Output "not ok - unable to clone socket runtime"
+
+if (-not (F-c($g))) {
+  $g = "$env:ProgramFiles\Git\bin\$g"
+}
+
+if (-not (F-c($g))) {
+  Write-Output "no $g"
+  if ((Pr("# We need git, get it? y/[n]?")) -ne 'y') {
+    Exit 1
+  }
+
+  Write-Output "# Please hold..."
+  $guid=[guid]::NewGuid()
+  $fname="$env:TEMP\$($guid).exe"
+  $ProgressPreference = 'SilentlyContinue' # fix iwr is slow
+  iwr('https://github.com/git-for-windows/git/releases/download/v2.39.1.windows.1/Git-2.39.1-64-bit.exe') -UseB -Out $fname
+  Write-Output "# Running installer..."
+  iex $fname
+  Pr("# Press enter when git is installed...")
+}
+
+if (-not (F-c($g))) {
+  Pr("# We still can't locate git. Please add to your `$env:PATH and run this script again.")
   Exit 1
 }
 
-cd socket
+Write-Output "# Located $g"
 
+$gu="https://github.com/socketsupply/socket.git"
+Write-Output "# Cloning from $gu to $p"
+(iex "& ""$g"" clone -q --depth=1 --branch=release $gu $p 2>&1") > $null
+if ((Test-Path "$p" -PathT Leaf) -eq $false) {
+  (iex "& ""$g"" clone -q --depth=1 $gu $p") > $null
+}
+if ((Test-Path "$p\bin\install.ps1" -PathT Leaf) -eq $false) {
+  Pr("# Git clone failed, or we made some serious changes.")
+  Exit 1
+}
+
+cd $p
 & .\bin\install.ps1
+cd $op
+Pr("")
