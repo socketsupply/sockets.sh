@@ -1,30 +1,31 @@
-param($p="socket")
+param($p="socket",$b="release")
 Function F-c {
     param($cs)
-    (Get-Command $cs -ErrorAction SilentlyContinue -ErrorVariable F) > $null
+    (Get-Command $cs -ErrorA SilentlyContinue -ErrorV F) > $null
     $r = $($null -eq $F.length)
-    Write-Output $r
+    wo $r
 }
 
 Function Pr {
   param($t)
   Write-Host "$t`n> " -NoNewLine
-  $i = $Host.UI.ReadLine()
-  Write-Output $i
+  $Host.UI.ReadLine()|wo
 }
 
+New-Alias -Name wo -Value Write-Output
+
 if ((Test-Path $p -PathT Co) -eq $true) {
-  Write-Output "$p already exists, use -p:<folder> to download somewhere else."
+  wo "$p already exists, use -p:<folder> to download somewhere else."
   Exit 1
 }
 $op = (Get-Location).Path
 $g = "git.exe"
 
-Write-Output "#   __   ___  ___      ___ ____ "
-Write-Output "#  /__  /  / /   /_/  /__   /   "
-Write-Output "#  __/ /__/ /__ /  \ /__   /  "
-Write-Output "# "
-Write-Output "# Looking for $g..."
+wo "#   __   ___  ___      ___ ____ "
+wo "#  /__  /  / /   /_/  /__   /   "
+wo "#  __/ /__/ /__ /  \ /__   /  "
+wo "# "
+wo "# Looking for $g..."
 
 
 if (-not (F-c($g))) {
@@ -32,17 +33,17 @@ if (-not (F-c($g))) {
 }
 
 if (-not (F-c($g))) {
-  Write-Output "no $g"
+  wo "no $g"
   if ((Pr("# We need git, get it? y/[n]?")) -ne 'y') {
     Exit 1
   }
 
-  Write-Output "# Please hold..."
+  wo "# Please hold..."
   $guid=[guid]::NewGuid()
   $fname="$env:TEMP\$($guid).exe"
   $ProgressPreference = 'SilentlyContinue' # fix iwr is slow
   iwr('https://github.com/git-for-windows/git/releases/download/v2.39.1.windows.1/Git-2.39.1-64-bit.exe') -UseB -Out $fname
-  Write-Output "# Running installer..."
+  wo "# Running installer..."
   iex $fname
   Pr("# Press enter when git is installed...")
 }
@@ -52,11 +53,11 @@ if (-not (F-c($g))) {
   Exit 1
 }
 
-Write-Output "# Located $g"
+wo "# Located $g"
 
 $gu="https://github.com/socketsupply/socket.git"
-Write-Output "# Cloning from $gu to $p"
-(iex "& ""$g"" clone -q --depth=1 --branch=release $gu $p 2>&1") > $null
+wo "# Cloning from $gu to $p"
+(iex "& ""$g"" clone -q --depth=1 --branch=$b $gu $p 2>&1") > $null
 if ((Test-Path "$p" -PathT Leaf) -eq $false) {
   (iex "& ""$g"" clone -q --depth=1 $gu $p") > $null
 }
