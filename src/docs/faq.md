@@ -405,3 +405,4 @@ Those are admittedly pretty big aspirations and goals, but they're far from
 unrealistic or naive.
 
 [LF]:https://www.inkandswitch.com/local-first/
+[CSP]:https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP
