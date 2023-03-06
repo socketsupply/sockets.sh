@@ -850,7 +850,7 @@ and can be made secure via the CSP (a web standard for white-listing resource
 access).</p>
 <p>Invocation of filesystem, bluetooth, network, etc. is all made over IPC calls
 that use a URI scheme (<code>ipc://...</code>), because of this, it works perfectly with
-[CSP][CSP] (a well established web standard).</p>
+<a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP">CSP</a> (a well established web standard).</p>
 <p>Any curious user can run a command like <code>strings foo.app | grep ipc://</code> on a
 socket app bundle and examine the CSP of the index file.</p>
 <h3 id="can-socket-apps-run-and-be-compiled-headlessly">Can Socket Apps run and be compiled headlessly?</h3>

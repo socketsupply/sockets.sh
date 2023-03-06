@@ -69,7 +69,6 @@ empty directory and try one of the following commands...
 
 <tonic-tab-panel id="panel-csa-npm">
   <code>
-    npm init socket-app [react | svelte | tonic | vanilla | vue]
     npm create socket-app [react | svelte | tonic | vanilla | vue]
   </code>
 </tonic-tab-panel>

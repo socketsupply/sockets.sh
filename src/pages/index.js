@@ -29,7 +29,7 @@ class PageIndex extends Tonic {
 
                 <section class="primer">
                   <h1>Socket Runtime</h1>
-                  <h2>Write once, run anywhere, connect everyone</h2>
+                  <h2>Write once. Run anywhere. Connect everyone.</h2>
 
                   <p>
                     Socket Runtime is like a next-generation Electron. Build native apps for any OS
