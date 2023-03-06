@@ -21,8 +21,7 @@ for example which ships an entire copy of a browser (and node) with each program
 | Chrome           | Node.js         | Electron             |
 
 
-### How is Socket different from other hybrid-native runtimes, such as
-Electron, Tauri, NativeScript, React Native, Ionic, etc?
+### How is Socket different from other hybrid-native runtimes, such as Electron, Tauri, NativeScript, React Native, Ionic, etc?
 
 - Socket is for Web developers, there is no new language to learn.
 
@@ -36,6 +35,7 @@ Bluetooth, UDP, and robust file system IO. These make it possible to create an
 entirely new class of apps that are autonomous from the cloud and allow users
 to communicate directly without any infrastructure requirements.
 
+
 ### Why should I care about P2P?
 
 P2P features allow a developer to create apps where users can communicate
@@ -43,15 +43,6 @@ directly, without the Cloud. It doesn’t require any servers at all, and even
 works when users are offline. These features are optional, they are NOT turned
 on by default and won't interupt or conflict with your existing architecture
 or services.
-
-### Is Socket a Service?
-
-Socket is NOT a cloud service. We do not have a SaaS offering. And there is no
-part of this that is hosted in the cloud.
-
-There is a complementary application performance management product (APM),
-Socket Operator, that can diagnose and remediate issues within the production
-apps you build. This is also not a service, it's software.
 
 
 ### Do Socket apps have total access to my computer, like Electron or Tauri?
@@ -94,6 +85,16 @@ native DOM and all the browser APIs built in.
 Socket is open-source. We would love for you to read all our code and see how
 we're doing things! Feel free to contact us as well and we can walk you through
 it.
+
+
+### Is Socket a Service?
+
+Socket is NOT a cloud service. We do not have a SaaS offering. And there is no
+part of this that is hosted in the cloud.
+
+There is a complementary application performance management product (APM),
+Socket Operator, that can diagnose and remediate issues within the production
+apps you build. This is also not a service, it's software.
 
 
 ### But you're also a business, so you have to have some private technologies that you charge for, to make money?
