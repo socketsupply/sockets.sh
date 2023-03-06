@@ -9,6 +9,11 @@ A core feature of Socket Runtime is its p2p capabilities. Our runtime exposes pr
 There is a complementary application performance management product (APM), Network Operator, that can diagnose and remediate issues within the production apps you build.
 
 
+### How is Socket different from other hybrid-native app tooling, such as Electron, Tauri, NativeScript, React Native, Ionic, etc?
+
+Socket is the first and only runtime to be cross-platform across desktop and mobile. Write once, run anywhere (iOS, Android, Linux, Windows, MacOS, and more!). It’s built from scratch, 1000 lines of code, 1.5MB binary size and has a significantly small memory footprint compared to others. However, the most important core differentiation are JavaScript APIs that provide Bluetooth, UDP, and robust file system access. These make it possible to create an entirely new class of P2P and local-first apps. Apps where users can communicate directly, without the Cloud. Every other runtime is a means to an end, ours is intended to subvert Cloud infrastructure entirely ;)
+
+
 ### How can I trust what Socket is doing with my applications?
 
 Socket is open-source. We would love for you to read all our code and see how we're doing things!
@@ -23,14 +28,6 @@ As stated above, Socket Supply Co. builds and maintains a free and open source R
 These will always be open-source and free to use by any developer, no matter what they use it for (commercial or personal). That will always be true.
 
 Our Operator App has different tools which help in the entire lifecycle of building, deploying, and monitoring the Socket apps you build. Operator App has various pricing tiers which hackers, startups and enterprises can benefit from. (link to pricing grid)
-
-No Socket powered app is ever required to use any of these paid services. Additionally, Socket will **_never charge_** for any of its tools or services on a _consumption_ basis -- meaning that you _never_ have to pay us more for these tools when your app grows how many users, clients, bytes transmitted, or any other metric of success you need to target. 
-
-
-### How is Socket different from other hybrid-native app tooling, such as Electron, Tauri, NativeScript, React Native, Ionic, etc?
-
-Socket is the first and only runtime to be cross-platform across desktop and mobile. Write once, and run anywhere (iOS, Android, Linux, Windows, MacOS, and more!). It’s built from scratch, 1000 lines of code, 1.5MB binary size and has a significantly small memory footprint compared to others. However, the most important core differentiation are JavaScript APIs that provide Bluetooth, UDP, and robust file system access. These make it possible to create an entirely new class of P2P and local-first apps. Apps where users can communicate directly, without the Cloud. Every other runtime is a means to an end, ours is intended to subvert Cloud infrastructure entirely ;)
-
 
 ### We already have teams of engineers that build our web and other native-platform app experiences. Why would we benefit from Socket?
 

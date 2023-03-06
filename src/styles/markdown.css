@@ -1,11 +1,11 @@
 @import './highlight.js.css';
 
 body section.primer {
-  padding: 30px;
+  padding: 4% 10%;
 }
 
 body.api markdown-module {
-  padding: 30px;
+  padding: 10%;
   display: block;
 }
 
@@ -118,4 +118,11 @@ body markdown-module blockquote {
   max-width: 40px;
   background: var(--tonic-primary);
   margin-bottom: 20px;
+}
+
+@media (max-width: 699px) {
+  body section.primer,
+  body.api markdown-module {
+    padding: 30px;
+  }
 }
