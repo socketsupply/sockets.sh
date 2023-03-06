@@ -2,43 +2,59 @@
 
 ### What is Socket Runtime?
 
-Socket Supply Co. builds and maintains a free and open source Runtime that helps
+Socket Runtime is a free and open source client-side Runtime that helps
 web developers build apps for any OS, desktop, and mobile. You can use plain old
 HTML, CSS, and JavaScript, as well as your favorite front-end libraries for
 example React, Svelte, and Vue.
 
-It ships smaller binaries. A binary starts at ±1MB on desktop and ±12 Mb on
-mobile because we leverage the OS's native webview instead of type typical
-approach where Electron for example ships a copy of a browser (and node) with
-each program.
+Socket ships binaries that start at ±1MB on desktop and ±12 Mb on mobile
+because it leverages the OS's native webview. This is in contrast with Electron,
+for example which ships an entire copy of a browser (and node) with each program.
 
-It features p2p and local-first capabilities. Bluetooth, UDP, and robust file
-system access are first class JavaScript APIs. P2P allows developers to create
-apps where users can communicate directly, without the Cloud, it doesn’t require
-any servers at all, and even works when people are offline. These are optional
-features and won't interupt or conflict with your existing cloud based services.
 
-There is no cloud service. We do not have any SaaS offering. And there is no
+### How does it fit into the runtime ecosystem?
+
+| Browser Runtimes | Server Runtimes | App Runtimes         |
+| :---             | :---            | :---                 |
+| Safari           | Bun             | Socket               |
+| FireFox          | Deno            | Tauri                |
+| Chrome           | Node.js         | Electron             |
+
+
+### How is Socket different from other hybrid-native runtimes, such as
+Electron, Tauri, NativeScript, React Native, Ionic, etc?
+
+- Socket is for Web developers, there is no new language to learn.
+
+- Socket is the first and only cross-platform runtime built from the ground up
+for desktop and mobile.
+
+- We embrace web standards instead of inventing new paradigms.
+
+- P2P and local-fisrt are first class features. We provide JavaScript APIs for
+Bluetooth, UDP, and robust file system IO. These make it possible to create an
+entirely new class of apps that are autonomous from the cloud and allow users
+to communicate directly without any infrastructure requirements.
+
+### Why should I care about P2P?
+
+P2P features allow a developer to create apps where users can communicate
+directly, without the Cloud. It doesn’t require any servers at all, and even
+works when users are offline. These features are optional, they are NOT turned
+on by default and won't interupt or conflict with your existing architecture
+or services.
+
+### Is Socket a Service?
+
+Socket is NOT a cloud service. We do not have a SaaS offering. And there is no
 part of this that is hosted in the cloud.
 
 There is a complementary application performance management product (APM),
 Socket Operator, that can diagnose and remediate issues within the production
-apps you build and it's distributed software, without a service.
+apps you build. This is also not a service, it's software.
 
 
-### How is Socket different from other hybrid-native app tooling, such as
-Electron, Tauri, NativeScript, React Native, Ionic, etc?
-
-Socket is the first and only cross-platform runtime built from the ground up for
-desktop and mobile. The most important core differentiation is our commitment to
-embracing web standards, p2p and local-fisrt. We provide first-class JavaScript
-APIs for Bluetooth, UDP, and robust file system access. These make it possible
-to create an entirely new class of apps that are autonomous from the cloud and
-allow users to communicate directly without any infrastructure requirements from
-you the developer.
-
-
-### Do Socket Apps have total access to my computer, like Electron or Tauri?
+### Do Socket apps have total access to my computer, like Electron or Tauri?
 
 Both Electron and Tauri's approach is to put all "business" logic into the
 "main" process. The reason for this is 1. to avoid degrading the performance
