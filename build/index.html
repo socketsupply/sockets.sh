@@ -782,7 +782,30 @@ compilation terminated.
 <p>A core feature of Socket Runtime is its p2p capabilities. Our runtime exposes primitives needed for building peer-to-peer and local-first applications, such as Bluetooth, UDP, and robust file system access. Our p2p component allows developers to create apps where users can communicate directly, without the Cloud, it doesn’t require any servers at all, and even works when people are offline.</p>
 <p>There is a complementary application performance management product (APM), Network Operator, that can diagnose and remediate issues within the production apps you build.</p>
 <h3 id="how-is-socket-different-from-other-hybrid-native-app-tooling-such-as-electron-tauri-nativescript-react-native-ionic-etc">How is Socket different from other hybrid-native app tooling, such as Electron, Tauri, NativeScript, React Native, Ionic, etc?</h3>
-<p>Socket is the first and only runtime to be cross-platform across desktop and mobile. Write once, run anywhere (iOS, Android, Linux, Windows, MacOS, and more!). It’s built from scratch, 1000 lines of code, 1.5MB binary size and has a significantly small memory footprint compared to others. However, the most important core differentiation are JavaScript APIs that provide Bluetooth, UDP, and robust file system access. These make it possible to create an entirely new class of P2P and local-first apps. Apps where users can communicate directly, without the Cloud. Every other runtime is a means to an end, ours is intended to subvert Cloud infrastructure entirely ;)</p>
+<p>Socket is the first and only cross-platform runtime built from the ground up for desktop and mobile. Write once, run anywhere (iOS, Android, Linux, Windows, MacOS, and more!). It can ship a binary ~1MB on desktop and ~12Mb on mobile. It has a significantly smaller memory footprint compared to others. However, the most important core differentiation are JavaScript APIs that provide Bluetooth, UDP, and robust file system access. These make it possible to create an entirely new class of P2P and local-first apps. Apps where users can communicate directly, with or without the Cloud.</p>
+<h3 id="do-socket-apps-have-total-access-to-my-computer-like-electron-or-tauri">Do Socket Apps have total access to my computer, like Electron or Tauri?</h3>
+<p>Both Electron and Tauri's approach is to put all "business" logic into the
+"main" process. The reason for this is 1. to avoid degrading the performance
+of the UI (front-end) process, and 2. as a potential security measure.</p>
+<p>However a "main" process is impossible to mitigate on desktop because there
+is no sandboxing model like there is on mobile. Any touting of advanced security
+procedures between the main and render process become theatre. It's really up
+to the app creator to appeal to the user's sense of trust.</p>
+<p>Socket Runtime takes a completely different approach. While we allow a "main"
+process, it's completely optional, and not considered the best practice. If you
+are shipping highly sensitive IP you may choose to put it here. If you have
+compute intensive code, you can also put it here. But ideally you put it into
+a worker thread.</p>
+<p>Socket Apps can be written entirely in JavaScript, CSS and HTML. The UI process
+and can be made secure via the CSP (a web standard for white-listing resource
+access).</p>
+<p>Invocation of filesystem, bluetooth, network, etc. is all made over IPC calls
+that use a URI scheme (<code>ipc://...</code>), because of this, it works perfectly with
+[CSP][CSP] (a well established web standard).</p>
+<p>Any curious user can run a command like <code>strings foo.app | grep ipc://</code> on a
+socket app bundle and examine the CSP of the index file.</p>
+<h3 id="can-socket-apps-run-and-be-compiled-headlessly">Can Socket Apps run and be compiled headlessly?</h3>
+<p>Yes.</p>
 <h3 id="how-can-i-trust-what-socket-is-doing-with-my-applications">How can I trust what Socket is doing with my applications?</h3>
 <p>Socket is open-source. We would love for you to read all our code and see how we're doing things!</p>
 <p>Feel free to contact us as well and we can walk you through it. </p>
