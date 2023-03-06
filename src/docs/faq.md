@@ -30,10 +30,11 @@ for desktop and mobile.
 
 - We embrace web standards instead of inventing new paradigms.
 
-- P2P and local-fisrt are first class features. We provide JavaScript APIs for
-Bluetooth, UDP, and robust file system IO. These make it possible to create an
-entirely new class of apps that are autonomous from the cloud and allow users
-to communicate directly without any infrastructure requirements.
+- P2P and [local-fisrt][LF] are first class considerations. We provide
+JavaScript APIs for Bluetooth, UDP, and robust file system IO. These make it
+possible to create an entirely new class of apps that are autonomous from the
+cloud and allow users to communicate directly without any infrastructure
+requirements.
 
 
 ### Why should I care about P2P?
@@ -403,3 +404,4 @@ believe it's where everyone that builds for the web will shift to eventually.
 Those are admittedly pretty big aspirations and goals, but they're far from
 unrealistic or naive.
 
+[LF]:https://www.inkandswitch.com/local-first/
