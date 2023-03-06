@@ -11,7 +11,41 @@ There is a complementary application performance management product (APM), Netwo
 
 ### How is Socket different from other hybrid-native app tooling, such as Electron, Tauri, NativeScript, React Native, Ionic, etc?
 
-Socket is the first and only runtime to be cross-platform across desktop and mobile. Write once, run anywhere (iOS, Android, Linux, Windows, MacOS, and more!). It’s built from scratch, 1000 lines of code, 1.5MB binary size and has a significantly small memory footprint compared to others. However, the most important core differentiation are JavaScript APIs that provide Bluetooth, UDP, and robust file system access. These make it possible to create an entirely new class of P2P and local-first apps. Apps where users can communicate directly, without the Cloud. Every other runtime is a means to an end, ours is intended to subvert Cloud infrastructure entirely ;)
+Socket is the first and only cross-platform runtime built from the ground up for desktop and mobile. Write once, run anywhere (iOS, Android, Linux, Windows, MacOS, and more!). It can ship a binary ~1MB on desktop and ~12Mb on mobile. It has a significantly smaller memory footprint compared to others. However, the most important core differentiation are JavaScript APIs that provide Bluetooth, UDP, and robust file system access. These make it possible to create an entirely new class of P2P and local-first apps. Apps where users can communicate directly, with or without the Cloud.
+
+
+### Do Socket Apps have total access to my computer, like Electron or Tauri?
+
+Both Electron and Tauri's approach is to put all "business" logic into the
+"main" process. The reason for this is 1. to avoid degrading the performance
+of the UI (front-end) process, and 2. as a potential security measure.
+
+However a "main" process is impossible to mitigate on desktop because there
+is no sandboxing model like there is on mobile. Any touting of advanced security
+procedures between the main and render process become theatre. It's really up
+to the app creator to appeal to the user's sense of trust.
+
+Socket Runtime takes a completely different approach. While we allow a "main"
+process, it's completely optional, and not considered the best practice. If you
+are shipping highly sensitive IP you may choose to put it here. If you have
+compute intensive code, you can also put it here. But ideally you put it into
+a worker thread.
+
+Socket Apps can be written entirely in JavaScript, CSS and HTML. The UI process
+and can be made secure via the CSP (a web standard for white-listing resource
+access).
+
+Invocation of filesystem, bluetooth, network, etc. is all made over IPC calls
+that use a URI scheme (`ipc://...`), because of this, it works perfectly with
+[CSP][CSP] (a well established web standard).
+
+Any curious user can run a command like `strings foo.app | grep ipc://` on a
+socket app bundle and examine the CSP of the index file.
+
+
+### Can Socket Apps run and be compiled headlessly?
+
+Yes.
 
 
 ### How can I trust what Socket is doing with my applications?
