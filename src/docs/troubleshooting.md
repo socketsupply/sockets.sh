@@ -81,7 +81,7 @@ You can run `sudo xcodebuild -license` to agree to the license.
 ### Multiple Password Prompts
 
 If macOS is asking you for a password every time you run the command with `-c` flag,
-follow [these instructions](/troubleshooting#macos-asks-for-password-multiple-times-on-code-signing)
+follow [these instructions](#macos-asks-for-a-password-multiple-times-on-code-signing)
 
 ### Application crashes on start
 
