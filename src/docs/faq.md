@@ -53,9 +53,9 @@ Both Electron and Tauri's approach is to put all "business" logic into the
 of the UI (front-end) process, and 2. as a potential security measure.
 
 However a "main" process is impossible to mitigate on desktop because there
-is no sandboxing model like there is on mobile. Any touting of advanced security
-procedures between the main and render process become theatre. It's really up
-to the app creator to appeal to the user's sense of trust.
+is no sandboxing model like there is on mobile, so advanced security procedures
+between the main and render process becomes aren't convincing. It's really up to
+the app creator to appeal to the user's sense of trust.
 
 Socket Runtime takes a completely different approach. While we allow a "main"
 process, it's completely optional, and not considered the best practice. If you
