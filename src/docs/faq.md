@@ -2,14 +2,14 @@
 
 ### What is Socket Runtime?
 
-Socket Runtime is a free and open source client-side Runtime that helps
+Socket Runtime is a free and open-source client-side Runtime that helps
 web developers build apps for any OS, desktop, and mobile. You can use plain old
 HTML, CSS, and JavaScript, as well as your favorite front-end libraries for
 example React, Svelte, and Vue.
 
 Socket ships binaries that start at ±1MB on desktop and ±12 Mb on mobile
 because it leverages the OS's native webview. This is in contrast with Electron,
-for example which ships an entire copy of a browser (and node) with each program.
+for example, which ships an entire copy of a browser (and node) with each program.
 
 
 ### How does it fit into the runtime ecosystem?
@@ -30,7 +30,7 @@ for desktop and mobile.
 
 - We embrace web standards instead of inventing new paradigms.
 
-- P2P and [local-fisrt][LF] are first class considerations. We provide
+- P2P and [local-first][LF] are first-class considerations. We provide
 JavaScript APIs for Bluetooth, UDP, and robust file system IO. These make it
 possible to create an entirely new class of apps that are autonomous from the
 cloud and allow users to communicate directly without any infrastructure
@@ -42,7 +42,7 @@ requirements.
 P2P features allow a developer to create apps where users can communicate
 directly, without the Cloud. It doesn’t require any servers at all, and even
 works when users are offline. These features are optional, they are NOT turned
-on by default and won't interupt or conflict with your existing architecture
+on by default and won't interrupt or conflict with your existing architecture
 or services.
 
 
@@ -59,17 +59,17 @@ the app creator to appeal to the user's sense of trust.
 
 Socket Runtime takes a completely different approach. While we allow a "main"
 process, it's completely optional, and not considered the best practice. If you
-are shipping highly sensitive IP you may choose to put it here. If you have
-compute intensive code, you can also put it here. But ideally you put it into
+are shipping highly sensitive IP you may choose to put it here. If you have to
+compute intensive code, you can also put it here. But ideally, you put it into
 a worker thread.
 
-Socket Apps can be written entirely in JavaScript, CSS and HTML. The UI process
+Socket Apps can be written entirely in JavaScript, CSS, and HTML. The UI process
 and can be made secure via the CSP (a web standard for white-listing resource
 access).
 
 Invocation of filesystem, bluetooth, network, etc. is all made over IPC calls
 that use a URI scheme (`ipc://...`), because of this, it works perfectly with
-[CSP][CSP] (a well established web standard).
+[CSP][CSP] (a well-established web standard).
 
 Any curious user can run a command like `strings foo.app | grep ipc://` on a
 socket app bundle and examine the CSP of the index file.
@@ -106,11 +106,11 @@ well as a p2p library, that enables developers to create apps where users can
 communicate directly, without the Cloud. 
 
 These will always be open-source and free to use by any developer, no matter
-what they use it for (commercial or personal). That will always be true.
+what they use them for (commercial or personal). That will always be true.
 
 Our Operator App has different tools which help in the entire lifecycle of
 building, deploying, and monitoring the Socket apps you build. Operator App has
-various pricing tiers which hackers, startups and enterprises can benefit from.
+various pricing tiers which hackers, startups, and enterprises can benefit from.
 
 
 ### We already have teams of engineers that build our web and other native-platform app experiences. Why would we benefit from Socket?
@@ -128,15 +128,15 @@ Autonomy &mdash; Right now you’re entirely codependent on a 3rd party to run a
 mission-critical part of your business. The Cloud is a landlord-tenant
 relationship with costs that can prevent your business from becoming profitable.
 Socket helps you connect your users directly to each other, allowing you to rely
-less on the Cloud,and reclaim your sovereignty, and your profit margins.
+less on the Cloud, and reclaim your sovereignty, and your profit margins.
 
 Complexity &mdash; Companies whose applications are built across desktop and
 mobile would be moving from working and maintaining >= 3 code bases in their
 current state to 1 code base with Socket. This drastically reduces complexity
 within the organization and speeds up feature releases. 
 
-Builders of network enabled Productivity and Collaboration tools will realize
-major benefits by building on Socket. Evan Wallace, Co-founder from Figma said
+Builders of network-enabled Productivity and Collaboration tools will realize
+major benefits by building on Socket. Evan Wallace, Co-founder of Figma said
 it best "these days it’s obvious that multiplayer is the way all productivity
 tools on the web should work, not just design."
 
@@ -150,7 +150,7 @@ possible for many Web3 ideals to come to fruition.
 In its current state, Web3 is not decentralized. The ecosystem relies heavily on
 centralized cloud providers like AWS for infrastructure. This is an economic
 disadvantage and in most cases a barrier to entry. However, apps built with
-Socket’s P2P capabilities can be 100% decentralized, absolutely no servers are
+Socket’s P2P capabilities can be 100% decentralized, and absolutely no servers are
 required. They can be fully autonomous, aligning directly with the mission of
 the web3 community. 
 
@@ -158,10 +158,10 @@ the web3 community.
 ### Does P2P (without servers) mean that it only works if peers are online?
 
 No! Socket's P2P protocol is designed for building disruption tolerant networks.
-It achieves long-lived partition tolerance though bounded replication of
+It achieves long-lived partition tolerance through bounded replication of
 packets (limiting the number of hops and TTL of each packet that is relayed
 between peers in the network). Socket's P2P protocol builds on a corpus of
-existing academia. Please see the docs for more in depth details.
+existing academia. Please see the docs for more in-depth details.
 
 
 ### If I send information to my friend or coworker, any other connected peer devices will see this message as they relay it on?
@@ -178,7 +178,7 @@ So your message will reside in parts (packet by packet) on many other users'
 devices, at various times, but only in parts and only encrypted, meaning those
 other devices cannot make any sense of that data.
 
-This encryption/decryption security uses industry-standard -- and audited! --
+This encryption/decryption security uses industry-standard -- and is audited! --
 public key cryptography, similar to --- and at least as safe as! -- the
 HTTPS/TLS encryption that users across the web trust for communication with very
 sensitive sources, including banks, doctors, etc.
@@ -197,7 +197,7 @@ expected data was garbled and thus discard it.
 Corrupted (or manipulated) packets, or even dropped/missing packets, can be
 automatically *re-queried* across the peer network, to reacquire the necessary
 packets. As such, the encryption used guarantees that information received is
-either complete and in-tact, before decryption, or entirely dropped.
+either complete and intact, before decryption, or entirely dropped.
 
 As for determining the identity authenticity of the sender, the network protocol
 does not employ overhead of digital signatures or verification, nor digital
@@ -216,7 +216,7 @@ the Socket's peer network.
 ### I am nervous about other people transmitting arbitrary information that may be on my device, because this information could open me up to liability (legal, etc). How am I protected if I allow my device to relay information for others I don't know or trust?
 
 Your device never holds plain-text (or plainly accessible) data on behalf of any
-other user. The packets your device relays on behalf of others was encrypted for
+other user. The packets your device relays on behalf of others were encrypted for
 those intended recipients, and your device could never possibly decrypt or make
 sense of any of that data.
 
@@ -305,7 +305,7 @@ surprisingly fast and efficient, compared to typical presumptions.
 
 If the sender and receiver of a message are both online at the time of a message
 being sent and are at most a few hops away in terms of the packet relay protocol
-of Socket, this transmission should take no more than a few hundred miliseconds
+of Socket, this transmission should take no more than a few hundred milliseconds
 at most.
 
 In fact, since this communication is much more direct than in typical
@@ -357,7 +357,7 @@ tests, and we're convinced that these types of attacks will ultimately prove
 impractical and not affect the ultimate trajectory and growth of our P2P network.
 
 
-### Is this like BitTorrent, Tor, Napster, Gnutella etc?
+### Is this like BitTorrent, Tor, Napster, Gnutella, etc?
 
 The web's roots are P2P, and yes there have been a number of widely known
 (and sometimes infamous!) attempts to bring the web back to its P2P identity
@@ -367,7 +367,7 @@ reduced infrastructure cost, and reduced complexity in general.
 
 We think the time has come for the web to return to the P2P model by default, to
 dismantle the wasteful and unnecessarily complicated (and expensive!)
-centralization trend that has given rise to the age of the "cloud". There ar
+centralization trend that has given rise to the age of the "cloud". There are
 more than enough consumer devices, many of them highly connected, to accomplish
 a de-centralization.
 
@@ -393,7 +393,7 @@ don't actually want.
 
 Socket is a foundational building block that we believe can help usher in a
 new age of the web, one that puts users first. One that blurs the lines between
-websites and apps, and puts all those amazing experiences right on user's
+websites and apps, and puts all those amazing experiences right on users'
 devices for them to use instantly, no matter where they are or what kind of
 internet connection they have (or not!). One that defaults to a local-first
 (or even local-only!) model that ***protects users' information by default***.
