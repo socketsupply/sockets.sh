@@ -30,8 +30,7 @@ body.api tonic-split {
 
 body.api tonic-split tonic-split-right {
   scroll-behavior: smooth;
-  overflow: hidden;
-  overflow-y: scroll;
+  overflow: auto;
 }
 
 body.api main {
@@ -96,6 +95,6 @@ time {
   }
 
   body.api tonic-split > tonic-split-right {
-    overflow-x: hidden;
+    overflow: auto;
   }
 }
