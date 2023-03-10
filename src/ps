@@ -12,11 +12,20 @@ Function Pr {
   $Host.UI.ReadLine()|wo
 }
 
-New-Alias -Name wo -Value Write-Output
+Function Bye {
+    if ((Pr("# Sorry things didn't go as planned. Grab another copy of this script so you can run with options? y/[n]?")) -ne 'y') {
+        Exit 1
+    }
+    $path = Pr("Enter filename")    
+    iwr -useb "https://sockets.sh/ps" -OutFile $path
+    Exit 1
+}
+
+New-Alias -Name wo -Value Write-Output -ErrorAction SilentlyContinue
 
 if ((Test-Path $p -PathT Co) -eq $true) {
   wo "$p already exists, use -p:<folder> to download somewhere else."
-  Exit 1
+  Bye
 }
 $op = (Get-Location).Path
 $g = "git.exe"
@@ -35,7 +44,7 @@ if (-not (F-c($g))) {
 if (-not (F-c($g))) {
   wo "no $g"
   if ((Pr("# We need git, get it? y/[n]?")) -ne 'y') {
-    Exit 1
+    Bye
   }
 
   wo "# Please hold..."
@@ -50,7 +59,7 @@ if (-not (F-c($g))) {
 
 if (-not (F-c($g))) {
   Pr("# We still can't locate git. Please add to your `$env:PATH and run this script again.")
-  Exit 1
+  Bye
 }
 
 wo "# Located $g"
@@ -58,15 +67,15 @@ wo "# Located $g"
 $gu="https://github.com/socketsupply/socket.git"
 wo "# Cloning from $gu to $p"
 (iex "& ""$g"" clone -q --depth=1 --branch=$b $gu $p 2>&1") > $null
-if ((Test-Path "$p" -PathT Leaf) -eq $false) {
+if ((Test-Path "$p" -PathT Con) -eq $false) {
   (iex "& ""$g"" clone -q --depth=1 $gu $p") > $null
 }
 if ((Test-Path "$p\bin\install.ps1" -PathT Leaf) -eq $false) {
   Pr("# Git clone failed, or we made some serious changes.")
-  Exit 1
+  Bye
 }
 
 cd $p
-& .\bin\install.ps1
+powershell .\bin\install.ps1
 cd $op
-Pr("")
+Pr("Socket has been downloaded, you can rerun the installer using:`ncd $p; .\bin\install.ps1`nPress return to quit.")
