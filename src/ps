@@ -1,4 +1,6 @@
 param($p="socket",$b="release")
+$global:ct=$true
+
 Function F-c {
     param($cs)
     (Get-Command $cs -ErrorA SilentlyContinue -ErrorV F) > $null
@@ -12,13 +14,17 @@ Function Pr {
   $Host.UI.ReadLine()|wo
 }
 
+
 Function Bye {
     if ((Pr("# Sorry things didn't go as planned. Grab another copy of this script so you can run with options? y/[n]?")) -ne 'y') {
-        Exit 1
+
+    } else {
+      $path = Pr("Enter filename")    
+      iwr -useb "https://sockets.sh/ps" -OutFile $path
     }
-    $path = Pr("Enter filename")    
-    iwr -useb "https://sockets.sh/ps" -OutFile $path
-    Exit 1
+    
+    # Calling Exit would end the current session because we're not running in a sub process?
+    $global:ct=$false
 }
 
 New-Alias -Name wo -Value Write-Output -ErrorAction SilentlyContinue
@@ -27,55 +33,64 @@ if ((Test-Path $p -PathT Co) -eq $true) {
   wo "$p already exists, use -p:<folder> to download somewhere else."
   Bye
 }
-$op = (Get-Location).Path
-$g = "git.exe"
 
-wo "#   __   ___  ___      ___ ____ "
-wo "#  /__  /  / /   /_/  /__   /   "
-wo "#  __/ /__/ /__ /  \ /__   /  "
-wo "# "
-wo "# Looking for $g..."
+if ($global:ct) {
+  $op = (Get-Location).Path
+  $g = "git.exe"
+
+  wo "#   __   ___  ___      ___ ____ "
+  wo "#  /__  /  / /   /_/  /__   /   "
+  wo "#  __/ /__/ /__ /  \ /__   /  "
+  wo "# "
+  wo "# Looking for $g..."
 
 
-if (-not (F-c($g))) {
-  $g = "$env:ProgramFiles\Git\bin\$g"
-}
-
-if (-not (F-c($g))) {
-  wo "no $g"
-  if ((Pr("# We need git, get it? y/[n]?")) -ne 'y') {
-    Bye
+  if (-not (F-c($g))) {
+    $g = "$env:ProgramFiles\Git\bin\$g"
   }
 
-  wo "# Please hold..."
-  $guid=[guid]::NewGuid()
-  $fname="$env:TEMP\$($guid).exe"
-  $ProgressPreference = 'SilentlyContinue' # fix iwr is slow
-  iwr('https://github.com/git-for-windows/git/releases/download/v2.39.1.windows.1/Git-2.39.1-64-bit.exe') -UseB -Out $fname
-  wo "# Running installer..."
-  iex $fname
-  Pr("# Press enter when git is installed...")
+  if (-not (F-c($g))) {
+    wo "no $g"
+    if ((Pr("# We need git, get it? y/[n]?")) -ne 'y') {
+      Bye
+    }
+
+    if ($global:ct) {
+      wo "# Please hold..."
+      $guid=[guid]::NewGuid()
+      $fname="$env:TEMP\$($guid).exe"
+      $ProgressPreference = 'SilentlyContinue' # fix iwr is slow
+      iwr('https://github.com/git-for-windows/git/releases/download/v2.39.1.windows.1/Git-2.39.1-64-bit.exe') -UseB -Out $fname
+      wo "# Running installer..."
+      iex $fname
+      Pr("# Press enter when git is installed...")
+    }
+  }
+
+  if (-not (F-c($g))) {
+    Pr("# We still can't locate git. Please add to your `$env:PATH and run this script again.")
+    Bye
+  }
 }
 
-if (-not (F-c($g))) {
-  Pr("# We still can't locate git. Please add to your `$env:PATH and run this script again.")
-  Bye
+if ($global:ct) {
+  wo "# Located $g"
+
+  $gu="https://github.com/socketsupply/socket.git"
+  wo "# Cloning from $gu to $p"
+  (iex "& ""$g"" clone -q --depth=1 --branch=$b $gu $p 2>&1") > $null
+  if ((Test-Path "$p" -PathT Con) -eq $false) {
+    (iex "& ""$g"" clone -q --depth=1 $gu $p") > $null
+  }
+  if ((Test-Path "$p\bin\install.ps1" -PathT Leaf) -eq $false) {
+    Pr("# Git clone failed, or we made some serious changes.")
+    Bye
+  }
 }
 
-wo "# Located $g"
-
-$gu="https://github.com/socketsupply/socket.git"
-wo "# Cloning from $gu to $p"
-(iex "& ""$g"" clone -q --depth=1 --branch=$b $gu $p 2>&1") > $null
-if ((Test-Path "$p" -PathT Con) -eq $false) {
-  (iex "& ""$g"" clone -q --depth=1 $gu $p") > $null
+if ($global:ct) {
+    cd $p
+    powershell .\bin\install.ps1
+    cd $op
+    Pr("Socket has been downloaded, you can rerun the installer using:`ncd $p; .\bin\install.ps1`nPress return to quit.")
 }
-if ((Test-Path "$p\bin\install.ps1" -PathT Leaf) -eq $false) {
-  Pr("# Git clone failed, or we made some serious changes.")
-  Bye
-}
-
-cd $p
-powershell .\bin\install.ps1
-cd $op
-Pr("Socket has been downloaded, you can rerun the installer using:`ncd $p; .\bin\install.ps1`nPress return to quit.")
