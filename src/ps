@@ -21,6 +21,8 @@ Function Bye {
     } else {
       $path = Pr("Enter filename")    
       iwr -useb "https://sockets.sh/ps" -OutFile $path
+      wo "Script saved. Rerun using:"
+      wo "Set-ExecutionPolicy Bypass -Scope Process -Force; $path"
     }
     
     # Calling Exit would end the current session because we're not running in a sub process?
@@ -90,6 +92,7 @@ if ($global:ct) {
 
 if ($global:ct) {
     cd $p
+    Set-ExecutionPolicy Bypass -Scope Process -Force
     powershell .\bin\install.ps1
     cd $op
     Pr("Socket has been downloaded, you can rerun the installer using:`ncd $p; .\bin\install.ps1`nPress return to quit.")
