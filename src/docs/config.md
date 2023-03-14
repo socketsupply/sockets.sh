@@ -6,11 +6,13 @@
 ; Socket ⚡︎ Runtime · A modern runtime for Web Apps · v{{ssc_version}}
 ;
 
-; The shell command to execute when building an application. This is the most
-; important command in this file. This will do all the heavy lifting and should
-; handle 99.9% of your use cases for moving files into place or tweaking
-; platform-specific build artifacts.
-build = "node build-script.js"
+[build]
+
+; ssc will copy everything in this directory to the build output directory.
+; This is useful when you want to avoid bundling or want to use tools like
+; vite, webpack, rollup, etc. to build your project and then copy output to
+; the Socket bundle resources directory.
+copy = "src"
 
 ; A unique ID that identifies the bundle (used by all app stores).
 bundle_identifier = "com.beepboop"
@@ -36,9 +38,6 @@ flags = -O3
 ; Set the limit of files that can be opened by your process.
 file_limit = 1024,
 
-; A directory is where your application's code is located.
-input = "src"
-
 ; Localization
 lang = "en-us"
 
@@ -53,6 +52,12 @@ output = "dist"
 
 ; TODO: maybe the user doesn't need to know about this? 
 revision = 123
+
+; The shell command to execute when building an application. This is the most
+; important command in this file. This will do all the heavy lifting and should
+; handle 99.9% of your use cases for moving files into place or tweaking
+; platform-specific build artifacts.
+script = "node build-script.js"
 
 ; A string that indicates the version of the application. It should be a semver triple like 1.0.0
 version = 0.0.1
