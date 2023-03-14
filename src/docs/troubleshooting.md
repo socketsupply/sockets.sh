@@ -96,31 +96,39 @@ Command line apps inherit their permissions from iTerm, so you need to grant Blu
 
 ### Development Environment
 
-[`clang++`][0] [version 14][1] is required for building.
+The quickest way to get started on Windows is to use [`.\bin\install.ps1`][0] from within the cloned source `socket` repo.
 
-You will need [build tools][3]
+This will install [`vc_redist.x64.exe`][1], [`git`][2], `cmake` and Visual Studio Build Tools including `clang++ version 15` and `nmake`.
 
-The `WebView2LoaderStatic.lib` file was sourced from [this][2] package.
+It is partially possible to build with [`llvm clang++` version 15][3], but `nmake` and `Windows SDK` (10 or 11) are still required. It is recommended to obtain these our tailored [`.vsconfig`][4] for [`vs_buildtools.exe`][5], which [`.\bin\install.ps1`][0] can handle for you.
 
-[0]:https://github.com/llvm/llvm-project/releases/tag/llvmorg-14.0.0
-[1]:https://github.com/llvm/llvm-project/releases/download/llvmorg-14.0.0/LLVM-14.0.0-win64.exe
-[2]:https://www.nuget.org/api/v2/package/Microsoft.Web.WebView2/1.0.864.35
-[3]:https://visualstudio.microsoft.com/downloads/#build-tools-for-visual-studio-2022
-
-### Cannot Run Scripts
-
-If the app cannot be loaded because running scripts is disabled on this system.
-
+```powershell
+vs_buildtools.exe --config .vsconfig
 ```
-./bin/bootstrap.ps1 : File C:\Users\user\sources\socket\bin\bootstrap.ps1 cannot be loaded because running scripts is
+
+[0]:https://github.com/socketsupply/socket/blob/release/bin/install.ps1
+[1]:https://aka.ms/vs/17/release/vc_redist.x64.exe
+[2]:https://github.com/git-for-windows/git/releases/download/v2.39.1.windows.1/Git-2.39.1-64-bit.exe
+[3]:https://github.com/llvm/llvm-project/releases/download/llvmorg-15.0.7/LLVM-15.0.7-win64.exe
+[4]:https://github.com/socketsupply/socket/blob/release/bin/.vsconfig
+[5]:https://aka.ms/vs/17/release/vs_buildtools.exe
+
+### Powershell Scripts
+
+By default Powershell is locked down to prevent user script execution.
+
+You may see this error:
+```
+./bin/install.ps1 : File C:\Users\user\sources\socket\bin\intall.ps1 cannot be loaded because running scripts is
 disabled on this system. For more information, see about_Execution_Policies at
-https:/go.microsoft.com/fwlink/?LinkID=135170.
+https://go.microsoft.com/fwlink/?LinkID=135170.
 ```
 
-Then you can follow https://superuser.com/a/106363
 
 1. Start Windows PowerShell with the "Run as Administrator" option.
-2. `set-executionpolicy remotesigned`
+2. `Set-ExecutionPolicy -ExecutionPolicy Restricted -Confirm`
+
+See https://go.microsoft.com/fwlink/?LinkID=135170 and https://superuser.com/a/106363 for more information.
 
 ### MSVC
 
