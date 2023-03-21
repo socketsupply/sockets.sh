@@ -49,3 +49,16 @@ you are now ready to use the `build` command. Enter the following command on you
 ssc build -r -o
 ```
 ![](../images/screenshots/app-built.png)
+
+If you encounter any issues you can check [Windows troubleshooting](./troubleshooting#Windows) or you can ask your questions on our [Discord](https://discord.com/invite/YPV32gKCsH)
+
+
+## 2-Linux  
+
+You don't have to install any software, no prerequisites, open your terminal and 
+run one of the [Linux](./guide-fte.md#install) commands to get started.  
+`note`: if you choose `npm` package manager, you will need to run the command with elevated privileges, prefix `sudo` with the Linux command :
+```
+sudo npm i @socketsupply/socket -g
+```
+
