@@ -12,16 +12,16 @@ To develop apps for Windows 10 you need:
 * [Windows](https://www.microsoft.com/en-us/windows/) 10
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/) 2022
 
-### Installing SSC and build dependencies
+### Installing SSC and building dependencies
 
-After downloading and installing `Visual studio` , you can run any of the [Windows](./guide-fte#install) commands
+After downloading and installing `Visual studio`, you can run any of the [Windows](./guide-fte#install) commands
 to get `SSC` installed.  
 
 ![](../images/screenshots/ssc-install.png)  
 
 
 If you don't have `Git`, `CMake`, and `Clang 15.0.0`installed already on your  
-machine, it will prompt you to intall them, just hit `y`.  
+machine, it will prompt you to install them, just hit `y`.  
 
 ![](../images/screenshots/git-cmake.png)
 
@@ -31,7 +31,7 @@ After installing all of the above, you should be able to `cd socket` and run
 ```
 to install the build dependencies.  
 
-You are all set, you can now to check that `ssc` is installed by 
+You are all set, you can now check that `ssc` is installed by 
 running 
 ```
 ssc --version
