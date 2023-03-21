@@ -61,4 +61,34 @@ run one of the [Linux](./guide-fte.md#install) commands to get started.
 ```
 sudo npm i @socketsupply/socket -g
 ```
+![](../images/screenshots/linux-npm.png)
 
+Next, you need to install:
+```
+sudo apt install \
+  build-essential \
+  clang-14 \
+  libwebkit2gtk-4.1-dev
+  ```
+  ![](../images/screenshots/LINUX-DEP.png)
+
+  You can now check `ssc` version:
+  ```
+  ssc --version
+  ```
+  ## Build the app  
+
+Open `socket` directory and run:
+
+```
+ssc init
+```
+ Enter the following command on your terminal to build the app :
+```
+ssc build -r -o
+``` 
+All done!
+
+If you have any issues during the installation or building, you can check 
+[Linux troubleshooting](./troubleshooting#linux).
+If you are still stuck we can help [Here](https://discord.com/invite/YPV32gKCsH)
