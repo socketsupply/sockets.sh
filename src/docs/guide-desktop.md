@@ -62,10 +62,12 @@ sudo apt install \
   clang-14 \
   libwebkit2gtk-4.1-dev
   ```
-  ![](../images/screenshots/LINUX-DEP.png)
+  ![](../images/screenshots/LINUX-DEP.png)   
 
-Next, you can install `ssc` on Linux by running one of the command in the
-`Install From Package Manage`(./guide-fte.md#install).
+
+
+Next, you can install `ssc` on Linux by running one of the commands on the
+`Install From Package Manage`(./guide-fte.md#install).  
  
 `note`: if you choose `npm` package manager, you may need to run the command with elevated privileges, prefix `sudo` with the Linux command :
 ```
@@ -73,7 +75,7 @@ sudo npm i @socketsupply/socket -g
 ```
 ![](../images/screenshots/linux-npm.png)
 
-  ## Build the app  
+  ## Building the app  
 
 Open `socket` directory and run:
 
@@ -88,4 +90,4 @@ All done!
 
 If you have any issues during the installation or building, you can check 
 [Linux troubleshooting](./troubleshooting#linux).
-If you are still stuck we can help [Here](https://discord.com/invite/YPV32gKCsH)
+If you are still stuck, you can join our [Discord](https://discord.com/invite/YPV32gKCsH) and ask your questions.
