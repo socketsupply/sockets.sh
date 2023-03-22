@@ -55,15 +55,7 @@ If you encounter any issues you can check [Windows troubleshooting](./troublesho
 
 ## 2-Linux  
 
-You don't have to install any software, no prerequisites, open your terminal and 
-run one of the [Linux](./guide-fte.md#install) commands to get started.  
-`note`: if you choose `npm` package manager, you will need to run the command with elevated privileges, prefix `sudo` with the Linux command :
-```
-sudo npm i @socketsupply/socket -g
-```
-![](../images/screenshots/linux-npm.png)
-
-Next, you need to install:
+To get started, open your terminal and run  
 ```
 sudo apt install \
   build-essential \
@@ -72,10 +64,15 @@ sudo apt install \
   ```
   ![](../images/screenshots/LINUX-DEP.png)
 
-  You can now check `ssc` version:
-  ```
-  ssc --version
-  ```
+Next, you can install `ssc` on Linux by running one of the command in the
+`Install From Package Manage`(./guide-fte.md#install).
+ 
+`note`: if you choose `npm` package manager, you may need to run the command with elevated privileges, prefix `sudo` with the Linux command :
+```
+sudo npm i @socketsupply/socket -g
+```
+![](../images/screenshots/linux-npm.png)
+
   ## Build the app  
 
 Open `socket` directory and run:
