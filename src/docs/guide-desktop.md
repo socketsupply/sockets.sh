@@ -3,13 +3,13 @@
  ## 1- Windows 
 
 This guide shows how to set up your development environment, all the requirements needed, and step by step  
-on how to build `Socket` app displaying `Hello, Word.` on Windows 10
+on how to build `Socket` app displaying `Hello, Word.` on Windows (10,11)
 
 ## Getting Started
 
 ### Requirements
-To develop apps for Windows 10 you need:
-* [Windows](https://www.microsoft.com/en-us/windows/) 10
+To develop apps for Windows you need:
+* [Windows](https://www.microsoft.com/en-us/windows/) 
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/) 2022
 
 ### Installing SSC and building dependencies
