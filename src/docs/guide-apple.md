@@ -150,6 +150,14 @@ Apps can only access files in their own sandboxed home directory.
 | `Library/Preferences` | The app’s sandboxed preferences directory. The contents of this directory are synchronized via iTunes. Its purpose is to be used by the Settings app. Avoid creating your own files in this directory. |
 | `tmp` | The app’s sandboxed temporary directory. The contents of this directory are not synchronized via iTunes and may be deleted by the system at any time. Although, it's recommended that you delete data that is not necessary anymore manually to minimize the space your app takes up on the file system. Use this directory to store data that is only useful during the app runtime. |
 
+## Building SSC app on macOS
+
+After you get your [developement enviornement](#apple-guide) ready, you can refer to the Installation of `ssc` from package manager or from source on mac [here](./guide-fte.md#install) to get started.  
+
+![](../images/screenshots/npm-mac.png)  
+
+
+
 
 [apple-dev-devices-add]:https://developer.apple.com/account/resources/devices/add
 [apple-dev-appid]:https://developer.apple.com/account/resources/identifiers
