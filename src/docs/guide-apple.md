@@ -148,16 +148,22 @@ Apps can only access files in their own sandboxed home directory.
 | `Library` | The app’s sandboxed library directory. The contents of this directory are synchronized via iTunes (except the `Library/Caches` subdirectory, see below), but never exposed to the user. |
 | `Library/Caches` | The app’s sandboxed caches directory. The contents of this directory are not synchronized via iTunes and may be deleted by the system at any time. It's a good place to store data which provides a good offline-first experience for the user. |
 | `Library/Preferences` | The app’s sandboxed preferences directory. The contents of this directory are synchronized via iTunes. Its purpose is to be used by the Settings app. Avoid creating your own files in this directory. |
-| `tmp` | The app’s sandboxed temporary directory. The contents of this directory are not synchronized via iTunes and may be deleted by the system at any time. Although, it's recommended that you delete data that is not necessary anymore manually to minimize the space your app takes up on the file system. Use this directory to store data that is only useful during the app runtime. |
+| `tmp` | The app’s sandboxed temporary directory. The contents of this directory are not synchronized via iTunes and may be deleted by the system at any time. Although, it's recommended that you delete data that is not necessary anymore manually to minimize the space your app takes up on the file system. Use this directory to store data that is only useful during the app runtime. |  
+
 
 ## Building SSC app on macOS
 
-After you get your [developement enviornement](#apple-guide) ready, you can refer to the Installation of `ssc` from package manager or from source on mac [here](./guide-fte.md#install) to get started.  
+After you get your [developement enviornement](#apple-guide) ready, you can refer to the Installation of `ssc` on mac [here](./guide-fte.md#install) to get started.  
 
-![](../images/screenshots/npm-mac.png)  
+![](../images/screenshots/npm-mac.png)    
 
+Next, you can run `ssc -v` to check `ssc version`.  
+run `ssc init` and `ssc build -r -o` to build your app  
 
+![](../images/screenshots/mac-app.png)  
 
+If you have any issues you can check [macOS troubleshooting](./troubleshooting.md#macos)  
+you can also join our [Discord](https://discord.com/invite/YPV32gKCsH) and ask your questions.
 
 [apple-dev-devices-add]:https://developer.apple.com/account/resources/devices/add
 [apple-dev-appid]:https://developer.apple.com/account/resources/identifiers

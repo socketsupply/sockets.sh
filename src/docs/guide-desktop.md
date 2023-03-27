@@ -67,7 +67,7 @@ sudo apt install \
 
 
 Next, you can install `ssc` on Linux by running one of the commands on the
-`Install From Package Manage`(./guide-fte.md#install).  
+`Install From Package Manager`(./guide-fte.md#install).  
  
 `note`: if you choose `npm` package manager, you may need to run the command with elevated privileges, prefix `sudo` with the Linux command :
 ```
@@ -76,13 +76,12 @@ sudo npm i @socketsupply/socket -g
 ![](../images/screenshots/linux-npm.png)
 
   ## Building the app  
-
-Open `socket` directory and run:
+First, `initialization`, you need to run:
 
 ```
 ssc init
 ```
- Enter the following command on your terminal to build the app :
+ You can after that build the app by running:
 ```
 ssc build -r -o
 ``` 
