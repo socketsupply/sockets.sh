@@ -49,8 +49,9 @@ Installing `Socket Runtime` from [Create Socket App](https://github.com/socketsu
 will be instantly familiar to anyone who has used React's `Create React App`. 
 
 The idea is to provide a few basic boilerplates and some strong opinions so
-you can get coding on a production-quality app as quickly as possible.
-Create an empty directory and try one of the following commands:
+you can get coding on a production-quality app as quickly as possible.  
+
+To get started `Create an empty directory` and try one of the following commands:
 
 <tonic-tabs selected="tab-csa-npx" id="get-csa">
   <tonic-tab id="tab-csa-npx" for="panel-csa-npx">npx</tonic-tab>
