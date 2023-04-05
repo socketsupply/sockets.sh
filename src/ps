@@ -93,7 +93,7 @@ if ($global:ct) {
 if ($global:ct) {
     cd $p
     Set-ExecutionPolicy Bypass -Scope Process -Force
-    powershell .\bin\install.ps1
+    .\bin\install.ps1
     cd $op
     Pr("Socket has been downloaded, you can rerun the installer using:`ncd $p; .\bin\install.ps1`nPress return to quit.")
 }
